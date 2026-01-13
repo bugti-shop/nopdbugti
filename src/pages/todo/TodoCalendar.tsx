@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { NotesCalendarView } from '@/components/NotesCalendarView';
-import { Plus, ListTodo, CalendarDays, Clock, MapPin, Repeat, Trash2, Edit, Filter, MousePointer2, Eye, EyeOff, MoreVertical, Copy, FolderInput, Flag, CheckCheck, X, GripVertical, LayoutGrid, Smartphone, ArrowRight } from 'lucide-react';
+import { Plus, ListTodo, CalendarDays, Clock, MapPin, Repeat, Trash2, Edit, Filter, MousePointer2, Eye, EyeOff, MoreVertical, Copy, FolderInput, Flag, CheckCheck, X, GripVertical, LayoutGrid } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TaskInputSheet } from '@/components/TaskInputSheet';
 import { TodoItem, Folder, CalendarEvent, Priority } from '@/types/note';
@@ -33,7 +33,6 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { cn } from '@/lib/utils';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
-import { systemCalendarManager, SystemCalendarEvent } from '@/utils/systemCalendar';
 
 const TodoCalendar = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -67,7 +66,6 @@ const TodoCalendar = () => {
   const [showCompleted, setShowCompleted] = useState(true);
   const [isLocationMapOpen, setIsLocationMapOpen] = useState(false);
   const [showWidgets, setShowWidgets] = useState(true);
-  const [systemCalendarEvents, setSystemCalendarEvents] = useState<SystemCalendarEvent[]>([]);
 
   const loadTasks = useCallback(async () => {
     let tasks = await loadTodoItems();
@@ -107,11 +105,6 @@ const TodoCalendar = () => {
       setEventDates(evDates);
     }
 
-    // Load system calendar events if sync is enabled
-    if (systemCalendarManager.isSyncEnabled()) {
-      const syncedEvents = systemCalendarManager.getSyncedEvents();
-      setSystemCalendarEvents(syncedEvents);
-    }
   }, [filterType]);
 
   useEffect(() => {
@@ -139,15 +132,6 @@ const TodoCalendar = () => {
     });
   }, [date, events]);
 
-  // System calendar events for selected date
-  const systemEventsForSelectedDate = useMemo(() => {
-    if (!date || !systemCalendarManager.isSyncEnabled()) return [];
-    
-    return systemCalendarEvents.filter(event => {
-      const eventStart = new Date(event.startDate);
-      return isSameDay(eventStart, date);
-    });
-  }, [date, systemCalendarEvents]);
 
   const isRecurringEventOnDate = (event: CalendarEvent, targetDate: Date): boolean => {
     const eventStart = new Date(event.startDate);
@@ -191,13 +175,9 @@ const TodoCalendar = () => {
       }
     });
 
-    // Add system calendar event dates
-    systemCalendarEvents.forEach(event => {
-      dates.push(new Date(event.startDate));
-    });
     
     return dates;
-  }, [events, systemCalendarEvents]);
+  }, [events]);
 
   // Selection mode handlers
   const handleToggleSelection = useCallback((taskId: string) => {
@@ -392,30 +372,6 @@ const TodoCalendar = () => {
     setItems(allItems);
     setTaskDates(allItems.filter(t => t.dueDate).map(t => new Date(t.dueDate!)));
     window.dispatchEvent(new Event('tasksUpdated'));
-
-    // Push to system calendar if two-way sync is enabled
-    if (systemCalendarManager.isTwoWaySyncEnabled() && newItem.dueDate) {
-      await systemCalendarManager.pushTaskToSystemCalendar(newItem);
-    }
-  };
-
-  // Create NPD task from system calendar event
-  const handleCreateTaskFromSystemEvent = async (event: SystemCalendarEvent) => {
-    const taskData = systemCalendarManager.convertEventToTask(event);
-    const newTask: TodoItem = {
-      id: Date.now().toString(),
-      completed: false,
-      ...taskData,
-    };
-
-    const allItems = await loadTodoItems();
-    allItems.unshift(newTask);
-    await saveTodoItems(allItems);
-    setItems(allItems);
-    setTaskDates(allItems.filter(t => t.dueDate).map(t => new Date(t.dueDate!)));
-    window.dispatchEvent(new Event('tasksUpdated'));
-    
-    toast.success(`Task "${event.title}" created from calendar event`, { icon: '📅' });
   };
 
   const handleCreateFolder = (name: string, color: string) => {
@@ -464,11 +420,6 @@ const TodoCalendar = () => {
     await saveTodoItems(updatedItems);
     window.dispatchEvent(new Event('tasksUpdated'));
 
-    // Update in system calendar if two-way sync is enabled
-    const updatedTask = updatedItems.find(t => t.id === itemId);
-    if (updatedTask && systemCalendarManager.isTwoWaySyncEnabled()) {
-      await systemCalendarManager.updateTaskInSystemCalendar(updatedTask);
-    }
   };
 
   const handleDeleteTask = async (itemId: string) => {
@@ -479,11 +430,7 @@ const TodoCalendar = () => {
       if (enabled) await deleteCalendarEvent(taskToDelete.googleCalendarEventId);
     }
 
-    // Delete from system calendar if two-way sync is enabled
-    if (systemCalendarManager.isTwoWaySyncEnabled()) {
-      await systemCalendarManager.deleteEventFromSystemCalendar(itemId);
-    }
-    
+
     const updatedItems = items.filter(task => task.id !== itemId);
     setItems(updatedItems);
     await saveTodoItems(updatedItems);
@@ -667,7 +614,6 @@ const TodoCalendar = () => {
             onDateSelect={setDate} 
             taskDates={taskDates} 
             eventDates={getRecurringEventDates} 
-            systemCalendarDates={systemCalendarEvents.map(e => new Date(e.startDate))}
           />
 
           {date && (
@@ -716,59 +662,6 @@ const TodoCalendar = () => {
                                 <Trash2 className="h-4 w-4" />
                               </Button>
                             </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* System Calendar Events for selected date */}
-              {systemEventsForSelectedDate.length > 0 && (
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                    <Smartphone className="h-5 w-5 text-blue-500" />
-                    Device Calendar
-                    <Badge variant="outline" className="ml-2">{systemEventsForSelectedDate.length}</Badge>
-                  </h3>
-                  <div className="space-y-2">
-                    {systemEventsForSelectedDate.map((event) => (
-                      <Card key={event.id} className="overflow-hidden border-blue-200 dark:border-blue-800">
-                        <CardContent className="p-3">
-                          <div className="flex items-start justify-between gap-2">
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2">
-                                <h4 className="font-medium truncate">{event.title}</h4>
-                                <Badge variant="secondary" className="text-[10px] px-1.5 py-0 bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">
-                                  Device
-                                </Badge>
-                              </div>
-                              <div className="flex flex-wrap items-center gap-2 mt-1 text-xs text-muted-foreground">
-                                <span className="flex items-center gap-1">
-                                  <Clock className="h-3 w-3" />
-                                  {event.allDay ? 'All Day' : `${format(new Date(event.startDate), 'h:mm a')} - ${format(new Date(event.endDate), 'h:mm a')}`}
-                                </span>
-                                {event.location && (
-                                  <span className="flex items-center gap-1">
-                                    <MapPin className="h-3 w-3" />
-                                    {event.location}
-                                  </span>
-                                )}
-                              </div>
-                              {event.notes && (
-                                <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{event.notes}</p>
-                              )}
-                            </div>
-                            <Button 
-                              variant="outline" 
-                              size="sm" 
-                              className="shrink-0 gap-1 text-xs"
-                              onClick={() => handleCreateTaskFromSystemEvent(event)}
-                            >
-                              <ArrowRight className="h-3 w-3" />
-                              Create Task
-                            </Button>
                           </div>
                         </CardContent>
                       </Card>
