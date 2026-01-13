@@ -1,6 +1,6 @@
 # Android Setup Guide for Npd
 
-This guide covers the required Android permissions and setup for push notifications and voice recording.
+This guide covers the required Android permissions and setup for push notifications, voice recording, and location-based reminders.
 
 ## Prerequisites
 
@@ -32,6 +32,14 @@ Add these permissions inside the `<manifest>` tag, before `<application>`:
 <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
+<!-- Location-Based Reminders -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+
 <!-- Internet (usually already present) -->
 <uses-permission android:name="android.permission.INTERNET" />
 
@@ -59,6 +67,14 @@ Add these permissions inside the `<manifest>` tag, before `<application>`:
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
+    <!-- Location-Based Reminders -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <!-- Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -74,11 +90,56 @@ Add these permissions inside the `<manifest>` tag, before `<application>`:
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         
+        <!-- Foreground Service for Background Location -->
+        <service
+            android:name="com.transistorsoft.locationmanager.service.LocationService"
+            android:foregroundServiceType="location"
+            android:exported="false" />
+        
         <!-- Your activities and other components here -->
         
     </application>
 
 </manifest>
+```
+
+## Location-Based Reminders Setup
+
+### Required Permissions Explained
+
+| Permission | Purpose |
+|------------|---------|
+| `ACCESS_FINE_LOCATION` | High-accuracy GPS location for geofencing |
+| `ACCESS_COARSE_LOCATION` | Network-based location (fallback) |
+| `ACCESS_BACKGROUND_LOCATION` | Track location when app is in background |
+| `FOREGROUND_SERVICE` | Run location service in foreground |
+| `FOREGROUND_SERVICE_LOCATION` | Android 14+ requirement for location foreground service |
+| `WAKE_LOCK` | Keep CPU awake for location updates |
+
+### Background Location Permission (Android 10+)
+
+Starting from Android 10 (API 29), background location access requires a separate permission. The app must:
+
+1. First request `ACCESS_FINE_LOCATION` or `ACCESS_COARSE_LOCATION`
+2. Then separately request `ACCESS_BACKGROUND_LOCATION`
+
+**Important:** Google Play requires you to justify background location usage in your app listing.
+
+### Android 11+ Background Location
+
+On Android 11+, users must manually enable "Allow all the time" in Settings:
+1. Go to Settings > Apps > Npd > Permissions > Location
+2. Select "Allow all the time"
+
+### Foreground Service Configuration (Android 14+)
+
+For Android 14 (API 34)+, you must declare the foreground service type:
+
+```xml
+<service
+    android:name="com.transistorsoft.locationmanager.service.LocationService"
+    android:foregroundServiceType="location"
+    android:exported="false" />
 ```
 
 ## Local Notifications Permissions (Detailed Guide)
@@ -210,6 +271,19 @@ Place custom sounds in:
 3. Build and run from Android Studio
 
 ## Troubleshooting
+
+### Location reminders not triggering in background
+
+1. **Background Location Permission**: Ensure "Allow all the time" is selected
+   - Go to Settings > Apps > Npd > Permissions > Location
+   - Select "Allow all the time"
+
+2. **Battery Optimization**: Disable battery optimization
+   - Settings > Apps > Npd > Battery > Unrestricted
+
+3. **Battery Saver Mode**: Disable battery saver or add app to exceptions
+
+4. **Manufacturer-specific restrictions**: Some manufacturers (Xiaomi, Huawei, Samsung) have aggressive battery optimization. Search for "[manufacturer] background app restrictions" for device-specific instructions.
 
 ### Notifications not showing
 
