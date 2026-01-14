@@ -416,7 +416,7 @@ export const TaskItem = ({
                         onUpdateSubtask(item.id, subtask.id, { completed: !!checked });
                       }
                       if (checked && !subtask.completed) {
-                        try { await Haptics.impact({ style: ImpactStyle.Light }); } catch {}
+                        try { await Haptics.impact({ style: ImpactStyle.Medium }); } catch {}
                       }
                     }}
                     onClick={(e) => e.stopPropagation()}
