@@ -1680,8 +1680,8 @@ export default function OnboardingFlow({
 
         {step === 32 && (
           <section className="mt-8">
-            <h1 className="text-2xl font-semibold text-gray-900">How did you find us?</h1>
-            <p className="text-gray-400 mt-2">Select a platform.</p>
+            <h1 className="text-2xl font-semibold text-gray-900">{t('onboarding.howFoundUs')}</h1>
+            <p className="text-gray-400 mt-2">{t('onboarding.selectPlatform')}</p>
 
             <div className="mt-6 space-y-4 pb-24">
               {sources.map(s => (
@@ -1697,15 +1697,21 @@ export default function OnboardingFlow({
         {step === 33 && (
           <section className="mt-20 text-center">
             <h1 className="text-5xl font-bold mb-4">{progress}%</h1>
-            <p className="text-lg font-semibold mb-4">Setting up your workspace</p>
+            <p className="text-lg font-semibold mb-4">{t('onboarding.loading.settingUp')}</p>
 
             <div className="w-72 h-2 mx-auto rounded-full bg-gray-200 overflow-hidden">
               <motion.div className="h-full bg-gradient-to-r from-primary to-blue-400" initial={{ width: '0%' }} animate={{ width: `${progress}%` }} transition={{ duration: 0.3 }} />
             </div>
 
             <div className="mt-8 rounded-2xl p-5 w-80 mx-auto" style={{ backgroundColor: '#f9f8fd' }}>
-              <h2 className="font-semibold text-lg mb-2">Preparing your features</h2>
-              {["Notes & Voice Memos", "Tasks & Reminders", "Folders & Organization", "Calendar View", "Templates"].map((item, i) => (
+              <h2 className="font-semibold text-lg mb-2">{t('onboarding.loading.preparingFeatures')}</h2>
+              {[
+                t('onboarding.loading.notesVoiceMemos'),
+                t('onboarding.loading.tasksReminders'),
+                t('onboarding.loading.foldersOrganization'),
+                t('onboarding.loading.calendarView'),
+                t('onboarding.loading.templates')
+              ].map((item, i) => (
                 <div key={i} className="py-2 text-left">
                   <div className="flex justify-between mb-1">
                     <span>{item}</span>

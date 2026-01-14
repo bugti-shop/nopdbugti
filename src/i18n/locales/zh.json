@@ -721,5 +721,34 @@
     "tags": "标签",
     "description": "描述",
     "location": "位置"
+  },
+  "sync": {
+    "integrationsImport": "集成与导入",
+    "syncComingSoon": "同步功能即将推出",
+    "lastSynced": "上次同步：{{time}}",
+    "googleCalendar": "Google 日历",
+    "syncWithGoogleCalendar": "与 Google 日历同步任务",
+    "continueGoogleAccount": "继续使用 Google 账户",
+    "connected": "已连接",
+    "connectedAs": "已连接为 {{email}}",
+    "integrations": "集成",
+    "connectWith": "与 ClickUp、Notion 和 HubSpot 连接",
+    "continueClickUp": "继续使用 ClickUp 账户",
+    "continueNotion": "继续使用 Notion 账户",
+    "continueHubSpot": "继续使用 HubSpot 账户",
+    "importTasks": "导入任务",
+    "importFromOtherApps": "从其他应用导入任务",
+    "importFromTickTick": "从 TickTick 导入",
+    "importFromTodoist": "从 Todoist 导入",
+    "importFromEvernote": "从 Evernote 导入",
+    "comingSoon": "即将推出",
+    "comingSoonDesc": "{{service}} 集成即将推出。",
+    "connectionFailed": "连接失败",
+    "error": "错误",
+    "failedToConnect": "无法连接到 {{service}}"
+  },
+  "welcome": {
+    "startJourney": "开始您的效率之旅",
+    "getStarted": "开始"
   }
 }

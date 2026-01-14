@@ -1,10 +1,12 @@
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import SyncSettings from '@/components/SyncSettings';
 
 const SyncSettingsPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen min-h-screen-dynamic bg-background">
@@ -19,11 +21,11 @@ const SyncSettingsPage = () => {
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
-            <h1 className="text-base xs:text-lg sm:text-xl font-bold">Integrations & Import</h1>
+            <h1 className="text-base xs:text-lg sm:text-xl font-bold">{t('sync.integrationsImport')}</h1>
           </div>
           <div className="mt-3 bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800 rounded-lg p-3">
             <p className="text-sm text-amber-700 dark:text-amber-300 font-medium text-center">
-              Sync Features Coming Soon
+              {t('sync.syncComingSoon')}
             </p>
           </div>
         </div>

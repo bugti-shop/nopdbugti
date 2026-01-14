@@ -767,5 +767,34 @@
     "tags": "الوسوم",
     "description": "الوصف",
     "location": "الموقع"
+  },
+  "sync": {
+    "integrationsImport": "التكاملات والاستيراد",
+    "syncComingSoon": "ميزات المزامنة قادمة قريباً",
+    "lastSynced": "آخر مزامنة: {{time}}",
+    "googleCalendar": "تقويم جوجل",
+    "syncWithGoogleCalendar": "مزامنة المهام مع تقويم جوجل",
+    "continueGoogleAccount": "متابعة بحساب جوجل",
+    "connected": "متصل",
+    "connectedAs": "متصل بـ {{email}}",
+    "integrations": "التكاملات",
+    "connectWith": "الاتصال بـ ClickUp و Notion و HubSpot",
+    "continueClickUp": "متابعة بحساب ClickUp",
+    "continueNotion": "متابعة بحساب Notion",
+    "continueHubSpot": "متابعة بحساب HubSpot",
+    "importTasks": "استيراد المهام",
+    "importFromOtherApps": "استيراد المهام من تطبيقات أخرى",
+    "importFromTickTick": "استيراد من TickTick",
+    "importFromTodoist": "استيراد من Todoist",
+    "importFromEvernote": "استيراد من Evernote",
+    "comingSoon": "قادم قريباً",
+    "comingSoonDesc": "تكامل {{service}} سيكون متاحاً قريباً.",
+    "connectionFailed": "فشل الاتصال",
+    "error": "خطأ",
+    "failedToConnect": "فشل الاتصال بـ {{service}}"
+  },
+  "welcome": {
+    "startJourney": "ابدأ رحلة إنتاجيتك",
+    "getStarted": "ابدأ الآن"
   }
 }

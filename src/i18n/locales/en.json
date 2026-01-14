@@ -1016,5 +1016,34 @@
     "eisenhowerDesc": "Prioritize by urgency & importance",
     "pomodoroTimer": "Pomodoro Timer",
     "pomodoroDesc": "Focus sessions with time goals"
+  },
+  "sync": {
+    "integrationsImport": "Integrations & Import",
+    "syncComingSoon": "Sync Features Coming Soon",
+    "lastSynced": "Last synced: {{time}}",
+    "googleCalendar": "Google Calendar",
+    "syncWithGoogleCalendar": "Sync tasks with Google Calendar",
+    "continueGoogleAccount": "Continue Google Account",
+    "connected": "Connected",
+    "connectedAs": "Connected as {{email}}",
+    "integrations": "Integrations",
+    "connectWith": "Connect with ClickUp, Notion, and HubSpot",
+    "continueClickUp": "Continue ClickUp Account",
+    "continueNotion": "Continue Notion Account",
+    "continueHubSpot": "Continue HubSpot Account",
+    "importTasks": "Import Tasks",
+    "importFromOtherApps": "Import tasks from other apps",
+    "importFromTickTick": "Import from TickTick",
+    "importFromTodoist": "Import from Todoist",
+    "importFromEvernote": "Import from Evernote",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "{{service}} integration will be available soon.",
+    "connectionFailed": "Connection failed",
+    "error": "Error",
+    "failedToConnect": "Failed to connect to {{service}}"
+  },
+  "welcome": {
+    "startJourney": "Start Your Productivity Journey",
+    "getStarted": "Get Started"
   }
 }

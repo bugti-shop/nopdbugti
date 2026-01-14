@@ -747,5 +747,34 @@
     "tags": "टैग",
     "description": "विवरण",
     "location": "स्थान"
+  },
+  "sync": {
+    "integrationsImport": "एकीकरण और आयात",
+    "syncComingSoon": "सिंक सुविधाएं जल्द आ रही हैं",
+    "lastSynced": "अंतिम सिंक: {{time}}",
+    "googleCalendar": "Google कैलेंडर",
+    "syncWithGoogleCalendar": "Google कैलेंडर के साथ कार्य सिंक करें",
+    "continueGoogleAccount": "Google खाते के साथ जारी रखें",
+    "connected": "कनेक्टेड",
+    "connectedAs": "{{email}} के रूप में कनेक्टेड",
+    "integrations": "एकीकरण",
+    "connectWith": "ClickUp, Notion और HubSpot से कनेक्ट करें",
+    "continueClickUp": "ClickUp खाते के साथ जारी रखें",
+    "continueNotion": "Notion खाते के साथ जारी रखें",
+    "continueHubSpot": "HubSpot खाते के साथ जारी रखें",
+    "importTasks": "कार्य आयात करें",
+    "importFromOtherApps": "अन्य ऐप्स से कार्य आयात करें",
+    "importFromTickTick": "TickTick से आयात करें",
+    "importFromTodoist": "Todoist से आयात करें",
+    "importFromEvernote": "Evernote से आयात करें",
+    "comingSoon": "जल्द आ रहा है",
+    "comingSoonDesc": "{{service}} एकीकरण जल्द उपलब्ध होगा।",
+    "connectionFailed": "कनेक्शन विफल",
+    "error": "त्रुटि",
+    "failedToConnect": "{{service}} से कनेक्ट करने में विफल"
+  },
+  "welcome": {
+    "startJourney": "अपनी उत्पादकता यात्रा शुरू करें",
+    "getStarted": "शुरू करें"
   }
 }

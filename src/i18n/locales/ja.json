@@ -728,5 +728,34 @@
     "tags": "タグ",
     "description": "説明",
     "location": "場所"
+  },
+  "sync": {
+    "integrationsImport": "連携とインポート",
+    "syncComingSoon": "同期機能は近日公開",
+    "lastSynced": "最終同期: {{time}}",
+    "googleCalendar": "Googleカレンダー",
+    "syncWithGoogleCalendar": "Googleカレンダーとタスクを同期",
+    "continueGoogleAccount": "Googleアカウントで続行",
+    "connected": "接続済み",
+    "connectedAs": "{{email}}として接続済み",
+    "integrations": "連携",
+    "connectWith": "ClickUp、Notion、HubSpotと連携",
+    "continueClickUp": "ClickUpアカウントで続行",
+    "continueNotion": "Notionアカウントで続行",
+    "continueHubSpot": "HubSpotアカウントで続行",
+    "importTasks": "タスクをインポート",
+    "importFromOtherApps": "他のアプリからタスクをインポート",
+    "importFromTickTick": "TickTickからインポート",
+    "importFromTodoist": "Todoistからインポート",
+    "importFromEvernote": "Evernoteからインポート",
+    "comingSoon": "近日公開",
+    "comingSoonDesc": "{{service}}連携は近日公開予定です。",
+    "connectionFailed": "接続に失敗しました",
+    "error": "エラー",
+    "failedToConnect": "{{service}}への接続に失敗しました"
+  },
+  "welcome": {
+    "startJourney": "生産性の旅を始めましょう",
+    "getStarted": "始める"
   }
 }
