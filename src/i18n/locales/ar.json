@@ -783,7 +783,9 @@
     "editActions": "تعديل الإجراءات",
     "addTag": "أضف وسم...",
     "recentTags": "الوسوم الأخيرة",
-    "tagColor": "لون الوسم"
+    "tagColor": "لون الوسم",
+    "manageSavedTags": "إدارة الوسوم المحفوظة",
+    "noSavedTagsYet": "لا توجد وسوم محفوظة بعد"
   },
   "menu": {
     "smartLists": "القوائم الذكية",
@@ -849,7 +851,10 @@
     "regular": "عادية",
     "sketch": "رسم",
     "code": "برمجة",
-    "expense": "مصروفات"
+    "expense": "مصروفات",
+    "addNotesToFolder": "إضافة ملاحظات للمجلد",
+    "removeNotesFromFolder": "إزالة ملاحظات من المجلد",
+    "backToNotes": "العودة للملاحظات"
   },
   "sync": {
     "integrationsImport": "التكاملات والاستيراد",
