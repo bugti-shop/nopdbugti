@@ -1,5 +1,5 @@
 // IndexedDB-based storage for task data
-// Ultra-optimized for 100B+ tasks without quota issues
+// Ultra-optimized for 600k+ tasks without quota issues
 // Features: connection pooling, batch writes, streaming, memory management
 
 import { TodoItem } from '@/types/note';

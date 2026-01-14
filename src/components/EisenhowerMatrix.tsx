@@ -9,6 +9,7 @@ import { Plus, X, Trash2, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { toast } from 'sonner';
+import { loadTasksFromDB, saveTasksToDB } from '@/utils/taskStorage';
 
 interface MatrixTask {
   id: string;
@@ -117,16 +118,16 @@ export const EisenhowerMatrix = ({ isOpen, onClose, onConvertToTask }: Eisenhowe
     if (onConvertToTask) {
       onConvertToTask(task);
     } else {
-      // Add directly to todoItems
-      const existingTasks = JSON.parse(localStorage.getItem('todoItems') || '[]');
-      const newTodoItem: Omit<TodoItem, 'id'> = {
+      // Add directly to IndexedDB
+      const existingTasks = await loadTasksFromDB();
+      const newTodoItem: TodoItem = {
+        id: `task-${Date.now()}`,
         text: task.text,
         completed: task.completed,
         priority: quadrantInfo[task.quadrant].priority,
       };
-      const fullTask = { ...newTodoItem, id: `task-${Date.now()}` };
-      localStorage.setItem('todoItems', JSON.stringify([...existingTasks, fullTask]));
-      window.dispatchEvent(new Event('todoItemsUpdated'));
+      await saveTasksToDB([...existingTasks, newTodoItem]);
+      window.dispatchEvent(new Event('tasksUpdated'));
     }
     
     // Remove from matrix

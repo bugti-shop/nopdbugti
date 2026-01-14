@@ -10,6 +10,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
 import { TodoLayout } from './TodoLayout';
+import { loadTasksFromDB } from '@/utils/taskStorage';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import {
   AlertDialog,
@@ -130,16 +131,10 @@ const TodoSettings = () => {
         }
       }
 
-      // Load available tasks
-      const savedTasks = localStorage.getItem('todoItems');
-      if (savedTasks) {
-        try {
-          const tasks = JSON.parse(savedTasks);
-          setAvailableTasks(Array.isArray(tasks) ? tasks.slice(0, 50).map((t: any) => ({ id: t.id, text: t.text || '' })) : []);
-        } catch (e) {
-          console.error('Failed to load tasks', e);
-        }
-      }
+      // Load available tasks from IndexedDB
+      loadTasksFromDB().then(tasks => {
+        setAvailableTasks(tasks.slice(0, 50).map(t => ({ id: t.id, text: t.text || '' })));
+      }).catch(e => console.error('Failed to load tasks', e));
 
       // Load available categories
       const savedCategories = localStorage.getItem('categories');

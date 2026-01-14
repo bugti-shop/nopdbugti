@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import { TodoItem, Folder } from '@/types/note';
+import { loadTasksFromDB, saveTasksToDB, updateTaskInDB, deleteTaskFromDB } from '@/utils/taskStorage';
 import { TodoLayout } from './TodoLayout';
 import { TaskDateTimePage } from '@/components/TaskDateTimePage';
 import { TaskInputSheet } from '@/components/TaskInputSheet';
@@ -64,30 +65,26 @@ const CustomToolDetail = () => {
   const [quickTaskText, setQuickTaskText] = useState('');
 
   useEffect(() => {
-    // Load custom tool
-    const savedTools = localStorage.getItem('customProductivityTools');
-    if (savedTools && toolId) {
-      const tools: CustomTool[] = JSON.parse(savedTools);
-      const foundTool = tools.find(t => t.id === toolId);
-      setTool(foundTool || null);
-    }
+    const loadData = async () => {
+      // Load custom tool
+      const savedTools = localStorage.getItem('customProductivityTools');
+      if (savedTools && toolId) {
+        const tools: CustomTool[] = JSON.parse(savedTools);
+        const foundTool = tools.find(t => t.id === toolId);
+        setTool(foundTool || null);
+      }
 
-    // Load all tasks
-    const savedTasks = localStorage.getItem('todoItems');
-    if (savedTasks) {
-      const tasks: TodoItem[] = JSON.parse(savedTasks).map((t: any) => ({
-        ...t,
-        dueDate: t.dueDate ? new Date(t.dueDate) : undefined,
-        reminderTime: t.reminderTime ? new Date(t.reminderTime) : undefined,
-      }));
+      // Load all tasks from IndexedDB
+      const tasks = await loadTasksFromDB();
       setAllTasks(tasks);
-    }
 
-    // Load folders
-    const savedFolders = localStorage.getItem('todoFolders');
-    if (savedFolders) {
-      setFolders(JSON.parse(savedFolders));
-    }
+      // Load folders
+      const savedFolders = localStorage.getItem('todoFolders');
+      if (savedFolders) {
+        setFolders(JSON.parse(savedFolders));
+      }
+    };
+    loadData();
   }, [toolId]);
 
   useEffect(() => {
@@ -101,16 +98,18 @@ const CustomToolDetail = () => {
     }
   }, [tool, allTasks]);
 
-  const handleCompleteTask = (taskId: string) => {
+  const handleCompleteTask = async (taskId: string) => {
+    const task = allTasks.find(t => t.id === taskId);
+    const newCompleted = !task?.completed;
+    
     const updatedTasks = allTasks.map(task => 
-      task.id === taskId ? { ...task, completed: !task.completed } : task
+      task.id === taskId ? { ...task, completed: newCompleted } : task
     );
     setAllTasks(updatedTasks);
-    localStorage.setItem('todoItems', JSON.stringify(updatedTasks));
-    window.dispatchEvent(new Event('todoItemsUpdated'));
+    await updateTaskInDB(taskId, { completed: newCompleted });
+    window.dispatchEvent(new Event('tasksUpdated'));
     
-    const task = updatedTasks.find(t => t.id === taskId);
-    toast.success(task?.completed ? 'Task completed' : 'Task uncompleted');
+    toast.success(newCompleted ? 'Task completed' : 'Task uncompleted');
   };
 
   const handleDeleteTask = (taskId: string) => {
@@ -118,13 +117,13 @@ const CustomToolDetail = () => {
     setShowDeleteDialog(true);
   };
 
-  const confirmDeleteTask = () => {
+  const confirmDeleteTask = async () => {
     if (!taskToDelete) return;
     
     const updatedTasks = allTasks.filter(task => task.id !== taskToDelete);
     setAllTasks(updatedTasks);
-    localStorage.setItem('todoItems', JSON.stringify(updatedTasks));
-    window.dispatchEvent(new Event('todoItemsUpdated'));
+    await deleteTaskFromDB(taskToDelete);
+    window.dispatchEvent(new Event('tasksUpdated'));
     
     // Also remove from tool's linked tasks
     if (tool) {
@@ -151,15 +150,15 @@ const CustomToolDetail = () => {
     setShowDatePicker(true);
   };
 
-  const handleSaveReschedule = (updatedTask: Partial<TodoItem>) => {
+  const handleSaveReschedule = async (updatedTask: Partial<TodoItem>) => {
     if (!taskToReschedule) return;
     
     const updatedTasks = allTasks.map(task => 
       task.id === taskToReschedule.id ? { ...task, ...updatedTask } : task
     );
     setAllTasks(updatedTasks);
-    localStorage.setItem('todoItems', JSON.stringify(updatedTasks));
-    window.dispatchEvent(new Event('todoItemsUpdated'));
+    await updateTaskInDB(taskToReschedule.id, updatedTask);
+    window.dispatchEvent(new Event('tasksUpdated'));
     
     setShowDatePicker(false);
     setTaskToReschedule(null);
@@ -190,7 +189,7 @@ const CustomToolDetail = () => {
     toast.success('Task unlinked from tool');
   };
 
-  const handleAddTask = (taskData: Omit<TodoItem, 'id' | 'completed'>) => {
+  const handleAddTask = async (taskData: Omit<TodoItem, 'id' | 'completed'>) => {
     if (!tool) return;
     
     const newTask: TodoItem = {
@@ -202,8 +201,8 @@ const CustomToolDetail = () => {
     // Add to all tasks
     const updatedTasks = [...allTasks, newTask];
     setAllTasks(updatedTasks);
-    localStorage.setItem('todoItems', JSON.stringify(updatedTasks));
-    window.dispatchEvent(new Event('todoItemsUpdated'));
+    await saveTasksToDB(updatedTasks);
+    window.dispatchEvent(new Event('tasksUpdated'));
     
     // Link task to this tool
     const updatedTools = JSON.parse(localStorage.getItem('customProductivityTools') || '[]');
@@ -228,7 +227,7 @@ const CustomToolDetail = () => {
     toast.success('Task added and linked to tool');
   };
 
-  const handleQuickAddTask = () => {
+  const handleQuickAddTask = async () => {
     if (!quickTaskText.trim() || !tool) return;
     
     const newTask: TodoItem = {
@@ -240,8 +239,8 @@ const CustomToolDetail = () => {
     // Add to all tasks
     const updatedTasks = [...allTasks, newTask];
     setAllTasks(updatedTasks);
-    localStorage.setItem('todoItems', JSON.stringify(updatedTasks));
-    window.dispatchEvent(new Event('todoItemsUpdated'));
+    await saveTasksToDB(updatedTasks);
+    window.dispatchEvent(new Event('tasksUpdated'));
     
     // Link task to this tool
     const updatedTools = JSON.parse(localStorage.getItem('customProductivityTools') || '[]');

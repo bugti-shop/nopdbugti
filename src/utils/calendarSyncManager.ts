@@ -1,5 +1,6 @@
 import { TodoItem } from '@/types/note';
 import { GoogleCalendar, getAccessToken, isGoogleCalendarEnabled } from './googleCalendar';
+import { loadTasksFromDB } from './taskStorage';
 
 const CALENDAR_SYNC_ENABLED_KEY = 'calendarSyncEnabled';
 const SELECTED_CALENDARS_KEY = 'selectedCalendars';
@@ -167,7 +168,7 @@ class CalendarSyncManager {
           return;
         }
 
-        const existingTasks = JSON.parse(localStorage.getItem('todoItems') || '[]');
+        const existingTasks = await loadTasksFromDB();
         await this.syncTwoWay(existingTasks);
       } catch (error) {
         console.error('Auto sync failed:', error);

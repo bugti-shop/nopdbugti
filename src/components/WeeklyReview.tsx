@@ -10,6 +10,7 @@ import {
 import { cn } from '@/lib/utils';
 import { TodoItem } from '@/types/note';
 import { toast } from 'sonner';
+import { loadTasksFromDB } from '@/utils/taskStorage';
 
 interface WeeklyReviewProps {
   isOpen: boolean;
@@ -61,20 +62,17 @@ export const WeeklyReview = ({ isOpen, onClose }: WeeklyReviewProps) => {
     loadData();
   }, [isOpen, weekOffset]);
 
-  const loadData = () => {
-    const savedTasks = localStorage.getItem('todoItems');
-    if (savedTasks) {
-      const allTasks: TodoItem[] = JSON.parse(savedTasks);
-      
-      const weekTasks = allTasks.filter(t => {
-        const taskDate = new Date(t.dueDate || '');
-        return taskDate >= weekStart && taskDate <= weekEnd;
-      });
-      
-      setTasks(weekTasks);
-      setCompletedTasks(weekTasks.filter(t => t.completed));
-      setIncompleteTasks(weekTasks.filter(t => !t.completed));
-    }
+  const loadData = async () => {
+    const allTasks = await loadTasksFromDB();
+    
+    const weekTasks = allTasks.filter(t => {
+      const taskDate = new Date(t.dueDate || '');
+      return taskDate >= weekStart && taskDate <= weekEnd;
+    });
+    
+    setTasks(weekTasks);
+    setCompletedTasks(weekTasks.filter(t => t.completed));
+    setIncompleteTasks(weekTasks.filter(t => !t.completed));
 
     // Load saved review
     const weekKey = weekStart.toISOString().split('T')[0];

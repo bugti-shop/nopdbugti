@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 import { TodoItem } from '@/types/note';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { toast } from 'sonner';
+import { loadTasksFromDB, updateTaskInDB } from '@/utils/taskStorage';
 
 interface FocusModeProps {
   isOpen: boolean;
@@ -25,18 +26,15 @@ export const FocusMode = ({ isOpen, onClose }: FocusModeProps) => {
   const [isCompleting, setIsCompleting] = useState(false);
 
   useEffect(() => {
-    const loadTasks = () => {
-      const savedTasks = localStorage.getItem('todoItems');
-      if (savedTasks) {
-        const allTasks: TodoItem[] = JSON.parse(savedTasks);
-        const uncompletedTasks = allTasks.filter(t => !t.completed);
-        // Sort by priority
-        const sorted = uncompletedTasks.sort((a, b) => {
-          const priorityOrder = { high: 0, medium: 1, low: 2, none: 3 };
-          return (priorityOrder[a.priority || 'none'] || 3) - (priorityOrder[b.priority || 'none'] || 3);
-        });
-        setTasks(sorted);
-      }
+    const loadTasks = async () => {
+      const allTasks = await loadTasksFromDB();
+      const uncompletedTasks = allTasks.filter(t => !t.completed);
+      // Sort by priority
+      const sorted = uncompletedTasks.sort((a, b) => {
+        const priorityOrder = { high: 0, medium: 1, low: 2, none: 3 };
+        return (priorityOrder[a.priority || 'none'] || 3) - (priorityOrder[b.priority || 'none'] || 3);
+      });
+      setTasks(sorted);
     };
     loadTasks();
   }, [isOpen]);
@@ -52,16 +50,9 @@ export const FocusMode = ({ isOpen, onClose }: FocusModeProps) => {
       await Haptics.impact({ style: ImpactStyle.Heavy });
     } catch {}
 
-    // Update task in storage
-    const savedTasks = localStorage.getItem('todoItems');
-    if (savedTasks) {
-      const allTasks: TodoItem[] = JSON.parse(savedTasks);
-      const updatedTasks = allTasks.map(t => 
-        t.id === currentTask.id ? { ...t, completed: true } : t
-      );
-      localStorage.setItem('todoItems', JSON.stringify(updatedTasks));
-      window.dispatchEvent(new Event('todoItemsUpdated'));
-    }
+    // Update task in IndexedDB
+    await updateTaskInDB(currentTask.id, { completed: true });
+    window.dispatchEvent(new Event('tasksUpdated'));
 
     setCompletedInSession(prev => prev + 1);
     

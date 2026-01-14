@@ -53,43 +53,14 @@ export const loadTodoItems = async (): Promise<TodoItem[]> => {
     // Load from IndexedDB (primary storage)
     const items = await loadTasksFromDB();
     
-    if (items.length > 0) {
-      // Offload any base64 media to IndexedDB
-      const { items: migrated, changed } = await offloadTodoItemsMedia(items);
-      if (changed) {
-        await saveTasksToDB(migrated);
-      }
-      return migrated;
-    }
-    
-    // Fallback: try localStorage if IndexedDB is empty
-    const saved = localStorage.getItem(TODO_ITEMS_KEY);
-    if (!saved) return [];
-
-    const parsed = JSON.parse(saved);
-    const localItems: TodoItem[] = Array.isArray(parsed) ? parsed.map(hydrateItem) : [];
-
-    if (localItems.length > 0) {
-      // Migrate to IndexedDB
-      const { items: migrated, changed } = await offloadTodoItemsMedia(localItems);
+    // Offload any base64 media to IndexedDB
+    const { items: migrated, changed } = await offloadTodoItemsMedia(items);
+    if (changed) {
       await saveTasksToDB(migrated);
-      localStorage.removeItem(TODO_ITEMS_KEY); // Free localStorage
-      return migrated;
     }
-
-    return [];
+    return migrated;
   } catch (e) {
     console.error('Failed to load todoItems:', e);
-    
-    // Last resort: try localStorage directly
-    try {
-      const saved = localStorage.getItem(TODO_ITEMS_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        return Array.isArray(parsed) ? parsed.map(hydrateItem) : [];
-      }
-    } catch {}
-    
     return [];
   }
 };
@@ -103,7 +74,7 @@ export const saveTodoItems = async (
 ): Promise<{ items: TodoItem[]; changed: boolean; persisted: boolean }> => {
   const { items: migrated, changed } = await offloadTodoItemsMedia(items);
 
-  // Debounce saves for performance (especially with 700+ items)
+  // Debounce saves for performance (especially with 600k+ items)
   if (saveTimeout) {
     clearTimeout(saveTimeout);
   }
@@ -114,20 +85,8 @@ export const saveTodoItems = async (
     saveTimeout = setTimeout(async () => {
       try {
         const itemsToSave = pendingSaveItems || migrated;
-        const success = await saveTasksToDB(itemsToSave);
-        
-        if (!success) {
-          // Fallback to localStorage (may fail with large datasets)
-          try {
-            localStorage.setItem(TODO_ITEMS_KEY, JSON.stringify(itemsToSave));
-            resolve({ items: itemsToSave, changed, persisted: true });
-          } catch (e) {
-            console.error("Failed to persist 'todoItems' (quota exceeded):", e);
-            resolve({ items: itemsToSave, changed, persisted: false });
-          }
-        } else {
-          resolve({ items: itemsToSave, changed, persisted: true });
-        }
+        await saveTasksToDB(itemsToSave);
+        resolve({ items: itemsToSave, changed, persisted: true });
       } catch (e) {
         console.error('Failed to save tasks:', e);
         resolve({ items: migrated, changed, persisted: false });
