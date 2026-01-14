@@ -3,7 +3,7 @@ import { BottomNavigation } from '@/components/BottomNavigation';
 import { Note } from '@/types/note';
 import { NoteEditor } from '@/components/NoteEditor';
 import { Layers, Settings, Pin, Download, ListTodo, FileText, Archive, ArchiveRestore, Trash2, RotateCcw, Sun, Moon, Search, X } from 'lucide-react';
-import { loadNotesFromDB, debouncedSaveNotes, migrateNotesToIndexedDB, saveNoteToDBSingle } from '@/utils/noteStorage';
+import { loadNotesFromDB, debouncedSaveNotes, migrateNotesToIndexedDB, saveNoteToDBSingle, saveNotesToDB, deleteNoteFromDB } from '@/utils/noteStorage';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { exportNoteToDocx } from '@/utils/exportToDocx';
@@ -130,11 +130,12 @@ const Notes = () => {
       return n;
     });
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+    debouncedSaveNotes(updatedNotes);
   };
 
   const handleToggleArchive = (noteId: string, e: React.MouseEvent) => {
     e.stopPropagation();
+    const noteBeforeUpdate = notes.find(n => n.id === noteId);
     const updatedNotes = notes.map((n) => {
       if (n.id === noteId) {
         const isArchiving = !n.isArchived;
@@ -142,14 +143,13 @@ const Notes = () => {
           ...n,
           isArchived: isArchiving,
           archivedAt: isArchiving ? new Date() : undefined,
-          isPinned: isArchiving ? false : n.isPinned, // Unpin when archiving
+          isPinned: isArchiving ? false : n.isPinned,
         };
       }
       return n;
     });
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
-    const noteBeforeUpdate = notes.find(n => n.id === noteId);
+    debouncedSaveNotes(updatedNotes);
     toast.success(noteBeforeUpdate?.isArchived ? t('toasts.noteRestored') : t('toasts.noteArchived'));
   };
 
@@ -168,7 +168,7 @@ const Notes = () => {
       return n;
     });
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+    debouncedSaveNotes(updatedNotes);
     toast.success(t('toasts.noteMoved'));
   };
 
@@ -185,7 +185,7 @@ const Notes = () => {
       return n;
     });
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+    debouncedSaveNotes(updatedNotes);
     toast.success(t('toasts.noteRestored'));
   };
 
@@ -193,7 +193,7 @@ const Notes = () => {
     e.stopPropagation();
     const updatedNotes = notes.filter((n) => n.id !== noteId);
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+    deleteNoteFromDB(noteId);
     toast.success(t('toasts.noteDeleted'));
   };
 
@@ -211,7 +211,7 @@ const Notes = () => {
     
     if (updatedNotes.length !== notes.length) {
       setNotes(updatedNotes);
-      localStorage.setItem('notes', JSON.stringify(updatedNotes));
+      debouncedSaveNotes(updatedNotes);
     }
   }, [notes]);
 
@@ -256,7 +256,7 @@ const Notes = () => {
     }
 
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+    debouncedSaveNotes(updatedNotes);
   };
 
   // Filter notes based on view mode and search query
@@ -304,7 +304,7 @@ const Notes = () => {
   const handleEmptyTrash = () => {
     const updatedNotes = notes.filter(n => !n.isDeleted);
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+    saveNotesToDB(updatedNotes);
     toast.success(t('notes.trashEmptied'));
   };
 

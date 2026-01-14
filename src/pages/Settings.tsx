@@ -11,6 +11,7 @@ import { differenceInDays, differenceInHours, differenceInMinutes, addDays } fro
 import { Note } from '@/types/note';
 import { useTranslation } from 'react-i18next';
 import { languages } from '@/i18n';
+import { loadNotesFromDB, saveNotesToDB } from '@/utils/noteStorage';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -62,15 +63,15 @@ const Settings = () => {
 
   // Load notes for hidden notes section
   useEffect(() => {
-    const saved = localStorage.getItem('notes');
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      setNotes(parsed.map((n: Note) => ({
-        ...n,
-        createdAt: new Date(n.createdAt),
-        updatedAt: new Date(n.updatedAt),
-      })));
-    }
+    const loadNotes = async () => {
+      try {
+        const loadedNotes = await loadNotesFromDB();
+        setNotes(loadedNotes);
+      } catch (error) {
+        console.error('Error loading notes:', error);
+      }
+    };
+    loadNotes();
   }, []);
 
   // Check for admin bypass
@@ -119,17 +120,22 @@ const Settings = () => {
     }
   }, [isProUser, hasAdminAccess, hasShownTrialWarning, toast]);
 
-  const handleBackupData = () => {
-    const notes = localStorage.getItem('notes') || '[]';
-    const folders = localStorage.getItem('folders') || '[]';
-    const backup = { notes, folders, timestamp: new Date().toISOString() };
-    const blob = new Blob([JSON.stringify(backup)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `npd-backup-${Date.now()}.json`;
-    a.click();
-    toast({ title: "Data backed up successfully" });
+  const handleBackupData = async () => {
+    try {
+      const notesData = await loadNotesFromDB();
+      const folders = localStorage.getItem('folders') || '[]';
+      const backup = { notes: JSON.stringify(notesData), folders, timestamp: new Date().toISOString() };
+      const blob = new Blob([JSON.stringify(backup)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `npd-backup-${Date.now()}.json`;
+      a.click();
+      toast({ title: "Data backed up successfully" });
+    } catch (error) {
+      console.error('Backup error:', error);
+      toast({ title: "Backup failed", variant: "destructive" });
+    }
   };
 
   const handleRestoreData = () => {
@@ -140,14 +146,26 @@ const Settings = () => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'application/json';
-    input.onchange = (e) => {
+    input.onchange = async (e) => {
       const file = (e.target as HTMLInputElement).files?.[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = (event) => {
+        reader.onload = async (event) => {
           try {
             const backup = JSON.parse(event.target?.result as string);
-            if (backup.notes) localStorage.setItem('notes', backup.notes);
+            if (backup.notes) {
+              const notesData = JSON.parse(backup.notes);
+              const hydratedNotes = notesData.map((n: any) => ({
+                ...n,
+                createdAt: new Date(n.createdAt),
+                updatedAt: new Date(n.updatedAt),
+                voiceRecordings: n.voiceRecordings?.map((r: any) => ({
+                  ...r,
+                  timestamp: new Date(r.timestamp),
+                })) || [],
+              }));
+              await saveNotesToDB(hydratedNotes);
+            }
             if (backup.folders) localStorage.setItem('folders', backup.folders);
             toast({ title: "Data restored successfully" });
             setTimeout(() => window.location.reload(), 1000);
@@ -162,19 +180,25 @@ const Settings = () => {
     setShowRestoreDialog(false);
   };
 
-  const handleDownloadData = () => {
-    const allData = {
-      notes: localStorage.getItem('notes'),
-      folders: localStorage.getItem('folders'),
-      timestamp: new Date().toISOString()
-    };
-    const blob = new Blob([JSON.stringify(allData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `npd-data-${Date.now()}.json`;
-    a.click();
-    toast({ title: "Data downloaded" });
+  const handleDownloadData = async () => {
+    try {
+      const notesData = await loadNotesFromDB();
+      const allData = {
+        notes: notesData,
+        folders: localStorage.getItem('folders'),
+        timestamp: new Date().toISOString()
+      };
+      const blob = new Blob([JSON.stringify(allData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `npd-data-${Date.now()}.json`;
+      a.click();
+      toast({ title: "Data downloaded" });
+    } catch (error) {
+      console.error('Download error:', error);
+      toast({ title: "Download failed", variant: "destructive" });
+    }
   };
 
   const handleDeleteData = () => {

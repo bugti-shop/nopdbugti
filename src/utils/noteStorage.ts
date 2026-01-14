@@ -107,13 +107,8 @@ export const saveNotesToDB = async (notes: Note[]): Promise<void> => {
     });
   } catch (error) {
     console.error('Error saving notes to IndexedDB:', error);
-    // Fallback to localStorage for smaller datasets
-    try {
-      const limitedNotes = notes.slice(0, 50); // Only save first 50 to localStorage
-      localStorage.setItem('notes', JSON.stringify(limitedNotes));
-    } catch (e) {
-      console.error('LocalStorage fallback also failed:', e);
-    }
+    // DO NOT fallback to localStorage - it causes quota errors with large notes
+    // Just log the error and continue
   }
 };
 
@@ -188,17 +183,26 @@ export const migrateNotesToIndexedDB = async (): Promise<boolean> => {
   try {
     const migrated = localStorage.getItem('notes_migrated_to_indexeddb');
     if (migrated === 'true') {
-      return false; // Already migrated
+      // Already migrated - clear localStorage to free space
+      try {
+        localStorage.removeItem('notes');
+      } catch {}
+      return false;
     }
 
     const notes = loadNotesFromLocalStorage();
     if (notes.length > 0) {
       await saveNotesToDB(notes);
       localStorage.setItem('notes_migrated_to_indexeddb', 'true');
-      // Keep localStorage as backup but mark as migrated
-      console.log(`Migrated ${notes.length} notes to IndexedDB`);
+      // CRITICAL: Remove notes from localStorage to free quota
+      try {
+        localStorage.removeItem('notes');
+      } catch {}
+      console.log(`Migrated ${notes.length} notes to IndexedDB and freed localStorage`);
       return true;
     }
+    
+    localStorage.setItem('notes_migrated_to_indexeddb', 'true');
     return false;
   } catch (error) {
     console.error('Migration failed:', error);
