@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { toast } from 'sonner';
 import { TodoItem } from '@/types/note';
+import { loadTasksFromDB } from '@/utils/taskStorage';
 
 type SessionType = 'work' | 'shortBreak' | 'longBreak';
 
@@ -114,16 +115,15 @@ export const PomodoroTimer = ({ isOpen, onClose }: PomodoroTimerProps) => {
 
   // Load available tasks
   useEffect(() => {
-    const loadTasks = () => {
-      const savedTasks = localStorage.getItem('todoItems');
-      if (savedTasks) {
-        const tasks: TodoItem[] = JSON.parse(savedTasks);
-        setAvailableTasks(tasks.filter(t => !t.completed));
-      }
+    const loadTasks = async () => {
+      const tasks = await loadTasksFromDB();
+      setAvailableTasks(tasks.filter(t => !t.completed));
     };
     loadTasks();
-    window.addEventListener('storage', loadTasks);
-    return () => window.removeEventListener('storage', loadTasks);
+    
+    const handleUpdate = () => loadTasks();
+    window.addEventListener('tasksUpdated', handleUpdate);
+    return () => window.removeEventListener('tasksUpdated', handleUpdate);
   }, []);
 
   // Save settings

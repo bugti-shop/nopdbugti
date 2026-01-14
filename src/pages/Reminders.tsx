@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BottomNavigation } from '@/components/BottomNavigation';
 import { Note, TodoItem } from '@/types/note';
 import { notificationManager } from '@/utils/notifications';
+import { loadTasksFromDB } from '@/utils/taskStorage';
 import { Bell, Calendar, Clock, Repeat, History, Trash2, CheckCircle2, AlarmClock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -75,9 +76,8 @@ const Reminders = () => {
       const savedNotes = localStorage.getItem('notes');
       const allNotes: Note[] = savedNotes ? JSON.parse(savedNotes) : [];
 
-      // Load tasks
-      const savedTasks = localStorage.getItem('todoItems');
-      const allTasks: TodoItem[] = savedTasks ? JSON.parse(savedTasks) : [];
+      // Load tasks from IndexedDB
+      const allTasks = await loadTasksFromDB();
 
       // Get pending notifications from the system
       const pendingNotifications = await notificationManager.getPendingNotifications();
@@ -114,12 +114,11 @@ const Reminders = () => {
     }
   };
 
-  const loadRemindersFromStorage = () => {
+  const loadRemindersFromStorage = async () => {
     const savedNotes = localStorage.getItem('notes');
     const allNotes: Note[] = savedNotes ? JSON.parse(savedNotes) : [];
 
-    const savedTasks = localStorage.getItem('todoItems');
-    const allTasks: TodoItem[] = savedTasks ? JSON.parse(savedTasks) : [];
+    const allTasks = await loadTasksFromDB();
 
     const reminderItems: ReminderItem[] = [];
 

@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { TodoItem } from '@/types/note';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { toast } from 'sonner';
+import { loadTasksFromDB, updateTaskInDB } from '@/utils/taskStorage';
 
 interface DailyPlannerProps {
   isOpen: boolean;
@@ -54,12 +55,9 @@ export const DailyPlanner = ({ isOpen, onClose }: DailyPlannerProps) => {
     loadDailyPlan();
   }, [isOpen, selectedDate]);
 
-  const loadTasks = () => {
-    const savedTasks = localStorage.getItem('todoItems');
-    if (savedTasks) {
-      const allTasks: TodoItem[] = JSON.parse(savedTasks);
-      setTasks(allTasks.filter(t => !t.completed));
-    }
+  const loadTasks = async () => {
+    const allTasks = await loadTasksFromDB();
+    setTasks(allTasks.filter(t => !t.completed));
   };
 
   const loadDailyPlan = () => {
@@ -126,15 +124,8 @@ export const DailyPlanner = ({ isOpen, onClose }: DailyPlannerProps) => {
       await Haptics.impact({ style: ImpactStyle.Heavy });
     } catch {}
 
-    const savedTasks = localStorage.getItem('todoItems');
-    if (savedTasks) {
-      const allTasks: TodoItem[] = JSON.parse(savedTasks);
-      const updatedTasks = allTasks.map(t => 
-        t.id === taskId ? { ...t, completed: true } : t
-      );
-      localStorage.setItem('todoItems', JSON.stringify(updatedTasks));
-      window.dispatchEvent(new Event('todoItemsUpdated'));
-    }
+    await updateTaskInDB(taskId, { completed: true });
+    window.dispatchEvent(new Event('tasksUpdated'));
 
     handleRemoveTask(taskId);
     loadTasks();
