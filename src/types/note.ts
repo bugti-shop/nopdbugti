@@ -212,3 +212,18 @@ export interface Folder {
   createdAt: Date;
   color?: string;
 }
+
+export interface Notebook {
+  id: string;
+  name: string;
+  description?: string;
+  icon?: string;
+  color: string;
+  coverImage?: string;
+  isDefault: boolean;
+  isPinned: boolean;
+  order: number;
+  noteCount?: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
