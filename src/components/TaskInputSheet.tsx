@@ -1089,24 +1089,24 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                       <div className="space-y-3">
                         <div className="flex gap-2">
                           <Input
-                            placeholder="Add a tag..."
+                            placeholder={t('taskInput.addTag')}
                             value={tagInput}
                             onChange={(e) => setTagInput(e.target.value)}
                             onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddTag(); } }}
                             className="h-9 text-sm flex-1"
                           />
-                          <Button size="sm" onClick={handleAddTag} disabled={!tagInput.trim()}>Add</Button>
+                          <Button size="sm" onClick={handleAddTag} disabled={!tagInput.trim()}>{t('common.add')}</Button>
                         </div>
                         
                         {savedTags.length > 0 && (
                           <div>
                             <div className="flex items-center justify-between mb-2">
-                              <p className="text-xs text-muted-foreground">Recent tags</p>
+                              <p className="text-xs text-muted-foreground">{t('taskInput.recentTags')}</p>
                               <button
                                 onClick={() => setShowManageTags(true)}
                                 className="text-xs text-primary hover:underline"
                               >
-                                Manage
+                                {t('common.manage')}
                               </button>
                             </div>
                             <div className="flex flex-wrap gap-1.5">
@@ -1132,7 +1132,7 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                         )}
                         
                         <div>
-                          <p className="text-xs text-muted-foreground mb-2">Tag color</p>
+                          <p className="text-xs text-muted-foreground mb-2">{t('taskInput.tagColor')}</p>
                           <div className="flex gap-1.5 flex-wrap">
                             {tagColors.map((color) => (
                               <button
@@ -1183,7 +1183,7 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                     {deadline && <span className="absolute -top-1 -right-1 w-2 h-2 bg-rose-500 rounded-full" />}
                     <CalendarClock className={cn("h-4 w-4 flex-shrink-0", deadline ? "text-rose-500" : "text-muted-foreground")} />
                     <span className={cn("text-sm whitespace-nowrap", deadline ? "text-rose-600 dark:text-rose-400" : "text-muted-foreground")}>
-                      {deadline ? format(deadline, 'MMM d') : 'Deadline'}
+                      {deadline ? format(deadline, 'MMM d') : t('taskInput.deadline')}
                     </span>
                   </button>
                 );
@@ -1202,7 +1202,7 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                         {sectionId && <span className="absolute -top-1 -right-1 w-2 h-2 bg-violet-500 rounded-full" />}
                         <ListTodo className={cn("h-4 w-4 flex-shrink-0", sectionId ? "text-violet-500" : "text-muted-foreground")} />
                         <span className={cn("text-sm whitespace-nowrap", sectionId ? "text-violet-600 dark:text-violet-400" : "text-muted-foreground")}>
-                          {sectionId ? sections.find(s => s.id === sectionId)?.name || 'Section' : 'Section'}
+                          {sectionId ? sections.find(s => s.id === sectionId)?.name || t('taskInput.section') : t('taskInput.section')}
                         </span>
                       </button>
                     </PopoverTrigger>
@@ -1239,7 +1239,7 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                     {folderId && <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full" />}
                     <FolderIcon className={cn("h-4 w-4 flex-shrink-0", folderId ? "text-amber-500" : "text-muted-foreground")} />
                     <span className={cn("text-sm whitespace-nowrap", folderId ? "text-amber-600 dark:text-amber-400" : "text-muted-foreground")}>
-                      {folderId ? folders.find(f => f.id === folderId)?.name || 'Folder' : 'Folder'}
+                      {folderId ? folders.find(f => f.id === folderId)?.name || t('taskInput.folder') : t('taskInput.folder')}
                     </span>
                   </button>
                 );
@@ -1258,7 +1258,7 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                     {imageUrl && <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full" />}
                     <ImageIcon className={cn("h-4 w-4 flex-shrink-0", imageUrl ? "text-emerald-500" : "text-muted-foreground")} />
                     <span className={cn("text-sm whitespace-nowrap", imageUrl ? "text-emerald-600 dark:text-emerald-400" : "text-muted-foreground")}>
-                      {imageUrl ? 'Image Added' : 'Image'}
+                      {imageUrl ? t('taskInput.imageAdded') : t('taskInput.image')}
                     </span>
                   </button>
                 );
@@ -1277,21 +1277,21 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                         {description && <span className="absolute -top-1 -right-1 w-2 h-2 bg-cyan-500 rounded-full" />}
                         <FileText className={cn("h-4 w-4 flex-shrink-0", description ? "text-cyan-500" : "text-muted-foreground")} />
                         <span className={cn("text-sm whitespace-nowrap", description ? "text-cyan-600 dark:text-cyan-400" : "text-muted-foreground")}>
-                          {description ? 'Has Description' : 'Description'}
+                          {description ? t('taskInput.hasDescription') : t('taskInput.description')}
                         </span>
                       </button>
                     </PopoverTrigger>
                     <PopoverContent className="w-72 p-3 bg-popover z-50" align="start">
                       <div className="space-y-3">
-                        <p className="text-sm font-medium">Task Description</p>
+                        <p className="text-sm font-medium">{t('taskInput.taskDescription')}</p>
                         <textarea
                           value={description}
                           onChange={(e) => setDescription(e.target.value)}
-                          placeholder="Add more details about this task..."
+                          placeholder={t('taskInput.addMoreDetails')}
                           className="w-full h-24 px-3 py-2 text-sm rounded-md border border-border bg-background resize-none focus:outline-none focus:ring-2 focus:ring-primary"
                         />
                         <Button size="sm" className="w-full" onClick={() => setShowDescriptionInput(false)}>
-                          Done
+                          {t('common.done')}
                         </Button>
                       </div>
                     </PopoverContent>
@@ -1313,13 +1313,13 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                         {(location || locationReminder?.enabled) && <span className="absolute -top-1 -right-1 w-2 h-2 bg-pink-500 rounded-full" />}
                         <MapPin className={cn("h-4 w-4 flex-shrink-0", (location || locationReminder?.enabled) ? "text-pink-500" : "text-muted-foreground")} />
                         <span className={cn("text-sm whitespace-nowrap", (location || locationReminder?.enabled) ? "text-pink-600 dark:text-pink-400" : "text-muted-foreground")}>
-                          {locationReminder?.enabled ? 'Location Reminder' : location ? 'Has Location' : 'Location'}
+                          {locationReminder?.enabled ? t('taskInput.locationReminder') : location ? t('taskInput.hasLocation') : t('taskInput.location')}
                         </span>
                       </button>
                     </PopoverTrigger>
                     <PopoverContent className="w-80 p-3 bg-popover z-50" align="start">
                       <div className="space-y-3">
-                        <p className="text-sm font-medium">Location Reminder</p>
+                        <p className="text-sm font-medium">{t('taskInput.locationReminder')}</p>
                         <LocationSearchInput
                           value={location}
                           onChange={setLocation}
@@ -1334,7 +1334,7 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                           }}
                         />
                         <Button size="sm" className="w-full" onClick={() => setShowLocationInput(false)}>
-                          Done
+                          {t('common.done')}
                         </Button>
                       </div>
                     </PopoverContent>
@@ -1353,7 +1353,7 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
               onClick={() => setShowEditActions(true)}
             >
               <Settings2 className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-              <span className="text-sm text-muted-foreground whitespace-nowrap">Edit Actions</span>
+              <span className="text-sm text-muted-foreground whitespace-nowrap">{t('taskInput.editActions')}</span>
             </button>
 
             <input
@@ -1370,16 +1370,16 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
       <Dialog open={showFolderDialog} onOpenChange={setShowFolderDialog}>
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle>Select or Create Folder</DialogTitle>
+            <DialogTitle>{t('taskInput.selectOrCreateFolder')}</DialogTitle>
           </DialogHeader>
 
           <div className="space-y-4">
             {folders.length > 0 && (
               <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Select Folder:</p>
+                <p className="text-sm text-muted-foreground">{t('taskInput.selectFolder')}:</p>
                 <div className="space-y-1">
                   <Button variant="ghost" className="w-full justify-start" onClick={() => { setFolderId(undefined); setShowFolderDialog(false); }}>
-                    <FolderIcon className="h-4 w-4 mr-2" />All Tasks
+                    <FolderIcon className="h-4 w-4 mr-2" />{t('taskInput.allTasks')}
                   </Button>
                   {folders.map((folder) => (
                     <Button
@@ -1398,15 +1398,15 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
 
             <Separator />
             <div className="space-y-3">
-              <p className="text-sm font-medium">Create New Folder:</p>
+              <p className="text-sm font-medium">{t('taskInput.createNewFolder')}:</p>
               <Input
-                placeholder="Folder name"
+                placeholder={t('taskInput.folderName')}
                 value={newFolderName}
                 onChange={(e) => setNewFolderName(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter') handleCreateFolder(); }}
               />
               <div>
-                <p className="text-sm text-muted-foreground mb-2">Color</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('taskInput.folderColor')}</p>
                 <div className="flex gap-2">
                   {folderColors.map((color) => (
                     <button
@@ -1419,7 +1419,7 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
                 </div>
               </div>
               <Button onClick={handleCreateFolder} className="w-full" disabled={!newFolderName.trim()}>
-                Create Folder
+                {t('notesMenu.createFolder')}
               </Button>
             </div>
           </div>
@@ -1492,11 +1492,11 @@ export const TaskInputSheet = ({ isOpen, onClose, onAddTask, folders, selectedFo
       }}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Manage Saved Tags</DialogTitle>
+            <DialogTitle>{t('taskInput.manageSavedTags')}</DialogTitle>
           </DialogHeader>
           <div className="space-y-3 max-h-[60vh] overflow-y-auto">
             {savedTags.length === 0 ? (
-              <p className="text-sm text-muted-foreground text-center py-4">No saved tags yet</p>
+              <p className="text-sm text-muted-foreground text-center py-4">{t('taskInput.noSavedTagsYet')}</p>
             ) : (
               savedTags.map((tag) => (
                 <div 

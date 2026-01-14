@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Folder as FolderIcon, Plus, Edit2, Trash2, FolderOpen, FolderPlus, FolderMinus, MoreVertical, Star, ArrowUpDown, Clock, FileText, StickyNote, CheckSquare, Filter, Code, Palette, Receipt, Archive } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Folder, Note, NoteType } from '@/types/note';
@@ -78,6 +79,7 @@ export const FolderManager = ({
   trashedNotesCount = 0,
   archivedNotesCount = 0,
 }: FolderManagerProps) => {
+  const { t } = useTranslation();
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [isAddNotesOpen, setIsAddNotesOpen] = useState(false);
   const [isRemoveNotesOpen, setIsRemoveNotesOpen] = useState(false);
@@ -200,7 +202,7 @@ export const FolderManager = ({
       <div className="flex items-center justify-between mb-1.5 xs:mb-2">
         <h2 className="text-base xs:text-lg font-semibold flex items-center gap-1.5 xs:gap-2">
           <FolderIcon className="w-4 h-4 xs:w-5 xs:h-5" />
-          Folders
+          {t('notesMenu.folders')}
         </h2>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -217,7 +219,7 @@ export const FolderManager = ({
             {onEnterSelectionMode && (
               <DropdownMenuItem onClick={onEnterSelectionMode}>
                 <CheckSquare className="h-4 w-4 mr-2" />
-                Select Notes
+                {t('notesMenu.selectNotes')}
               </DropdownMenuItem>
             )}
             
@@ -225,7 +227,7 @@ export const FolderManager = ({
             {onToggleFavoritesOnly && (
               <DropdownMenuItem onClick={onToggleFavoritesOnly}>
                 <Star className={cn("h-4 w-4 mr-2", showFavoritesOnly && "fill-current text-yellow-500")} />
-                {showFavoritesOnly ? 'Show All Notes' : 'Show Favorites Only'}
+                {showFavoritesOnly ? t('notesMenu.allNotes') : t('notesMenu.showFavoritesOnly')}
               </DropdownMenuItem>
             )}
             
@@ -235,55 +237,55 @@ export const FolderManager = ({
                 <DropdownMenuSeparator />
                 <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">
                   <Filter className="h-3 w-3 inline mr-1" />
-                  Filter by Type
+                  {t('notesMenu.filterByType')}
                 </div>
                 <DropdownMenuItem 
                   onClick={() => onFilterByTypeChange(null)}
                   className={cn(filterByType === null && "bg-accent")}
                 >
-                  All Types
+                  {t('notesMenu.allTypes')}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onFilterByTypeChange('sticky')}
                   className={cn(filterByType === 'sticky' && "bg-accent")}
                 >
                   <StickyNote className="h-4 w-4 mr-2" />
-                  Sticky Notes
+                  {t('notesMenu.stickyNotes')}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onFilterByTypeChange('lined')}
                   className={cn(filterByType === 'lined' && "bg-accent")}
                 >
                   <FileText className="h-4 w-4 mr-2" />
-                  Lined Notes
+                  {t('notesMenu.linedNotes')}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onFilterByTypeChange('regular')}
                   className={cn(filterByType === 'regular' && "bg-accent")}
                 >
                   <FileText className="h-4 w-4 mr-2" />
-                  Regular Notes
+                  {t('notesMenu.regularNotes')}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onFilterByTypeChange('code')}
                   className={cn(filterByType === 'code' && "bg-accent")}
                 >
                   <Code className="h-4 w-4 mr-2" />
-                  Code Notes
+                  {t('notesMenu.codeNotes')}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onFilterByTypeChange('sketch')}
                   className={cn(filterByType === 'sketch' && "bg-accent")}
                 >
                   <Palette className="h-4 w-4 mr-2" />
-                  Sketch Notes
+                  {t('notesMenu.sketchNotes')}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onFilterByTypeChange('expense')}
                   className={cn(filterByType === 'expense' && "bg-accent")}
                 >
                   <Receipt className="h-4 w-4 mr-2" />
-                  Expense Tracker
+                  {t('notesMenu.expenseTracker')}
                 </DropdownMenuItem>
               </>
             )}
@@ -294,28 +296,28 @@ export const FolderManager = ({
                 <DropdownMenuSeparator />
                 <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">
                   <ArrowUpDown className="h-3 w-3 inline mr-1" />
-                  Sort By
+                  {t('notesMenu.sortBy')}
                 </div>
                 <DropdownMenuItem 
                   onClick={() => onSortByChange('date')}
                   className={cn(sortBy === 'date' && "bg-accent")}
                 >
                   <Clock className="h-4 w-4 mr-2" />
-                  By Date
+                  {t('notesMenu.byDate')}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onSortByChange('title')}
                   className={cn(sortBy === 'title' && "bg-accent")}
                 >
                   <FileText className="h-4 w-4 mr-2" />
-                  By Title
+                  {t('notesMenu.byTitle')}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onSortByChange('type')}
                   className={cn(sortBy === 'type' && "bg-accent")}
                 >
                   <StickyNote className="h-4 w-4 mr-2" />
-                  By Type
+                  {t('notesMenu.byType')}
                 </DropdownMenuItem>
               </>
             )}
@@ -325,14 +327,14 @@ export const FolderManager = ({
             {/* Create Folder */}
             <DropdownMenuItem onClick={() => setIsCreateOpen(true)}>
               <Plus className="h-4 w-4 mr-2" />
-              Create Folder
+              {t('notesMenu.createFolder')}
             </DropdownMenuItem>
             
             {/* Add Notes to Folder */}
             {isCustomFolder && onAddNotesToFolder && availableNotes.length > 0 && (
               <DropdownMenuItem onClick={() => setIsAddNotesOpen(true)}>
                 <FolderPlus className="h-4 w-4 mr-2" />
-                Add Notes to Folder
+                {t('notesMenu.addNotesToFolder')}
               </DropdownMenuItem>
             )}
             
@@ -340,7 +342,7 @@ export const FolderManager = ({
             {isCustomFolder && onRemoveNoteFromFolder && folderNotes.length > 0 && (
               <DropdownMenuItem onClick={() => setIsRemoveNotesOpen(true)}>
                 <FolderMinus className="h-4 w-4 mr-2" />
-                Remove Notes from Folder
+                {t('notesMenu.removeNotesFromFolder')}
               </DropdownMenuItem>
             )}
             
@@ -353,14 +355,14 @@ export const FolderManager = ({
                   className={cn(viewMode === 'trash' && "bg-accent")}
                 >
                   <Trash2 className="h-4 w-4 mr-2" />
-                  {viewMode === 'trash' ? 'Back to Notes' : `Trash${trashedNotesCount > 0 ? ` (${trashedNotesCount})` : ''}`}
+                  {viewMode === 'trash' ? t('notesMenu.backToNotes') : `${t('notes.trash')}${trashedNotesCount > 0 ? ` (${trashedNotesCount})` : ''}`}
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => onViewModeChange(viewMode === 'archive' ? 'notes' : 'archive')}
                   className={cn(viewMode === 'archive' && "bg-accent")}
                 >
                   <Archive className="h-4 w-4 mr-2" />
-                  {viewMode === 'archive' ? 'Back to Notes' : `Archived${archivedNotesCount > 0 ? ` (${archivedNotesCount})` : ''}`}
+                  {viewMode === 'archive' ? t('notesMenu.backToNotes') : `${t('notes.archived')}${archivedNotesCount > 0 ? ` (${archivedNotesCount})` : ''}`}
                 </DropdownMenuItem>
               </>
             )}

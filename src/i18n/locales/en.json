@@ -943,7 +943,10 @@
     "regular": "Regular",
     "sketch": "Sketch",
     "code": "Code",
-    "expense": "Expense"
+    "expense": "Expense",
+    "addNotesToFolder": "Add Notes to Folder",
+    "removeNotesFromFolder": "Remove Notes from Folder",
+    "backToNotes": "Back to Notes"
   },
   "noteEditor": {
     "showStats": "Show Statistics",
@@ -1022,7 +1025,9 @@
     "editActions": "Edit Actions",
     "addTag": "Add a tag...",
     "recentTags": "Recent tags",
-    "tagColor": "Tag color"
+    "tagColor": "Tag color",
+    "manageSavedTags": "Manage Saved Tags",
+    "noSavedTagsYet": "No saved tags yet"
   },
   "settings": {
     "title": "Settings",
