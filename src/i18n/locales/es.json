@@ -760,5 +760,34 @@
     "tags": "Etiquetas",
     "description": "Descripción",
     "location": "Ubicación"
+  },
+  "sync": {
+    "integrationsImport": "Integraciones e Importación",
+    "syncComingSoon": "Funciones de Sincronización Próximamente",
+    "lastSynced": "Última sincronización: {{time}}",
+    "googleCalendar": "Google Calendar",
+    "syncWithGoogleCalendar": "Sincronizar tareas con Google Calendar",
+    "continueGoogleAccount": "Continuar con Cuenta de Google",
+    "connected": "Conectado",
+    "connectedAs": "Conectado como {{email}}",
+    "integrations": "Integraciones",
+    "connectWith": "Conectar con ClickUp, Notion y HubSpot",
+    "continueClickUp": "Continuar con Cuenta de ClickUp",
+    "continueNotion": "Continuar con Cuenta de Notion",
+    "continueHubSpot": "Continuar con Cuenta de HubSpot",
+    "importTasks": "Importar Tareas",
+    "importFromOtherApps": "Importar tareas desde otras apps",
+    "importFromTickTick": "Importar desde TickTick",
+    "importFromTodoist": "Importar desde Todoist",
+    "importFromEvernote": "Importar desde Evernote",
+    "comingSoon": "Próximamente",
+    "comingSoonDesc": "La integración con {{service}} estará disponible pronto.",
+    "connectionFailed": "Conexión fallida",
+    "error": "Error",
+    "failedToConnect": "Error al conectar con {{service}}"
+  },
+  "welcome": {
+    "startJourney": "Comienza Tu Viaje de Productividad",
+    "getStarted": "Comenzar"
   }
 }

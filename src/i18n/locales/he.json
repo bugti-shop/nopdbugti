@@ -747,5 +747,34 @@
     "tags": "תגיות",
     "description": "תיאור",
     "location": "מיקום"
+  },
+  "sync": {
+    "integrationsImport": "אינטגרציות וייבוא",
+    "syncComingSoon": "תכונות סנכרון בקרוב",
+    "lastSynced": "סונכרן לאחרונה: {{time}}",
+    "googleCalendar": "יומן גוגל",
+    "syncWithGoogleCalendar": "סנכרן משימות עם יומן גוגל",
+    "continueGoogleAccount": "המשך עם חשבון גוגל",
+    "connected": "מחובר",
+    "connectedAs": "מחובר כ-{{email}}",
+    "integrations": "אינטגרציות",
+    "connectWith": "התחבר עם ClickUp, Notion ו-HubSpot",
+    "continueClickUp": "המשך עם חשבון ClickUp",
+    "continueNotion": "המשך עם חשבון Notion",
+    "continueHubSpot": "המשך עם חשבון HubSpot",
+    "importTasks": "ייבוא משימות",
+    "importFromOtherApps": "ייבא משימות מאפליקציות אחרות",
+    "importFromTickTick": "ייבא מ-TickTick",
+    "importFromTodoist": "ייבא מ-Todoist",
+    "importFromEvernote": "ייבא מ-Evernote",
+    "comingSoon": "בקרוב",
+    "comingSoonDesc": "אינטגרציית {{service}} תהיה זמינה בקרוב.",
+    "connectionFailed": "החיבור נכשל",
+    "error": "שגיאה",
+    "failedToConnect": "נכשל להתחבר ל-{{service}}"
+  },
+  "welcome": {
+    "startJourney": "התחל את מסע הפרודוקטיביות שלך",
+    "getStarted": "התחל"
   }
 }

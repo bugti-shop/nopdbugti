@@ -709,5 +709,34 @@
     "tags": "ٹیگز",
     "description": "تفصیل",
     "location": "مقام"
+  },
+  "sync": {
+    "integrationsImport": "انٹیگریشنز اور درآمد",
+    "syncComingSoon": "سنک خصوصیات جلد آ رہی ہیں",
+    "lastSynced": "آخری سنک: {{time}}",
+    "googleCalendar": "Google Calendar",
+    "syncWithGoogleCalendar": "Google Calendar کے ساتھ ٹاسکس سنک کریں",
+    "continueGoogleAccount": "Google اکاؤنٹ کے ساتھ جاری رکھیں",
+    "connected": "منسلک",
+    "connectedAs": "{{email}} کے طور پر منسلک",
+    "integrations": "انٹیگریشنز",
+    "connectWith": "ClickUp، Notion اور HubSpot سے منسلک ہوں",
+    "continueClickUp": "ClickUp اکاؤنٹ کے ساتھ جاری رکھیں",
+    "continueNotion": "Notion اکاؤنٹ کے ساتھ جاری رکھیں",
+    "continueHubSpot": "HubSpot اکاؤنٹ کے ساتھ جاری رکھیں",
+    "importTasks": "ٹاسکس درآمد کریں",
+    "importFromOtherApps": "دیگر ایپس سے ٹاسکس درآمد کریں",
+    "importFromTickTick": "TickTick سے درآمد کریں",
+    "importFromTodoist": "Todoist سے درآمد کریں",
+    "importFromEvernote": "Evernote سے درآمد کریں",
+    "comingSoon": "جلد آ رہا ہے",
+    "comingSoonDesc": "{{service}} انٹیگریشن جلد دستیاب ہوگی۔",
+    "connectionFailed": "کنکشن ناکام",
+    "error": "خرابی",
+    "failedToConnect": "{{service}} سے منسلک ہونے میں ناکام"
+  },
+  "welcome": {
+    "startJourney": "اپنا پیداواری سفر شروع کریں",
+    "getStarted": "شروع کریں"
   }
 }

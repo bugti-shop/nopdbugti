@@ -721,5 +721,34 @@
     "tags": "태그",
     "description": "설명",
     "location": "위치"
+  },
+  "sync": {
+    "integrationsImport": "통합 및 가져오기",
+    "syncComingSoon": "동기화 기능 곧 출시",
+    "lastSynced": "마지막 동기화: {{time}}",
+    "googleCalendar": "Google 캘린더",
+    "syncWithGoogleCalendar": "Google 캘린더와 작업 동기화",
+    "continueGoogleAccount": "Google 계정으로 계속",
+    "connected": "연결됨",
+    "connectedAs": "{{email}}(으)로 연결됨",
+    "integrations": "통합",
+    "connectWith": "ClickUp, Notion, HubSpot과 연결",
+    "continueClickUp": "ClickUp 계정으로 계속",
+    "continueNotion": "Notion 계정으로 계속",
+    "continueHubSpot": "HubSpot 계정으로 계속",
+    "importTasks": "작업 가져오기",
+    "importFromOtherApps": "다른 앱에서 작업 가져오기",
+    "importFromTickTick": "TickTick에서 가져오기",
+    "importFromTodoist": "Todoist에서 가져오기",
+    "importFromEvernote": "Evernote에서 가져오기",
+    "comingSoon": "곧 출시",
+    "comingSoonDesc": "{{service}} 통합이 곧 제공됩니다.",
+    "connectionFailed": "연결 실패",
+    "error": "오류",
+    "failedToConnect": "{{service}} 연결 실패"
+  },
+  "welcome": {
+    "startJourney": "생산성 여정을 시작하세요",
+    "getStarted": "시작하기"
   }
 }

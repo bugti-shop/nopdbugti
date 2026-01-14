@@ -715,5 +715,34 @@
     "tags": "Etiketler",
     "description": "Açıklama",
     "location": "Konum"
+  },
+  "sync": {
+    "integrationsImport": "Entegrasyonlar ve İçe Aktarma",
+    "syncComingSoon": "Senkronizasyon Özellikleri Yakında",
+    "lastSynced": "Son senkronizasyon: {{time}}",
+    "googleCalendar": "Google Takvim",
+    "syncWithGoogleCalendar": "Görevleri Google Takvim ile senkronize et",
+    "continueGoogleAccount": "Google Hesabı ile Devam Et",
+    "connected": "Bağlı",
+    "connectedAs": "{{email}} olarak bağlı",
+    "integrations": "Entegrasyonlar",
+    "connectWith": "ClickUp, Notion ve HubSpot ile bağlan",
+    "continueClickUp": "ClickUp Hesabı ile Devam Et",
+    "continueNotion": "Notion Hesabı ile Devam Et",
+    "continueHubSpot": "HubSpot Hesabı ile Devam Et",
+    "importTasks": "Görevleri İçe Aktar",
+    "importFromOtherApps": "Diğer uygulamalardan görev içe aktar",
+    "importFromTickTick": "TickTick'ten İçe Aktar",
+    "importFromTodoist": "Todoist'ten İçe Aktar",
+    "importFromEvernote": "Evernote'tan İçe Aktar",
+    "comingSoon": "Yakında",
+    "comingSoonDesc": "{{service}} entegrasyonu yakında kullanılabilir olacak.",
+    "connectionFailed": "Bağlantı başarısız",
+    "error": "Hata",
+    "failedToConnect": "{{service}} bağlantısı başarısız"
+  },
+  "welcome": {
+    "startJourney": "Verimlilik Yolculuğunuza Başlayın",
+    "getStarted": "Başla"
   }
 }

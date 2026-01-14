@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import welcomeImage from '@/assets/welcome-notes.png';
 import { triggerHaptic } from '@/utils/haptics';
 
@@ -7,6 +8,8 @@ interface WelcomeProps {
 }
 
 export default function Welcome({ onGetStarted }: WelcomeProps) {
+  const { t } = useTranslation();
+  
   const handleGetStarted = () => {
     triggerHaptic('medium');
     onGetStarted();
@@ -35,7 +38,7 @@ export default function Welcome({ onGetStarted }: WelcomeProps) {
           className="text-center space-y-4"
         >
           <h1 className="text-2xl font-bold text-foreground whitespace-nowrap">
-            Start Your Productivity Journey
+            {t('welcome.startJourney')}
           </h1>
         </motion.div>
       </div>
@@ -50,7 +53,7 @@ export default function Welcome({ onGetStarted }: WelcomeProps) {
           onClick={handleGetStarted}
           className="w-full btn-duo"
         >
-          Get Started
+          {t('welcome.getStarted')}
         </button>
       </motion.div>
     </div>
