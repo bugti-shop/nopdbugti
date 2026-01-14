@@ -852,37 +852,37 @@ const Index = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="center" className="mb-2 w-48">
-            <DropdownMenuItem onClick={() => { triggerHaptic('light'); handleCreateNote('sticky'); }} className="gap-2">
+            <DropdownMenuItem onClick={() => { triggerHaptic('medium'); handleCreateNote('sticky'); }} className="gap-2">
               <StickyNote className="h-4 w-4 text-amber-500" />
               {t('notes.noteTypes.sticky')}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => { triggerHaptic('light'); handleCreateNote('lined'); }} className="gap-2">
+            <DropdownMenuItem onClick={() => { triggerHaptic('medium'); handleCreateNote('lined'); }} className="gap-2">
               <FileText className="h-4 w-4 text-blue-500" />
               {t('notes.noteTypes.lined')}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => { triggerHaptic('light'); handleCreateNote('regular'); }} className="gap-2">
+            <DropdownMenuItem onClick={() => { triggerHaptic('medium'); handleCreateNote('regular'); }} className="gap-2">
               <FileEdit className="h-4 w-4 text-emerald-500" />
               {t('notes.noteTypes.regular')}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => { triggerHaptic('light'); handleCreateNote('sketch'); }} className="gap-2">
+            <DropdownMenuItem onClick={() => { triggerHaptic('medium'); handleCreateNote('sketch'); }} className="gap-2">
               <Pen className="h-4 w-4 text-purple-500" />
               {t('notes.noteTypes.sketch')}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => { triggerHaptic('light'); handleCreateNote('code'); }} className="gap-2">
+            <DropdownMenuItem onClick={() => { triggerHaptic('medium'); handleCreateNote('code'); }} className="gap-2">
               <FileCode className="h-4 w-4 text-orange-500" />
               {t('notes.noteTypes.code')}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => { triggerHaptic('light'); handleCreateNote('mindmap'); }} className="gap-2">
+            <DropdownMenuItem onClick={() => { triggerHaptic('medium'); handleCreateNote('mindmap'); }} className="gap-2">
               <GitBranch className="h-4 w-4 text-pink-500" />
               {t('notes.noteTypes.mindMap')}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => { triggerHaptic('light'); handleCreateNote('expense'); }} className="gap-2">
+            <DropdownMenuItem onClick={() => { triggerHaptic('medium'); handleCreateNote('expense'); }} className="gap-2">
               <Receipt className="h-4 w-4 text-teal-500" />
               {t('notes.noteTypes.expense')}
             </DropdownMenuItem>
