@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NotesCalendarView } from '@/components/NotesCalendarView';
 import { Calendar as CalendarIcon, Plus, StickyNote, FileText, FileEdit, Pen, Filter, FileCode, GitBranch, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -14,6 +15,7 @@ import { useDarkMode } from '@/hooks/useDarkMode';
 import { loadNotesFromDB, saveNotesToDB, saveNoteToDBSingle, deleteNoteFromDB } from '@/utils/noteStorage';
 
 const NotesCalendar = () => {
+  const { t } = useTranslation();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [isEditorOpen, setIsEditorOpen] = useState(false);
@@ -104,13 +106,13 @@ const NotesCalendar = () => {
   };
 
   const NOTE_TYPE_LABELS: Record<NoteType, { label: string; icon: any }> = {
-    sticky: { label: 'Sticky', icon: StickyNote },
-    lined: { label: 'Lined', icon: FileText },
-    regular: { label: 'Regular', icon: FileEdit },
-    sketch: { label: 'Sketch', icon: Pen },
-    code: { label: 'Code', icon: FileCode },
-    mindmap: { label: 'Mind Map', icon: GitBranch },
-    expense: { label: 'Expense', icon: FileText },
+    sticky: { label: t('notesMenu.sticky'), icon: StickyNote },
+    lined: { label: t('notesMenu.lined'), icon: FileText },
+    regular: { label: t('notesMenu.regular'), icon: FileEdit },
+    sketch: { label: t('notesMenu.sketch'), icon: Pen },
+    code: { label: t('notesMenu.code'), icon: FileCode },
+    mindmap: { label: t('notesMenu.mindMap'), icon: GitBranch },
+    expense: { label: t('notesMenu.expense'), icon: FileText },
   };
 
   const handleDeleteNote = async (noteId: string) => {
@@ -128,7 +130,7 @@ const NotesCalendar = () => {
           <div className="flex items-center justify-between gap-1 xs:gap-2">
             <div className="flex items-center gap-1.5 xs:gap-2 min-w-0 flex-shrink-0">
               <img src={appLogo} alt="Npd" className="h-6 w-6 xs:h-7 xs:w-7 sm:h-8 sm:w-8 flex-shrink-0" />
-              <h1 className="text-base xs:text-lg sm:text-xl font-bold truncate">Calendar</h1>
+              <h1 className="text-base xs:text-lg sm:text-xl font-bold truncate">{t('nav.calendar')}</h1>
             </div>
             <div className="flex items-center gap-0.5 xs:gap-1 flex-shrink-0">
               <Button
@@ -147,7 +149,7 @@ const NotesCalendar = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48 z-50 bg-card max-h-[70vh] overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
-                  <DropdownMenuLabel>Filter by Type</DropdownMenuLabel>
+                  <DropdownMenuLabel>{t('notesMenu.filterByType')}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   {(Object.keys(NOTE_TYPE_LABELS) as NoteType[]).map((type) => {
                     const { label, icon: Icon } = NOTE_TYPE_LABELS[type];
@@ -180,7 +182,7 @@ const NotesCalendar = () => {
           {selectedDateNotes.length > 0 && (
             <div className="space-y-3 animate-fade-in">
               <h2 className="text-lg font-semibold text-foreground">
-                Notes for {format(date || new Date(), 'MMMM dd, yyyy')}
+                {t('notesMenu.notesForDate', { date: format(date || new Date(), 'MMMM dd, yyyy') })}
               </h2>
               {selectedDateNotes.map((note) => (
                 <NoteCard
@@ -203,33 +205,33 @@ const NotesCalendar = () => {
             disabled={!date}
           >
             <Plus className="h-5 w-5" />
-            Add Note
+            {t('notesMenu.addNote')}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center" className="mb-2 w-48 z-50 bg-card">
           <DropdownMenuItem onClick={() => handleCreateNote('sticky')} className="gap-2">
             <StickyNote className="h-4 w-4" />
-            Sticky Note
+            {t('notesMenu.stickyNotes')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleCreateNote('lined')} className="gap-2">
             <FileText className="h-4 w-4" />
-            Lined Note
+            {t('notesMenu.linedNotes')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleCreateNote('regular')} className="gap-2">
             <FileEdit className="h-4 w-4" />
-            Regular Note
+            {t('notesMenu.regularNotes')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleCreateNote('sketch')} className="gap-2">
             <Pen className="h-4 w-4" />
-            Sketch Note
+            {t('notesMenu.sketchNotes')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleCreateNote('code')} className="gap-2">
             <FileCode className="h-4 w-4" />
-            Code Note
+            {t('notesMenu.codeNotes')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => handleCreateNote('mindmap')} className="gap-2">
             <GitBranch className="h-4 w-4" />
-            Mind Map
+            {t('notesMenu.mindMap')}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
