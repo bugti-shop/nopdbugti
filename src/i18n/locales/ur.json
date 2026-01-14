@@ -738,24 +738,5 @@
   "welcome": {
     "startJourney": "اپنا پیداواری سفر شروع کریں",
     "getStarted": "شروع کریں"
-  },
-  "notebooks": {
-    "title": "نوٹ بکس",
-    "allNotes": "تمام نوٹس",
-    "notes": "نوٹس",
-    "pinned": "پن شدہ",
-    "notebooks": "نوٹ بکس",
-    "newNotebook": "نئی نوٹ بک",
-    "notebookName": "نوٹ بک کا نام",
-    "description": "تفصیل (اختیاری)",
-    "editNotebook": "نوٹ بک میں ترمیم کریں",
-    "deleteNotebook": "نوٹ بک حذف کریں",
-    "deleteWarning": "اس نوٹ بک کے نوٹس تمام نوٹس میں منتقل ہو جائیں گے۔ یہ عمل واپس نہیں ہو سکتا۔",
-    "pin": "پن کریں",
-    "unpin": "ان پن کریں",
-    "moveToNotebook": "نوٹ بک میں منتقل کریں",
-    "removeFromNotebook": "نوٹ بک سے ہٹائیں",
-    "notebookEmpty": "یہ نوٹ بک خالی ہے",
-    "addNotesToNotebook": "اس نوٹ بک میں شامل کرنے کے لیے نوٹس بنائیں"
   }
 }

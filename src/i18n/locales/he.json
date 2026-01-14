@@ -776,24 +776,5 @@
   "welcome": {
     "startJourney": "התחל את מסע הפרודוקטיביות שלך",
     "getStarted": "התחל"
-  },
-  "notebooks": {
-    "title": "מחברות",
-    "allNotes": "כל ההערות",
-    "notes": "הערות",
-    "pinned": "מוצמד",
-    "notebooks": "מחברות",
-    "newNotebook": "מחברת חדשה",
-    "notebookName": "שם המחברת",
-    "description": "תיאור (אופציונלי)",
-    "editNotebook": "ערוך מחברת",
-    "deleteNotebook": "מחק מחברת",
-    "deleteWarning": "הערות במחברת זו יועברו לכל ההערות. לא ניתן לבטל פעולה זו.",
-    "pin": "הצמד",
-    "unpin": "בטל הצמדה",
-    "moveToNotebook": "העבר למחברת",
-    "removeFromNotebook": "הסר ממחברת",
-    "notebookEmpty": "מחברת זו ריקה",
-    "addNotesToNotebook": "צור הערות כדי להוסיף למחברת זו"
   }
 }

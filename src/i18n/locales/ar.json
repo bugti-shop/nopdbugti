@@ -879,24 +879,5 @@
   "welcome": {
     "startJourney": "ابدأ رحلة إنتاجيتك",
     "getStarted": "ابدأ الآن"
-  },
-  "notebooks": {
-    "title": "دفاتر الملاحظات",
-    "allNotes": "جميع الملاحظات",
-    "notes": "ملاحظات",
-    "pinned": "المثبتة",
-    "notebooks": "الدفاتر",
-    "newNotebook": "دفتر جديد",
-    "notebookName": "اسم الدفتر",
-    "description": "الوصف (اختياري)",
-    "editNotebook": "تعديل الدفتر",
-    "deleteNotebook": "حذف الدفتر",
-    "deleteWarning": "سيتم نقل الملاحظات في هذا الدفتر إلى جميع الملاحظات. لا يمكن التراجع عن هذا الإجراء.",
-    "pin": "تثبيت",
-    "unpin": "إلغاء التثبيت",
-    "moveToNotebook": "نقل إلى دفتر",
-    "removeFromNotebook": "إزالة من الدفتر",
-    "notebookEmpty": "هذا الدفتر فارغ",
-    "addNotesToNotebook": "أنشئ ملاحظات لإضافتها إلى هذا الدفتر"
   }
 }

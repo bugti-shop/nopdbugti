@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
-import { Note, NoteType, Folder, Notebook } from '@/types/note';
+import { Note, NoteType, Folder } from '@/types/note';
 import { NoteCard } from '@/components/NoteCard';
 import { NoteEditor } from '@/components/NoteEditor';
 import { BottomNavigation } from '@/components/BottomNavigation';
 import { PersonalizedTips } from '@/components/PersonalizedTips';
 import { FolderManager } from '@/components/FolderManager';
-import { NotebookNavigation } from '@/components/NotebookNavigation';
 import { SyncBadge } from '@/components/SyncStatusIndicator';
 import { useRealtimeSync } from '@/hooks/useRealtimeSync';
 import { syncManager } from '@/utils/syncManager';
@@ -16,7 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Search, Plus, StickyNote, FileText, FileEdit, Pen, ListTodo, Bell, Clock, Repeat, FileCode, GitBranch, Sun, Moon, Receipt, Star, ArrowUpDown, MoreVertical, FolderPlus, CheckSquare, Trash2, Archive, X, RotateCcw, BookOpen } from 'lucide-react';
+import { Search, Plus, StickyNote, FileText, FileEdit, Pen, ListTodo, Bell, Clock, Repeat, FileCode, GitBranch, Sun, Moon, Receipt, Star, ArrowUpDown, MoreVertical, FolderPlus, CheckSquare, Trash2, Archive, X, RotateCcw } from 'lucide-react';
 import { getAllUpcomingReminders } from '@/utils/noteNotifications';
 import { format, isToday, isTomorrow, differenceInDays } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
@@ -37,9 +36,6 @@ const Index = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [notes, setNotes] = useState<Note[]>([]);
   const [folders, setFolders] = useState<Folder[]>([]);
-  const [notebooks, setNotebooks] = useState<Notebook[]>([]);
-  const [selectedNotebookId, setSelectedNotebookId] = useState<string | null>(null);
-  const [isNotebookNavOpen, setIsNotebookNavOpen] = useState(false);
   const [selectedFolderId, setSelectedFolderId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedNote, setSelectedNote] = useState<Note | null>(null);
@@ -55,58 +51,6 @@ const Index = () => {
   const [viewMode, setViewMode] = useState<'notes' | 'trash' | 'archive'>('notes');
   const { isOnline, isSyncing, hasError, lastSync } = useRealtimeSync();
   const syncEnabled = syncManager.isSyncEnabled();
-
-  // Load notebooks from localStorage
-  useEffect(() => {
-    const savedNotebooks = localStorage.getItem('notebooks');
-    if (savedNotebooks) {
-      setNotebooks(JSON.parse(savedNotebooks).map((nb: Notebook) => ({
-        ...nb,
-        createdAt: new Date(nb.createdAt),
-        updatedAt: new Date(nb.updatedAt),
-      })));
-    }
-  }, []);
-
-  // Save notebooks to localStorage
-  useEffect(() => {
-    localStorage.setItem('notebooks', JSON.stringify(notebooks));
-  }, [notebooks]);
-
-  const handleCreateNotebook = (notebook: Omit<Notebook, 'id' | 'createdAt' | 'updatedAt'>) => {
-    const newNotebook: Notebook = {
-      ...notebook,
-      id: `notebook-${Date.now()}`,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    };
-    setNotebooks(prev => [...prev, newNotebook]);
-  };
-
-  const handleUpdateNotebook = (notebookId: string, updates: Partial<Notebook>) => {
-    setNotebooks(prev => prev.map(nb => 
-      nb.id === notebookId ? { ...nb, ...updates, updatedAt: new Date() } : nb
-    ));
-  };
-
-  const handleDeleteNotebook = (notebookId: string) => {
-    setNotebooks(prev => prev.filter(nb => nb.id !== notebookId));
-    // Move notes from deleted notebook to "All Notes"
-    setNotes(prev => prev.map(n => n.folderId === notebookId ? { ...n, folderId: undefined } : n));
-    if (selectedNotebookId === notebookId) {
-      setSelectedNotebookId(null);
-    }
-  };
-
-  const handleReorderNotebooks = (reorderedNotebooks: Notebook[]) => {
-    setNotebooks(reorderedNotebooks);
-  };
-
-  const handleMoveNoteToNotebook = (noteId: string, notebookId: string | null) => {
-    setNotes(prev => prev.map(n => 
-      n.id === noteId ? { ...n, folderId: notebookId || undefined } : n
-    ));
-  };
 
   // Check onboarding status on mount
   useEffect(() => {
@@ -503,22 +447,8 @@ const Index = () => {
         <div className="container mx-auto px-2 xs:px-3 sm:px-4 py-2">
           <div className="flex items-center justify-between mb-2 xs:mb-3 sm:mb-4 gap-1 xs:gap-2">
             <div className="flex items-center gap-1.5 xs:gap-2 min-w-0 flex-shrink-0">
-              <Button
-                size="icon"
-                variant="ghost"
-                onClick={() => {
-                  triggerHaptic('medium');
-                  setIsNotebookNavOpen(true);
-                }}
-                className="h-7 w-7 xs:h-8 xs:w-8 sm:h-9 sm:w-9 hover:bg-muted/50 touch-target"
-                title={t('notebooks.title')}
-              >
-                <BookOpen className="h-4 w-4 xs:h-5 xs:w-5" />
-              </Button>
               <img src={appLogo} alt="Npd" className="h-6 w-6 xs:h-7 xs:w-7 sm:h-8 sm:w-8 flex-shrink-0" style={{ minWidth: '24px', minHeight: '24px' }} />
-              <h1 className="text-base xs:text-lg sm:text-xl font-bold">
-                {selectedNotebookId ? notebooks.find(nb => nb.id === selectedNotebookId)?.name || 'Npd' : 'Npd'}
-              </h1>
+              <h1 className="text-base xs:text-lg sm:text-xl font-bold">Npd</h1>
             </div>
             <div className="flex items-center gap-0.5 xs:gap-1 sm:gap-2 flex-shrink-0">
               {syncEnabled && (
@@ -851,8 +781,6 @@ const Index = () => {
                       isSelected={selectedNoteIds.includes(note.id)}
                       onToggleSelection={handleToggleNoteSelection}
                       onDuplicate={handleDuplicateNote}
-                      notebooks={notebooks}
-                      onMoveToNotebook={handleMoveNoteToNotebook}
                     />
                   ))}
                 </div>
@@ -889,8 +817,6 @@ const Index = () => {
                     isSelected={selectedNoteIds.includes(note.id)}
                     onToggleSelection={handleToggleNoteSelection}
                     onDuplicate={handleDuplicateNote}
-                    notebooks={notebooks}
-                    onMoveToNotebook={handleMoveNoteToNotebook}
                   />
                 ))}
               </div>
@@ -917,7 +843,7 @@ const Index = () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
-              className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 h-12 px-8 text-base font-semibold shadow-lg"
+              className="fixed bottom-20 left-4 right-4 z-50 h-12 text-base font-semibold"
               size="lg"
               onClick={() => triggerHaptic('heavy')}
             >
@@ -963,20 +889,6 @@ const Index = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       )}
-
-      {/* Notebook Navigation */}
-      <NotebookNavigation
-        notebooks={notebooks}
-        notes={notes}
-        selectedNotebookId={selectedNotebookId}
-        onSelectNotebook={setSelectedNotebookId}
-        onCreateNotebook={handleCreateNotebook}
-        onUpdateNotebook={handleUpdateNotebook}
-        onDeleteNotebook={handleDeleteNotebook}
-        onReorderNotebooks={handleReorderNotebooks}
-        isOpen={isNotebookNavOpen}
-        onClose={() => setIsNotebookNavOpen(false)}
-      />
 
       <BottomNavigation />
     </div>

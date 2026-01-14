@@ -1,9 +1,8 @@
 import { useState, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Note, Notebook } from '@/types/note';
+import { Note } from '@/types/note';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Trash2, Edit, Mic, FileText, Pen, Pin, FileCode, GitBranch, AlignLeft, Archive, Star, Check, Copy, EyeOff, Shield, Lock, BookOpen, ChevronRight } from 'lucide-react';
+import { Trash2, Edit, Mic, FileText, Pen, Pin, FileCode, GitBranch, AlignLeft, Archive, Star, Check, Copy, EyeOff, Shield, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { getNoteProtection } from '@/utils/noteProtection';
@@ -13,10 +12,6 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
-  DropdownMenuPortal,
 } from '@/components/ui/dropdown-menu';
 
 interface NoteCardProps {
@@ -39,9 +34,6 @@ interface NoteCardProps {
   // Hide/Protect
   onHide?: (noteId: string) => void;
   onProtect?: (noteId: string) => void;
-  // Notebook support
-  notebooks?: Notebook[];
-  onMoveToNotebook?: (noteId: string, notebookId: string | null) => void;
 }
 
 const STICKY_COLORS = {
@@ -65,8 +57,7 @@ const RANDOM_COLORS = [
   'hsl(60, 90%, 75%)',
 ];
 
-export const NoteCard = ({ note, onEdit, onDelete, onArchive, onTogglePin, onToggleFavorite, onDragStart, onDragOver, onDrop, onDragEnd, isSelectionMode = false, isSelected = false, onToggleSelection, onDuplicate, onHide, onProtect, notebooks = [], onMoveToNotebook }: NoteCardProps) => {
-  const { t } = useTranslation();
+export const NoteCard = ({ note, onEdit, onDelete, onArchive, onTogglePin, onToggleFavorite, onDragStart, onDragOver, onDrop, onDragEnd, isSelectionMode = false, isSelected = false, onToggleSelection, onDuplicate, onHide, onProtect }: NoteCardProps) => {
   const [showContextMenu, setShowContextMenu] = useState(false);
   const [swipeOffset, setSwipeOffset] = useState(0);
   const [isSwiping, setIsSwiping] = useState(false);
@@ -356,67 +347,26 @@ export const NoteCard = ({ note, onEdit, onDelete, onArchive, onTogglePin, onTog
           {onDuplicate && (
             <DropdownMenuItem onClick={() => { setShowContextMenu(false); onDuplicate(note.id); }} className="gap-2">
               <Copy className="h-4 w-4" />
-              {t('common.duplicate', 'Duplicate')}
+              Duplicate
             </DropdownMenuItem>
-          )}
-          {onMoveToNotebook && notebooks.length > 0 && (
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger className="gap-2">
-                <BookOpen className="h-4 w-4" />
-                {t('notebooks.moveToNotebook', 'Move to Notebook')}
-              </DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent className="bg-background border border-border shadow-lg z-[60]">
-                  <DropdownMenuItem 
-                    onClick={() => { 
-                      setShowContextMenu(false); 
-                      onMoveToNotebook(note.id, null); 
-                    }} 
-                    className="gap-2"
-                  >
-                    {t('notebooks.removeFromNotebook', 'Remove from Notebook')}
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  {notebooks.map((notebook) => (
-                    <DropdownMenuItem
-                      key={notebook.id}
-                      onClick={() => { 
-                        setShowContextMenu(false); 
-                        onMoveToNotebook(note.id, notebook.id); 
-                      }}
-                      className="gap-2"
-                    >
-                      <div 
-                        className="w-3 h-3 rounded-full" 
-                        style={{ backgroundColor: notebook.color }} 
-                      />
-                      {notebook.name}
-                      {note.folderId === notebook.id && (
-                        <Check className="h-3 w-3 ml-auto text-primary" />
-                      )}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
           )}
           <DropdownMenuSeparator />
           {onHide && (
             <DropdownMenuItem onClick={() => { setShowContextMenu(false); onHide(note.id); }} className="gap-2">
               <EyeOff className="h-4 w-4" />
-              {t('notes.hideNote', 'Hide Note')}
+              Hide Note
             </DropdownMenuItem>
           )}
           {onProtect && (
             <DropdownMenuItem onClick={() => { setShowContextMenu(false); onProtect(note.id); }} className="gap-2">
               <Shield className="h-4 w-4" />
-              {noteProtection.hasPassword || noteProtection.useBiometric ? t('notes.changeProtection', 'Change Protection') : t('notes.protectNote', 'Protect Note')}
+              {noteProtection.hasPassword || noteProtection.useBiometric ? 'Change Protection' : 'Protect Note'}
             </DropdownMenuItem>
           )}
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => { setShowContextMenu(false); onDelete(note.id); }} className="gap-2 text-destructive">
             <Trash2 className="h-4 w-4" />
-            {t('notes.moveToTrash', 'Move to Trash')}
+            Move to Trash
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

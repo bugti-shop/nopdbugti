@@ -746,24 +746,5 @@
   "welcome": {
     "startJourney": "Comece Sua Jornada de Produtividade",
     "getStarted": "Começar"
-  },
-  "notebooks": {
-    "title": "Cadernos",
-    "allNotes": "Todas as Notas",
-    "notes": "notas",
-    "pinned": "Fixados",
-    "notebooks": "Cadernos",
-    "newNotebook": "Novo Caderno",
-    "notebookName": "Nome do caderno",
-    "description": "Descrição (opcional)",
-    "editNotebook": "Editar Caderno",
-    "deleteNotebook": "Excluir Caderno",
-    "deleteWarning": "As notas neste caderno serão movidas para Todas as Notas. Esta ação não pode ser desfeita.",
-    "pin": "Fixar",
-    "unpin": "Desafixar",
-    "moveToNotebook": "Mover para Caderno",
-    "removeFromNotebook": "Remover do Caderno",
-    "notebookEmpty": "Este caderno está vazio",
-    "addNotesToNotebook": "Crie notas para adicioná-las a este caderno"
   }
 }

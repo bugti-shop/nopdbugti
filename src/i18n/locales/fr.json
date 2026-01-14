@@ -776,24 +776,5 @@
   "welcome": {
     "startJourney": "Commencez Votre Parcours de Productivité",
     "getStarted": "Commencer"
-  },
-  "notebooks": {
-    "title": "Carnets",
-    "allNotes": "Toutes les Notes",
-    "notes": "notes",
-    "pinned": "Épinglés",
-    "notebooks": "Carnets",
-    "newNotebook": "Nouveau Carnet",
-    "notebookName": "Nom du carnet",
-    "description": "Description (optionnel)",
-    "editNotebook": "Modifier le Carnet",
-    "deleteNotebook": "Supprimer le Carnet",
-    "deleteWarning": "Les notes de ce carnet seront déplacées vers Toutes les Notes. Cette action est irréversible.",
-    "pin": "Épingler",
-    "unpin": "Désépingler",
-    "moveToNotebook": "Déplacer vers le Carnet",
-    "removeFromNotebook": "Retirer du Carnet",
-    "notebookEmpty": "Ce carnet est vide",
-    "addNotesToNotebook": "Créez des notes pour les ajouter à ce carnet"
   }
 }

@@ -789,24 +789,5 @@
   "welcome": {
     "startJourney": "Comienza Tu Viaje de Productividad",
     "getStarted": "Comenzar"
-  },
-  "notebooks": {
-    "title": "Cuadernos",
-    "allNotes": "Todas las Notas",
-    "notes": "notas",
-    "pinned": "Fijados",
-    "notebooks": "Cuadernos",
-    "newNotebook": "Nuevo Cuaderno",
-    "notebookName": "Nombre del cuaderno",
-    "description": "Descripción (opcional)",
-    "editNotebook": "Editar Cuaderno",
-    "deleteNotebook": "Eliminar Cuaderno",
-    "deleteWarning": "Las notas en este cuaderno se moverán a Todas las Notas. Esta acción no se puede deshacer.",
-    "pin": "Fijar",
-    "unpin": "Desfijar",
-    "moveToNotebook": "Mover a Cuaderno",
-    "removeFromNotebook": "Quitar del Cuaderno",
-    "notebookEmpty": "Este cuaderno está vacío",
-    "addNotesToNotebook": "Crea notas para añadirlas a este cuaderno"
   }
 }

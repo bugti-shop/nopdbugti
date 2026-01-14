@@ -1093,24 +1093,5 @@
   "welcome": {
     "startJourney": "Start Your Productivity Journey",
     "getStarted": "Get Started"
-  },
-  "notebooks": {
-    "title": "Notebooks",
-    "allNotes": "All Notes",
-    "notes": "notes",
-    "pinned": "Pinned",
-    "notebooks": "Notebooks",
-    "newNotebook": "New Notebook",
-    "notebookName": "Notebook name",
-    "description": "Description (optional)",
-    "editNotebook": "Edit Notebook",
-    "deleteNotebook": "Delete Notebook",
-    "deleteWarning": "Notes in this notebook will be moved to All Notes. This action cannot be undone.",
-    "pin": "Pin",
-    "unpin": "Unpin",
-    "moveToNotebook": "Move to Notebook",
-    "removeFromNotebook": "Remove from Notebook",
-    "notebookEmpty": "This notebook is empty",
-    "addNotesToNotebook": "Create notes to add them to this notebook"
   }
 }
