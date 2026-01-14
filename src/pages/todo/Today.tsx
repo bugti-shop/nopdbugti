@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TodoItem, Folder, Priority, Note, TaskSection, TaskStatus } from '@/types/note';
 import { WaveformProgressBar } from '@/components/WaveformProgressBar';
 import { Play, Pause, Repeat, Check, Trash2 as TrashIcon, Edit, Plus as PlusIcon, ArrowUpCircle, ArrowDownCircle, Move, History, TrendingUp, Flag, MapPin, ChevronsUpDown, Circle, Loader2, Clock as ClockIcon } from 'lucide-react';
@@ -60,6 +61,7 @@ const defaultSections: TaskSection[] = [
 ];
 
 const Today = () => {
+  const { t } = useTranslation();
   const [items, setItems] = useState<TodoItem[]>([]);
   const [folders, setFolders] = useState<Folder[]>([]);
   const [sections, setSections] = useState<TaskSection[]>(defaultSections);
@@ -1517,7 +1519,7 @@ const Today = () => {
           <div className="mb-4">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-semibold flex items-center gap-2"><FolderIcon className="h-5 w-5" />Folders</h2>
+                <h2 className="text-lg font-semibold flex items-center gap-2"><FolderIcon className="h-5 w-5" />{t('menu.folders')}</h2>
                 {smartList === 'location-reminders' && (
                   <Button 
                     variant="outline" 
@@ -1526,14 +1528,14 @@ const Today = () => {
                     className="gap-1"
                   >
                     <MapPin className="h-4 w-4" />
-                    Map View
+                    {t('menu.mapView')}
                   </Button>
                 )}
               </div>
               <div className="flex items-center gap-2">
                 {isSelectionMode && (
                   <Button variant="default" size="sm" onClick={() => { setIsSelectionMode(false); setSelectedTaskIds(new Set()); }}>
-                    Cancel
+                    {t('menu.cancel')}
                   </Button>
                 )}
                 <DropdownMenu onOpenChange={(open) => { if (!open) setDropdownView('main'); }}>
@@ -1552,10 +1554,10 @@ const Today = () => {
                           {/* Smart Lists */}
                           <DropdownMenuItem onClick={(e) => { e.preventDefault(); setDropdownView('smartLists'); }} className="cursor-pointer">
                             <Sparkles className="h-4 w-4 mr-2" />
-                            Smart Lists
+                            {t('menu.smartLists')}
                             {smartList !== 'all' && (
                               <Badge variant="secondary" className="ml-auto h-5 px-1.5 text-xs mr-1">
-                                Active
+                                {t('menu.active')}
                               </Badge>
                             )}
                             <ChevronRight className="h-4 w-4 ml-auto" />
@@ -1563,13 +1565,13 @@ const Today = () => {
                           {/* Sort By */}
                           <DropdownMenuItem onClick={(e) => { e.preventDefault(); setDropdownView('sortBy'); }} className="cursor-pointer">
                             <ArrowUpDown className="h-4 w-4 mr-2" />
-                            Sort By
+                            {t('menu.sortBy')}
                             <ChevronRight className="h-4 w-4 ml-auto" />
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem onClick={() => setShowCompleted(!showCompleted)} className="cursor-pointer">
                             {showCompleted ? <EyeOff className="h-4 w-4 mr-2" /> : <Eye className="h-4 w-4 mr-2" />}
-                            {showCompleted ? 'Hide Completed' : 'Show Completed'}
+                            {showCompleted ? t('menu.hideCompleted') : t('menu.showCompleted')}
                           </DropdownMenuItem>
                           <DropdownMenuItem 
                             onClick={() => {
@@ -1583,24 +1585,24 @@ const Today = () => {
                             className="cursor-pointer"
                           >
                             {(hideDetailsOptions.hideDateTime && hideDetailsOptions.hideStatus && hideDetailsOptions.hideSubtasks) ? (
-                              <><Eye className="h-4 w-4 mr-2" />Show All Details</>
+                              <><Eye className="h-4 w-4 mr-2" />{t('menu.showAllDetails')}</>
                             ) : (
-                              <><EyeOff className="h-4 w-4 mr-2" />Hide All Details</>
+                              <><EyeOff className="h-4 w-4 mr-2" />{t('menu.hideAllDetails')}</>
                             )}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setCompactMode(!compactMode)} className="cursor-pointer">
                             {compactMode ? <LayoutList className="h-4 w-4 mr-2" /> : <LayoutGrid className="h-4 w-4 mr-2" />}
-                            {compactMode ? 'Normal Mode' : 'Compact Mode'}
+                            {compactMode ? t('menu.normalMode') : t('menu.compactMode')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setIsTaskOptionsOpen(true)} className="cursor-pointer">
                             <Settings className="h-4 w-4 mr-2" />
-                            Detail Settings
+                            {t('menu.detailSettings')}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           {/* Group By */}
                           <DropdownMenuItem onClick={(e) => { e.preventDefault(); setDropdownView('groupBy'); }} className="cursor-pointer">
                             <Columns3 className="h-4 w-4 mr-2" />
-                            Group By
+                            {t('menu.groupBy')}
                             {groupByOption !== 'none' && (
                               <Badge variant="secondary" className="ml-auto h-5 px-1.5 text-xs mr-1">
                                 {groupByOption}
@@ -1609,46 +1611,46 @@ const Today = () => {
                             <ChevronRight className="h-4 w-4 ml-auto" />
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setIsFilterSheetOpen(true)} className="cursor-pointer">
-                            <Filter className="h-4 w-4 mr-2" />Filter
+                            <Filter className="h-4 w-4 mr-2" />{t('menu.filter')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setIsDuplicateSheetOpen(true)} className="cursor-pointer">
-                            <Copy className="h-4 w-4 mr-2" />Duplicate
+                            <Copy className="h-4 w-4 mr-2" />{t('menu.duplicate')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setIsBatchTaskOpen(true)} className="cursor-pointer">
-                            <ListPlus className="h-4 w-4 mr-2" />Add Multiple Tasks
+                            <ListPlus className="h-4 w-4 mr-2" />{t('menu.addMultipleTasks')}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem onClick={() => handleAddSection('below')} className="cursor-pointer">
-                            <PlusIcon className="h-4 w-4 mr-2" />Sections
+                            <PlusIcon className="h-4 w-4 mr-2" />{t('menu.sections')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setIsFolderManageOpen(true)} className="cursor-pointer">
-                            <FolderIcon className="h-4 w-4 mr-2" />Folders
+                            <FolderIcon className="h-4 w-4 mr-2" />{t('menu.folders')}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem onClick={() => { setIsSelectionMode(true); setIsSelectActionsOpen(true); }} className="cursor-pointer">
-                            <MousePointer2 className="h-4 w-4 mr-2" />Select
+                            <MousePointer2 className="h-4 w-4 mr-2" />{t('menu.select')}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem onClick={() => setViewMode('flat')} className={cn("cursor-pointer", viewMode === 'flat' && "bg-accent")}>
-                            <LayoutList className="h-4 w-4 mr-2" />Flat Layout
+                            <LayoutList className="h-4 w-4 mr-2" />{t('menu.flatLayout')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setViewMode('kanban')} className={cn("cursor-pointer", viewMode === 'kanban' && "bg-accent")}>
-                            <Columns3 className="h-4 w-4 mr-2" />Kanban Board
+                            <Columns3 className="h-4 w-4 mr-2" />{t('menu.kanbanBoard')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setViewMode('kanban-status')} className={cn("cursor-pointer", viewMode === 'kanban-status' && "bg-accent")}>
-                            <ListChecks className="h-4 w-4 mr-2" />Status Board
+                            <ListChecks className="h-4 w-4 mr-2" />{t('menu.statusBoard')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setViewMode('timeline')} className={cn("cursor-pointer", viewMode === 'timeline' && "bg-accent")}>
-                            <GitBranch className="h-4 w-4 mr-2" />Timeline Board
+                            <GitBranch className="h-4 w-4 mr-2" />{t('menu.timelineBoard')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setViewMode('progress')} className={cn("cursor-pointer", viewMode === 'progress' && "bg-accent")}>
-                            <TrendingUp className="h-4 w-4 mr-2" />Progress Board
+                            <TrendingUp className="h-4 w-4 mr-2" />{t('menu.progressBoard')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setViewMode('priority')} className={cn("cursor-pointer", viewMode === 'priority' && "bg-accent")}>
-                            <Flag className="h-4 w-4 mr-2" />Priority Board
+                            <Flag className="h-4 w-4 mr-2" />{t('menu.priorityBoard')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setViewMode('history')} className={cn("cursor-pointer", viewMode === 'history' && "bg-accent")}>
-                            <History className="h-4 w-4 mr-2" />History Log
+                            <History className="h-4 w-4 mr-2" />{t('menu.historyLog')}
                           </DropdownMenuItem>
                         </>
                       )}
@@ -1661,7 +1663,7 @@ const Today = () => {
                         <>
                           <DropdownMenuItem onClick={(e) => { e.preventDefault(); setDropdownView('main'); }} className="cursor-pointer">
                             <ChevronRight className="h-4 w-4 mr-2 rotate-180" />
-                            Back
+                            {t('menu.back')}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           {smartListData.smartLists.map((list) => (
@@ -1693,24 +1695,24 @@ const Today = () => {
                         <>
                           <DropdownMenuItem onClick={(e) => { e.preventDefault(); setDropdownView('main'); }} className="cursor-pointer">
                             <ChevronRight className="h-4 w-4 mr-2 rotate-180" />
-                            Back
+                            {t('menu.back')}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem onClick={() => setSortBy('date')} className={cn("cursor-pointer", sortBy === 'date' && "bg-accent")}>
                             <CalendarIcon2 className="h-4 w-4 mr-2 text-blue-500" />
-                            Due Date
+                            {t('menu.dueDate')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setSortBy('priority')} className={cn("cursor-pointer", sortBy === 'priority' && "bg-accent")}>
                             <Flame className="h-4 w-4 mr-2 text-orange-500" />
-                            Priority
+                            {t('menu.priority')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setSortBy('name')} className={cn("cursor-pointer", sortBy === 'name' && "bg-accent")}>
                             <ArrowDownAZ className="h-4 w-4 mr-2 text-purple-500" />
-                            Name
+                            {t('menu.name')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setSortBy('created')} className={cn("cursor-pointer", sortBy === 'created' && "bg-accent")}>
                             <Clock className="h-4 w-4 mr-2 text-green-500" />
-                            Created Time
+                            {t('menu.createdTime')}
                           </DropdownMenuItem>
                         </>
                       )}
@@ -1723,24 +1725,24 @@ const Today = () => {
                         <>
                           <DropdownMenuItem onClick={(e) => { e.preventDefault(); setDropdownView('main'); }} className="cursor-pointer">
                             <ChevronRight className="h-4 w-4 mr-2 rotate-180" />
-                            Back
+                            {t('menu.back')}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem onClick={() => setGroupByOption('none')} className={cn("cursor-pointer", groupByOption === 'none' && "bg-accent")}>
                             <LayoutList className="h-4 w-4 mr-2 text-muted-foreground" />
-                            No Grouping
+                            {t('menu.noGrouping')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setGroupByOption('section')} className={cn("cursor-pointer", groupByOption === 'section' && "bg-accent")}>
                             <Columns3 className="h-4 w-4 mr-2 text-blue-500" />
-                            By Section
+                            {t('menu.bySection')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setGroupByOption('priority')} className={cn("cursor-pointer", groupByOption === 'priority' && "bg-accent")}>
                             <Flag className="h-4 w-4 mr-2 text-orange-500" />
-                            By Priority
+                            {t('menu.byPriority')}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setGroupByOption('date')} className={cn("cursor-pointer", groupByOption === 'date' && "bg-accent")}>
                             <CalendarIcon2 className="h-4 w-4 mr-2 text-green-500" />
-                            By Due Date
+                            {t('menu.byDueDate')}
                           </DropdownMenuItem>
                         </>
                       )}
