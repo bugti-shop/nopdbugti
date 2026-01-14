@@ -2719,8 +2719,8 @@ const Today = () => {
         </div>
       </main>
 
-      <Button onClick={() => { Haptics.impact({ style: ImpactStyle.Light }).catch(() => {}); setIsInputOpen(true); }} className="fixed bottom-20 left-4 right-4 z-30 h-12 text-base font-semibold" size="lg">
-        <Plus className="h-5 w-5" />Add Task
+      <Button onClick={async () => { try { await Haptics.impact({ style: ImpactStyle.Heavy }); } catch {} setIsInputOpen(true); }} className="fixed bottom-20 left-4 right-4 z-30 h-12 text-base font-semibold" size="lg">
+        <Plus className="h-5 w-5" />{t('tasks.addTask')}
       </Button>
 
       <TaskInputSheet isOpen={isInputOpen} onClose={() => { setIsInputOpen(false); setInputSectionId(null); }} onAddTask={handleAddTask} folders={folders} selectedFolderId={selectedFolderId} onCreateFolder={handleCreateFolder} sections={sections} selectedSectionId={inputSectionId} />

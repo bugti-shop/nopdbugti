@@ -1,17 +1,13 @@
 import { Home, CalendarDays, Calendar, Settings, LayoutDashboard, History, BookOpen } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { triggerHaptic } from '@/utils/haptics';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { MoreHorizontal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const triggerHaptic = async () => {
-  try {
-    await Haptics.impact({ style: ImpactStyle.Light });
-  } catch (error) {
-    console.log('Haptics not available');
-  }
+const triggerNavHaptic = async () => {
+  await triggerHaptic('heavy');
 };
 
 export const TodoBottomNavigation = () => {
@@ -49,7 +45,7 @@ export const TodoBottomNavigation = () => {
             <Link
               key={item.path}
               to={item.path}
-              onClick={triggerHaptic}
+              onClick={triggerNavHaptic}
               className={cn(
                 "flex flex-col items-center justify-center gap-0.5 sm:gap-1 transition-colors min-w-0 px-1",
                 isActive ? "text-primary" : "text-muted-foreground"
@@ -65,7 +61,7 @@ export const TodoBottomNavigation = () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button
-              onClick={triggerHaptic}
+              onClick={triggerNavHaptic}
               className={cn(
                 "flex flex-col items-center justify-center gap-0.5 sm:gap-1 transition-colors min-w-0 px-1",
                 moreItems.some(item => location.pathname === item.path) 
@@ -85,7 +81,7 @@ export const TodoBottomNavigation = () => {
                 <DropdownMenuItem key={item.path} asChild>
                   <Link
                     to={item.path}
-                    onClick={triggerHaptic}
+                    onClick={triggerNavHaptic}
                     className={cn(
                       "flex items-center gap-2 w-full",
                       isActive && "text-primary"
