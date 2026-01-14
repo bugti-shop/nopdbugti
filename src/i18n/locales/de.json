@@ -776,5 +776,24 @@
   "welcome": {
     "startJourney": "Starten Sie Ihre Produktivitätsreise",
     "getStarted": "Loslegen"
+  },
+  "notebooks": {
+    "title": "Notizbücher",
+    "allNotes": "Alle Notizen",
+    "notes": "Notizen",
+    "pinned": "Angeheftet",
+    "notebooks": "Notizbücher",
+    "newNotebook": "Neues Notizbuch",
+    "notebookName": "Notizbuchname",
+    "description": "Beschreibung (optional)",
+    "editNotebook": "Notizbuch bearbeiten",
+    "deleteNotebook": "Notizbuch löschen",
+    "deleteWarning": "Notizen in diesem Notizbuch werden zu Alle Notizen verschoben. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "pin": "Anheften",
+    "unpin": "Lösen",
+    "moveToNotebook": "In Notizbuch verschieben",
+    "removeFromNotebook": "Aus Notizbuch entfernen",
+    "notebookEmpty": "Dieses Notizbuch ist leer",
+    "addNotesToNotebook": "Erstellen Sie Notizen, um sie diesem Notizbuch hinzuzufügen"
   }
 }

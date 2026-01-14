@@ -744,5 +744,24 @@
   "welcome": {
     "startJourney": "Verimlilik Yolculuğunuza Başlayın",
     "getStarted": "Başla"
+  },
+  "notebooks": {
+    "title": "Defterler",
+    "allNotes": "Tüm Notlar",
+    "notes": "notlar",
+    "pinned": "Sabitlenmiş",
+    "notebooks": "Defterler",
+    "newNotebook": "Yeni Defter",
+    "notebookName": "Defter adı",
+    "description": "Açıklama (isteğe bağlı)",
+    "editNotebook": "Defteri Düzenle",
+    "deleteNotebook": "Defteri Sil",
+    "deleteWarning": "Bu defterdeki notlar Tüm Notlar'a taşınacak. Bu işlem geri alınamaz.",
+    "pin": "Sabitle",
+    "unpin": "Sabitlemeyi Kaldır",
+    "moveToNotebook": "Deftere Taşı",
+    "removeFromNotebook": "Defterden Kaldır",
+    "notebookEmpty": "Bu defter boş",
+    "addNotesToNotebook": "Bu deftere eklemek için notlar oluşturun"
   }
 }

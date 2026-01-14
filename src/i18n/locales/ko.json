@@ -750,5 +750,24 @@
   "welcome": {
     "startJourney": "생산성 여정을 시작하세요",
     "getStarted": "시작하기"
+  },
+  "notebooks": {
+    "title": "노트북",
+    "allNotes": "모든 노트",
+    "notes": "노트",
+    "pinned": "고정됨",
+    "notebooks": "노트북",
+    "newNotebook": "새 노트북",
+    "notebookName": "노트북 이름",
+    "description": "설명 (선택사항)",
+    "editNotebook": "노트북 수정",
+    "deleteNotebook": "노트북 삭제",
+    "deleteWarning": "이 노트북의 노트들은 모든 노트로 이동됩니다. 이 작업은 취소할 수 없습니다.",
+    "pin": "고정",
+    "unpin": "고정 해제",
+    "moveToNotebook": "노트북으로 이동",
+    "removeFromNotebook": "노트북에서 제거",
+    "notebookEmpty": "이 노트북은 비어 있습니다",
+    "addNotesToNotebook": "이 노트북에 추가할 노트를 만드세요"
   }
 }

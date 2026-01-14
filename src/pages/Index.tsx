@@ -102,6 +102,12 @@ const Index = () => {
     setNotebooks(reorderedNotebooks);
   };
 
+  const handleMoveNoteToNotebook = (noteId: string, notebookId: string | null) => {
+    setNotes(prev => prev.map(n => 
+      n.id === noteId ? { ...n, folderId: notebookId || undefined } : n
+    ));
+  };
+
   // Check onboarding status on mount
   useEffect(() => {
     // Initialize folders from personalized suggestions
@@ -845,6 +851,8 @@ const Index = () => {
                       isSelected={selectedNoteIds.includes(note.id)}
                       onToggleSelection={handleToggleNoteSelection}
                       onDuplicate={handleDuplicateNote}
+                      notebooks={notebooks}
+                      onMoveToNotebook={handleMoveNoteToNotebook}
                     />
                   ))}
                 </div>
@@ -881,6 +889,8 @@ const Index = () => {
                     isSelected={selectedNoteIds.includes(note.id)}
                     onToggleSelection={handleToggleNoteSelection}
                     onDuplicate={handleDuplicateNote}
+                    notebooks={notebooks}
+                    onMoveToNotebook={handleMoveNoteToNotebook}
                   />
                 ))}
               </div>
