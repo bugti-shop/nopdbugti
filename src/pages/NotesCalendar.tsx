@@ -11,6 +11,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { cn } from '@/lib/utils';
 import appLogo from '@/assets/app-logo.png';
 import { useDarkMode } from '@/hooks/useDarkMode';
+import { loadNotesFromDB, saveNotesToDB, saveNoteToDBSingle, deleteNoteFromDB } from '@/utils/noteStorage';
 
 const NotesCalendar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -29,11 +30,15 @@ const NotesCalendar = () => {
   });
 
   useEffect(() => {
-    const saved = localStorage.getItem('notes');
-    if (saved) {
-      const allNotes: Note[] = JSON.parse(saved);
-      setNotes(allNotes);
-    }
+    const loadNotes = async () => {
+      try {
+        const loadedNotes = await loadNotesFromDB();
+        setNotes(loadedNotes);
+      } catch (error) {
+        console.error('Error loading notes:', error);
+      }
+    };
+    loadNotes();
   }, []);
 
   useEffect(() => {
@@ -48,18 +53,18 @@ const NotesCalendar = () => {
     }
   }, [date, notes, selectedNoteTypes]);
 
-  const handleSaveNote = (noteData: Omit<Note, 'id' | 'createdAt' | 'updatedAt'>) => {
+  const handleSaveNote = async (noteData: Omit<Note, 'id' | 'createdAt' | 'updatedAt'>) => {
     if (editingNote) {
       // Update existing note - preserve original createdAt
       const updatedNote: Note = {
         ...editingNote,
         ...noteData,
-        createdAt: editingNote.createdAt, // Preserve original date
+        createdAt: editingNote.createdAt,
         updatedAt: new Date(),
       };
       const updatedNotes = notes.map(n => n.id === editingNote.id ? updatedNote : n);
       setNotes(updatedNotes);
-      localStorage.setItem('notes', JSON.stringify(updatedNotes));
+      await saveNoteToDBSingle(updatedNote);
     } else {
       // Create new note with selected date
       const newNote: Note = {
@@ -71,7 +76,7 @@ const NotesCalendar = () => {
       };
       const updatedNotes = [...notes, newNote];
       setNotes(updatedNotes);
-      localStorage.setItem('notes', JSON.stringify(updatedNotes));
+      await saveNoteToDBSingle(newNote);
     }
     setIsEditorOpen(false);
     setEditingNote(null);
@@ -108,10 +113,10 @@ const NotesCalendar = () => {
     expense: { label: 'Expense', icon: FileText },
   };
 
-  const handleDeleteNote = (noteId: string) => {
+  const handleDeleteNote = async (noteId: string) => {
     const updatedNotes = notes.filter(n => n.id !== noteId);
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+    await deleteNoteFromDB(noteId);
     // Trigger calendar refresh
     window.dispatchEvent(new Event('notesUpdated'));
   };
