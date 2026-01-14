@@ -845,7 +845,7 @@ const Index = () => {
             <Button
               className="fixed bottom-20 left-4 right-4 z-50 h-12 text-base font-semibold"
               size="lg"
-              onClick={() => triggerHaptic('medium')}
+              onClick={() => triggerHaptic('heavy')}
             >
               <Plus className="h-5 w-5" />
               {t('notes.newNote')}
