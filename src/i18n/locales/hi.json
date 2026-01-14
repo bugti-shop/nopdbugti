@@ -776,5 +776,24 @@
   "welcome": {
     "startJourney": "अपनी उत्पादकता यात्रा शुरू करें",
     "getStarted": "शुरू करें"
+  },
+  "notebooks": {
+    "title": "नोटबुक",
+    "allNotes": "सभी नोट्स",
+    "notes": "नोट्स",
+    "pinned": "पिन किए गए",
+    "notebooks": "नोटबुक",
+    "newNotebook": "नई नोटबुक",
+    "notebookName": "नोटबुक का नाम",
+    "description": "विवरण (वैकल्पिक)",
+    "editNotebook": "नोटबुक संपादित करें",
+    "deleteNotebook": "नोटबुक हटाएं",
+    "deleteWarning": "इस नोटबुक के नोट्स सभी नोट्स में स्थानांतरित हो जाएंगे। यह क्रिया पूर्ववत नहीं की जा सकती।",
+    "pin": "पिन करें",
+    "unpin": "अनपिन करें",
+    "moveToNotebook": "नोटबुक में ले जाएं",
+    "removeFromNotebook": "नोटबुक से हटाएं",
+    "notebookEmpty": "यह नोटबुक खाली है",
+    "addNotesToNotebook": "इस नोटबुक में जोड़ने के लिए नोट्स बनाएं"
   }
 }

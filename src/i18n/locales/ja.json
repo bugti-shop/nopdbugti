@@ -757,5 +757,24 @@
   "welcome": {
     "startJourney": "生産性の旅を始めましょう",
     "getStarted": "始める"
+  },
+  "notebooks": {
+    "title": "ノートブック",
+    "allNotes": "すべてのノート",
+    "notes": "ノート",
+    "pinned": "固定済み",
+    "notebooks": "ノートブック",
+    "newNotebook": "新しいノートブック",
+    "notebookName": "ノートブック名",
+    "description": "説明（任意）",
+    "editNotebook": "ノートブックを編集",
+    "deleteNotebook": "ノートブックを削除",
+    "deleteWarning": "このノートブックのノートはすべてのノートに移動されます。この操作は元に戻せません。",
+    "pin": "固定",
+    "unpin": "固定解除",
+    "moveToNotebook": "ノートブックに移動",
+    "removeFromNotebook": "ノートブックから削除",
+    "notebookEmpty": "このノートブックは空です",
+    "addNotesToNotebook": "ノートを作成してこのノートブックに追加してください"
   }
 }

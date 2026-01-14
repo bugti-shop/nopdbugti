@@ -750,5 +750,24 @@
   "welcome": {
     "startJourney": "开始您的效率之旅",
     "getStarted": "开始"
+  },
+  "notebooks": {
+    "title": "笔记本",
+    "allNotes": "所有笔记",
+    "notes": "笔记",
+    "pinned": "已固定",
+    "notebooks": "笔记本",
+    "newNotebook": "新建笔记本",
+    "notebookName": "笔记本名称",
+    "description": "描述（可选）",
+    "editNotebook": "编辑笔记本",
+    "deleteNotebook": "删除笔记本",
+    "deleteWarning": "此笔记本中的笔记将移至所有笔记。此操作无法撤消。",
+    "pin": "固定",
+    "unpin": "取消固定",
+    "moveToNotebook": "移至笔记本",
+    "removeFromNotebook": "从笔记本移除",
+    "notebookEmpty": "此笔记本为空",
+    "addNotesToNotebook": "创建笔记以添加到此笔记本"
   }
 }

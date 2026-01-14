@@ -776,5 +776,24 @@
   "welcome": {
     "startJourney": "Inizia il Tuo Viaggio di Produttività",
     "getStarted": "Inizia"
+  },
+  "notebooks": {
+    "title": "Quaderni",
+    "allNotes": "Tutte le Note",
+    "notes": "note",
+    "pinned": "Fissati",
+    "notebooks": "Quaderni",
+    "newNotebook": "Nuovo Quaderno",
+    "notebookName": "Nome del quaderno",
+    "description": "Descrizione (opzionale)",
+    "editNotebook": "Modifica Quaderno",
+    "deleteNotebook": "Elimina Quaderno",
+    "deleteWarning": "Le note in questo quaderno verranno spostate in Tutte le Note. Questa azione non può essere annullata.",
+    "pin": "Fissa",
+    "unpin": "Rimuovi fissaggio",
+    "moveToNotebook": "Sposta nel Quaderno",
+    "removeFromNotebook": "Rimuovi dal Quaderno",
+    "notebookEmpty": "Questo quaderno è vuoto",
+    "addNotesToNotebook": "Crea note per aggiungerle a questo quaderno"
   }
 }
