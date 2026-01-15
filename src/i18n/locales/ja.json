@@ -377,7 +377,38 @@
     "statistics": "統計",
     "words": "単語数",
     "characters": "文字数",
-    "readingTime": "読書時間"
+    "readingTime": "読書時間",
+    "fontWeights": {
+      "light": "ライト",
+      "regular": "レギュラー",
+      "medium": "ミディアム",
+      "semiBold": "セミボールド",
+      "bold": "ボールド"
+    },
+    "fontSizes": {
+      "extraSmall": "極小",
+      "small": "小",
+      "medium": "中",
+      "large": "大",
+      "extraLarge": "特大",
+      "huge": "巨大"
+    },
+    "letterSpacings": {
+      "tight": "狭い",
+      "normal": "標準",
+      "wide": "広い",
+      "wider": "より広い",
+      "widest": "最も広い"
+    },
+    "lineHeights": {
+      "compact": "コンパクト",
+      "normal": "標準",
+      "relaxed": "ゆったり",
+      "loose": "ルーズ",
+      "extraLoose": "非常にルーズ"
+    },
+    "imageAligned": "画像が{{align}}に配置されました",
+    "imageDeleted": "画像が削除されました"
   },
   "dateTime": {
     "date": "日付",

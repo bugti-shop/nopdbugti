@@ -481,7 +481,38 @@
       "bordered": "Bordered",
       "minimal": "Minimal",
       "modern": "Modern"
-    }
+    },
+    "fontWeights": {
+      "light": "Light",
+      "regular": "Regular",
+      "medium": "Medium",
+      "semiBold": "Semi Bold",
+      "bold": "Bold"
+    },
+    "fontSizes": {
+      "extraSmall": "Extra Small",
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large",
+      "extraLarge": "Extra Large",
+      "huge": "Huge"
+    },
+    "letterSpacings": {
+      "tight": "Tight",
+      "normal": "Normal",
+      "wide": "Wide",
+      "wider": "Wider",
+      "widest": "Widest"
+    },
+    "lineHeights": {
+      "compact": "Compact",
+      "normal": "Normal",
+      "relaxed": "Relaxed",
+      "loose": "Loose",
+      "extraLoose": "Extra Loose"
+    },
+    "imageAligned": "Image aligned {{align}}",
+    "imageDeleted": "Image deleted"
   },
   "dateTime": {
     "date": "Date",

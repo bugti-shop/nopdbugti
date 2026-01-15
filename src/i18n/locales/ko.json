@@ -377,7 +377,38 @@
     "statistics": "통계",
     "words": "단어",
     "characters": "문자",
-    "readingTime": "읽기 시간"
+    "readingTime": "읽기 시간",
+    "fontWeights": {
+      "light": "가벼움",
+      "regular": "보통",
+      "medium": "중간",
+      "semiBold": "반굵음",
+      "bold": "굵음"
+    },
+    "fontSizes": {
+      "extraSmall": "아주 작음",
+      "small": "작음",
+      "medium": "중간",
+      "large": "큼",
+      "extraLarge": "아주 큼",
+      "huge": "거대함"
+    },
+    "letterSpacings": {
+      "tight": "좁음",
+      "normal": "보통",
+      "wide": "넓음",
+      "wider": "더 넓음",
+      "widest": "가장 넓음"
+    },
+    "lineHeights": {
+      "compact": "촘촘함",
+      "normal": "보통",
+      "relaxed": "여유로움",
+      "loose": "느슨함",
+      "extraLoose": "매우 느슨함"
+    },
+    "imageAligned": "이미지가 {{align}} 정렬됨",
+    "imageDeleted": "이미지 삭제됨"
   },
   "dateTime": {
     "date": "날짜",

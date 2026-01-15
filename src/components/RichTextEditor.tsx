@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import {
   Bold,
@@ -353,6 +354,7 @@ export const RichTextEditor = ({
   onInsertNoteLink,
   externalEditorRef,
 }: RichTextEditorProps) => {
+  const { t } = useTranslation();
   const internalEditorRef = useRef<HTMLDivElement>(null);
   const editorRef = externalEditorRef || internalEditorRef;
   const [showLinkInput, setShowLinkInput] = useState(false);
@@ -1737,7 +1739,7 @@ export const RichTextEditor = ({
       {showLinkInput && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowLinkInput(false)}>
           <div className="bg-background rounded-lg p-4 w-full max-w-sm shadow-lg" onClick={e => e.stopPropagation()}>
-            <h3 className="font-semibold mb-2">Insert Link</h3>
+            <h3 className="font-semibold mb-2">{t('editor.insertLink')}</h3>
             <Input
               placeholder="https://example.com"
               value={linkUrl}
@@ -1746,8 +1748,8 @@ export const RichTextEditor = ({
               autoFocus
             />
             <div className="flex gap-2 mt-3">
-              <Button variant="outline" size="sm" onClick={() => setShowLinkInput(false)}>Cancel</Button>
-              <Button size="sm" onClick={handleLink}>Insert</Button>
+              <Button variant="outline" size="sm" onClick={() => setShowLinkInput(false)}>{t('common.cancel')}</Button>
+              <Button size="sm" onClick={handleLink}>{t('editor.insert')}</Button>
             </div>
           </div>
         </div>

@@ -252,7 +252,8 @@
       "inProgress": "Devam Ediyor",
       "completed": "Tamamlandı",
       "onHold": "Beklemede",
-      "cancelled": "İptal Edildi"
+      "cancelled": "İptal Edildi",
+      "almostDone": "Neredeyse Bitti"
     },
     "sections": {
       "title": "Bölüm",
@@ -277,6 +278,7 @@
       "thisWeek": "Bu Hafta",
       "overdue": "Gecikmiş",
       "noDueDate": "Bitiş Tarihi Yok",
+      "hasDate": "Bitiş Tarihi Var",
       "byPriority": "Önceliğe Göre",
       "byStatus": "Duruma Göre",
       "byDate": "Tarihe Göre",
@@ -375,7 +377,12 @@
     "statistics": "İstatistikler",
     "words": "Kelimeler",
     "characters": "Karakterler",
-    "readingTime": "Okuma Süresi"
+    "readingTime": "Okuma Süresi",
+    "fontWeights": { "light": "İnce", "regular": "Normal", "medium": "Orta", "semiBold": "Yarı Kalın", "bold": "Kalın" },
+    "fontSizes": { "extraSmall": "Çok Küçük", "small": "Küçük", "medium": "Orta", "large": "Büyük", "extraLarge": "Çok Büyük", "huge": "Dev" },
+    "letterSpacings": { "tight": "Sıkı", "normal": "Normal", "wide": "Geniş", "wider": "Daha Geniş", "widest": "En Geniş" },
+    "lineHeights": { "compact": "Kompakt", "normal": "Normal", "relaxed": "Rahat", "loose": "Gevşek", "extraLoose": "Çok Gevşek" },
+    "imageAligned": "Resim {{align}} hizalandı", "imageDeleted": "Resim silindi"
   },
   "dateTime": {
     "date": "Tarih",
@@ -397,6 +404,7 @@
   "actions": {
     "selectItems": "Öğeleri Seç",
     "selectedCount": "{{count}} seçili",
+    "tasksSelected": "{{count}} görev seçili",
     "deleteSelected": "Seçilenleri Sil",
     "moveSelected": "Seçilenleri Taşı",
     "archiveSelected": "Seçilenleri Arşivle",
@@ -404,7 +412,18 @@
     "cancelSelection": "Seçimi İptal Et",
     "batchAdd": "Toplu Ekle",
     "customizeActions": "Eylemleri Özelleştir",
-    "manageActions": "Eylemleri Yönet"
+    "manageActions": "Eylemleri Yönet",
+    "selectAll": "Tümünü Seç",
+    "move": "Taşı",
+    "complete": "Tamamla",
+    "dueDate": "Bitiş Tarihi",
+    "reminder": "Hatırlatıcı",
+    "section": "Bölüm",
+    "moreActions": "Daha Fazla Eylem",
+    "setStatus": "Durumu Ayarla",
+    "setRepeat": "Tekrarı Ayarla",
+    "pinTasks": "Görevleri Sabitle",
+    "convertToNote": "Nota Dönüştür"
   },
   "voice": {
     "startRecording": "Kaydı Başlat",
