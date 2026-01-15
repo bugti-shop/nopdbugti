@@ -36,7 +36,46 @@
     "yesterday": "کل",
     "thisWeek": "اس ہفتے",
     "noResults": "کوئی نتیجہ نہیں ملا",
-    "retry": "دوبارہ کوشش کریں"
+    "retry": "دوبارہ کوشش کریں",
+    "manage": "منظم کریں",
+    "morePages": "مزید صفحات",
+    "noFoldersYet": "ابھی تک کوئی فولڈر نہیں",
+    "addItem": "آئٹم شامل کریں",
+    "addTask": "کام شامل کریں",
+    "preview": "پیش نظارہ",
+    "dragToReorder": "ترتیب بدلنے کے لیے گھسیٹیں۔ دکھانے/چھپانے کے لیے ٹوگل کریں۔"
+  },
+  "folders": {
+    "manageFolders": "فولڈرز کا انتظام کریں",
+    "createNewFolder": "نیا فولڈر بنائیں",
+    "folderName": "فولڈر کا نام",
+    "deleteFolder": "فولڈر حذف کریں؟",
+    "deleteFolderDesc": "اس فولڈر کے کام \"تمام کام\" میں منتقل ہو جائیں گے۔ یہ عمل واپس نہیں ہو سکتا۔"
+  },
+  "editActions": {
+    "title": "ایکشنز میں ترمیم کریں",
+    "subtitle": "ایکشن بٹنز کی ترتیب اور مرئیت کو اپنی مرضی کے مطابق بنائیں",
+    "scheduling": "شیڈولنگ",
+    "schedulingDesc": "تاریخ، وقت اور یاد دہانیاں",
+    "organization": "تنظیم",
+    "organizationDesc": "ترجیح، ٹیگز اور فولڈرز",
+    "media": "میڈیا",
+    "mediaDesc": "تصاویر اور منسلکات"
+  },
+  "mindMap": {
+    "centralIdea": "مرکزی خیال",
+    "newIdea": "نیا خیال",
+    "cannotDeleteRoot": "جڑ نوڈ حذف نہیں ہو سکتا",
+    "nodeCopied": "نوڈ کاپی ہوا",
+    "nodePasted": "نوڈ پیسٹ ہوا",
+    "connectionCreated": "کنکشن بنایا گیا"
+  },
+  "taskHistory": {
+    "completed": "مکمل",
+    "newest": "نیا ترین",
+    "oldest": "سب سے پرانا",
+    "alphabetical": "ا-ب",
+    "recurringPatterns": "بار بار آنے والے پیٹرن"
   },
   "nav": {
     "home": "ہوم",
@@ -96,7 +135,32 @@
     "restoreOverwrite": "موجودہ ڈیٹا بیک اپ ڈیٹا سے اوور رائٹ ہوگا",
     "restoreReload": "بحالی کے بعد ایپ دوبارہ لوڈ ہوگی",
     "restoreBackup": "اگر ضرورت ہو تو اپنے موجودہ ڈیٹا کا بیک اپ لے لیں۔",
-    "continueRestore": "بحالی جاری رکھیں"
+    "continueRestore": "بحالی جاری رکھیں",
+    "deleteTodoTitle": "تمام ٹوڈو ڈیٹا حذف کریں؟",
+    "deleteTodoWarning": "انتباہ: یہ عمل واپس نہیں ہو سکتا!",
+    "deleteTodoDesc": "یہ مستقل طور پر حذف کرے گا:",
+    "deleteTodoTasks": "آپ کے تمام کام اور ذیلی کام",
+    "deleteTodoFolders": "تمام ٹوڈو فولڈرز اور زمرے",
+    "deleteTodoData": "اس ایپ میں محفوظ تمام کام ڈیٹا",
+    "deleteTodoConfirm": "کیا آپ واقعی جاری رکھنا چاہتے ہیں؟",
+    "restoreTodoReplace": "تمام موجودہ کام اور فولڈرز بدلیں",
+    "autoReminderTitle": "خودکار یاد دہانی کے اوقات",
+    "morning": "صبح",
+    "afternoon": "دوپہر",
+    "evening": "شام"
+  },
+  "customTool": {
+    "addTitle": "کسٹم ٹول شامل کریں",
+    "editTitle": "ٹول میں ترمیم کریں",
+    "name": "نام",
+    "namePlaceholder": "ٹول کا نام",
+    "description": "تفصیل",
+    "descriptionPlaceholder": "مختصر تفصیل",
+    "icon": "آئیکن",
+    "color": "رنگ",
+    "linkToCategory": "زمرے سے لنک کریں",
+    "linkToTasks": "کاموں سے لنک کریں",
+    "tasksLinked": "{{count}} کام لنک ہوئے"
   },
   "terms": {
     "title": "سروس کی شرائط",

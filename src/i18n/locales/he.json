@@ -36,7 +36,46 @@
     "yesterday": "אתמול",
     "thisWeek": "השבוע",
     "noResults": "לא נמצאו תוצאות",
-    "retry": "נסה שוב"
+    "retry": "נסה שוב",
+    "manage": "נהל",
+    "morePages": "עוד עמודים",
+    "noFoldersYet": "אין עדיין תיקיות",
+    "addItem": "הוסף פריט",
+    "addTask": "הוסף משימה",
+    "preview": "תצוגה מקדימה",
+    "dragToReorder": "גרור לסידור מחדש. החלף כדי להציג/להסתיר פעולות."
+  },
+  "folders": {
+    "manageFolders": "נהל תיקיות",
+    "createNewFolder": "צור תיקייה חדשה",
+    "folderName": "שם תיקייה",
+    "deleteFolder": "למחוק תיקייה?",
+    "deleteFolderDesc": "משימות בתיקייה זו יועברו ל\"כל המשימות\". פעולה זו לא ניתנת לביטול."
+  },
+  "editActions": {
+    "title": "ערוך פעולות",
+    "subtitle": "התאם את סדר ונראות כפתורי הפעולה",
+    "scheduling": "תזמון",
+    "schedulingDesc": "תאריך, שעה ותזכורות",
+    "organization": "ארגון",
+    "organizationDesc": "עדיפות, תגיות ותיקיות",
+    "media": "מדיה",
+    "mediaDesc": "תמונות וקבצים מצורפים"
+  },
+  "mindMap": {
+    "centralIdea": "רעיון מרכזי",
+    "newIdea": "רעיון חדש",
+    "cannotDeleteRoot": "לא ניתן למחוק צומת שורש",
+    "nodeCopied": "הצומת הועתק",
+    "nodePasted": "הצומת הודבק",
+    "connectionCreated": "החיבור נוצר"
+  },
+  "taskHistory": {
+    "completed": "הושלם",
+    "newest": "החדש ביותר",
+    "oldest": "הישן ביותר",
+    "alphabetical": "א-ב",
+    "recurringPatterns": "דפוסים חוזרים"
   },
   "nav": {
     "home": "בית",
@@ -96,7 +135,32 @@
     "restoreOverwrite": "דריסת הנתונים הקיימים בנתוני הגיבוי",
     "restoreReload": "טעינה מחדש של האפליקציה לאחר השחזור",
     "restoreBackup": "ודא שגיבית את הנתונים הנוכחיים במידת הצורך.",
-    "continueRestore": "המשך לשחזור"
+    "continueRestore": "המשך לשחזור",
+    "deleteTodoTitle": "למחוק את כל נתוני המשימות?",
+    "deleteTodoWarning": "אזהרה: פעולה זו לא ניתנת לביטול!",
+    "deleteTodoDesc": "פעולה זו תמחק לצמיתות:",
+    "deleteTodoTasks": "כל המשימות ותתי-המשימות שלך",
+    "deleteTodoFolders": "כל תיקיות המשימות והקטגוריות",
+    "deleteTodoData": "כל נתוני המשימות באפליקציה",
+    "deleteTodoConfirm": "האם אתה בטוח לחלוטין שברצונך להמשיך?",
+    "restoreTodoReplace": "החלף את כל המשימות והתיקיות הנוכחיים",
+    "autoReminderTitle": "זמני תזכורת אוטומטיים",
+    "morning": "בוקר",
+    "afternoon": "אחר הצהריים",
+    "evening": "ערב"
+  },
+  "customTool": {
+    "addTitle": "הוסף כלי מותאם",
+    "editTitle": "ערוך כלי",
+    "name": "שם",
+    "namePlaceholder": "שם הכלי",
+    "description": "תיאור",
+    "descriptionPlaceholder": "תיאור קצר",
+    "icon": "סמל",
+    "color": "צבע",
+    "linkToCategory": "קשר לקטגוריה",
+    "linkToTasks": "קשר למשימות",
+    "tasksLinked": "{{count}} משימות מקושרות"
   },
   "terms": {
     "title": "תנאי שימוש",
