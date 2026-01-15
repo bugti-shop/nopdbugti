@@ -153,6 +153,8 @@
     "dataRestored": "Datos restaurados exitosamente",
     "restoreFailed": "Error al restaurar datos",
     "dataDownloaded": "Datos descargados",
+    "downloadFailed": "Error en descarga",
+    "backupFailed": "Error en respaldo",
     "dataDeleted": "Todos los datos eliminados",
     "shareNotAvailable": "Función de compartir no disponible en este dispositivo",
     "purchasesRestored": "Compras restauradas exitosamente",
@@ -177,9 +179,11 @@
     "exportedPdf": "Nota exportada a PDF",
     "exportedMarkdown": "Nota exportada a Markdown",
     "trashEmptied": "Papelera vaciada",
-    "voiceSaved": "Grabación de voz guardada",
-    "templateApplied": "Plantilla \"{{name}}\" aplicada",
-    "actionsUpdated": "Acciones actualizadas"
+    "voiceSaved": "Grabación de voz guardada"
+  },
+  "share": {
+    "appTitle": "NPD - App de Notas",
+    "appDescription": "¡Mira esta increíble app de notas!"
   },
   "trial": {
     "endingSoon": "¡Prueba Terminando Pronto!",
@@ -382,7 +386,21 @@
     "readingTime": "Tiempo de Lectura",
     "rows": "Filas",
     "columns": "Columnas",
-    "style": "Estilo"
+    "style": "Estilo",
+    "tableHeader": "Encabezado",
+    "tableCell": "Celda",
+    "created": "Creado",
+    "modified": "Modificado",
+    "pagesCount": "{{count}} páginas",
+    "wordsCount": "{{count}} palabras",
+    "charsCount": "{{count}} caracteres",
+    "tableStyles": {
+      "default": "Predeterminado",
+      "striped": "Rayado",
+      "bordered": "Con Borde",
+      "minimal": "Mínimo",
+      "modern": "Moderno"
+    }
   },
   "dateTime": {
     "date": "Fecha",

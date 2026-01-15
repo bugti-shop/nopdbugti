@@ -150,6 +150,8 @@
     "dataRestored": "Daten erfolgreich wiederhergestellt",
     "restoreFailed": "Wiederherstellung der Daten fehlgeschlagen",
     "dataDownloaded": "Daten heruntergeladen",
+    "downloadFailed": "Download fehlgeschlagen",
+    "backupFailed": "Sicherung fehlgeschlagen",
     "dataDeleted": "Alle Daten gelöscht",
     "shareNotAvailable": "Teilen-Funktion auf diesem Gerät nicht verfügbar",
     "purchasesRestored": "Käufe erfolgreich wiederhergestellt",
@@ -170,6 +172,10 @@
     "copied": "In die Zwischenablage kopiert",
     "saved": "Erfolgreich gespeichert",
     "error": "Ein Fehler ist aufgetreten"
+  },
+  "share": {
+    "appTitle": "NPD - Notiz-App",
+    "appDescription": "Entdecke diese tolle Notiz-App!"
   },
   "trial": {
     "endingSoon": "Testversion endet bald!",

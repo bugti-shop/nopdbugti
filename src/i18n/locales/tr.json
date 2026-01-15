@@ -150,6 +150,8 @@
     "dataRestored": "Veriler başarıyla geri yüklendi",
     "restoreFailed": "Veriler geri yüklenemedi",
     "dataDownloaded": "Veriler indirildi",
+    "downloadFailed": "İndirme başarısız",
+    "backupFailed": "Yedekleme başarısız",
     "dataDeleted": "Tüm veriler silindi",
     "shareNotAvailable": "Bu cihazda paylaşma özelliği kullanılamıyor",
     "purchasesRestored": "Satın almalar başarıyla geri yüklendi",
@@ -170,6 +172,10 @@
     "copied": "Panoya kopyalandı",
     "saved": "Başarıyla kaydedildi",
     "error": "Bir hata oluştu"
+  },
+  "share": {
+    "appTitle": "NPD - Not Alma Uygulaması",
+    "appDescription": "Bu harika not alma uygulamasına göz atın!"
   },
   "trial": {
     "endingSoon": "Deneme Süresi Bitiyor!",

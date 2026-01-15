@@ -150,6 +150,8 @@
     "dataRestored": "데이터가 성공적으로 복원되었습니다",
     "restoreFailed": "데이터 복원 실패",
     "dataDownloaded": "데이터 다운로드됨",
+    "downloadFailed": "다운로드 실패",
+    "backupFailed": "백업 실패",
     "dataDeleted": "모든 데이터 삭제됨",
     "shareNotAvailable": "이 기기에서 공유 기능을 사용할 수 없습니다",
     "purchasesRestored": "구매가 성공적으로 복원되었습니다",
@@ -170,6 +172,10 @@
     "copied": "클립보드에 복사됨",
     "saved": "저장 성공",
     "error": "오류가 발생했습니다"
+  },
+  "share": {
+    "appTitle": "NPD - 메모 앱",
+    "appDescription": "이 멋진 메모 앱을 확인해 보세요!"
   },
   "trial": {
     "endingSoon": "체험 기간이 곧 종료됩니다!",

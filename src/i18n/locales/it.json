@@ -150,6 +150,8 @@
     "dataRestored": "Dati ripristinati con successo",
     "restoreFailed": "Ripristino dei dati fallito",
     "dataDownloaded": "Dati scaricati",
+    "downloadFailed": "Download fallito",
+    "backupFailed": "Backup fallito",
     "dataDeleted": "Tutti i dati eliminati",
     "shareNotAvailable": "Funzione di condivisione non disponibile su questo dispositivo",
     "purchasesRestored": "Acquisti ripristinati con successo",
@@ -170,6 +172,10 @@
     "copied": "Copiato negli appunti",
     "saved": "Salvato con successo",
     "error": "Si è verificato un errore"
+  },
+  "share": {
+    "appTitle": "NPD - App per Note",
+    "appDescription": "Scopri questa fantastica app per le note!"
   },
   "trial": {
     "endingSoon": "Prova in scadenza!",

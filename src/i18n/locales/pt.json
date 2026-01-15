@@ -150,6 +150,8 @@
     "dataRestored": "Dados restaurados com sucesso",
     "restoreFailed": "Falha ao restaurar dados",
     "dataDownloaded": "Dados baixados",
+    "downloadFailed": "Falha no download",
+    "backupFailed": "Falha no backup",
     "dataDeleted": "Todos os dados excluídos",
     "shareNotAvailable": "Recurso de compartilhamento não disponível neste dispositivo",
     "purchasesRestored": "Compras restauradas com sucesso",
@@ -170,6 +172,10 @@
     "copied": "Copiado para a área de transferência",
     "saved": "Salvo com sucesso",
     "error": "Ocorreu um erro"
+  },
+  "share": {
+    "appTitle": "NPD - App de Notas",
+    "appDescription": "Confira este incrível app de notas!"
   },
   "trial": {
     "endingSoon": "Período de Teste Acabando!",

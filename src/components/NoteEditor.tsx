@@ -621,7 +621,7 @@ export const NoteEditor = ({ note, isOpen, onClose, onSave, defaultType = 'regul
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-          ">Page Break</span>
+          ">${t('editor.pageBreak')}</span>
         </div>
       </div>
       <p><br></p>
@@ -805,13 +805,13 @@ export const NoteEditor = ({ note, isOpen, onClose, onSave, defaultType = 'regul
                         <Button 
                           onClick={() => {
                             const styles = getTableStyles(tableStyle);
-                            const headerRow = `<tr>${Array(tableCols).fill(`<th style="${styles.headerCell}">Header</th>`).join('')}</tr>`;
+                            const headerRow = `<tr>${Array(tableCols).fill(`<th style="${styles.headerCell}">${t('editor.tableHeader')}</th>`).join('')}</tr>`;
                             const bodyRows = Array(tableRows - 1)
                               .fill(null)
                               .map((_, rowIdx) => {
                                 const isEven = rowIdx % 2 === 0;
                                 const cellStyle = tableStyle === 'striped' && isEven ? styles.stripedCell : styles.bodyCell;
-                                return `<tr>${Array(tableCols).fill(`<td style="${cellStyle}">Cell</td>`).join('')}</tr>`;
+                                return `<tr>${Array(tableCols).fill(`<td style="${cellStyle}">${t('editor.tableCell')}</td>`).join('')}</tr>`;
                               })
                               .join('');
                             
@@ -894,11 +894,11 @@ export const NoteEditor = ({ note, isOpen, onClose, onSave, defaultType = 'regul
                 <div className="px-2 py-1.5 text-xs text-muted-foreground flex flex-col gap-1">
                   <div className="flex items-center gap-1">
                     <CalendarIcon className="h-3 w-3" />
-                    <span>Created: {format(note?.createdAt || createdAt, 'MMM dd, yyyy • h:mm a')}</span>
+                    <span>{t('editor.created')}: {format(note?.createdAt || createdAt, 'MMM dd, yyyy • h:mm a')}</span>
                   </div>
                   {note && (
                     <div className="flex items-center gap-1">
-                      <span>Modified: {format(new Date(note.updatedAt), 'MMM dd, yyyy • h:mm a')}</span>
+                      <span>{t('editor.modified')}: {format(new Date(note.updatedAt), 'MMM dd, yyyy • h:mm a')}</span>
                     </div>
                   )}
                 </div>
@@ -992,14 +992,14 @@ export const NoteEditor = ({ note, isOpen, onClose, onSave, defaultType = 'regul
           <div className="flex items-center gap-2">
             {getPageBreakCount(content) > 1 && (
               <span className="bg-primary/10 text-primary px-2 py-0.5 rounded font-medium">
-                {getPageBreakCount(content)} pages
+                {t('editor.pagesCount', { count: getPageBreakCount(content) })}
               </span>
             )}
           </div>
           <div className="flex items-center gap-2">
-            <span>{noteStats.wordCount} words</span>
+            <span>{t('editor.wordsCount', { count: noteStats.wordCount })}</span>
             <span>•</span>
-            <span>{noteStats.characterCount} chars</span>
+            <span>{t('editor.charsCount', { count: noteStats.characterCount })}</span>
           </div>
         </div>
       )}
