@@ -3,6 +3,7 @@ import { useDarkMode, themes } from '@/hooks/useDarkMode';
 import { useToast } from '@/hooks/use-toast';
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -71,6 +72,7 @@ const TOOL_ICONS = [
 const TOOL_COLORS = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899', '#06b6d4'];
 
 const TodoSettings = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const navigate = useNavigate();
   const { currentTheme, setTheme } = useDarkMode();
@@ -178,14 +180,14 @@ const TodoSettings = () => {
 
   const handleAddCustomTool = () => {
     if (!newToolName.trim()) {
-      toast({ title: 'Please enter a tool name', variant: 'destructive' });
+      toast({ title: t('settings.enterToolName'), variant: 'destructive' });
       return;
     }
 
     const newTool: CustomTool = {
       id: editingTool?.id || Date.now().toString(),
       name: newToolName,
-      description: newToolDescription || 'Custom productivity tool',
+      description: newToolDescription || t('settings.customProductivityTool'),
       icon: newToolIcon,
       color: newToolColor,
       enabled: true,
@@ -195,10 +197,10 @@ const TodoSettings = () => {
 
     if (editingTool) {
       setCustomTools(prev => prev.map(t => t.id === editingTool.id ? newTool : t));
-      toast({ title: 'Tool updated' });
+      toast({ title: t('settings.toolUpdated') });
     } else {
       setCustomTools(prev => [...prev, newTool]);
-      toast({ title: 'Custom tool added' });
+      toast({ title: t('settings.toolAdded') });
     }
 
     resetToolDialog();
@@ -206,7 +208,7 @@ const TodoSettings = () => {
 
   const handleDeleteCustomTool = (toolId: string) => {
     setCustomTools(prev => prev.filter(t => t.id !== toolId));
-    toast({ title: 'Tool deleted' });
+    toast({ title: t('settings.toolDeleted') });
   };
 
   const handleEditCustomTool = (tool: CustomTool) => {
@@ -248,7 +250,7 @@ const TodoSettings = () => {
     };
     localStorage.setItem('autoReminderTimes', JSON.stringify(times));
     setShowAutoReminderDialog(false);
-    toast({ title: 'Auto-reminder times saved' });
+    toast({ title: t('settings.reminderTimesSaved') });
   };
 
   const formatHour = (hour: number) => {
@@ -269,7 +271,7 @@ const TodoSettings = () => {
     a.href = url;
     a.download = `npd-todo-backup-${Date.now()}.json`;
     a.click();
-    toast({ title: "Data backed up successfully" });
+    toast({ title: t('settings.dataBackedUp') });
   };
 
   const handleRestoreData = () => {
@@ -289,10 +291,10 @@ const TodoSettings = () => {
             const backup = JSON.parse(event.target?.result as string);
             if (backup.todoItems) localStorage.setItem('todoItems', backup.todoItems);
             if (backup.todoFolders) localStorage.setItem('todoFolders', backup.todoFolders);
-            toast({ title: "Data restored successfully" });
+            toast({ title: t('settings.dataRestored') });
             setTimeout(() => window.location.reload(), 1000);
           } catch (error) {
-            toast({ title: "Failed to restore data", variant: "destructive" });
+            toast({ title: t('settings.restoreFailed'), variant: "destructive" });
           }
         };
         reader.readAsText(file);
@@ -314,7 +316,7 @@ const TodoSettings = () => {
     a.href = url;
     a.download = `npd-todo-data-${Date.now()}.json`;
     a.click();
-    toast({ title: "Data downloaded" });
+    toast({ title: t('settings.dataDownloaded') });
   };
 
   const handleDeleteData = () => {
@@ -324,7 +326,7 @@ const TodoSettings = () => {
   const confirmDeleteData = () => {
     localStorage.removeItem('todoItems');
     localStorage.removeItem('todoFolders');
-    toast({ title: "All todo data deleted" });
+    toast({ title: t('settings.allDataDeleted') });
     setShowDeleteDialog(false);
     setTimeout(() => window.location.reload(), 1000);
   };
@@ -332,20 +334,20 @@ const TodoSettings = () => {
   const handleShareApp = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'NPD - Todo App',
-        text: 'Check out this amazing todo app!',
+        title: t('share.appTitle'),
+        text: t('share.appDescription'),
         url: window.location.origin
       });
     } else {
-      toast({ title: "Share feature not available on this device" });
+      toast({ title: t('settings.shareNotAvailable') });
     }
   };
 
   const settingsItems = [
-    { label: 'Back up data', onClick: handleBackupData },
-    { label: 'Restore data', onClick: handleRestoreData },
-    { label: 'Download my data', onClick: handleDownloadData },
-    { label: 'Delete app data', onClick: handleDeleteData },
+    { label: t('settings.backupData'), onClick: handleBackupData },
+    { label: t('settings.restoreData'), onClick: handleRestoreData },
+    { label: t('settings.downloadData'), onClick: handleDownloadData },
+    { label: t('settings.deleteData'), onClick: handleDeleteData },
   ];
 
   const handleRateAndShare = () => {
@@ -353,15 +355,15 @@ const TodoSettings = () => {
   };
 
   const otherItems = [
-    { label: 'Share with friends', onClick: handleRateAndShare },
-    { label: 'Terms of Service', onClick: () => setShowTermsDialog(true) },
-    { label: 'Help and feedback', onClick: () => setShowHelpDialog(true) },
-    { label: 'Privacy', onClick: () => setShowPrivacyDialog(true) },
-    { label: 'Rate app', onClick: handleRateAndShare },
+    { label: t('settings.shareWithFriends'), onClick: handleRateAndShare },
+    { label: t('settings.termsOfService'), onClick: () => setShowTermsDialog(true) },
+    { label: t('settings.helpFeedback'), onClick: () => setShowHelpDialog(true) },
+    { label: t('settings.privacy'), onClick: () => setShowPrivacyDialog(true) },
+    { label: t('settings.rateApp'), onClick: handleRateAndShare },
   ];
 
   return (
-    <TodoLayout title="Settings">
+    <TodoLayout title={t('settings.title')}>
       <main className="container mx-auto px-4 py-6 pb-24">
         <div className="max-w-2xl mx-auto space-y-6">
           {/* Theme Switcher Section */}
@@ -369,7 +371,7 @@ const TodoSettings = () => {
             <div className="p-4 border-b">
               <div className="flex items-center gap-2">
                 <Palette className="h-5 w-5 text-primary" />
-                <h2 className="font-semibold">Appearance</h2>
+                <h2 className="font-semibold">{t('settings.appearance')}</h2>
               </div>
             </div>
             <button
@@ -397,7 +399,7 @@ const TodoSettings = () => {
             >
               <div className="flex items-center gap-3">
                 <ExternalLink className="h-5 w-5 text-emerald-500" />
-                <span className="text-foreground text-sm font-medium">Integrations & Import</span>
+                <span className="text-foreground text-sm font-medium">{t('settings.integrationsImport')}</span>
               </div>
               <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </button>
@@ -408,10 +410,10 @@ const TodoSettings = () => {
             <div className="p-4 border-b">
               <div className="flex items-center gap-2">
                 <Bell className="h-5 w-5 text-primary" />
-                <h2 className="font-semibold">Auto-Reminder Settings</h2>
+                <h2 className="font-semibold">{t('settings.autoReminderSettings')}</h2>
               </div>
               <p className="text-xs text-muted-foreground mt-1">
-                For tasks without specific times, get reminders at these hours
+                {t('settings.autoReminderNote')}
               </p>
             </div>
             <button
@@ -419,7 +421,7 @@ const TodoSettings = () => {
               className="w-full flex items-center justify-between px-4 py-3 hover:bg-secondary/50 transition-colors"
             >
               <div className="flex flex-col items-start gap-1">
-                <span className="text-foreground text-sm">Reminder Times</span>
+                <span className="text-foreground text-sm">{t('settings.reminderTimes')}</span>
                 <span className="text-xs text-muted-foreground">
                   {formatHour(morningReminderHour)}, {formatHour(afternoonReminderHour)}, {formatHour(eveningReminderHour)}
                 </span>
@@ -432,7 +434,7 @@ const TodoSettings = () => {
             <div className="p-4 border-b flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Timer className="h-5 w-5 text-primary" />
-                <h2 className="font-semibold">Productivity Tools</h2>
+                <h2 className="font-semibold">{t('settings.productivityTools')}</h2>
               </div>
               <div className="flex items-center gap-2">
                 <Button
@@ -441,7 +443,7 @@ const TodoSettings = () => {
                   onClick={() => setShowManageTools(!showManageTools)}
                   className="text-xs"
                 >
-                  {showManageTools ? 'Done' : 'Manage'}
+                  {showManageTools ? t('settings.done') : t('settings.manage')}
                 </Button>
                 <Button
                   variant="ghost"
@@ -465,8 +467,8 @@ const TodoSettings = () => {
                       <Grid3X3 className="h-5 w-5 text-red-500" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="font-medium text-sm">Eisenhower Matrix</p>
-                      <p className="text-xs text-muted-foreground">Prioritize by urgency & importance</p>
+                      <p className="font-medium text-sm">{t('settings.eisenhowerMatrix')}</p>
+                      <p className="text-xs text-muted-foreground">{t('settings.eisenhowerDesc')}</p>
                     </div>
                     {!showManageTools && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                   </button>
@@ -488,8 +490,8 @@ const TodoSettings = () => {
                       <Timer className="h-5 w-5 text-orange-500" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="font-medium text-sm">Pomodoro Timer</p>
-                      <p className="text-xs text-muted-foreground">Focus sessions with time goals</p>
+                      <p className="font-medium text-sm">{t('settings.pomodoroTimer')}</p>
+                      <p className="text-xs text-muted-foreground">{t('settings.pomodoroDesc')}</p>
                     </div>
                     {!showManageTools && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                   </button>
@@ -511,8 +513,8 @@ const TodoSettings = () => {
                       <Clock className="h-5 w-5 text-blue-500" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="font-medium text-sm">Countdown Timer</p>
-                      <p className="text-xs text-muted-foreground">Track important deadlines</p>
+                      <p className="font-medium text-sm">{t('settings.countdownTimer')}</p>
+                      <p className="text-xs text-muted-foreground">{t('settings.countdownDesc')}</p>
                     </div>
                     {!showManageTools && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                   </button>
@@ -534,8 +536,8 @@ const TodoSettings = () => {
                       <Focus className="h-5 w-5 text-purple-500" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="font-medium text-sm">Focus Mode</p>
-                      <p className="text-xs text-muted-foreground">One task at a time</p>
+                      <p className="font-medium text-sm">{t('settings.focusMode')}</p>
+                      <p className="text-xs text-muted-foreground">{t('settings.focusModeDesc')}</p>
                     </div>
                     {!showManageTools && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                   </button>
@@ -557,8 +559,8 @@ const TodoSettings = () => {
                       <CalendarDays className="h-5 w-5 text-green-500" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="font-medium text-sm">Daily Planner</p>
-                      <p className="text-xs text-muted-foreground">Plan by time blocks</p>
+                      <p className="font-medium text-sm">{t('settings.dailyPlanner')}</p>
+                      <p className="text-xs text-muted-foreground">{t('settings.dailyPlannerDesc')}</p>
                     </div>
                     {!showManageTools && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                   </button>
@@ -580,8 +582,8 @@ const TodoSettings = () => {
                       <CalendarRange className="h-5 w-5 text-indigo-500" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="font-medium text-sm">Weekly Review</p>
-                      <p className="text-xs text-muted-foreground">Reflect on your progress</p>
+                      <p className="font-medium text-sm">{t('settings.weeklyReview')}</p>
+                      <p className="text-xs text-muted-foreground">{t('settings.weeklyReviewDesc')}</p>
                     </div>
                     {!showManageTools && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                   </button>
@@ -603,8 +605,8 @@ const TodoSettings = () => {
                       <BarChart3 className="h-5 w-5 text-cyan-500" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="font-medium text-sm">Task Analytics</p>
-                      <p className="text-xs text-muted-foreground">Track productivity & streaks</p>
+                      <p className="font-medium text-sm">{t('settings.taskAnalytics')}</p>
+                      <p className="text-xs text-muted-foreground">{t('settings.taskAnalyticsDesc')}</p>
                     </div>
                     {!showManageTools && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                   </button>
@@ -658,7 +660,7 @@ const TodoSettings = () => {
                           <Grid3X3 className="h-5 w-5 text-red-500" />
                         </div>
                         <div className="flex-1 text-left">
-                          <p className="font-medium text-sm">Eisenhower Matrix</p>
+                          <p className="font-medium text-sm">{t('settings.eisenhowerMatrix')}</p>
                         </div>
                       </div>
                       <button onClick={() => toggleToolVisibility('eisenhower')} className="p-3">
@@ -673,7 +675,7 @@ const TodoSettings = () => {
                           <Timer className="h-5 w-5 text-orange-500" />
                         </div>
                         <div className="flex-1 text-left">
-                          <p className="font-medium text-sm">Pomodoro Timer</p>
+                          <p className="font-medium text-sm">{t('settings.pomodoroTimer')}</p>
                         </div>
                       </div>
                       <button onClick={() => toggleToolVisibility('pomodoro')} className="p-3">
@@ -688,7 +690,7 @@ const TodoSettings = () => {
                           <Clock className="h-5 w-5 text-blue-500" />
                         </div>
                         <div className="flex-1 text-left">
-                          <p className="font-medium text-sm">Countdown Timer</p>
+                          <p className="font-medium text-sm">{t('settings.countdownTimer')}</p>
                         </div>
                       </div>
                       <button onClick={() => toggleToolVisibility('countdown')} className="p-3">
@@ -703,7 +705,7 @@ const TodoSettings = () => {
                           <Focus className="h-5 w-5 text-purple-500" />
                         </div>
                         <div className="flex-1 text-left">
-                          <p className="font-medium text-sm">Focus Mode</p>
+                          <p className="font-medium text-sm">{t('settings.focusMode')}</p>
                         </div>
                       </div>
                       <button onClick={() => toggleToolVisibility('focusMode')} className="p-3">
@@ -718,7 +720,7 @@ const TodoSettings = () => {
                           <CalendarDays className="h-5 w-5 text-green-500" />
                         </div>
                         <div className="flex-1 text-left">
-                          <p className="font-medium text-sm">Daily Planner</p>
+                          <p className="font-medium text-sm">{t('settings.dailyPlanner')}</p>
                         </div>
                       </div>
                       <button onClick={() => toggleToolVisibility('dailyPlanner')} className="p-3">
@@ -733,7 +735,7 @@ const TodoSettings = () => {
                           <CalendarRange className="h-5 w-5 text-indigo-500" />
                         </div>
                         <div className="flex-1 text-left">
-                          <p className="font-medium text-sm">Weekly Review</p>
+                          <p className="font-medium text-sm">{t('settings.weeklyReview')}</p>
                         </div>
                       </div>
                       <button onClick={() => toggleToolVisibility('weeklyReview')} className="p-3">
@@ -748,7 +750,7 @@ const TodoSettings = () => {
                           <BarChart3 className="h-5 w-5 text-cyan-500" />
                         </div>
                         <div className="flex-1 text-left">
-                          <p className="font-medium text-sm">Task Analytics</p>
+                          <p className="font-medium text-sm">{t('settings.taskAnalytics')}</p>
                         </div>
                       </div>
                       <button onClick={() => toggleToolVisibility('analytics')} className="p-3">
@@ -777,7 +779,7 @@ const TodoSettings = () => {
 
             <div className="flex items-center gap-2 px-4 py-3">
               <SettingsIcon className="h-4 w-4 text-muted-foreground" />
-              <span className="text-muted-foreground text-sm font-medium">Other</span>
+              <span className="text-muted-foreground text-sm font-medium">{t('settings.other')}</span>
             </div>
 
             {otherItems.map((item, index) => (

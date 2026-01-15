@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Mic, Square } from 'lucide-react';
 import { toast } from 'sonner';
@@ -19,6 +20,7 @@ export const VoiceRecorder = ({
   onInsertAtCursor,
   compact = false,
 }: VoiceRecorderProps) => {
+  const { t } = useTranslation();
   const [isRecording, setIsRecording] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -59,7 +61,7 @@ export const VoiceRecorder = ({
 
           stream.getTracks().forEach(track => track.stop());
           setRecordingTime(0);
-          toast.success('Voice recording saved');
+          toast.success(t('toasts.voiceRecordingSaved'));
         };
         reader.readAsDataURL(blob);
       };
@@ -71,7 +73,7 @@ export const VoiceRecorder = ({
         setRecordingTime((prev) => prev + 1);
       }, 1000);
     } catch (error) {
-      toast.error('Failed to access microphone');
+      toast.error(t('errors.microphoneFailed'));
       console.error(error);
     }
   };
@@ -102,7 +104,7 @@ export const VoiceRecorder = ({
             className="flex items-center gap-2 w-full text-sm"
           >
             <Mic className="h-4 w-4" />
-            Record Voice Note
+            {t('noteEditor.recordVoiceNote')}
           </button>
         ) : (
           <div className="flex items-center gap-2 w-full">
@@ -112,7 +114,7 @@ export const VoiceRecorder = ({
               className="flex items-center gap-2 text-sm text-destructive"
             >
               <Square className="h-4 w-4" />
-              Stop Recording
+              {t('voice.stopRecording')}
             </button>
             <span className="text-sm font-mono text-destructive">
               {formatTime(recordingTime)}
@@ -132,7 +134,7 @@ export const VoiceRecorder = ({
           variant="ghost"
           size="icon"
           className="h-9 w-9"
-          title="Record Voice Note"
+          title={t('noteEditor.recordVoiceNote')}
         >
           <Mic className="h-5 w-5" />
         </Button>
