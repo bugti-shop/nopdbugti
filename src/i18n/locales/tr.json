@@ -855,6 +855,33 @@
     "attachment": "Ek",
     "attachments": "Ekler"
   },
+  "sections": {
+    "editSection": "Bölümü Düzenle",
+    "addTask": "Görev Ekle",
+    "addSectionAbove": "Üste Bölüm Ekle",
+    "addSectionBelow": "Alta Bölüm Ekle",
+    "duplicateSection": "Bölümü Çoğalt",
+    "moveTo": "Taşı",
+    "delete": "Sil",
+    "sectionName": "Bölüm Adı",
+    "sectionColor": "Bölüm Rengi",
+    "enterSectionName": "Bölüm adını girin",
+    "dropTasksHere": "Görevleri buraya bırakın",
+    "expandAll": "Tümünü Genişlet",
+    "collapseAll": "Tümünü Daralt"
+  },
+  "calendar": {
+    "title": "Takvim",
+    "weekNumber": "Hafta #",
+    "tasksForDate": "{{date}} Görevleri",
+    "noTasksForDate": "Bu tarih için görev yok",
+    "addNew": "Yeni Ekle",
+    "addTask": "Görev Ekle",
+    "addEvent": "Etkinlik Ekle",
+    "events": "Etkinlikler",
+    "allDay": "Tüm Gün",
+    "searchTasks": "Görev ara"
+  },
   "smartLists": {
     "allTasks": "Tüm Görevler",
     "overdue": "Gecikmiş",
@@ -869,6 +896,7 @@
   "emptyStates": {
     "noTasks": "Henüz görev yok. Başlamak için \"Görev Ekle\"ye dokunun!",
     "noNotes": "Henüz not yok",
-    "tapToCreateNote": "İlk notunuzu oluşturmak için aşağıdaki düğmeye dokunun"
+    "tapToCreateNote": "İlk notunuzu oluşturmak için aşağıdaki düğmeye dokunun",
+    "noTasksFiltered": "Bu tarih için {{filter}} görev yok"
   }
 }

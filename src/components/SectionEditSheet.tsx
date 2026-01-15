@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useHardwareBackButton } from '@/hooks/useHardwareBackButton';
+import { useTranslation } from 'react-i18next';
 
 interface TaskSection {
   id: string;
@@ -34,6 +35,7 @@ const sectionColors = [
 ];
 
 export const SectionEditSheet = ({ isOpen, onClose, section, onSave }: SectionEditSheetProps) => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [color, setColor] = useState('#3b82f6');
 
@@ -65,22 +67,22 @@ export const SectionEditSheet = ({ isOpen, onClose, section, onSave }: SectionEd
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <SheetContent side="bottom" className="rounded-t-[20px]">
         <SheetHeader className="mb-4">
-          <SheetTitle>Edit Section</SheetTitle>
+          <SheetTitle>{t('sections.editSection')}</SheetTitle>
         </SheetHeader>
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="section-name">Section Name</Label>
+            <Label htmlFor="section-name">{t('sections.sectionName')}</Label>
             <Input
               id="section-name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Enter section name"
+              placeholder={t('sections.enterSectionName')}
             />
           </div>
 
           <div className="space-y-2">
-            <Label>Section Color</Label>
+            <Label>{t('sections.sectionColor')}</Label>
             <div className="flex flex-wrap gap-2">
               {sectionColors.map((c) => (
                 <button
@@ -97,10 +99,10 @@ export const SectionEditSheet = ({ isOpen, onClose, section, onSave }: SectionEd
 
           <div className="flex gap-2 pt-4">
             <Button variant="outline" onClick={onClose} className="flex-1">
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button onClick={handleSave} className="flex-1" disabled={!name.trim()}>
-              Save
+              {t('common.save')}
             </Button>
           </div>
         </div>

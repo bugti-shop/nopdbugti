@@ -907,6 +907,7 @@
   },
   "taskDetail": {
     "taskStatus": "حالة المهمة",
+    "notStarted": "لم تبدأ",
     "subtasks": "المهام الفرعية",
     "addSubtask": "+ إضافة",
     "timeTracking": "تتبع الوقت",
@@ -920,6 +921,40 @@
     "convertToNotes": "تحويل إلى ملاحظات",
     "attachment": "مرفق",
     "attachments": "المرفقات"
+  },
+  "sections": {
+    "editSection": "تعديل القسم",
+    "addTask": "إضافة مهمة",
+    "addSectionAbove": "إضافة قسم أعلى",
+    "addSectionBelow": "إضافة قسم أسفل",
+    "duplicateSection": "تكرار القسم",
+    "moveTo": "نقل إلى",
+    "delete": "حذف",
+    "sectionName": "اسم القسم",
+    "sectionColor": "لون القسم",
+    "enterSectionName": "أدخل اسم القسم",
+    "dropTasksHere": "أفلت المهام هنا",
+    "expandAll": "توسيع الكل",
+    "collapseAll": "طي الكل"
+  },
+  "calendar": {
+    "title": "التقويم",
+    "weekNumber": "أسبوع #",
+    "sun": "أحد",
+    "mon": "إثنين",
+    "tue": "ثلاثاء",
+    "wed": "أربعاء",
+    "thu": "خميس",
+    "fri": "جمعة",
+    "sat": "سبت",
+    "tasksForDate": "مهام {{date}}",
+    "noTasksForDate": "لا توجد مهام لهذا التاريخ",
+    "addNew": "إضافة جديد",
+    "addTask": "إضافة مهمة",
+    "addEvent": "إضافة حدث",
+    "events": "الأحداث",
+    "allDay": "طوال اليوم",
+    "searchTasks": "بحث في المهام"
   },
   "smartLists": {
     "allTasks": "جميع المهام",
@@ -935,6 +970,7 @@
   "emptyStates": {
     "noTasks": "لا توجد مهام بعد. انقر على \"إضافة مهمة\" للبدء!",
     "noNotes": "لا توجد ملاحظات بعد",
-    "tapToCreateNote": "انقر على الزر أدناه لإنشاء أول ملاحظة لك"
+    "tapToCreateNote": "انقر على الزر أدناه لإنشاء أول ملاحظة لك",
+    "noTasksFiltered": "لا توجد مهام {{filter}} لهذا التاريخ"
   }
 }

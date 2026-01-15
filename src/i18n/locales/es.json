@@ -898,6 +898,7 @@
   },
   "taskDetail": {
     "taskStatus": "Estado de Tarea",
+    "notStarted": "No Iniciada",
     "subtasks": "Subtareas",
     "addSubtask": "+ Agregar",
     "timeTracking": "Seguimiento de Tiempo",
@@ -911,6 +912,40 @@
     "convertToNotes": "Convertir a Notas",
     "attachment": "Adjunto",
     "attachments": "Adjuntos"
+  },
+  "sections": {
+    "editSection": "Editar Sección",
+    "addTask": "Agregar Tarea",
+    "addSectionAbove": "Agregar Sección Arriba",
+    "addSectionBelow": "Agregar Sección Abajo",
+    "duplicateSection": "Duplicar Sección",
+    "moveTo": "Mover a",
+    "delete": "Eliminar",
+    "sectionName": "Nombre de Sección",
+    "sectionColor": "Color de Sección",
+    "enterSectionName": "Ingrese nombre de sección",
+    "dropTasksHere": "Suelta tareas aquí",
+    "expandAll": "Expandir Todo",
+    "collapseAll": "Colapsar Todo"
+  },
+  "calendar": {
+    "title": "Calendario",
+    "weekNumber": "Semana #",
+    "sun": "Dom",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mié",
+    "thu": "Jue",
+    "fri": "Vie",
+    "sat": "Sáb",
+    "tasksForDate": "Tareas para {{date}}",
+    "noTasksForDate": "Sin tareas para esta fecha",
+    "addNew": "Agregar Nuevo",
+    "addTask": "Agregar Tarea",
+    "addEvent": "Agregar Evento",
+    "events": "Eventos",
+    "allDay": "Todo el Día",
+    "searchTasks": "Buscar tareas"
   },
   "smartLists": {
     "allTasks": "Todas las Tareas",
@@ -926,6 +961,7 @@
   "emptyStates": {
     "noTasks": "Aún no hay tareas. ¡Toca \"Agregar Tarea\" para comenzar!",
     "noNotes": "Aún no hay notas",
-    "tapToCreateNote": "Toca el botón de abajo para crear tu primera nota"
+    "tapToCreateNote": "Toca el botón de abajo para crear tu primera nota",
+    "noTasksFiltered": "Sin tareas {{filter}} para esta fecha"
   }
 }

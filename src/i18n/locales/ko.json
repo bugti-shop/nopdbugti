@@ -861,6 +861,33 @@
     "attachment": "첨부파일",
     "attachments": "첨부파일"
   },
+  "sections": {
+    "editSection": "섹션 편집",
+    "addTask": "작업 추가",
+    "addSectionAbove": "위에 섹션 추가",
+    "addSectionBelow": "아래에 섹션 추가",
+    "duplicateSection": "섹션 복제",
+    "moveTo": "이동",
+    "delete": "삭제",
+    "sectionName": "섹션 이름",
+    "sectionColor": "섹션 색상",
+    "enterSectionName": "섹션 이름 입력",
+    "dropTasksHere": "여기에 작업 놓기",
+    "expandAll": "모두 펼치기",
+    "collapseAll": "모두 접기"
+  },
+  "calendar": {
+    "title": "캘린더",
+    "weekNumber": "주 #",
+    "tasksForDate": "{{date}} 작업",
+    "noTasksForDate": "이 날짜에 작업이 없습니다",
+    "addNew": "새로 추가",
+    "addTask": "작업 추가",
+    "addEvent": "이벤트 추가",
+    "events": "이벤트",
+    "allDay": "종일",
+    "searchTasks": "작업 검색"
+  },
   "smartLists": {
     "allTasks": "모든 작업",
     "overdue": "기한 초과",
@@ -875,6 +902,7 @@
   "emptyStates": {
     "noTasks": "아직 작업이 없습니다. \"작업 추가\"를 탭하여 시작하세요!",
     "noNotes": "아직 노트가 없습니다",
-    "tapToCreateNote": "아래 버튼을 탭하여 첫 번째 노트를 만드세요"
+    "tapToCreateNote": "아래 버튼을 탭하여 첫 번째 노트를 만드세요",
+    "noTasksFiltered": "이 날짜에 {{filter}} 작업이 없습니다"
   }
 }

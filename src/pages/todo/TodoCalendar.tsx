@@ -33,8 +33,10 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { cn } from '@/lib/utils';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { useTranslation } from 'react-i18next';
 
 const TodoCalendar = () => {
+  const { t } = useTranslation();
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [isInputOpen, setIsInputOpen] = useState(false);
   const [isEventEditorOpen, setIsEventEditorOpen] = useState(false);
@@ -518,16 +520,16 @@ const TodoCalendar = () => {
   }, [date, tasksForSelectedDate, showCompleted, items]);
 
   return (
-    <TodoLayout title="Calendar">
+    <TodoLayout title={t('calendar.title')}>
       <main className="container mx-auto px-4 py-6 pb-32">
         <div className="max-w-md mx-auto space-y-6">
           {/* Header with filters */}
           <div className="flex items-center justify-between gap-2">
             <Tabs value={filterType} onValueChange={(value) => setFilterType(value as 'all' | 'pending' | 'completed')} className="flex-1">
               <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="all">All</TabsTrigger>
-                <TabsTrigger value="pending">Pending</TabsTrigger>
-                <TabsTrigger value="completed">Completed</TabsTrigger>
+                <TabsTrigger value="all">{t('common.all')}</TabsTrigger>
+                <TabsTrigger value="pending">{t('tasks.incomplete')}</TabsTrigger>
+                <TabsTrigger value="completed">{t('tasks.completed')}</TabsTrigger>
               </TabsList>
             </Tabs>
           </div>
@@ -623,7 +625,7 @@ const TodoCalendar = () => {
                 <div className="space-y-3">
                   <h3 className="text-lg font-semibold flex items-center gap-2">
                     <CalendarDays className="h-5 w-5 text-primary" />
-                    Events
+                    {t('calendar.events')}
                   </h3>
                   <div className="space-y-2">
                     {eventsForSelectedDate.map((event) => (
@@ -635,7 +637,7 @@ const TodoCalendar = () => {
                               <div className="flex flex-wrap items-center gap-2 mt-1 text-xs text-muted-foreground">
                                 <span className="flex items-center gap-1">
                                   <Clock className="h-3 w-3" />
-                                  {event.allDay ? 'All Day' : `${format(new Date(event.startDate), 'h:mm a')} - ${format(new Date(event.endDate), 'h:mm a')}`}
+                                  {event.allDay ? t('calendar.allDay') : `${format(new Date(event.startDate), 'h:mm a')} - ${format(new Date(event.endDate), 'h:mm a')}`}
                                 </span>
                                 {event.location && (
                                   <span className="flex items-center gap-1">
@@ -674,7 +676,7 @@ const TodoCalendar = () => {
               <div className="space-y-3">
                 <h3 className="text-lg font-semibold flex items-center gap-2">
                   <ListTodo className="h-5 w-5 text-primary" />
-                  Tasks for {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  {t('calendar.tasksForDate', { date: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) })}
                   {tasksForSelectedDate.length > 0 && (
                     <Badge variant="secondary" className="ml-2">{tasksForSelectedDate.length}</Badge>
                   )}
@@ -736,7 +738,7 @@ const TodoCalendar = () => {
                     </Droppable>
                   </DragDropContext>
                 ) : (
-                  <p className="text-muted-foreground text-center py-4">No {filterType !== 'all' ? filterType : ''} tasks for this date</p>
+                  <p className="text-muted-foreground text-center py-4">{filterType !== 'all' ? t('emptyStates.noTasksFiltered', { filter: filterType }) : t('calendar.noTasksForDate')}</p>
                 )}
               </div>
             </div>
@@ -747,17 +749,17 @@ const TodoCalendar = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button className="fixed bottom-20 left-4 right-4 z-30 h-12 text-base font-semibold" size="lg">
-            <Plus className="h-5 w-5" />Add New
+            <Plus className="h-5 w-5" />{t('calendar.addNew')}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center" className="mb-2 w-48 z-50 bg-card">
           <DropdownMenuItem onClick={() => setIsInputOpen(true)} className="gap-2">
             <ListTodo className="h-4 w-4" />
-            Add Task
+            {t('calendar.addTask')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => { setEditingEvent(null); setIsEventEditorOpen(true); }} className="gap-2">
             <CalendarDays className="h-4 w-4" />
-            Add Event
+            {t('calendar.addEvent')}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

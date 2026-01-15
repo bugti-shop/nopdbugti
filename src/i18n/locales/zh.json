@@ -861,6 +861,33 @@
     "attachment": "附件",
     "attachments": "附件"
   },
+  "sections": {
+    "editSection": "编辑分区",
+    "addTask": "添加任务",
+    "addSectionAbove": "在上方添加分区",
+    "addSectionBelow": "在下方添加分区",
+    "duplicateSection": "复制分区",
+    "moveTo": "移动到",
+    "delete": "删除",
+    "sectionName": "分区名称",
+    "sectionColor": "分区颜色",
+    "enterSectionName": "输入分区名称",
+    "dropTasksHere": "将任务拖放到此处",
+    "expandAll": "全部展开",
+    "collapseAll": "全部折叠"
+  },
+  "calendar": {
+    "title": "日历",
+    "weekNumber": "第#周",
+    "tasksForDate": "{{date}}的任务",
+    "noTasksForDate": "此日期没有任务",
+    "addNew": "添加新的",
+    "addTask": "添加任务",
+    "addEvent": "添加事件",
+    "events": "事件",
+    "allDay": "全天",
+    "searchTasks": "搜索任务"
+  },
   "smartLists": {
     "allTasks": "所有任务",
     "overdue": "已逾期",
@@ -875,6 +902,7 @@
   "emptyStates": {
     "noTasks": "还没有任务。点击\"添加任务\"开始吧！",
     "noNotes": "还没有笔记",
-    "tapToCreateNote": "点击下方按钮创建您的第一个笔记"
+    "tapToCreateNote": "点击下方按钮创建您的第一个笔记",
+    "noTasksFiltered": "此日期没有{{filter}}任务"
   }
 }

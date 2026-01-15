@@ -849,6 +849,33 @@
     "attachment": "منسلکہ",
     "attachments": "منسلکات"
   },
+  "sections": {
+    "editSection": "سیکشن میں ترمیم کریں",
+    "addTask": "کام شامل کریں",
+    "addSectionAbove": "اوپر سیکشن شامل کریں",
+    "addSectionBelow": "نیچے سیکشن شامل کریں",
+    "duplicateSection": "سیکشن ڈپلیکیٹ کریں",
+    "moveTo": "منتقل کریں",
+    "delete": "حذف کریں",
+    "sectionName": "سیکشن کا نام",
+    "sectionColor": "سیکشن کا رنگ",
+    "enterSectionName": "سیکشن کا نام درج کریں",
+    "dropTasksHere": "کام یہاں چھوڑیں",
+    "expandAll": "سب پھیلائیں",
+    "collapseAll": "سب سمیٹیں"
+  },
+  "calendar": {
+    "title": "کیلنڈر",
+    "weekNumber": "ہفتہ #",
+    "tasksForDate": "{{date}} کے لیے کام",
+    "noTasksForDate": "اس تاریخ کے لیے کوئی کام نہیں",
+    "addNew": "نیا شامل کریں",
+    "addTask": "کام شامل کریں",
+    "addEvent": "تقریب شامل کریں",
+    "events": "تقریبات",
+    "allDay": "پورا دن",
+    "searchTasks": "کام تلاش کریں"
+  },
   "smartLists": {
     "allTasks": "تمام کام",
     "overdue": "تاخیر شدہ",
@@ -863,6 +890,7 @@
   "emptyStates": {
     "noTasks": "ابھی تک کوئی کام نہیں۔ شروع کرنے کے لیے \"کام شامل کریں\" پر ٹیپ کریں!",
     "noNotes": "ابھی تک کوئی نوٹ نہیں",
-    "tapToCreateNote": "اپنا پہلا نوٹ بنانے کے لیے نیچے بٹن پر ٹیپ کریں"
+    "tapToCreateNote": "اپنا پہلا نوٹ بنانے کے لیے نیچے بٹن پر ٹیپ کریں",
+    "noTasksFiltered": "اس تاریخ کے لیے کوئی {{filter}} کام نہیں"
   }
 }
