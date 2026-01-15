@@ -36,7 +36,46 @@
     "yesterday": "कल",
     "thisWeek": "इस सप्ताह",
     "noResults": "कोई परिणाम नहीं मिला",
-    "retry": "पुनः प्रयास करें"
+    "retry": "पुनः प्रयास करें",
+    "manage": "प्रबंधित करें",
+    "morePages": "अधिक पृष्ठ",
+    "noFoldersYet": "अभी तक कोई फ़ोल्डर नहीं",
+    "addItem": "आइटम जोड़ें",
+    "addTask": "कार्य जोड़ें",
+    "preview": "पूर्वावलोकन",
+    "dragToReorder": "पुनर्क्रमित करने के लिए खींचें। दिखाने/छिपाने के लिए टॉगल करें।"
+  },
+  "folders": {
+    "manageFolders": "फ़ोल्डर प्रबंधित करें",
+    "createNewFolder": "नया फ़ोल्डर बनाएं",
+    "folderName": "फ़ोल्डर का नाम",
+    "deleteFolder": "फ़ोल्डर हटाएं?",
+    "deleteFolderDesc": "इस फ़ोल्डर के कार्य \"सभी कार्य\" में स्थानांतरित हो जाएंगे। यह क्रिया पूर्ववत नहीं की जा सकती।"
+  },
+  "editActions": {
+    "title": "क्रियाएं संपादित करें",
+    "subtitle": "क्रिया बटन क्रम और दृश्यता अनुकूलित करें",
+    "scheduling": "शेड्यूलिंग",
+    "schedulingDesc": "दिनांक, समय और रिमाइंडर",
+    "organization": "संगठन",
+    "organizationDesc": "प्राथमिकता, टैग और फ़ोल्डर",
+    "media": "मीडिया",
+    "mediaDesc": "छवियां और अनुलग्नक"
+  },
+  "mindMap": {
+    "centralIdea": "केंद्रीय विचार",
+    "newIdea": "नया विचार",
+    "cannotDeleteRoot": "मूल नोड हटाया नहीं जा सकता",
+    "nodeCopied": "नोड कॉपी किया गया",
+    "nodePasted": "नोड पेस्ट किया गया",
+    "connectionCreated": "कनेक्शन बनाया गया"
+  },
+  "taskHistory": {
+    "completed": "पूर्ण",
+    "newest": "नवीनतम",
+    "oldest": "सबसे पुराना",
+    "alphabetical": "क-ख",
+    "recurringPatterns": "आवर्ती पैटर्न"
   },
   "nav": {
     "home": "होम",
@@ -96,7 +135,32 @@
     "restoreOverwrite": "मौजूदा डेटा बैकअप डेटा से ओवरराइट होगा",
     "restoreReload": "पुनर्स्थापना के बाद ऐप पुनः लोड होगा",
     "restoreBackup": "यदि आवश्यक हो तो अपने वर्तमान डेटा का बैकअप लें।",
-    "continueRestore": "पुनर्स्थापना जारी रखें"
+    "continueRestore": "पुनर्स्थापना जारी रखें",
+    "deleteTodoTitle": "सभी टूडू डेटा हटाएं?",
+    "deleteTodoWarning": "चेतावनी: यह क्रिया पूर्ववत नहीं की जा सकती!",
+    "deleteTodoDesc": "यह स्थायी रूप से हटाएगा:",
+    "deleteTodoTasks": "आपके सभी कार्य और उपकार्य",
+    "deleteTodoFolders": "सभी टूडू फ़ोल्डर और श्रेणियां",
+    "deleteTodoData": "इस ऐप में संग्रहीत सभी कार्य डेटा",
+    "deleteTodoConfirm": "क्या आप वाकई जारी रखना चाहते हैं?",
+    "restoreTodoReplace": "सभी वर्तमान कार्य और फ़ोल्डर बदलें",
+    "autoReminderTitle": "ऑटो-रिमाइंडर समय",
+    "morning": "सुबह",
+    "afternoon": "दोपहर",
+    "evening": "शाम"
+  },
+  "customTool": {
+    "addTitle": "कस्टम टूल जोड़ें",
+    "editTitle": "टूल संपादित करें",
+    "name": "नाम",
+    "namePlaceholder": "टूल का नाम",
+    "description": "विवरण",
+    "descriptionPlaceholder": "संक्षिप्त विवरण",
+    "icon": "आइकन",
+    "color": "रंग",
+    "linkToCategory": "श्रेणी से लिंक करें",
+    "linkToTasks": "कार्यों से लिंक करें",
+    "tasksLinked": "{{count}} कार्य लिंक किए गए"
   },
   "terms": {
     "title": "सेवा की शर्तें",

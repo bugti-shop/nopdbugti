@@ -36,7 +36,46 @@
     "yesterday": "Dün",
     "thisWeek": "Bu Hafta",
     "noResults": "Sonuç bulunamadı",
-    "retry": "Tekrar Dene"
+    "retry": "Tekrar Dene",
+    "manage": "Yönet",
+    "morePages": "Daha fazla sayfa",
+    "noFoldersYet": "Henüz klasör yok",
+    "addItem": "Öğe Ekle",
+    "addTask": "Görev Ekle",
+    "preview": "Önizleme",
+    "dragToReorder": "Yeniden sıralamak için sürükleyin. Göster/gizle için değiştirin."
+  },
+  "folders": {
+    "manageFolders": "Klasörleri Yönet",
+    "createNewFolder": "Yeni Klasör Oluştur",
+    "folderName": "Klasör adı",
+    "deleteFolder": "Klasör Silinsin mi?",
+    "deleteFolderDesc": "Bu klasördeki görevler \"Tüm Görevler\"e taşınacak. Bu işlem geri alınamaz."
+  },
+  "editActions": {
+    "title": "Eylemleri Düzenle",
+    "subtitle": "Eylem düğmeleri sıralamasını ve görünürlüğünü özelleştirin",
+    "scheduling": "Zamanlama",
+    "schedulingDesc": "Tarih, saat ve hatırlatıcılar",
+    "organization": "Organizasyon",
+    "organizationDesc": "Öncelik, etiketler ve klasörler",
+    "media": "Medya",
+    "mediaDesc": "Resimler ve ekler"
+  },
+  "mindMap": {
+    "centralIdea": "Merkezi Fikir",
+    "newIdea": "Yeni Fikir",
+    "cannotDeleteRoot": "Kök düğüm silinemez",
+    "nodeCopied": "Düğüm kopyalandı",
+    "nodePasted": "Düğüm yapıştırıldı",
+    "connectionCreated": "Bağlantı oluşturuldu"
+  },
+  "taskHistory": {
+    "completed": "tamamlandı",
+    "newest": "En Yeni",
+    "oldest": "En Eski",
+    "alphabetical": "A-Z",
+    "recurringPatterns": "Yinelenen Desenler"
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -96,7 +135,32 @@
     "restoreOverwrite": "Mevcut verilerin üzerine yedek verilerini yaz",
     "restoreReload": "Geri yüklemeden sonra uygulamayı yeniden yükle",
     "restoreBackup": "Gerekirse mevcut verilerinizi yedeklediğinizden emin olun.",
-    "continueRestore": "Geri Yüklemeye Devam Et"
+    "continueRestore": "Geri Yüklemeye Devam Et",
+    "deleteTodoTitle": "Tüm Yapılacaklar Silinsin mi?",
+    "deleteTodoWarning": "Uyarı: Bu işlem geri alınamaz!",
+    "deleteTodoDesc": "Bu kalıcı olarak silinecek:",
+    "deleteTodoTasks": "Tüm görevleriniz ve alt görevleriniz",
+    "deleteTodoFolders": "Tüm yapılacaklar klasörleri ve kategorileri",
+    "deleteTodoData": "Bu uygulamada depolanan tüm görev verileri",
+    "deleteTodoConfirm": "Devam etmek istediğinizden emin misiniz?",
+    "restoreTodoReplace": "Tüm mevcut görevleri ve klasörleri değiştir",
+    "autoReminderTitle": "Otomatik Hatırlatma Zamanları",
+    "morning": "Sabah",
+    "afternoon": "Öğleden Sonra",
+    "evening": "Akşam"
+  },
+  "customTool": {
+    "addTitle": "Özel Araç Ekle",
+    "editTitle": "Aracı Düzenle",
+    "name": "Ad",
+    "namePlaceholder": "Araç adı",
+    "description": "Açıklama",
+    "descriptionPlaceholder": "Kısa açıklama",
+    "icon": "Simge",
+    "color": "Renk",
+    "linkToCategory": "Kategoriye Bağla",
+    "linkToTasks": "Görevlere Bağla",
+    "tasksLinked": "{{count}} görev bağlandı"
   },
   "terms": {
     "title": "Hizmet Şartları",
