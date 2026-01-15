@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TodoItem } from '@/types/note';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -13,6 +14,7 @@ interface TodoEditorProps {
 }
 
 export const TodoEditor = ({ items, onChange }: TodoEditorProps) => {
+  const { t } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentTask, setCurrentTask] = useState('');
 
@@ -75,13 +77,13 @@ export const TodoEditor = ({ items, onChange }: TodoEditorProps) => {
           className="w-full h-12 mt-4 text-base bg-primary"
         >
           <Plus className="h-5 w-5 mr-2" />
-          Add Task
+          {t('common.addTask')}
         </Button>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogContent className="max-w-[280px] bg-card p-5 gap-5 mx-auto top-[20%] translate-y-0">
             <DialogHeader>
-              <DialogTitle className="text-lg font-normal">Add Item</DialogTitle>
+              <DialogTitle className="text-lg font-normal">{t('common.addItem')}</DialogTitle>
             </DialogHeader>
 
             <div className="space-y-5">
@@ -113,7 +115,7 @@ export const TodoEditor = ({ items, onChange }: TodoEditorProps) => {
                   }}
                   className="hover:bg-transparent uppercase font-medium text-sm text-primary"
                 >
-                  Next
+                  {t('common.next')}
                 </Button>
                 <div className="flex gap-4">
                   <Button
@@ -124,14 +126,14 @@ export const TodoEditor = ({ items, onChange }: TodoEditorProps) => {
                     }}
                     className="hover:bg-transparent uppercase font-medium text-sm text-primary"
                   >
-                    Cancel
+                    {t('common.cancel')}
                   </Button>
                   <Button
                     variant="ghost"
                     onClick={addItem}
                     className="hover:bg-transparent uppercase font-medium text-sm text-primary"
                   >
-                    OK
+                    {t('common.ok')}
                   </Button>
                 </div>
               </div>

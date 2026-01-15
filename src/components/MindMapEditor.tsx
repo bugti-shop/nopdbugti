@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -63,6 +64,17 @@ const NODE_COLORS = [
   '#ec4899', '#06b6d4', '#f97316', '#84cc16', '#6366f1',
 ];
 
+const createDefaultRootNode = (text: string): MindMapNode => ({
+  id: 'root',
+  text,
+  x: 400,
+  y: 300,
+  color: '#3b82f6',
+  shape: 'circle',
+  fontSize: 18,
+  children: [],
+});
+
 const DEFAULT_ROOT_NODE: MindMapNode = {
   id: 'root',
   text: 'Central Idea',
@@ -75,6 +87,7 @@ const DEFAULT_ROOT_NODE: MindMapNode = {
 };
 
 export const MindMapEditor = ({ content, onChange, title, onTitleChange }: MindMapEditorProps) => {
+  const { t } = useTranslation();
   const canvasRef = useRef<HTMLDivElement>(null);
   const [data, setData] = useState<MindMapData>(() => {
     try {
@@ -83,7 +96,7 @@ export const MindMapEditor = ({ content, onChange, title, onTitleChange }: MindM
       }
     } catch {}
     return {
-      nodes: [DEFAULT_ROOT_NODE],
+      nodes: [createDefaultRootNode(t('mindMap.centralIdea'))],
       connections: [],
       rootId: 'root',
       zoom: 1,
@@ -146,7 +159,7 @@ export const MindMapEditor = ({ content, onChange, title, onTitleChange }: MindM
 
     const newNode: MindMapNode = {
       id: `node-${Date.now()}`,
-      text: 'New Idea',
+      text: t('mindMap.newIdea'),
       x: newX,
       y: newY,
       color: NODE_COLORS[data.nodes.length % NODE_COLORS.length],
@@ -180,7 +193,7 @@ export const MindMapEditor = ({ content, onChange, title, onTitleChange }: MindM
 
   const deleteNode = useCallback((nodeId: string) => {
     if (nodeId === data.rootId) {
-      toast.error("Cannot delete root node");
+      toast.error(t('mindMap.cannotDeleteRoot'));
       return;
     }
 
@@ -300,9 +313,9 @@ export const MindMapEditor = ({ content, onChange, title, onTitleChange }: MindM
     const node = data.nodes.find(n => n.id === selectedNodeId);
     if (node) {
       setClipboard({ ...node });
-      toast.success('Node copied');
+      toast.success(t('mindMap.nodeCopied'));
     }
-  }, [data.nodes, selectedNodeId]);
+  }, [data.nodes, selectedNodeId, t]);
 
   const pasteNode = useCallback(() => {
     if (!clipboard || !selectedNodeId) return;
@@ -335,8 +348,8 @@ export const MindMapEditor = ({ content, onChange, title, onTitleChange }: MindM
       connections: [...data.connections, newConnection],
     });
 
-    toast.success('Node pasted');
-  }, [clipboard, selectedNodeId, data, updateData]);
+    toast.success(t('mindMap.nodePasted'));
+  }, [clipboard, selectedNodeId, data, updateData, t]);
 
   const toggleCollapse = useCallback((nodeId: string) => {
     updateData({
@@ -438,7 +451,7 @@ export const MindMapEditor = ({ content, onChange, title, onTitleChange }: MindM
               connections: [...data.connections, newConnection],
             });
             setConnectingFrom(null);
-            toast.success('Connection created');
+            toast.success(t('mindMap.connectionCreated'));
           } else {
             setSelectedNodeId(node.id);
           }

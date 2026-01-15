@@ -37,7 +37,45 @@
     "thisWeek": "هذا الأسبوع",
     "noResults": "لا توجد نتائج",
     "retry": "إعادة المحاولة",
-    "manage": "إدارة"
+    "manage": "إدارة",
+    "morePages": "المزيد من الصفحات",
+    "noFoldersYet": "لا توجد مجلدات بعد",
+    "addItem": "إضافة عنصر",
+    "addTask": "إضافة مهمة",
+    "preview": "معاينة",
+    "dragToReorder": "اسحب لإعادة الترتيب. تبديل لإظهار/إخفاء الإجراءات."
+  },
+  "folders": {
+    "manageFolders": "إدارة المجلدات",
+    "createNewFolder": "إنشاء مجلد جديد",
+    "folderName": "اسم المجلد",
+    "deleteFolder": "حذف المجلد؟",
+    "deleteFolderDesc": "سيتم نقل المهام في هذا المجلد إلى \"جميع المهام\". لا يمكن التراجع عن هذا الإجراء."
+  },
+  "editActions": {
+    "title": "تعديل الإجراءات",
+    "subtitle": "تخصيص ترتيب ورؤية أزرار الإجراءات",
+    "scheduling": "الجدولة",
+    "schedulingDesc": "التاريخ والوقت والتذكيرات",
+    "organization": "التنظيم",
+    "organizationDesc": "الأولوية والوسوم والمجلدات",
+    "media": "الوسائط",
+    "mediaDesc": "الصور والمرفقات"
+  },
+  "mindMap": {
+    "centralIdea": "الفكرة المركزية",
+    "newIdea": "فكرة جديدة",
+    "cannotDeleteRoot": "لا يمكن حذف العقدة الجذرية",
+    "nodeCopied": "تم نسخ العقدة",
+    "nodePasted": "تم لصق العقدة",
+    "connectionCreated": "تم إنشاء الاتصال"
+  },
+  "taskHistory": {
+    "completed": "مكتمل",
+    "newest": "الأحدث",
+    "oldest": "الأقدم",
+    "alphabetical": "أ-ي",
+    "recurringPatterns": "الأنماط المتكررة"
   },
   "nav": {
     "home": "الرئيسية",
