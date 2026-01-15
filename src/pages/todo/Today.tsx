@@ -2493,16 +2493,16 @@ const Today = () => {
                 const olderCompleted = completedItems.filter(item => !item.dueDate || (!isThisWeek(new Date(item.dueDate))));
                 
                 const historyGroups = [
-                  { label: 'Completed Today', tasks: todayCompleted, color: '#10b981' },
-                  { label: 'Completed Yesterday', tasks: yesterdayCompleted, color: '#3b82f6' },
-                  { label: 'This Week', tasks: thisWeekCompleted, color: '#8b5cf6' },
-                  { label: 'Older', tasks: olderCompleted, color: '#6b7280' },
+                  { label: t('grouping.completedToday', 'Completed Today'), tasks: todayCompleted, color: '#10b981' },
+                  { label: t('grouping.completedYesterday', 'Completed Yesterday'), tasks: yesterdayCompleted, color: '#3b82f6' },
+                  { label: t('grouping.thisWeek', 'This Week'), tasks: thisWeekCompleted, color: '#8b5cf6' },
+                  { label: t('grouping.older', 'Older'), tasks: olderCompleted, color: '#6b7280' },
                 ];
                 
                 return historyGroups.filter(g => g.tasks.length > 0).length === 0 ? (
                   <div className="text-center py-20">
                     <History className="h-12 w-12 mx-auto text-muted-foreground/50 mb-4" />
-                    <p className="text-muted-foreground">No completed tasks yet</p>
+                    <p className="text-muted-foreground">{t('emptyStates.noCompletedTasks')}</p>
                   </div>
                 ) : (
                   <>
@@ -2545,20 +2545,20 @@ const Today = () => {
                   }));
                 } else if (groupByOption === 'priority') {
                   groups = [
-                    { id: 'high', label: 'High Priority', color: '#ef4444', icon: <Flame className="h-4 w-4 text-red-500" />, tasks: uncompletedItems.filter(item => item.priority === 'high') },
-                    { id: 'medium', label: 'Medium Priority', color: '#f59e0b', icon: <Flag className="h-4 w-4 text-amber-500" />, tasks: uncompletedItems.filter(item => item.priority === 'medium') },
-                    { id: 'low', label: 'Low Priority', color: '#22c55e', icon: <Flag className="h-4 w-4 text-green-500" />, tasks: uncompletedItems.filter(item => item.priority === 'low') },
-                    { id: 'none', label: 'No Priority', color: '#6b7280', icon: <Flag className="h-4 w-4 text-muted-foreground" />, tasks: uncompletedItems.filter(item => !item.priority || item.priority === 'none') },
+                    { id: 'high', label: t('grouping.highPriority'), color: '#ef4444', icon: <Flame className="h-4 w-4 text-red-500" />, tasks: uncompletedItems.filter(item => item.priority === 'high') },
+                    { id: 'medium', label: t('grouping.mediumPriority'), color: '#f59e0b', icon: <Flag className="h-4 w-4 text-amber-500" />, tasks: uncompletedItems.filter(item => item.priority === 'medium') },
+                    { id: 'low', label: t('grouping.lowPriority'), color: '#22c55e', icon: <Flag className="h-4 w-4 text-green-500" />, tasks: uncompletedItems.filter(item => item.priority === 'low') },
+                    { id: 'none', label: t('grouping.noPriority'), color: '#6b7280', icon: <Flag className="h-4 w-4 text-muted-foreground" />, tasks: uncompletedItems.filter(item => !item.priority || item.priority === 'none') },
                   ];
                 } else if (groupByOption === 'date') {
                   const today = startOfDay(new Date());
                   groups = [
-                    { id: 'overdue', label: 'Overdue', color: '#ef4444', icon: <AlertCircle className="h-4 w-4 text-red-500" />, tasks: uncompletedItems.filter(item => item.dueDate && isBefore(new Date(item.dueDate), today)) },
-                    { id: 'today', label: 'Today', color: '#3b82f6', icon: <Sun className="h-4 w-4 text-blue-500" />, tasks: uncompletedItems.filter(item => item.dueDate && isToday(new Date(item.dueDate))) },
-                    { id: 'tomorrow', label: 'Tomorrow', color: '#f59e0b', icon: <CalendarIcon2 className="h-4 w-4 text-amber-500" />, tasks: uncompletedItems.filter(item => item.dueDate && isTomorrow(new Date(item.dueDate))) },
-                    { id: 'this-week', label: 'This Week', color: '#10b981', icon: <CalendarIcon2 className="h-4 w-4 text-green-500" />, tasks: uncompletedItems.filter(item => item.dueDate && isThisWeek(new Date(item.dueDate)) && !isToday(new Date(item.dueDate)) && !isTomorrow(new Date(item.dueDate))) },
-                    { id: 'later', label: 'Later', color: '#8b5cf6', icon: <Clock className="h-4 w-4 text-purple-500" />, tasks: uncompletedItems.filter(item => item.dueDate && !isBefore(new Date(item.dueDate), today) && !isThisWeek(new Date(item.dueDate))) },
-                    { id: 'no-date', label: 'No Date', color: '#6b7280', icon: <CalendarX className="h-4 w-4 text-muted-foreground" />, tasks: uncompletedItems.filter(item => !item.dueDate) },
+                    { id: 'overdue', label: t('grouping.overdue'), color: '#ef4444', icon: <AlertCircle className="h-4 w-4 text-red-500" />, tasks: uncompletedItems.filter(item => item.dueDate && isBefore(new Date(item.dueDate), today)) },
+                    { id: 'today', label: t('grouping.today'), color: '#3b82f6', icon: <Sun className="h-4 w-4 text-blue-500" />, tasks: uncompletedItems.filter(item => item.dueDate && isToday(new Date(item.dueDate))) },
+                    { id: 'tomorrow', label: t('grouping.tomorrow'), color: '#f59e0b', icon: <CalendarIcon2 className="h-4 w-4 text-amber-500" />, tasks: uncompletedItems.filter(item => item.dueDate && isTomorrow(new Date(item.dueDate))) },
+                    { id: 'this-week', label: t('grouping.thisWeek'), color: '#10b981', icon: <CalendarIcon2 className="h-4 w-4 text-green-500" />, tasks: uncompletedItems.filter(item => item.dueDate && isThisWeek(new Date(item.dueDate)) && !isToday(new Date(item.dueDate)) && !isTomorrow(new Date(item.dueDate))) },
+                    { id: 'later', label: t('grouping.later'), color: '#8b5cf6', icon: <Clock className="h-4 w-4 text-purple-500" />, tasks: uncompletedItems.filter(item => item.dueDate && !isBefore(new Date(item.dueDate), today) && !isThisWeek(new Date(item.dueDate))) },
+                    { id: 'no-date', label: t('grouping.noDate'), color: '#6b7280', icon: <CalendarX className="h-4 w-4 text-muted-foreground" />, tasks: uncompletedItems.filter(item => !item.dueDate) },
                   ];
                 }
                 
@@ -2628,7 +2628,7 @@ const Today = () => {
                 selectedFolderId={selectedFolderId}
                 renderEmptySection={(section) => (
                   <div className={cn("text-center text-sm text-muted-foreground", compactMode ? "py-2 px-2" : "py-4 px-4")}>
-                    No tasks in this section
+                    {t('emptyStates.noTasksInSection')}
                   </div>
                 )}
                 renderTask={(item, isDragging, isDropTarget) => (
@@ -2706,7 +2706,7 @@ const Today = () => {
                   <div className="bg-muted/50 rounded-xl p-3 border border-border/30">
                     <CollapsibleTrigger asChild>
                       <button className="w-full flex items-center justify-between px-2 py-2 hover:bg-muted/60 rounded-lg transition-colors">
-                        <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">COMPLETED</span>
+                        <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">{t('grouping.completed')}</span>
                         <div className="flex items-center gap-2 text-muted-foreground"><span className="text-sm font-medium">{completedItems.length}</span>{isCompletedOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}</div>
                       </button>
                     </CollapsibleTrigger>

@@ -1000,6 +1000,28 @@
     "noTasks": "لا توجد مهام بعد. انقر على \"إضافة مهمة\" للبدء!",
     "noNotes": "لا توجد ملاحظات بعد",
     "tapToCreateNote": "انقر على الزر أدناه لإنشاء أول ملاحظة لك",
-    "noTasksFiltered": "لا توجد مهام {{filter}} لهذا التاريخ"
+    "noTasksFiltered": "لا توجد مهام {{filter}} لهذا التاريخ",
+    "noCompletedTasks": "لا توجد مهام مكتملة بعد",
+    "noTasksInSection": "لا توجد مهام في هذا القسم"
+  },
+  "grouping": {
+    "highPriority": "أولوية عالية",
+    "mediumPriority": "أولوية متوسطة",
+    "lowPriority": "أولوية منخفضة",
+    "noPriority": "بدون أولوية",
+    "overdue": "متأخرة",
+    "today": "اليوم",
+    "tomorrow": "غداً",
+    "thisWeek": "هذا الأسبوع",
+    "later": "لاحقاً",
+    "noDate": "بدون تاريخ",
+    "completed": "مكتملة",
+    "completedToday": "مكتملة اليوم",
+    "completedYesterday": "مكتملة أمس",
+    "older": "أقدم"
+  },
+  "filters": {
+    "hasDate": "لديها تاريخ استحقاق",
+    "almostDone": "شارفت على الانتهاء"
   }
 }

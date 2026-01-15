@@ -965,6 +965,28 @@
     "noTasks": "Noch keine Aufgaben. Tippen Sie auf \"Aufgabe hinzufügen\" um zu beginnen!",
     "noNotes": "Noch keine Notizen",
     "tapToCreateNote": "Tippen Sie auf die Schaltfläche unten, um Ihre erste Notiz zu erstellen",
-    "noTasksFiltered": "Keine {{filter}} Aufgaben für dieses Datum"
+    "noTasksFiltered": "Keine {{filter}} Aufgaben für dieses Datum",
+    "noCompletedTasks": "Noch keine erledigten Aufgaben",
+    "noTasksInSection": "Keine Aufgaben in diesem Abschnitt"
+  },
+  "grouping": {
+    "highPriority": "Hohe Priorität",
+    "mediumPriority": "Mittlere Priorität",
+    "lowPriority": "Niedrige Priorität",
+    "noPriority": "Keine Priorität",
+    "overdue": "Überfällig",
+    "today": "Heute",
+    "tomorrow": "Morgen",
+    "thisWeek": "Diese Woche",
+    "later": "Später",
+    "noDate": "Kein Datum",
+    "completed": "Erledigt",
+    "completedToday": "Heute Erledigt",
+    "completedYesterday": "Gestern Erledigt",
+    "older": "Ältere"
+  },
+  "filters": {
+    "hasDate": "Hat Fälligkeitsdatum",
+    "almostDone": "Fast Fertig"
   }
 }

@@ -889,6 +889,28 @@
     "noTasks": "עדיין אין משימות. הקש על \"הוסף משימה\" כדי להתחיל!",
     "noNotes": "עדיין אין הערות",
     "tapToCreateNote": "הקש על הכפתור למטה ליצירת ההערה הראשונה שלך",
-    "noTasksFiltered": "אין משימות {{filter}} לתאריך זה"
+    "noTasksFiltered": "אין משימות {{filter}} לתאריך זה",
+    "noCompletedTasks": "עדיין אין משימות שהושלמו",
+    "noTasksInSection": "אין משימות בסעיף זה"
+  },
+  "grouping": {
+    "highPriority": "עדיפות גבוהה",
+    "mediumPriority": "עדיפות בינונית",
+    "lowPriority": "עדיפות נמוכה",
+    "noPriority": "ללא עדיפות",
+    "overdue": "באיחור",
+    "today": "היום",
+    "tomorrow": "מחר",
+    "thisWeek": "השבוע",
+    "later": "מאוחר יותר",
+    "noDate": "ללא תאריך",
+    "completed": "הושלם",
+    "completedToday": "הושלם היום",
+    "completedYesterday": "הושלם אתמול",
+    "older": "ישנים יותר"
+  },
+  "filters": {
+    "hasDate": "יש תאריך יעד",
+    "almostDone": "כמעט סיים"
   }
 }

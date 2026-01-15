@@ -938,7 +938,29 @@
   "emptyStates": {
     "noTasks": "まだタスクがありません。「タスクを追加」をタップして始めましょう！",
     "noNotes": "まだノートがありません",
-    "tapToCreateNote": "下のボタンをタップして最初のノートを作成してください",
-    "noTasksFiltered": "この日には{{filter}}タスクがありません"
+    "tapToCreateNote": "下のボタンをタップして最初のノートを作成",
+    "noTasksFiltered": "この日に{{filter}}タスクはありません",
+    "noCompletedTasks": "まだ完了したタスクはありません",
+    "noTasksInSection": "このセクションにタスクはありません"
+  },
+  "grouping": {
+    "highPriority": "高優先度",
+    "mediumPriority": "中優先度",
+    "lowPriority": "低優先度",
+    "noPriority": "優先度なし",
+    "overdue": "期限超過",
+    "today": "今日",
+    "tomorrow": "明日",
+    "thisWeek": "今週",
+    "later": "後で",
+    "noDate": "日付なし",
+    "completed": "完了",
+    "completedToday": "今日完了",
+    "completedYesterday": "昨日完了",
+    "older": "以前"
+  },
+  "filters": {
+    "hasDate": "期限あり",
+    "almostDone": "もうすぐ完了"
   }
 }

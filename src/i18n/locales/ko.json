@@ -932,6 +932,28 @@
     "noTasks": "아직 작업이 없습니다. \"작업 추가\"를 탭하여 시작하세요!",
     "noNotes": "아직 노트가 없습니다",
     "tapToCreateNote": "아래 버튼을 탭하여 첫 번째 노트를 만드세요",
-    "noTasksFiltered": "이 날짜에 {{filter}} 작업이 없습니다"
+    "noTasksFiltered": "이 날짜에 {{filter}} 작업이 없습니다",
+    "noCompletedTasks": "아직 완료된 작업이 없습니다",
+    "noTasksInSection": "이 섹션에 작업이 없습니다"
+  },
+  "grouping": {
+    "highPriority": "높은 우선순위",
+    "mediumPriority": "중간 우선순위",
+    "lowPriority": "낮은 우선순위",
+    "noPriority": "우선순위 없음",
+    "overdue": "기한 초과",
+    "today": "오늘",
+    "tomorrow": "내일",
+    "thisWeek": "이번 주",
+    "later": "나중에",
+    "noDate": "날짜 없음",
+    "completed": "완료됨",
+    "completedToday": "오늘 완료됨",
+    "completedYesterday": "어제 완료됨",
+    "older": "이전"
+  },
+  "filters": {
+    "hasDate": "마감일 있음",
+    "almostDone": "거의 완료됨"
   }
 }

@@ -1002,29 +1002,29 @@ export const TaskDetailPage = ({
           <div className="space-y-2 border-t border-border pt-4">
             <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground mb-3">
               <Clock className="h-4 w-4" />
-              Task History
+              {t('taskDetail.taskHistory')}
             </div>
             <div className="space-y-2 text-sm">
               {task.createdAt && (
                 <div className="flex items-center justify-between py-2 px-3 bg-muted/20 rounded-lg">
-                  <span className="text-muted-foreground">Created</span>
+                  <span className="text-muted-foreground">{t('taskDetail.created')}</span>
                   <span className="font-medium">{format(new Date(task.createdAt), 'MMM d, yyyy • h:mm a')}</span>
                 </div>
               )}
               {task.modifiedAt && (
                 <div className="flex items-center justify-between py-2 px-3 bg-muted/20 rounded-lg">
-                  <span className="text-muted-foreground">Last Modified</span>
+                  <span className="text-muted-foreground">{t('taskDetail.lastModified')}</span>
                   <span className="font-medium">{format(new Date(task.modifiedAt), 'MMM d, yyyy • h:mm a')}</span>
                 </div>
               )}
               {task.completed && task.completedAt && (
                 <div className="flex items-center justify-between py-2 px-3 bg-green-500/10 rounded-lg">
-                  <span className="text-green-600 dark:text-green-400">Completed</span>
+                  <span className="text-green-600 dark:text-green-400">{t('taskDetail.completed')}</span>
                   <span className="font-medium text-green-600 dark:text-green-400">{format(new Date(task.completedAt), 'MMM d, yyyy • h:mm a')}</span>
                 </div>
               )}
               {!task.createdAt && !task.modifiedAt && !task.completedAt && (
-                <div className="text-muted-foreground text-center py-2">No timestamp data available</div>
+                <div className="text-muted-foreground text-center py-2">{t('taskDetail.noTimestampData')}</div>
               )}
             </div>
           </div>
