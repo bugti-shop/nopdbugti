@@ -1,5 +1,6 @@
 import { Capacitor } from '@capacitor/core';
 import { NativeBiometric, BiometryType } from 'capacitor-native-biometric';
+import i18n from '@/i18n';
 
 const HIDDEN_NOTES_PASSWORD_KEY = 'npd_hidden_notes_password';
 const HIDDEN_NOTES_SALT_KEY = 'npd_hidden_notes_salt';
@@ -49,17 +50,20 @@ export const checkBiometricAvailability = async (): Promise<BiometricStatus> => 
 };
 
 // Authenticate using biometrics
-export const authenticateWithBiometric = async (reason: string = 'Unlock protected content'): Promise<boolean> => {
+export const authenticateWithBiometric = async (reason?: string): Promise<boolean> => {
   if (!Capacitor.isNativePlatform()) {
     return false;
   }
 
+  const t = i18n.t.bind(i18n);
+  const defaultReason = t('biometric.unlockProtectedContent');
+
   try {
     await NativeBiometric.verifyIdentity({
-      reason,
-      title: 'Authentication Required',
-      subtitle: 'Verify your identity',
-      description: reason,
+      reason: reason || defaultReason,
+      title: t('biometric.authenticationRequired'),
+      subtitle: t('biometric.verifyIdentity'),
+      description: reason || defaultReason,
     });
     return true;
   } catch (error) {
@@ -250,6 +254,7 @@ export const clearSecurityQuestion = (): void => {
 // Authenticate for hidden notes access
 export const authenticateForHiddenNotes = async (password?: string): Promise<boolean> => {
   const settings = getHiddenNotesSettings();
+  const t = i18n.t.bind(i18n);
   
   // If no protection is set, allow access
   if (!settings.hasPassword && !settings.useBiometric) {
@@ -258,7 +263,7 @@ export const authenticateForHiddenNotes = async (password?: string): Promise<boo
 
   // Try biometric first if enabled
   if (settings.useBiometric) {
-    const biometricResult = await authenticateWithBiometric('Access Hidden Notes');
+    const biometricResult = await authenticateWithBiometric(t('biometric.accessHiddenNotes'));
     if (biometricResult) return true;
   }
 
@@ -313,13 +318,14 @@ export const verifyNotePassword = async (noteId: string, password: string): Prom
 
 export const authenticateForNote = async (noteId: string, password?: string): Promise<boolean> => {
   const protection = getNoteProtection(noteId);
+  const t = i18n.t.bind(i18n);
   
   if (!protection.hasPassword && !protection.useBiometric) {
     return true;
   }
 
   if (protection.useBiometric) {
-    const biometricResult = await authenticateWithBiometric('Unlock protected note');
+    const biometricResult = await authenticateWithBiometric(t('biometric.unlockProtectedNote'));
     if (biometricResult) return true;
   }
 

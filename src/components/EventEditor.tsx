@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CalendarEvent, EventRepeatType, EventReminderType } from '@/types/note';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -99,6 +100,7 @@ const REMINDER_OPTIONS: { value: EventReminderType; label: string }[] = [
 ];
 
 export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: EventEditorProps) => {
+  const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [location, setLocation] = useState('');
@@ -144,7 +146,7 @@ export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: Eve
 
   const handleSave = () => {
     if (!title.trim()) {
-      toast.error('Please enter a title');
+      toast.error(t('events.enterTitle'));
       return;
     }
 
@@ -158,7 +160,7 @@ export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: Eve
     finalEndDate.setHours(endHour, endMinute, 0, 0);
 
     if (finalEndDate < finalStartDate) {
-      toast.error('End date/time cannot be before start date/time');
+      toast.error(t('events.endBeforeStart'));
       return;
     }
 
@@ -175,7 +177,7 @@ export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: Eve
     });
 
     onClose();
-    toast.success(event ? 'Event updated' : 'Event created');
+    toast.success(event ? t('events.eventUpdated') : t('events.eventCreated'));
   };
 
   if (!isOpen) return null;
@@ -190,11 +192,11 @@ export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: Eve
               <Button variant="ghost" size="icon" onClick={onClose}>
                 <ArrowLeft className="h-5 w-5" />
               </Button>
-              <h1 className="text-lg font-semibold">{event ? 'Edit Event' : 'New Event'}</h1>
+              <h1 className="text-lg font-semibold">{event ? t('events.editEvent') : t('events.newEvent')}</h1>
             </div>
             <Button onClick={handleSave} size="sm">
               <Save className="h-4 w-4 mr-2" />
-              Save
+              {t('common.save')}
             </Button>
           </div>
         </div>
@@ -205,10 +207,10 @@ export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: Eve
         <div className="container mx-auto px-4 py-6 max-w-lg space-y-6">
           {/* Title */}
           <div className="space-y-2">
-            <Label htmlFor="title" className="text-base font-medium">Title</Label>
+            <Label htmlFor="title" className="text-base font-medium">{t('editor.title')}</Label>
             <Input
               id="title"
-              placeholder="Event title"
+              placeholder={t('events.eventTitle')}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="text-base"
@@ -217,7 +219,7 @@ export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: Eve
 
           {/* All Day Toggle */}
           <div className="flex items-center justify-between py-2">
-            <Label htmlFor="allDay" className="text-base font-medium">All Day</Label>
+            <Label htmlFor="allDay" className="text-base font-medium">{t('events.allDay')}</Label>
             <Switch id="allDay" checked={allDay} onCheckedChange={setAllDay} />
           </div>
 
@@ -225,7 +227,7 @@ export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: Eve
           <div className="space-y-2">
             <Label className="text-base font-medium flex items-center gap-2">
               <CalendarIcon className="h-4 w-4" />
-              Starts
+              {t('events.starts')}
             </Label>
             <div className="flex gap-2">
               <Popover>
@@ -258,8 +260,121 @@ export const EventEditor = ({ event, isOpen, onClose, onSave, defaultDate }: Eve
           <div className="space-y-2">
             <Label className="text-base font-medium flex items-center gap-2">
               <Clock className="h-4 w-4" />
-              Ends
+              {t('events.ends')}
             </Label>
+            <div className="flex gap-2">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="outline" className="flex-1 justify-start">
+                    {format(endDate, 'PPP')}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0 bg-background" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={endDate}
+                    onSelect={(date) => date && setEndDate(date)}
+                    className="pointer-events-auto"
+                  />
+                </PopoverContent>
+              </Popover>
+              {!allDay && (
+                <Input
+                  type="time"
+                  value={endTime}
+                  onChange={(e) => setEndTime(e.target.value)}
+                  className="w-32"
+                />
+              )}
+            </div>
+          </div>
+
+          {/* Repeat */}
+          <div className="space-y-2">
+            <Label className="text-base font-medium flex items-center gap-2">
+              <Repeat className="h-4 w-4" />
+              {t('events.repeat')}
+            </Label>
+            <Select value={repeat} onValueChange={(v) => setRepeat(v as EventRepeatType)}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-background">
+                <SelectItem value="never">{t('events.repeatNever')}</SelectItem>
+                <SelectItem value="daily">{t('events.repeatDaily')}</SelectItem>
+                <SelectItem value="weekly">{t('events.repeatWeekly')}</SelectItem>
+                <SelectItem value="monthly">{t('events.repeatMonthly')}</SelectItem>
+                <SelectItem value="yearly">{t('events.repeatYearly')}</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Reminder */}
+          <div className="space-y-2">
+            <Label className="text-base font-medium flex items-center gap-2">
+              <Bell className="h-4 w-4" />
+              {t('events.reminder')}
+            </Label>
+            <Select value={reminder} onValueChange={(v) => setReminder(v as EventReminderType)}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-background">
+                <SelectItem value="at_time">{t('events.reminderAtTime')}</SelectItem>
+                <SelectItem value="5min">{t('events.reminder5min')}</SelectItem>
+                <SelectItem value="10min">{t('events.reminder10min')}</SelectItem>
+                <SelectItem value="15min">{t('events.reminder15min')}</SelectItem>
+                <SelectItem value="30min">{t('events.reminder30min')}</SelectItem>
+                <SelectItem value="1hour">{t('events.reminder1hour')}</SelectItem>
+                <SelectItem value="1day">{t('events.reminder1day')}</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Timezone */}
+          <div className="space-y-2">
+            <Label className="text-base font-medium flex items-center gap-2">
+              <Globe className="h-4 w-4" />
+              {t('events.timeZone')}
+            </Label>
+            <Select value={timezone} onValueChange={setTimezone}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-background max-h-60">
+                {TIMEZONES.map((tz) => (
+                  <SelectItem key={tz.value} value={tz.value}>
+                    {tz.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Location */}
+          <div className="space-y-2">
+            <Label className="text-base font-medium flex items-center gap-2">
+              <MapPin className="h-4 w-4" />
+              {t('events.location')}
+            </Label>
+            <Input
+              placeholder={t('events.addLocation')}
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </div>
+
+          {/* Description */}
+          <div className="space-y-2">
+            <Label className="text-base font-medium">{t('events.description')}</Label>
+            <Textarea
+              placeholder={t('events.addDescription')}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              rows={4}
+            />
+          </div>
+        </div>
             <div className="flex gap-2">
               <Popover>
                 <PopoverTrigger asChild>
