@@ -37,7 +37,45 @@
     "thisWeek": "This Week",
     "noResults": "No results found",
     "retry": "Retry",
-    "manage": "Manage"
+    "manage": "Manage",
+    "morePages": "More pages",
+    "noFoldersYet": "No folders yet",
+    "addItem": "Add Item",
+    "addTask": "Add Task",
+    "preview": "Preview",
+    "dragToReorder": "Drag to reorder. Toggle to show/hide actions."
+  },
+  "folders": {
+    "manageFolders": "Manage Folders",
+    "createNewFolder": "Create New Folder",
+    "folderName": "Folder name",
+    "deleteFolder": "Delete Folder?",
+    "deleteFolderDesc": "Tasks in this folder will be moved to \"All Tasks\". This action cannot be undone."
+  },
+  "editActions": {
+    "title": "Edit Actions",
+    "subtitle": "Customize action buttons order & visibility",
+    "scheduling": "Scheduling",
+    "schedulingDesc": "Date, time & reminders",
+    "organization": "Organization",
+    "organizationDesc": "Priority, tags & folders",
+    "media": "Media",
+    "mediaDesc": "Images & attachments"
+  },
+  "mindMap": {
+    "centralIdea": "Central Idea",
+    "newIdea": "New Idea",
+    "cannotDeleteRoot": "Cannot delete root node",
+    "nodeCopied": "Node copied",
+    "nodePasted": "Node pasted",
+    "connectionCreated": "Connection created"
+  },
+  "taskHistory": {
+    "completed": "completed",
+    "newest": "Newest",
+    "oldest": "Oldest",
+    "alphabetical": "A-Z",
+    "recurringPatterns": "Recurring Patterns"
   },
   "nav": {
     "home": "Home",

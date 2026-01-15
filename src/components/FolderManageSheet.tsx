@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -40,6 +41,7 @@ export const FolderManageSheet = ({
   onDeleteFolder,
   onReorderFolders
 }: FolderManageSheetProps) => {
+  const { t } = useTranslation();
   const [isCreating, setIsCreating] = useState(false);
   const [newFolderName, setNewFolderName] = useState('');
   const [newFolderColor, setNewFolderColor] = useState(FOLDER_COLORS[0]);
@@ -106,17 +108,17 @@ export const FolderManageSheet = ({
       <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
         <SheetContent side="bottom" className="rounded-t-3xl max-h-[80vh]">
           <SheetHeader className="mb-4">
-            <SheetTitle>Manage Folders</SheetTitle>
+            <SheetTitle>{t('folders.manageFolders')}</SheetTitle>
           </SheetHeader>
 
           <div className="space-y-4 overflow-y-auto max-h-[60vh]">
             {/* Create new folder */}
             {isCreating ? (
               <div className="p-3 border rounded-lg space-y-3">
-                <Input
+              <Input
                   value={newFolderName}
                   onChange={(e) => setNewFolderName(e.target.value)}
-                  placeholder="Folder name"
+                  placeholder={t('folders.folderName')}
                   autoFocus
                 />
                 <div className="flex gap-2">
@@ -135,16 +137,16 @@ export const FolderManageSheet = ({
                 </div>
                 <div className="flex gap-2">
                   <Button size="sm" onClick={handleCreate} disabled={!newFolderName.trim()}>
-                    <Check className="h-4 w-4 mr-1" /> Create
+                    <Check className="h-4 w-4 mr-1" /> {t('common.create')}
                   </Button>
                   <Button size="sm" variant="ghost" onClick={() => setIsCreating(false)}>
-                    <X className="h-4 w-4 mr-1" /> Cancel
+                    <X className="h-4 w-4 mr-1" /> {t('common.cancel')}
                   </Button>
                 </div>
               </div>
             ) : (
               <Button variant="outline" className="w-full" onClick={() => setIsCreating(true)}>
-                <FolderPlus className="h-4 w-4 mr-2" /> Create New Folder
+                <FolderPlus className="h-4 w-4 mr-2" /> {t('folders.createNewFolder')}
               </Button>
             )}
 
@@ -191,10 +193,10 @@ export const FolderManageSheet = ({
                                 </div>
                                 <div className="flex gap-2">
                                   <Button size="sm" onClick={handleEdit}>
-                                    <Check className="h-4 w-4 mr-1" /> Save
+                                    <Check className="h-4 w-4 mr-1" /> {t('common.save')}
                                   </Button>
                                   <Button size="sm" variant="ghost" onClick={() => setEditingFolderId(null)}>
-                                    <X className="h-4 w-4 mr-1" /> Cancel
+                                    <X className="h-4 w-4 mr-1" /> {t('common.cancel')}
                                   </Button>
                                 </div>
                               </div>
@@ -234,7 +236,7 @@ export const FolderManageSheet = ({
             </DragDropContext>
 
             {folders.length === 0 && !isCreating && (
-              <p className="text-center text-muted-foreground py-8">No folders yet</p>
+              <p className="text-center text-muted-foreground py-8">{t('common.noFoldersYet')}</p>
             )}
           </div>
         </SheetContent>
@@ -243,15 +245,15 @@ export const FolderManageSheet = ({
       <AlertDialog open={!!folderToDelete} onOpenChange={(open) => !open && setFolderToDelete(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete Folder?</AlertDialogTitle>
+            <AlertDialogTitle>{t('folders.deleteFolder')}</AlertDialogTitle>
             <AlertDialogDescription>
-              Tasks in this folder will be moved to "All Tasks". This action cannot be undone.
+              {t('folders.deleteFolderDesc')}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
             <AlertDialogAction onClick={confirmDelete} className="bg-destructive text-destructive-foreground">
-              Delete
+              {t('common.delete')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

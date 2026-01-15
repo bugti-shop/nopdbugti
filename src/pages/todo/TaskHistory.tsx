@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TodoItem } from '@/types/note';
 import { TodoLayout } from './TodoLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -33,6 +34,7 @@ type FilterType = 'all' | 'recurring' | 'today' | 'week' | 'month';
 type SortType = 'newest' | 'oldest' | 'name';
 
 const TaskHistory = () => {
+  const { t } = useTranslation();
   const [items, setItems] = useState<TodoItem[]>([]);
   const [filter, setFilter] = useState<FilterType>('all');
   const [sortBy, setSortBy] = useState<SortType>('newest');
@@ -173,7 +175,7 @@ const TaskHistory = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-green-500" />
-              <span>{completedTasks.length} completed</span>
+              <span>{completedTasks.length} {t('taskHistory.completed')}</span>
             </div>
             <Button 
               variant="ghost" 
@@ -183,7 +185,7 @@ const TaskHistory = () => {
               )}
             >
               <ArrowUpDown className="h-4 w-4 mr-1" />
-              {sortBy === 'newest' ? 'Newest' : sortBy === 'oldest' ? 'Oldest' : 'A-Z'}
+              {sortBy === 'newest' ? t('taskHistory.newest') : sortBy === 'oldest' ? t('taskHistory.oldest') : t('taskHistory.alphabetical')}
             </Button>
           </div>
 
@@ -193,7 +195,7 @@ const TaskHistory = () => {
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Repeat className="h-4 w-4 text-purple-500" />
-                  Recurring Patterns
+                  {t('taskHistory.recurringPatterns')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-0">
@@ -205,7 +207,7 @@ const TaskHistory = () => {
                       </div>
                       <div className="text-sm">
                         <span className="text-green-500 font-medium">{data.tasks.length}</span>
-                        <span className="text-muted-foreground">/{data.count} completed</span>
+                        <span className="text-muted-foreground">/{data.count} {t('taskHistory.completed')}</span>
                       </div>
                     </div>
                   ))}

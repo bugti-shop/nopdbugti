@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
@@ -61,6 +62,7 @@ interface EditActionsSheetProps {
 }
 
 export const EditActionsSheet = ({ isOpen, onClose, actions, onSave }: EditActionsSheetProps) => {
+  const { t } = useTranslation();
   const [localActions, setLocalActions] = useState<ActionItem[]>(actions);
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
     scheduling: true,
@@ -174,6 +176,12 @@ export const EditActionsSheet = ({ isOpen, onClose, actions, onSave }: EditActio
     setOpenGroups(prev => ({ ...prev, [group]: !prev[group] }));
   };
 
+  const getGroupInfo = (group: string) => ({
+    scheduling: { name: t('editActions.scheduling'), description: t('editActions.schedulingDesc') },
+    organization: { name: t('editActions.organization'), description: t('editActions.organizationDesc') },
+    media: { name: t('editActions.media'), description: t('editActions.mediaDesc') },
+  }[group] || { name: group, description: '' });
+
   const getGroupActions = (group: ActionItem['group']) => 
     localActions.filter(a => a.group === group);
 
@@ -188,13 +196,13 @@ export const EditActionsSheet = ({ isOpen, onClose, actions, onSave }: EditActio
             <X className="h-5 w-5" />
           </button>
           <div>
-            <h2 className="text-lg font-semibold">Edit Actions</h2>
-            <p className="text-xs text-muted-foreground">Customize action buttons order & visibility</p>
+            <h2 className="text-lg font-semibold">{t('editActions.title')}</h2>
+            <p className="text-xs text-muted-foreground">{t('editActions.subtitle')}</p>
           </div>
         </div>
         <div className="flex gap-2">
-          <Button variant="ghost" size="sm" onClick={handleReset}>Reset</Button>
-          <Button size="sm" onClick={handleSave}>Save</Button>
+          <Button variant="ghost" size="sm" onClick={handleReset}>{t('common.reset')}</Button>
+          <Button size="sm" onClick={handleSave}>{t('common.save')}</Button>
         </div>
       </div>
 
@@ -203,12 +211,14 @@ export const EditActionsSheet = ({ isOpen, onClose, actions, onSave }: EditActio
         <div className="max-w-lg mx-auto">
           <p className="text-sm text-muted-foreground mb-4 flex items-center gap-2">
             <Settings2 className="h-4 w-4" />
-            Drag to reorder. Toggle to show/hide actions.
+            {t('common.dragToReorder')}
           </p>
 
           <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
             <div className="space-y-4">
-              {(['scheduling', 'organization', 'media'] as const).map((group) => (
+              {(['scheduling', 'organization', 'media'] as const).map((group) => {
+                const groupData = getGroupInfo(group);
+                return (
                 <Collapsible
                   key={group}
                   open={openGroups[group]}
@@ -216,8 +226,8 @@ export const EditActionsSheet = ({ isOpen, onClose, actions, onSave }: EditActio
                 >
                   <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
                     <div className="flex flex-col items-start">
-                      <span className="font-medium text-sm">{groupInfo[group].name}</span>
-                      <span className="text-xs text-muted-foreground">{groupInfo[group].description}</span>
+                      <span className="font-medium text-sm">{groupData.name}</span>
+                      <span className="text-xs text-muted-foreground">{groupData.description}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-xs text-muted-foreground bg-background px-2 py-0.5 rounded-full">
@@ -287,7 +297,8 @@ export const EditActionsSheet = ({ isOpen, onClose, actions, onSave }: EditActio
                     </Droppable>
                   </CollapsibleContent>
                 </Collapsible>
-              ))}
+              );
+              })}
             </div>
           </DragDropContext>
         </div>
@@ -295,7 +306,7 @@ export const EditActionsSheet = ({ isOpen, onClose, actions, onSave }: EditActio
 
       {/* Preview */}
       <div className="p-4 border-t border-border bg-muted/30">
-        <p className="text-xs text-muted-foreground mb-3 text-center">Preview</p>
+        <p className="text-xs text-muted-foreground mb-3 text-center">{t('common.preview')}</p>
         <div className="flex items-center gap-2 flex-wrap justify-center max-w-lg mx-auto">
           {localActions.filter(a => a.enabled).map((action) => {
             const Icon = action.icon;
