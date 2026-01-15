@@ -857,6 +857,33 @@
     "attachment": "Anexo",
     "attachments": "Anexos"
   },
+  "sections": {
+    "editSection": "Editar Seção",
+    "addTask": "Adicionar Tarefa",
+    "addSectionAbove": "Adicionar Seção Acima",
+    "addSectionBelow": "Adicionar Seção Abaixo",
+    "duplicateSection": "Duplicar Seção",
+    "moveTo": "Mover para",
+    "delete": "Excluir",
+    "sectionName": "Nome da Seção",
+    "sectionColor": "Cor da Seção",
+    "enterSectionName": "Digite o nome da seção",
+    "dropTasksHere": "Solte tarefas aqui",
+    "expandAll": "Expandir Tudo",
+    "collapseAll": "Recolher Tudo"
+  },
+  "calendar": {
+    "title": "Calendário",
+    "weekNumber": "Semana #",
+    "tasksForDate": "Tarefas para {{date}}",
+    "noTasksForDate": "Sem tarefas para esta data",
+    "addNew": "Adicionar Novo",
+    "addTask": "Adicionar Tarefa",
+    "addEvent": "Adicionar Evento",
+    "events": "Eventos",
+    "allDay": "Dia Inteiro",
+    "searchTasks": "Buscar tarefas"
+  },
   "smartLists": {
     "allTasks": "Todas as Tarefas",
     "overdue": "Atrasadas",
@@ -871,6 +898,7 @@
   "emptyStates": {
     "noTasks": "Ainda não há tarefas. Toque em \"Adicionar Tarefa\" para começar!",
     "noNotes": "Ainda não há notas",
-    "tapToCreateNote": "Toque no botão abaixo para criar sua primeira nota"
+    "tapToCreateNote": "Toque no botão abaixo para criar sua primeira nota",
+    "noTasksFiltered": "Sem tarefas {{filter}} para esta data"
   }
 }

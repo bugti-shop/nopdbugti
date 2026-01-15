@@ -873,6 +873,7 @@
   },
   "taskDetail": {
     "taskStatus": "Aufgabenstatus",
+    "notStarted": "Nicht Begonnen",
     "subtasks": "Unteraufgaben",
     "addSubtask": "+ Hinzufügen",
     "timeTracking": "Zeiterfassung",
@@ -886,6 +887,40 @@
     "convertToNotes": "In Notizen umwandeln",
     "attachment": "Anhang",
     "attachments": "Anhänge"
+  },
+  "sections": {
+    "editSection": "Abschnitt Bearbeiten",
+    "addTask": "Aufgabe Hinzufügen",
+    "addSectionAbove": "Abschnitt Oben Hinzufügen",
+    "addSectionBelow": "Abschnitt Unten Hinzufügen",
+    "duplicateSection": "Abschnitt Duplizieren",
+    "moveTo": "Verschieben nach",
+    "delete": "Löschen",
+    "sectionName": "Abschnittsname",
+    "sectionColor": "Abschnittsfarbe",
+    "enterSectionName": "Abschnittsname eingeben",
+    "dropTasksHere": "Aufgaben hier ablegen",
+    "expandAll": "Alle Erweitern",
+    "collapseAll": "Alle Reduzieren"
+  },
+  "calendar": {
+    "title": "Kalender",
+    "weekNumber": "Woche #",
+    "sun": "So",
+    "mon": "Mo",
+    "tue": "Di",
+    "wed": "Mi",
+    "thu": "Do",
+    "fri": "Fr",
+    "sat": "Sa",
+    "tasksForDate": "Aufgaben für {{date}}",
+    "noTasksForDate": "Keine Aufgaben für dieses Datum",
+    "addNew": "Neu Hinzufügen",
+    "addTask": "Aufgabe Hinzufügen",
+    "addEvent": "Ereignis Hinzufügen",
+    "events": "Ereignisse",
+    "allDay": "Ganztägig",
+    "searchTasks": "Aufgaben suchen"
   },
   "smartLists": {
     "allTasks": "Alle Aufgaben",
@@ -901,6 +936,7 @@
   "emptyStates": {
     "noTasks": "Noch keine Aufgaben. Tippen Sie auf \"Aufgabe hinzufügen\" um zu beginnen!",
     "noNotes": "Noch keine Notizen",
-    "tapToCreateNote": "Tippen Sie auf die Schaltfläche unten, um Ihre erste Notiz zu erstellen"
+    "tapToCreateNote": "Tippen Sie auf die Schaltfläche unten, um Ihre erste Notiz zu erstellen",
+    "noTasksFiltered": "Keine {{filter}} Aufgaben für dieses Datum"
   }
 }

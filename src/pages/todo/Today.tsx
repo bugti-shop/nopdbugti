@@ -1753,7 +1753,7 @@ const Today = () => {
             </div>
             <div className="flex gap-2 overflow-x-auto pb-2">
               <button onClick={() => setSelectedFolderId(null)} className={cn("flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all whitespace-nowrap", !selectedFolderId ? "bg-primary text-primary-foreground border-primary" : "bg-card hover:bg-muted border-border")}>
-                <FolderIcon className="h-4 w-4" />All Tasks
+                <FolderIcon className="h-4 w-4" />{t('smartLists.allTasks')}
               </button>
               {folders.map((folder) => (
                 <button key={folder.id} onClick={() => setSelectedFolderId(folder.id)} className="flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all whitespace-nowrap" style={{ backgroundColor: selectedFolderId === folder.id ? folder.color : 'transparent', color: selectedFolderId === folder.id ? 'white' : 'inherit', borderColor: folder.color }}>
@@ -1808,12 +1808,12 @@ const Today = () => {
                 {collapsedViewSections.size > 0 ? (
                   <>
                     <ChevronDown className="h-4 w-4" />
-                    Expand All
+                    {t('sections.expandAll')}
                   </>
                 ) : (
                   <>
                     <ChevronRight className="h-4 w-4" />
-                    Collapse All
+                    {t('sections.collapseAll')}
                   </>
                 )}
               </Button>
@@ -1822,7 +1822,7 @@ const Today = () => {
 
           {/* Tasks by Sections */}
           {processedItems.length === 0 ? (
-            <div className="text-center py-20"><p className="text-muted-foreground">No tasks yet. Tap "Add Task" to get started!</p></div>
+            <div className="text-center py-20"><p className="text-muted-foreground">{t('emptyStates.noTasks')}</p></div>
           ) : viewMode === 'kanban' ? (
             /* Kanban Mode - Horizontal Sections with Drag & Drop */
             <DragDropContext onDragEnd={(result: DropResult) => {
@@ -1926,21 +1926,21 @@ const Today = () => {
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end" className="w-48 bg-popover border shadow-lg z-50">
                               <DropdownMenuItem onClick={() => handleEditSection(section)} className="cursor-pointer">
-                                <Edit className="h-4 w-4 mr-2" />Edit Section
+                                <Edit className="h-4 w-4 mr-2" />{t('sections.editSection')}
                               </DropdownMenuItem>
                               <DropdownMenuItem onClick={() => handleAddTaskToSection(section.id)} className="cursor-pointer">
-                                <PlusIcon className="h-4 w-4 mr-2" />Add Task
+                                <PlusIcon className="h-4 w-4 mr-2" />{t('sections.addTask')}
                               </DropdownMenuItem>
                               <DropdownMenuSeparator />
                               <DropdownMenuItem onClick={() => handleDuplicateSection(section.id)} className="cursor-pointer">
-                                <Copy className="h-4 w-4 mr-2" />Duplicate
+                                <Copy className="h-4 w-4 mr-2" />{t('common.duplicate')}
                               </DropdownMenuItem>
                               <DropdownMenuItem 
                                 onClick={() => handleDeleteSection(section.id)} 
                                 className="cursor-pointer text-destructive focus:text-destructive"
                                 disabled={sections.length <= 1}
                               >
-                                <Trash2 className="h-4 w-4 mr-2" />Delete
+                                <Trash2 className="h-4 w-4 mr-2" />{t('common.delete')}
                               </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
@@ -1958,7 +1958,7 @@ const Today = () => {
                                 >
                                   {sectionTasks.length === 0 ? (
                                     <div className="py-8 text-center text-sm text-muted-foreground">
-                                      Drop tasks here
+                                      {t('sections.dropTasksHere')}
                                     </div>
                                   ) : (
                                     sectionTasks.map((item, index) => (
@@ -1990,7 +1990,7 @@ const Today = () => {
                                 onClick={() => handleAddTaskToSection(section.id)}
                               >
                                 <PlusIcon className="h-4 w-4 mr-2" />
-                                Add Task
+                                {t('sections.addTask')}
                               </Button>
                             </div>
                           </>

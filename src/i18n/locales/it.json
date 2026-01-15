@@ -818,6 +818,33 @@
     "attachment": "Allegato",
     "attachments": "Allegati"
   },
+  "sections": {
+    "editSection": "Modifica Sezione",
+    "addTask": "Aggiungi Attività",
+    "addSectionAbove": "Aggiungi Sezione Sopra",
+    "addSectionBelow": "Aggiungi Sezione Sotto",
+    "duplicateSection": "Duplica Sezione",
+    "moveTo": "Sposta in",
+    "delete": "Elimina",
+    "sectionName": "Nome Sezione",
+    "sectionColor": "Colore Sezione",
+    "enterSectionName": "Inserisci nome sezione",
+    "dropTasksHere": "Trascina le attività qui",
+    "expandAll": "Espandi Tutto",
+    "collapseAll": "Comprimi Tutto"
+  },
+  "calendar": {
+    "title": "Calendario",
+    "weekNumber": "Settimana #",
+    "tasksForDate": "Attività per {{date}}",
+    "noTasksForDate": "Nessuna attività per questa data",
+    "addNew": "Aggiungi Nuovo",
+    "addTask": "Aggiungi Attività",
+    "addEvent": "Aggiungi Evento",
+    "events": "Eventi",
+    "allDay": "Tutto il Giorno",
+    "searchTasks": "Cerca attività"
+  },
   "smartLists": {
     "allTasks": "Tutte le Attività",
     "overdue": "In Ritardo",
@@ -832,6 +859,7 @@
   "emptyStates": {
     "noTasks": "Ancora nessuna attività. Tocca \"Aggiungi Attività\" per iniziare!",
     "noNotes": "Ancora nessuna nota",
-    "tapToCreateNote": "Tocca il pulsante qui sotto per creare la tua prima nota"
+    "tapToCreateNote": "Tocca il pulsante qui sotto per creare la tua prima nota",
+    "noTasksFiltered": "Nessuna attività {{filter}} per questa data"
   }
 }

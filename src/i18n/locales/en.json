@@ -1163,6 +1163,7 @@
   },
   "taskDetail": {
     "taskStatus": "Task Status",
+    "notStarted": "Not Started",
     "subtasks": "Subtasks",
     "addSubtask": "+ Add",
     "timeTracking": "Time Tracking",
@@ -1176,6 +1177,40 @@
     "convertToNotes": "Convert to Notes",
     "attachment": "Attachment",
     "attachments": "Attachments"
+  },
+  "sections": {
+    "editSection": "Edit Section",
+    "addTask": "Add Task",
+    "addSectionAbove": "Add Section Above",
+    "addSectionBelow": "Add Section Below",
+    "duplicateSection": "Duplicate Section",
+    "moveTo": "Move to",
+    "delete": "Delete",
+    "sectionName": "Section Name",
+    "sectionColor": "Section Color",
+    "enterSectionName": "Enter section name",
+    "dropTasksHere": "Drop tasks here",
+    "expandAll": "Expand All",
+    "collapseAll": "Collapse All"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "weekNumber": "Week #",
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "tasksForDate": "Tasks for {{date}}",
+    "noTasksForDate": "No tasks for this date",
+    "addNew": "Add New",
+    "addTask": "Add Task",
+    "addEvent": "Add Event",
+    "events": "Events",
+    "allDay": "All Day",
+    "searchTasks": "Search tasks"
   },
   "smartLists": {
     "allTasks": "All Tasks",
@@ -1191,6 +1226,7 @@
   "emptyStates": {
     "noTasks": "No tasks yet. Tap \"Add Task\" to get started!",
     "noNotes": "No notes yet",
-    "tapToCreateNote": "Tap the button below to create your first note"
+    "tapToCreateNote": "Tap the button below to create your first note",
+    "noTasksFiltered": "No {{filter}} tasks for this date"
   }
 }

@@ -868,6 +868,33 @@
     "attachment": "添付ファイル",
     "attachments": "添付ファイル"
   },
+  "sections": {
+    "editSection": "セクションを編集",
+    "addTask": "タスクを追加",
+    "addSectionAbove": "上にセクションを追加",
+    "addSectionBelow": "下にセクションを追加",
+    "duplicateSection": "セクションを複製",
+    "moveTo": "移動先",
+    "delete": "削除",
+    "sectionName": "セクション名",
+    "sectionColor": "セクションの色",
+    "enterSectionName": "セクション名を入力",
+    "dropTasksHere": "ここにタスクをドロップ",
+    "expandAll": "すべて展開",
+    "collapseAll": "すべて折りたたむ"
+  },
+  "calendar": {
+    "title": "カレンダー",
+    "weekNumber": "週 #",
+    "tasksForDate": "{{date}}のタスク",
+    "noTasksForDate": "この日のタスクはありません",
+    "addNew": "新規追加",
+    "addTask": "タスクを追加",
+    "addEvent": "イベントを追加",
+    "events": "イベント",
+    "allDay": "終日",
+    "searchTasks": "タスクを検索"
+  },
   "smartLists": {
     "allTasks": "すべてのタスク",
     "overdue": "期限超過",
@@ -882,6 +909,7 @@
   "emptyStates": {
     "noTasks": "まだタスクがありません。「タスクを追加」をタップして始めましょう！",
     "noNotes": "まだノートがありません",
-    "tapToCreateNote": "下のボタンをタップして最初のノートを作成してください"
+    "tapToCreateNote": "下のボタンをタップして最初のノートを作成してください",
+    "noTasksFiltered": "この日には{{filter}}タスクがありません"
   }
 }

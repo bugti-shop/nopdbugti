@@ -818,6 +818,33 @@
     "attachment": "קובץ מצורף",
     "attachments": "קבצים מצורפים"
   },
+  "sections": {
+    "editSection": "ערוך קטע",
+    "addTask": "הוסף משימה",
+    "addSectionAbove": "הוסף קטע למעלה",
+    "addSectionBelow": "הוסף קטע למטה",
+    "duplicateSection": "שכפל קטע",
+    "moveTo": "העבר אל",
+    "delete": "מחק",
+    "sectionName": "שם הקטע",
+    "sectionColor": "צבע הקטע",
+    "enterSectionName": "הזן שם קטע",
+    "dropTasksHere": "שחרר משימות כאן",
+    "expandAll": "הרחב הכל",
+    "collapseAll": "צמצם הכל"
+  },
+  "calendar": {
+    "title": "לוח שנה",
+    "weekNumber": "שבוע #",
+    "tasksForDate": "משימות ל-{{date}}",
+    "noTasksForDate": "אין משימות לתאריך זה",
+    "addNew": "הוסף חדש",
+    "addTask": "הוסף משימה",
+    "addEvent": "הוסף אירוע",
+    "events": "אירועים",
+    "allDay": "כל היום",
+    "searchTasks": "חפש משימות"
+  },
   "smartLists": {
     "allTasks": "כל המשימות",
     "overdue": "באיחור",
@@ -832,6 +859,7 @@
   "emptyStates": {
     "noTasks": "עדיין אין משימות. הקש על \"הוסף משימה\" כדי להתחיל!",
     "noNotes": "עדיין אין הערות",
-    "tapToCreateNote": "הקש על הכפתור למטה ליצירת ההערה הראשונה שלך"
+    "tapToCreateNote": "הקש על הכפתור למטה ליצירת ההערה הראשונה שלך",
+    "noTasksFiltered": "אין משימות {{filter}} לתאריך זה"
   }
 }

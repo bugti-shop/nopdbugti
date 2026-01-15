@@ -873,6 +873,7 @@
   },
   "taskDetail": {
     "taskStatus": "Statut de la Tâche",
+    "notStarted": "Non Commencée",
     "subtasks": "Sous-tâches",
     "addSubtask": "+ Ajouter",
     "timeTracking": "Suivi du Temps",
@@ -886,6 +887,40 @@
     "convertToNotes": "Convertir en Notes",
     "attachment": "Pièce jointe",
     "attachments": "Pièces jointes"
+  },
+  "sections": {
+    "editSection": "Modifier la Section",
+    "addTask": "Ajouter une Tâche",
+    "addSectionAbove": "Ajouter une Section Au-dessus",
+    "addSectionBelow": "Ajouter une Section En-dessous",
+    "duplicateSection": "Dupliquer la Section",
+    "moveTo": "Déplacer vers",
+    "delete": "Supprimer",
+    "sectionName": "Nom de la Section",
+    "sectionColor": "Couleur de la Section",
+    "enterSectionName": "Entrez le nom de la section",
+    "dropTasksHere": "Déposez les tâches ici",
+    "expandAll": "Tout Développer",
+    "collapseAll": "Tout Réduire"
+  },
+  "calendar": {
+    "title": "Calendrier",
+    "weekNumber": "Semaine #",
+    "sun": "Dim",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Jeu",
+    "fri": "Ven",
+    "sat": "Sam",
+    "tasksForDate": "Tâches pour {{date}}",
+    "noTasksForDate": "Aucune tâche pour cette date",
+    "addNew": "Ajouter Nouveau",
+    "addTask": "Ajouter une Tâche",
+    "addEvent": "Ajouter un Événement",
+    "events": "Événements",
+    "allDay": "Toute la Journée",
+    "searchTasks": "Rechercher des tâches"
   },
   "smartLists": {
     "allTasks": "Toutes les Tâches",
@@ -901,6 +936,7 @@
   "emptyStates": {
     "noTasks": "Pas encore de tâches. Appuyez sur \"Ajouter une Tâche\" pour commencer!",
     "noNotes": "Pas encore de notes",
-    "tapToCreateNote": "Appuyez sur le bouton ci-dessous pour créer votre première note"
+    "tapToCreateNote": "Appuyez sur le bouton ci-dessous pour créer votre première note",
+    "noTasksFiltered": "Aucune tâche {{filter}} pour cette date"
   }
 }

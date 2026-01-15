@@ -818,6 +818,33 @@
     "attachment": "अनुलग्नक",
     "attachments": "अनुलग्नक"
   },
+  "sections": {
+    "editSection": "अनुभाग संपादित करें",
+    "addTask": "कार्य जोड़ें",
+    "addSectionAbove": "ऊपर अनुभाग जोड़ें",
+    "addSectionBelow": "नीचे अनुभाग जोड़ें",
+    "duplicateSection": "अनुभाग डुप्लिकेट करें",
+    "moveTo": "यहाँ ले जाएं",
+    "delete": "हटाएं",
+    "sectionName": "अनुभाग का नाम",
+    "sectionColor": "अनुभाग का रंग",
+    "enterSectionName": "अनुभाग का नाम दर्ज करें",
+    "dropTasksHere": "कार्य यहाँ छोड़ें",
+    "expandAll": "सभी विस्तृत करें",
+    "collapseAll": "सभी संक्षिप्त करें"
+  },
+  "calendar": {
+    "title": "कैलेंडर",
+    "weekNumber": "सप्ताह #",
+    "tasksForDate": "{{date}} के लिए कार्य",
+    "noTasksForDate": "इस तारीख के लिए कोई कार्य नहीं",
+    "addNew": "नया जोड़ें",
+    "addTask": "कार्य जोड़ें",
+    "addEvent": "इवेंट जोड़ें",
+    "events": "इवेंट्स",
+    "allDay": "पूरे दिन",
+    "searchTasks": "कार्य खोजें"
+  },
   "smartLists": {
     "allTasks": "सभी कार्य",
     "overdue": "अतिदेय",
@@ -832,6 +859,7 @@
   "emptyStates": {
     "noTasks": "अभी तक कोई कार्य नहीं। शुरू करने के लिए \"कार्य जोड़ें\" पर टैप करें!",
     "noNotes": "अभी तक कोई नोट नहीं",
-    "tapToCreateNote": "अपना पहला नोट बनाने के लिए नीचे बटन पर टैप करें"
+    "tapToCreateNote": "अपना पहला नोट बनाने के लिए नीचे बटन पर टैप करें",
+    "noTasksFiltered": "इस तारीख के लिए कोई {{filter}} कार्य नहीं"
   }
 }
