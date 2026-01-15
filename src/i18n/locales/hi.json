@@ -801,5 +801,37 @@
   "welcome": {
     "startJourney": "अपनी उत्पादकता यात्रा शुरू करें",
     "getStarted": "शुरू करें"
+  },
+  "taskDetail": {
+    "taskStatus": "कार्य स्थिति",
+    "subtasks": "उप-कार्य",
+    "addSubtask": "+ जोड़ें",
+    "timeTracking": "समय ट्रैकिंग",
+    "start": "शुरू",
+    "pause": "रोकें",
+    "reset": "रीसेट",
+    "dependencies": "निर्भरताएं",
+    "linked": "{{count}} लिंक्ड",
+    "dateTimeReminder": "दिनांक, समय और रिमाइंडर",
+    "notSet": "सेट नहीं है",
+    "convertToNotes": "नोट्स में बदलें",
+    "attachment": "अनुलग्नक",
+    "attachments": "अनुलग्नक"
+  },
+  "smartLists": {
+    "allTasks": "सभी कार्य",
+    "overdue": "अतिदेय",
+    "dueToday": "आज देय",
+    "dueTomorrow": "कल देय",
+    "dueThisWeek": "इस सप्ताह देय",
+    "noDueDate": "कोई नियत तारीख नहीं",
+    "highPriorityWeek": "इस सप्ताह उच्च प्राथमिकता",
+    "recentlyCompleted": "हाल ही में पूर्ण",
+    "locationReminders": "स्थान रिमाइंडर"
+  },
+  "emptyStates": {
+    "noTasks": "अभी तक कोई कार्य नहीं। शुरू करने के लिए \"कार्य जोड़ें\" पर टैप करें!",
+    "noNotes": "अभी तक कोई नोट नहीं",
+    "tapToCreateNote": "अपना पहला नोट बनाने के लिए नीचे बटन पर टैप करें"
   }
 }

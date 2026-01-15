@@ -844,5 +844,37 @@
   "welcome": {
     "startJourney": "생산성 여정을 시작하세요",
     "getStarted": "시작하기"
+  },
+  "taskDetail": {
+    "taskStatus": "작업 상태",
+    "subtasks": "하위 작업",
+    "addSubtask": "+ 추가",
+    "timeTracking": "시간 추적",
+    "start": "시작",
+    "pause": "일시정지",
+    "reset": "재설정",
+    "dependencies": "종속성",
+    "linked": "{{count}}개 연결됨",
+    "dateTimeReminder": "날짜, 시간 및 알림",
+    "notSet": "설정되지 않음",
+    "convertToNotes": "노트로 변환",
+    "attachment": "첨부파일",
+    "attachments": "첨부파일"
+  },
+  "smartLists": {
+    "allTasks": "모든 작업",
+    "overdue": "기한 초과",
+    "dueToday": "오늘 마감",
+    "dueTomorrow": "내일 마감",
+    "dueThisWeek": "이번 주 마감",
+    "noDueDate": "마감일 없음",
+    "highPriorityWeek": "이번 주 높은 우선순위",
+    "recentlyCompleted": "최근 완료됨",
+    "locationReminders": "위치 알림"
+  },
+  "emptyStates": {
+    "noTasks": "아직 작업이 없습니다. \"작업 추가\"를 탭하여 시작하세요!",
+    "noNotes": "아직 노트가 없습니다",
+    "tapToCreateNote": "아래 버튼을 탭하여 첫 번째 노트를 만드세요"
   }
 }

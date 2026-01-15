@@ -904,5 +904,37 @@
   "welcome": {
     "startJourney": "ابدأ رحلة إنتاجيتك",
     "getStarted": "ابدأ الآن"
+  },
+  "taskDetail": {
+    "taskStatus": "حالة المهمة",
+    "subtasks": "المهام الفرعية",
+    "addSubtask": "+ إضافة",
+    "timeTracking": "تتبع الوقت",
+    "start": "بدء",
+    "pause": "إيقاف مؤقت",
+    "reset": "إعادة تعيين",
+    "dependencies": "التبعيات",
+    "linked": "{{count}} مرتبط",
+    "dateTimeReminder": "التاريخ والوقت والتذكير",
+    "notSet": "غير محدد",
+    "convertToNotes": "تحويل إلى ملاحظات",
+    "attachment": "مرفق",
+    "attachments": "المرفقات"
+  },
+  "smartLists": {
+    "allTasks": "جميع المهام",
+    "overdue": "متأخرة",
+    "dueToday": "مستحقة اليوم",
+    "dueTomorrow": "مستحقة غداً",
+    "dueThisWeek": "مستحقة هذا الأسبوع",
+    "noDueDate": "بدون تاريخ استحقاق",
+    "highPriorityWeek": "أولوية عالية هذا الأسبوع",
+    "recentlyCompleted": "مكتملة مؤخراً",
+    "locationReminders": "تذكيرات الموقع"
+  },
+  "emptyStates": {
+    "noTasks": "لا توجد مهام بعد. انقر على \"إضافة مهمة\" للبدء!",
+    "noNotes": "لا توجد ملاحظات بعد",
+    "tapToCreateNote": "انقر على الزر أدناه لإنشاء أول ملاحظة لك"
   }
 }

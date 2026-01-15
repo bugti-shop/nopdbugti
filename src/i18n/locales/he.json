@@ -801,5 +801,37 @@
   "welcome": {
     "startJourney": "התחל את מסע הפרודוקטיביות שלך",
     "getStarted": "התחל"
+  },
+  "taskDetail": {
+    "taskStatus": "סטטוס משימה",
+    "subtasks": "תתי-משימות",
+    "addSubtask": "+ הוסף",
+    "timeTracking": "מעקב זמן",
+    "start": "התחל",
+    "pause": "השהה",
+    "reset": "איפוס",
+    "dependencies": "תלויות",
+    "linked": "{{count}} מקושרים",
+    "dateTimeReminder": "תאריך, שעה ותזכורת",
+    "notSet": "לא הוגדר",
+    "convertToNotes": "המר להערות",
+    "attachment": "קובץ מצורף",
+    "attachments": "קבצים מצורפים"
+  },
+  "smartLists": {
+    "allTasks": "כל המשימות",
+    "overdue": "באיחור",
+    "dueToday": "להיום",
+    "dueTomorrow": "למחר",
+    "dueThisWeek": "לשבוע הזה",
+    "noDueDate": "ללא תאריך יעד",
+    "highPriorityWeek": "עדיפות גבוהה השבוע",
+    "recentlyCompleted": "הושלמו לאחרונה",
+    "locationReminders": "תזכורות מיקום"
+  },
+  "emptyStates": {
+    "noTasks": "עדיין אין משימות. הקש על \"הוסף משימה\" כדי להתחיל!",
+    "noNotes": "עדיין אין הערות",
+    "tapToCreateNote": "הקש על הכפתור למטה ליצירת ההערה הראשונה שלך"
   }
 }

@@ -870,5 +870,37 @@
   "welcome": {
     "startJourney": "Starten Sie Ihre Produktivitätsreise",
     "getStarted": "Loslegen"
+  },
+  "taskDetail": {
+    "taskStatus": "Aufgabenstatus",
+    "subtasks": "Unteraufgaben",
+    "addSubtask": "+ Hinzufügen",
+    "timeTracking": "Zeiterfassung",
+    "start": "Starten",
+    "pause": "Pause",
+    "reset": "Zurücksetzen",
+    "dependencies": "Abhängigkeiten",
+    "linked": "{{count}} verknüpft",
+    "dateTimeReminder": "Datum, Uhrzeit & Erinnerung",
+    "notSet": "Nicht festgelegt",
+    "convertToNotes": "In Notizen umwandeln",
+    "attachment": "Anhang",
+    "attachments": "Anhänge"
+  },
+  "smartLists": {
+    "allTasks": "Alle Aufgaben",
+    "overdue": "Überfällig",
+    "dueToday": "Heute fällig",
+    "dueTomorrow": "Morgen fällig",
+    "dueThisWeek": "Diese Woche fällig",
+    "noDueDate": "Ohne Fälligkeitsdatum",
+    "highPriorityWeek": "Hohe Priorität Diese Woche",
+    "recentlyCompleted": "Kürzlich Abgeschlossen",
+    "locationReminders": "Standort-Erinnerungen"
+  },
+  "emptyStates": {
+    "noTasks": "Noch keine Aufgaben. Tippen Sie auf \"Aufgabe hinzufügen\" um zu beginnen!",
+    "noNotes": "Noch keine Notizen",
+    "tapToCreateNote": "Tippen Sie auf die Schaltfläche unten, um Ihre erste Notiz zu erstellen"
   }
 }
