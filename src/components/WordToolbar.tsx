@@ -524,6 +524,43 @@ export const WordToolbar = ({
           </Popover>
         )}
 
+        {/* Highlight with color indicator - moved right after font size */}
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="h-14 min-w-[52px] p-0 flex flex-col items-center justify-center gap-1 rounded-none hover:bg-muted/60 active:bg-muted transition-colors flex-shrink-0" 
+              title="Highlight"
+            >
+              <Highlighter className="h-8 w-8 stroke-[2.5] text-foreground" />
+              <div className="h-1 w-8 rounded-sm bg-amber-300" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-[280px] p-2 max-h-[300px] overflow-y-auto">
+            <p className="text-xs text-muted-foreground mb-2">Highlight Colors</p>
+            <div className="grid grid-cols-8 gap-1">
+              {HIGHLIGHT_COLORS.map((color) => (
+                <button
+                  key={color.value}
+                  type="button"
+                  onClick={() => onHighlight(color.value)}
+                  className="h-7 w-7 rounded-md border border-border hover:scale-110 transition-transform shadow-sm"
+                  style={{ backgroundColor: color.value === 'transparent' ? 'white' : color.value }}
+                  title={color.name}
+                />
+              ))}
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        {/* Attachment - moved right after highlight */}
+        {onAttachment && (
+          <ToolbarButton onClick={onAttachment} title="Attach File">
+            <Paperclip className="h-8 w-8 stroke-[2.5] text-foreground" />
+          </ToolbarButton>
+        )}
+
         {/* Text formatting options continue */}
         {onStrikethrough && (
           <ToolbarButton onClick={onStrikethrough} title="Strikethrough" isActive={isStrikethrough}>
@@ -701,37 +738,7 @@ export const WordToolbar = ({
 
         <ToolbarSeparator />
 
-        {/* Highlight with color indicator - moved after table */}
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="h-14 min-w-[52px] p-0 flex flex-col items-center justify-center gap-1 rounded-none hover:bg-muted/60 active:bg-muted transition-colors flex-shrink-0" 
-              title="Highlight"
-            >
-              <Highlighter className="h-8 w-8 stroke-[2.5] text-foreground" />
-              <div className="h-1 w-8 rounded-sm bg-amber-300" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-[280px] p-2 max-h-[300px] overflow-y-auto">
-            <p className="text-xs text-muted-foreground mb-2">Highlight Colors</p>
-            <div className="grid grid-cols-8 gap-1">
-              {HIGHLIGHT_COLORS.map((color) => (
-                <button
-                  key={color.value}
-                  type="button"
-                  onClick={() => onHighlight(color.value)}
-                  className="h-7 w-7 rounded-md border border-border hover:scale-110 transition-transform shadow-sm"
-                  style={{ backgroundColor: color.value === 'transparent' ? 'white' : color.value }}
-                  title={color.name}
-                />
-              ))}
-            </div>
-          </PopoverContent>
-        </Popover>
-
-        {/* Text Color with color indicator - moved after table */}
+        {/* Text Color with color indicator */}
         <Popover>
           <PopoverTrigger asChild>
             <Button 
@@ -884,12 +891,6 @@ export const WordToolbar = ({
           </ToolbarButton>
         )}
 
-        {/* Attachment */}
-        {onAttachment && (
-          <ToolbarButton onClick={onAttachment} title="Attach File">
-            <Paperclip className="h-8 w-8 stroke-[2.5] text-foreground" />
-          </ToolbarButton>
-        )}
 
         <ToolbarSeparator />
 

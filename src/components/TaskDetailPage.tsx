@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TodoItem, Priority, Folder, Note, RepeatType, ColoredTag, TimeTracking, TaskStatus } from '@/types/note';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -78,6 +79,7 @@ export const TaskDetailPage = ({
   onConvertToNote,
   onMoveToFolder
 }: TaskDetailPageProps) => {
+  const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [newSubtaskText, setNewSubtaskText] = useState('');
   const [showSubtaskInput, setShowSubtaskInput] = useState(false);
@@ -148,32 +150,32 @@ export const TaskDetailPage = ({
   const handleMarkAsDone = async () => {
     try { await Haptics.impact({ style: ImpactStyle.Heavy }); } catch {}
     onUpdate({ ...task, completed: !task.completed });
-    toast.success(task.completed ? 'Task marked as incomplete' : 'Task marked as done');
+    toast.success(task.completed ? t('taskDetail.markAsIncomplete') : t('taskDetail.markAsDone'));
   };
 
   const handleSetPriority = async (priority: Priority) => {
     try { await Haptics.impact({ style: ImpactStyle.Light }); } catch {}
     onUpdate({ ...task, priority });
-    toast.success(`Priority set to ${priority === 'none' ? 'none' : priority}`);
+    toast.success(t('toasts.saved'));
   };
 
   const handleDuplicate = async () => {
     try { await Haptics.impact({ style: ImpactStyle.Light }); } catch {}
     onDuplicate(task);
     onClose();
-    toast.success('Task duplicated');
+    toast.success(t('toasts.taskDuplicated'));
   };
 
   const handlePin = async () => {
     try { await Haptics.impact({ style: ImpactStyle.Light }); } catch {}
-    toast.success('Task pinned');
+    toast.success(t('notes.pinned'));
   };
 
   const handleDelete = async () => {
     try { await Haptics.impact({ style: ImpactStyle.Medium }); } catch {}
     onDelete(task.id);
     onClose();
-    toast.success('Task deleted');
+    toast.success(t('toasts.taskDeleted'));
   };
 
   const handleAddSubtask = async () => {
@@ -211,7 +213,7 @@ export const TaskDetailPage = ({
     });
     
     setIsSubtaskInputSheetOpen(false);
-    toast.success('Subtask added');
+    toast.success(t('taskDetail.subtaskAdded'));
   };
 
   const handleSubtaskKeyDown = (e: React.KeyboardEvent) => {
@@ -357,7 +359,7 @@ export const TaskDetailPage = ({
     reader.onload = (event) => {
       const dataUrl = event.target?.result as string;
       onUpdate({ ...task, imageUrl: dataUrl });
-      toast.success('Attachment added');
+      toast.success(t('toasts.saved'));
     };
     reader.readAsDataURL(file);
   };
@@ -384,7 +386,7 @@ export const TaskDetailPage = ({
 
     setNewTagName('');
     setShowTagInput(false);
-    toast.success('Tag added');
+    toast.success(t('toasts.tagAdded'));
   };
 
   const handleRemoveTag = (tagName: string) => {
@@ -492,7 +494,7 @@ export const TaskDetailPage = ({
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm" className="gap-2">
               <FolderIcon className="h-4 w-4" />
-              <span>{currentFolder?.name || 'All Tasks'}</span>
+              <span>{currentFolder?.name || t('smartLists.allTasks')}</span>
               <ChevronDown className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -502,7 +504,7 @@ export const TaskDetailPage = ({
               className={cn("cursor-pointer", !task.folderId && "bg-accent")}
             >
               <FolderIcon className="h-4 w-4 mr-2" />
-              All Tasks (No folder)
+              {t('taskDetail.allTasksNoFolder')}
               {!task.folderId && <Check className="h-4 w-4 ml-auto" />}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
@@ -534,31 +536,31 @@ export const TaskDetailPage = ({
             <DropdownMenuContent align="end" className="w-48 bg-popover border shadow-lg z-[60]">
               <DropdownMenuItem onClick={handleMarkAsDone} className="cursor-pointer">
                 <Check className="h-4 w-4 mr-2" />
-                {task.completed ? 'Mark as Incomplete' : 'Mark as Done'}
+                {task.completed ? t('taskDetail.markAsIncomplete') : t('taskDetail.markAsDone')}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => handleSetPriority('high')} className="cursor-pointer">
-                <Flag className="h-4 w-4 mr-2 text-red-500" />High Priority
+                <Flag className="h-4 w-4 mr-2 text-red-500" />{t('taskDetail.highPriority')}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => handleSetPriority('medium')} className="cursor-pointer">
-                <Flag className="h-4 w-4 mr-2 text-orange-500" />Medium Priority
+                <Flag className="h-4 w-4 mr-2 text-orange-500" />{t('taskDetail.mediumPriority')}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => handleSetPriority('low')} className="cursor-pointer">
-                <Flag className="h-4 w-4 mr-2 text-green-500" />Low Priority
+                <Flag className="h-4 w-4 mr-2 text-green-500" />{t('taskDetail.lowPriority')}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => handleSetPriority('none')} className="cursor-pointer">
-                <Flag className="h-4 w-4 mr-2 text-muted-foreground" />No Priority
+                <Flag className="h-4 w-4 mr-2 text-muted-foreground" />{t('taskDetail.noPriority')}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleDuplicate} className="cursor-pointer">
-                <Copy className="h-4 w-4 mr-2" />Duplicate Task
+                <Copy className="h-4 w-4 mr-2" />{t('taskDetail.duplicateTask')}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={handlePin} className="cursor-pointer">
-                <Pin className="h-4 w-4 mr-2" />Pin Task
+                <Pin className="h-4 w-4 mr-2" />{t('taskDetail.pinTask')}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleDelete} className="cursor-pointer text-destructive">
-                <Trash2 className="h-4 w-4 mr-2" />Delete Task
+                <Trash2 className="h-4 w-4 mr-2" />{t('taskDetail.deleteTask')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -573,7 +575,7 @@ export const TaskDetailPage = ({
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             onBlur={handleTitleBlur}
-            placeholder="Task title..."
+            placeholder={t('taskDetail.taskTitle')}
             className={cn(
               "text-xl font-semibold border-none shadow-none px-0 h-auto focus-visible:ring-0",
               task.completed && "line-through opacity-60"
@@ -584,7 +586,7 @@ export const TaskDetailPage = ({
               <div className="flex items-center gap-1.5">
                 <Flag className={cn("h-4 w-4", getPriorityColor(task.priority))} />
                 <span className={cn("text-sm capitalize", getPriorityColor(task.priority))}>
-                  {task.priority} Priority
+                  {t(`tasks.priority.${task.priority}`)}
                 </span>
               </div>
             )}
@@ -597,13 +599,13 @@ export const TaskDetailPage = ({
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
             <Circle className="h-4 w-4" />
-            Task Status
+            {t('taskDetail.taskStatus')}
           </div>
           <Select 
             value={task.status || 'not_started'} 
             onValueChange={(value) => {
               onUpdate({ ...task, status: value as TaskStatus });
-              toast.success(`Status changed to ${TASK_STATUS_OPTIONS.find(o => o.value === value)?.label}`);
+              toast.success(t('toasts.saved'));
             }}
           >
             <SelectTrigger className="w-full">
@@ -708,14 +710,14 @@ export const TaskDetailPage = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <span className="text-lg">•</span>
-              Subtasks
+              {t('taskDetail.subtasks')}
             </div>
             <button
               onClick={() => setIsSubtaskInputSheetOpen(true)}
               className="flex items-center gap-1 text-primary text-sm font-medium"
             >
               <Plus className="h-4 w-4" />
-              Add
+              {t('taskDetail.addSubtask')}
             </button>
           </div>
 
@@ -799,7 +801,7 @@ export const TaskDetailPage = ({
                                 {/* Nested subtasks count */}
                                 {subtask.subtasks && subtask.subtasks.length > 0 && (
                                   <span className="text-[10px] text-muted-foreground px-1.5 py-0.5 bg-muted rounded-full">
-                                    {subtask.subtasks.filter(st => st.completed).length}/{subtask.subtasks.length} nested
+                                    {t('taskDetail.nested', { completed: subtask.subtasks.filter(st => st.completed).length, total: subtask.subtasks.length })}
                                   </span>
                                 )}
                               </div>
@@ -824,7 +826,7 @@ export const TaskDetailPage = ({
                     ))}
                     {provided.placeholder}
                     <p className="text-xs text-muted-foreground px-3 py-1">
-                      {task.subtasks.filter(st => st.completed).length}/{task.subtasks.length} completed
+                      {t('taskDetail.subtasksCompleted', { completed: task.subtasks.filter(st => st.completed).length, total: task.subtasks.length })}
                     </p>
                   </div>
                 )}
@@ -837,7 +839,7 @@ export const TaskDetailPage = ({
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
             <Clock className="h-4 w-4" />
-            Time Tracking
+            {t('taskDetail.timeTracking')}
           </div>
           <TaskTimeTracker
             timeTracking={task.timeTracking}
@@ -852,9 +854,9 @@ export const TaskDetailPage = ({
             className="w-full flex items-center gap-3 py-3 hover:bg-muted/50 rounded-lg px-2 transition-colors"
           >
             <Link className="h-5 w-5 text-purple-500" />
-            <span className="flex-1 text-left">Dependencies</span>
+            <span className="flex-1 text-left">{t('taskDetail.dependencies')}</span>
             <span className="text-sm text-muted-foreground">
-              {task.dependsOn?.length || 0} linked
+              {t('taskDetail.linked', { count: task.dependsOn?.length || 0 })}
             </span>
           </button>
           {task.dependsOn && task.dependsOn.length > 0 && (
@@ -866,12 +868,12 @@ export const TaskDetailPage = ({
                   <>
                     {blockedBy.length > 0 && (
                       <p className="text-xs text-amber-500">
-                        ⚠️ Blocked by {blockedBy.length} task(s): {blockedBy.map(t => t.text).slice(0, 2).join(', ')}{blockedBy.length > 2 ? '...' : ''}
+                        ⚠️ {t('taskDetail.blockedBy', { count: blockedBy.length, tasks: blockedBy.map(t => t.text).slice(0, 2).join(', ') + (blockedBy.length > 2 ? '...' : '') })}
                       </p>
                     )}
                     {completedDeps.length > 0 && (
                       <p className="text-xs text-green-500">
-                        ✓ {completedDeps.length} dependency completed
+                        ✓ {t('taskDetail.dependencyCompleted', { count: completedDeps.length })}
                       </p>
                     )}
                   </>
@@ -889,11 +891,11 @@ export const TaskDetailPage = ({
             className="w-full flex items-center gap-3 py-3 hover:bg-muted/50 rounded-lg px-2 transition-colors"
           >
             <CalendarIcon className="h-5 w-5 text-cyan-500" />
-            <span className="flex-1 text-left">Date, Time & Reminder</span>
+            <span className="flex-1 text-left">{t('taskDetail.dateTimeReminder')}</span>
             <span className="text-sm text-muted-foreground">
               {task.dueDate 
                 ? `${format(new Date(task.dueDate), 'MMM d')}${task.reminderTime ? ` • ${format(new Date(task.reminderTime), 'h:mm a')}` : ''}`
-                : 'Not set'}
+                : t('taskDetail.notSet')}
             </span>
           </button>
 
@@ -903,7 +905,7 @@ export const TaskDetailPage = ({
             className="w-full flex items-center gap-3 py-3 hover:bg-muted/50 rounded-lg px-2 transition-colors"
           >
             <FileText className="h-5 w-5 text-blue-500" />
-            <span className="flex-1 text-left">Convert to Notes</span>
+            <span className="flex-1 text-left">{t('taskDetail.convertToNotes')}</span>
           </button>
 
           {/* Attachment */}
@@ -912,7 +914,7 @@ export const TaskDetailPage = ({
             className="w-full flex items-center gap-3 py-3 hover:bg-muted/50 rounded-lg px-2 transition-colors"
           >
             <Paperclip className="h-5 w-5 text-pink-500" />
-            <span className="flex-1 text-left">Attachment</span>
+            <span className="flex-1 text-left">{t('taskDetail.attachment')}</span>
             {task.imageUrl && <ImageIcon className="h-4 w-4 text-muted-foreground" />}
           </button>
           <input
@@ -929,9 +931,9 @@ export const TaskDetailPage = ({
               <PopoverTrigger asChild>
                 <button className="w-full flex items-center gap-3 py-3 hover:bg-muted/50 rounded-lg px-2 transition-colors">
                   <Tag className="h-5 w-5 text-yellow-500" />
-                  <span className="flex-1 text-left">Tag</span>
+                  <span className="flex-1 text-left">{t('taskDetail.tag')}</span>
                   <span className="text-sm text-muted-foreground">
-                    {task.coloredTags?.length || 0} tag(s)
+                    {t('taskDetail.tagsCount', { count: task.coloredTags?.length || 0 })}
                   </span>
                 </button>
               </PopoverTrigger>
@@ -940,7 +942,7 @@ export const TaskDetailPage = ({
                   <Input
                     value={newTagName}
                     onChange={(e) => setNewTagName(e.target.value)}
-                    placeholder="Tag name..."
+                    placeholder={t('taskDetail.tagName')}
                     className="h-9"
                   />
                   <div className="flex gap-1 flex-wrap">
@@ -957,7 +959,7 @@ export const TaskDetailPage = ({
                     ))}
                   </div>
                   <Button onClick={handleAddTag} size="sm" className="w-full">
-                    Add Tag
+                    {t('taskDetail.addTag')}
                   </Button>
                 </div>
               </PopoverContent>
@@ -986,12 +988,12 @@ export const TaskDetailPage = ({
           <div className="space-y-2 border-t border-border pt-4">
             <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <FileText className="h-4 w-4" />
-              Description
+              {t('taskDetail.description')}
             </div>
             <textarea
               value={task.description || ''}
               onChange={(e) => onUpdate({ ...task, description: e.target.value })}
-              placeholder="Add notes or details about this task..."
+              placeholder={t('taskDetail.descriptionPlaceholder')}
               className="w-full min-h-[120px] p-3 rounded-xl bg-muted/30 border border-border/50 resize-none text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
             />
           </div>
