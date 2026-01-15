@@ -150,6 +150,8 @@
     "dataRestored": "数据恢复成功",
     "restoreFailed": "数据恢复失败",
     "dataDownloaded": "数据已下载",
+    "downloadFailed": "下载失败",
+    "backupFailed": "备份失败",
     "dataDeleted": "所有数据已删除",
     "shareNotAvailable": "此设备不支持分享功能",
     "purchasesRestored": "购买恢复成功",
@@ -170,6 +172,10 @@
     "copied": "已复制到剪贴板",
     "saved": "保存成功",
     "error": "发生错误"
+  },
+  "share": {
+    "appTitle": "NPD - 笔记应用",
+    "appDescription": "快来体验这款出色的笔记应用！"
   },
   "trial": {
     "endingSoon": "试用即将结束！",

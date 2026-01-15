@@ -150,6 +150,8 @@
     "dataRestored": "Données restaurées avec succès",
     "restoreFailed": "Échec de la restauration des données",
     "dataDownloaded": "Données téléchargées",
+    "downloadFailed": "Échec du téléchargement",
+    "backupFailed": "Échec de la sauvegarde",
     "dataDeleted": "Toutes les données supprimées",
     "shareNotAvailable": "Fonction de partage non disponible sur cet appareil",
     "purchasesRestored": "Achats restaurés avec succès",
@@ -170,6 +172,10 @@
     "copied": "Copié dans le presse-papiers",
     "saved": "Enregistré avec succès",
     "error": "Une erreur s'est produite"
+  },
+  "share": {
+    "appTitle": "NPD - Application de Notes",
+    "appDescription": "Découvrez cette incroyable application de notes!"
   },
   "trial": {
     "endingSoon": "L'Essai Se Termine Bientôt!",

@@ -150,6 +150,8 @@
     "dataRestored": "ڈیٹا کامیابی سے بحال ہوگیا",
     "restoreFailed": "ڈیٹا بحال کرنے میں ناکام",
     "dataDownloaded": "ڈیٹا ڈاؤن لوڈ ہوگیا",
+    "downloadFailed": "ڈاؤن لوڈ ناکام",
+    "backupFailed": "بیک اپ ناکام",
     "dataDeleted": "تمام ڈیٹا حذف ہوگیا",
     "shareNotAvailable": "اس ڈیوائس پر شیئر فیچر دستیاب نہیں",
     "purchasesRestored": "خریداریاں کامیابی سے بحال ہوگئیں",
@@ -170,6 +172,10 @@
     "copied": "کلپ بورڈ پر کاپی ہوگیا",
     "saved": "کامیابی سے محفوظ ہوگیا",
     "error": "ایک خرابی پیش آئی"
+  },
+  "share": {
+    "appTitle": "NPD - نوٹ لینے کی ایپ",
+    "appDescription": "یہ شاندار نوٹ لینے والی ایپ دیکھیں!"
   },
   "trial": {
     "endingSoon": "ٹرائل جلد ختم ہو رہا ہے!",

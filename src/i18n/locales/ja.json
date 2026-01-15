@@ -150,6 +150,8 @@
     "dataRestored": "データが正常に復元されました",
     "restoreFailed": "データの復元に失敗しました",
     "dataDownloaded": "データがダウンロードされました",
+    "downloadFailed": "ダウンロードに失敗しました",
+    "backupFailed": "バックアップに失敗しました",
     "dataDeleted": "すべてのデータが削除されました",
     "shareNotAvailable": "このデバイスでは共有機能は利用できません",
     "purchasesRestored": "購入が正常に復元されました",
@@ -170,6 +172,10 @@
     "copied": "クリップボードにコピーされました",
     "saved": "正常に保存されました",
     "error": "エラーが発生しました"
+  },
+  "share": {
+    "appTitle": "NPD - メモアプリ",
+    "appDescription": "この素晴らしいメモアプリをチェックしてください！"
   },
   "trial": {
     "endingSoon": "トライアルがもうすぐ終了します！",

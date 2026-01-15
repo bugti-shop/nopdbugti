@@ -102,8 +102,8 @@ const Settings = () => {
           const sessionWarningShown = sessionStorage.getItem('npd_trial_warning_shown');
           if (days === 0 && !sessionWarningShown && !hasShownTrialWarning) {
             toast({
-              title: "⏰ Trial Ending Soon!",
-              description: `Your trial expires in ${hours}h ${minutes}m. Subscribe now to keep all features!`,
+              title: `⏰ ${t('trial.endingSoon')}`,
+              description: t('trial.expiresIn', { hours, minutes }),
               duration: 10000,
             });
             sessionStorage.setItem('npd_trial_warning_shown', 'true');
@@ -131,10 +131,10 @@ const Settings = () => {
       a.href = url;
       a.download = `npd-backup-${Date.now()}.json`;
       a.click();
-      toast({ title: "Data backed up successfully" });
+      toast({ title: t('toasts.dataBackedUp') });
     } catch (error) {
       console.error('Backup error:', error);
-      toast({ title: "Backup failed", variant: "destructive" });
+      toast({ title: t('toasts.backupFailed'), variant: "destructive" });
     }
   };
 
@@ -166,14 +166,14 @@ const Settings = () => {
               }));
               await saveNotesToDB(hydratedNotes);
             }
-            if (backup.folders) localStorage.setItem('folders', backup.folders);
-            toast({ title: "Data restored successfully" });
-            setTimeout(() => window.location.reload(), 1000);
-          } catch (error) {
-            toast({ title: "Failed to restore data", variant: "destructive" });
-          }
-        };
-        reader.readAsText(file);
+              if (backup.folders) localStorage.setItem('folders', backup.folders);
+              toast({ title: t('toasts.dataRestored') });
+              setTimeout(() => window.location.reload(), 1000);
+            } catch (error) {
+              toast({ title: t('toasts.restoreFailed'), variant: "destructive" });
+            }
+          };
+          reader.readAsText(file);
       }
     };
     input.click();
@@ -194,10 +194,10 @@ const Settings = () => {
       a.href = url;
       a.download = `npd-data-${Date.now()}.json`;
       a.click();
-      toast({ title: "Data downloaded" });
+      toast({ title: t('toasts.dataDownloaded') });
     } catch (error) {
       console.error('Download error:', error);
-      toast({ title: "Download failed", variant: "destructive" });
+      toast({ title: t('toasts.downloadFailed'), variant: "destructive" });
     }
   };
 
@@ -207,7 +207,7 @@ const Settings = () => {
 
   const confirmDeleteData = () => {
     localStorage.clear();
-    toast({ title: "All data deleted" });
+    toast({ title: t('toasts.dataDeleted') });
     setShowDeleteDialog(false);
     setTimeout(() => window.location.href = '/', 1000);
   };
@@ -215,12 +215,12 @@ const Settings = () => {
   const handleShareApp = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'NPD - Note Taking App',
-        text: 'Check out this amazing note-taking app!',
+        title: t('share.appTitle'),
+        text: t('share.appDescription'),
         url: window.location.origin
       });
     } else {
-      toast({ title: "Share feature not available on this device" });
+      toast({ title: t('toasts.shareNotAvailable') });
     }
   };
 
@@ -228,9 +228,9 @@ const Settings = () => {
     setIsRestoring(true);
     try {
       await restorePurchases();
-      toast({ title: "Purchases restored successfully" });
+      toast({ title: t('toasts.purchasesRestored') });
     } catch (error) {
-      toast({ title: "Failed to restore purchases", variant: "destructive" });
+      toast({ title: t('toasts.purchasesFailed'), variant: "destructive" });
     } finally {
       setIsRestoring(false);
     }

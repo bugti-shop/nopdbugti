@@ -151,6 +151,8 @@
     "dataRestored": "Data restored successfully",
     "restoreFailed": "Failed to restore data",
     "dataDownloaded": "Data downloaded",
+    "downloadFailed": "Download failed",
+    "backupFailed": "Backup failed",
     "dataDeleted": "All data deleted",
     "shareNotAvailable": "Share feature not available on this device",
     "purchasesRestored": "Purchases restored successfully",
@@ -181,6 +183,10 @@
     "sectionDeleted": "Section deleted",
     "tagAdded": "Tag added",
     "tagRemoved": "Tag removed"
+  },
+  "share": {
+    "appTitle": "NPD - Note Taking App",
+    "appDescription": "Check out this amazing note-taking app!"
   },
   "trial": {
     "endingSoon": "Trial Ending Soon!",
@@ -459,7 +465,21 @@
     "addCommentPlaceholder": "Enter your comment...",
     "metaDescPlaceholder": "Enter meta description for SEO...",
     "createNewFolder": "Create New Folder",
-    "folderNamePlaceholder": "Folder name"
+    "folderNamePlaceholder": "Folder name",
+    "tableHeader": "Header",
+    "tableCell": "Cell",
+    "created": "Created",
+    "modified": "Modified",
+    "pagesCount": "{{count}} pages",
+    "wordsCount": "{{count}} words",
+    "charsCount": "{{count}} chars",
+    "tableStyles": {
+      "default": "Default",
+      "striped": "Striped",
+      "bordered": "Bordered",
+      "minimal": "Minimal",
+      "modern": "Modern"
+    }
   },
   "dateTime": {
     "date": "Date",

@@ -150,6 +150,8 @@
     "dataRestored": "הנתונים שוחזרו בהצלחה",
     "restoreFailed": "השחזור נכשל",
     "dataDownloaded": "הנתונים הורדו",
+    "downloadFailed": "ההורדה נכשלה",
+    "backupFailed": "הגיבוי נכשל",
     "dataDeleted": "כל הנתונים נמחקו",
     "shareNotAvailable": "תכונת השיתוף אינה זמינה במכשיר זה",
     "purchasesRestored": "הרכישות שוחזרו בהצלחה",
@@ -170,6 +172,10 @@
     "copied": "הועתק ללוח",
     "saved": "נשמר בהצלחה",
     "error": "אירעה שגיאה"
+  },
+  "share": {
+    "appTitle": "NPD - אפליקציית פתקים",
+    "appDescription": "בדקו את האפליקציה המדהימה הזו לפתקים!"
   },
   "trial": {
     "endingSoon": "תקופת הניסיון מסתיימת בקרוב!",

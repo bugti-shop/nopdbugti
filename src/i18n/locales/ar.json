@@ -150,6 +150,8 @@
     "dataRestored": "تم استعادة البيانات بنجاح",
     "restoreFailed": "فشل في استعادة البيانات",
     "dataDownloaded": "تم تحميل البيانات",
+    "downloadFailed": "فشل التحميل",
+    "backupFailed": "فشل النسخ الاحتياطي",
     "dataDeleted": "تم حذف جميع البيانات",
     "shareNotAvailable": "ميزة المشاركة غير متاحة على هذا الجهاز",
     "purchasesRestored": "تم استعادة المشتريات بنجاح",
@@ -170,6 +172,10 @@
     "copied": "تم النسخ إلى الحافظة",
     "saved": "تم الحفظ بنجاح",
     "error": "حدث خطأ"
+  },
+  "share": {
+    "appTitle": "NPD - تطبيق تدوين الملاحظات",
+    "appDescription": "جرب هذا التطبيق الرائع لتدوين الملاحظات!"
   },
   "trial": {
     "endingSoon": "الفترة التجريبية تنتهي قريباً!",
@@ -394,7 +400,21 @@
     "metaDescPlaceholder": "أدخل وصف الميتا لتحسين محركات البحث...",
     "createNewFolder": "إنشاء مجلد جديد",
     "folderNamePlaceholder": "اسم المجلد",
-    "insertComment": "إدراج تعليق"
+    "insertComment": "إدراج تعليق",
+    "tableHeader": "عنوان",
+    "tableCell": "خلية",
+    "created": "تم الإنشاء",
+    "modified": "تم التعديل",
+    "pagesCount": "{{count}} صفحات",
+    "wordsCount": "{{count}} كلمات",
+    "charsCount": "{{count}} حرف",
+    "tableStyles": {
+      "default": "افتراضي",
+      "striped": "مخطط",
+      "bordered": "محدد",
+      "minimal": "بسيط",
+      "modern": "عصري"
+    }
   },
   "dateTime": {
     "date": "التاريخ",
