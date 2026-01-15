@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { FolderInput, Trash2, CheckSquare, Pin, Flag, Copy, FileText, MoreVertical, CheckCheck, Calendar, Clock, Bell, Repeat, LayoutList, Activity } from 'lucide-react';
@@ -27,6 +28,8 @@ export const SelectActionsSheet = ({
   onAction,
   totalCount = 0
 }: SelectActionsSheetProps) => {
+  const { t } = useTranslation();
+  
   // Hardware back button support - use 'sheet' priority to close sheet before navigation
   useHardwareBackButton({
     onBack: onClose,
@@ -45,7 +48,7 @@ export const SelectActionsSheet = ({
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <SheetContent side="bottom" className="rounded-t-3xl">
         <SheetHeader className="mb-4">
-          <SheetTitle>{selectedCount} task(s) selected</SheetTitle>
+          <SheetTitle>{t('actions.tasksSelected', { count: selectedCount })}</SheetTitle>
         </SheetHeader>
 
         <div className="grid grid-cols-4 gap-3 mb-4">
@@ -55,7 +58,7 @@ export const SelectActionsSheet = ({
             onClick={() => handleAction('selectAll')}
           >
             <CheckCheck className="h-5 w-5 text-purple-500" />
-            <span className="text-xs">Select All</span>
+            <span className="text-xs">{t('actions.selectAll')}</span>
           </Button>
 
           <Button
@@ -64,7 +67,7 @@ export const SelectActionsSheet = ({
             onClick={() => handleAction('move')}
           >
             <FolderInput className="h-5 w-5 text-blue-500" />
-            <span className="text-xs">Move</span>
+            <span className="text-xs">{t('actions.move')}</span>
           </Button>
 
           <Button
@@ -73,7 +76,7 @@ export const SelectActionsSheet = ({
             onClick={() => handleAction('delete')}
           >
             <Trash2 className="h-5 w-5 text-red-500" />
-            <span className="text-xs">Delete</span>
+            <span className="text-xs">{t('common.delete')}</span>
           </Button>
 
           <Button
@@ -82,7 +85,7 @@ export const SelectActionsSheet = ({
             onClick={() => handleAction('complete')}
           >
             <CheckSquare className="h-5 w-5 text-green-500" />
-            <span className="text-xs">Complete</span>
+            <span className="text-xs">{t('actions.complete')}</span>
           </Button>
         </div>
 
@@ -94,7 +97,7 @@ export const SelectActionsSheet = ({
             onClick={() => handleAction('setDueDate')}
           >
             <Calendar className="h-5 w-5 text-orange-500" />
-            <span className="text-xs">Due Date</span>
+            <span className="text-xs">{t('actions.dueDate')}</span>
           </Button>
 
           <Button
@@ -103,7 +106,7 @@ export const SelectActionsSheet = ({
             onClick={() => handleAction('setReminder')}
           >
             <Bell className="h-5 w-5 text-yellow-500" />
-            <span className="text-xs">Reminder</span>
+            <span className="text-xs">{t('actions.reminder')}</span>
           </Button>
 
           <Button
@@ -112,7 +115,7 @@ export const SelectActionsSheet = ({
             onClick={() => handleAction('priority')}
           >
             <Flag className="h-5 w-5 text-red-400" />
-            <span className="text-xs">Priority</span>
+            <span className="text-xs">{t('tasks.priority.title')}</span>
           </Button>
 
           <Button
@@ -121,7 +124,7 @@ export const SelectActionsSheet = ({
             onClick={() => handleAction('moveToSection')}
           >
             <LayoutList className="h-5 w-5 text-indigo-500" />
-            <span className="text-xs">Section</span>
+            <span className="text-xs">{t('actions.section')}</span>
           </Button>
         </div>
 
@@ -129,30 +132,30 @@ export const SelectActionsSheet = ({
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="w-full">
               <MoreVertical className="h-4 w-4 mr-2" />
-              More Actions
+              {t('actions.moreActions')}
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56 bg-popover">
             <DropdownMenuItem onClick={() => handleAction('setStatus')}>
               <Activity className="h-4 w-4 mr-2" />
-              Set Status
+              {t('actions.setStatus')}
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => handleAction('setRepeat')}>
               <Repeat className="h-4 w-4 mr-2" />
-              Set Repeat
+              {t('actions.setRepeat')}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => handleAction('pin')}>
               <Pin className="h-4 w-4 mr-2" />
-              Pin Tasks
+              {t('actions.pinTasks')}
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => handleAction('duplicate')}>
               <Copy className="h-4 w-4 mr-2" />
-              Duplicate
+              {t('common.duplicate')}
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => handleAction('convert')}>
               <FileText className="h-4 w-4 mr-2" />
-              Convert to Note
+              {t('actions.convertToNote')}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

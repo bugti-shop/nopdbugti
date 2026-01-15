@@ -288,7 +288,8 @@
       "inProgress": "In Progress",
       "completed": "Completed",
       "onHold": "On Hold",
-      "cancelled": "Cancelled"
+      "cancelled": "Cancelled",
+      "almostDone": "Almost Done"
     },
     "sections": {
       "title": "Section",
@@ -313,6 +314,7 @@
       "thisWeek": "This Week",
       "overdue": "Overdue",
       "noDueDate": "No Due Date",
+      "hasDate": "Has Due Date",
       "byPriority": "By Priority",
       "byStatus": "By Status",
       "byDate": "By Date",
@@ -501,6 +503,7 @@
   "actions": {
     "selectItems": "Select Items",
     "selectedCount": "{{count}} selected",
+    "tasksSelected": "{{count}} task(s) selected",
     "deleteSelected": "Delete Selected",
     "moveSelected": "Move Selected",
     "archiveSelected": "Archive Selected",
@@ -508,7 +511,18 @@
     "cancelSelection": "Cancel Selection",
     "batchAdd": "Batch Add",
     "customizeActions": "Customize Actions",
-    "manageActions": "Manage Actions"
+    "manageActions": "Manage Actions",
+    "selectAll": "Select All",
+    "move": "Move",
+    "complete": "Complete",
+    "dueDate": "Due Date",
+    "reminder": "Reminder",
+    "section": "Section",
+    "moreActions": "More Actions",
+    "setStatus": "Set Status",
+    "setRepeat": "Set Repeat",
+    "pinTasks": "Pin Tasks",
+    "convertToNote": "Convert to Note"
   },
   "voice": {
     "startRecording": "Start Recording",

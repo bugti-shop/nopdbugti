@@ -168,7 +168,7 @@ export const TaskFilterSheet = ({
               </div>
               <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="has-date" id="date-has" />
-                <Label htmlFor="date-has" className="cursor-pointer flex-1">{t('tasks.filters.hasDate', 'Has Due Date')}</Label>
+                <Label htmlFor="date-has" className="cursor-pointer flex-1">{t('tasks.filters.hasDate')}</Label>
               </div>
               <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="no-date" id="date-no" />
@@ -244,7 +244,7 @@ export const TaskFilterSheet = ({
                 <RadioGroupItem value="almost_done" id="status-almost-done" />
                 <Label htmlFor="status-almost-done" className="cursor-pointer flex-1 flex items-center gap-2">
                   <Clock className="h-4 w-4 text-orange-500" />
-                  {t('tasks.status.almostDone', 'Almost Done')}
+                  {t('tasks.status.almostDone')}
                 </Label>
               </div>
             </RadioGroup>

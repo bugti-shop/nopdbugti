@@ -252,7 +252,8 @@
       "inProgress": "進行中",
       "completed": "完了",
       "onHold": "保留中",
-      "cancelled": "キャンセル"
+      "cancelled": "キャンセル",
+      "almostDone": "ほぼ完了"
     },
     "sections": {
       "title": "セクション",
@@ -277,6 +278,7 @@
       "thisWeek": "今週",
       "overdue": "期限切れ",
       "noDueDate": "期限なし",
+      "hasDate": "期限あり",
       "byPriority": "優先度別",
       "byStatus": "ステータス別",
       "byDate": "日付別",
@@ -397,6 +399,7 @@
   "actions": {
     "selectItems": "項目を選択",
     "selectedCount": "{{count}}件選択",
+    "tasksSelected": "{{count}}件のタスクを選択",
     "deleteSelected": "選択を削除",
     "moveSelected": "選択を移動",
     "archiveSelected": "選択をアーカイブ",
@@ -404,7 +407,18 @@
     "cancelSelection": "選択をキャンセル",
     "batchAdd": "一括追加",
     "customizeActions": "アクションをカスタマイズ",
-    "manageActions": "アクションを管理"
+    "manageActions": "アクションを管理",
+    "selectAll": "すべて選択",
+    "move": "移動",
+    "complete": "完了",
+    "dueDate": "期日",
+    "reminder": "リマインダー",
+    "section": "セクション",
+    "moreActions": "その他のアクション",
+    "setStatus": "ステータスを設定",
+    "setRepeat": "繰り返しを設定",
+    "pinTasks": "タスクをピン留め",
+    "convertToNote": "ノートに変換"
   },
   "voice": {
     "startRecording": "録音開始",
