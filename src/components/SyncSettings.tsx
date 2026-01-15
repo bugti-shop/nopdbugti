@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Loader2, Calendar, RefreshCw } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -45,6 +46,7 @@ interface SyncSettingsState {
 
 const SyncSettings = () => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState<Record<string, boolean>>({});
   
   const {
@@ -98,26 +100,26 @@ const SyncSettings = () => {
         const result = await connectGoogleCalendar();
         if (result.success) {
           toast({
-            title: "Connected",
-            description: `Google Calendar connected: ${result.email}`,
+            title: t('toasts.connected'),
+            description: t('toasts.connectedAs', { email: result.email }),
           });
         } else {
           toast({
-            title: "Connection failed",
-            description: result.error || "Failed to connect",
+            title: t('toasts.connectionFailed'),
+            description: result.error || t('toasts.failedToConnect'),
             variant: "destructive",
           });
         }
       } else {
         toast({
-          title: "Coming Soon",
-          description: `${service} integration will be available soon.`,
+          title: t('toasts.comingSoon'),
+          description: t('toasts.integrationComingSoon', { service }),
         });
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: `Failed to connect to ${service}`,
+        title: t('errors.generic'),
+        description: t('toasts.failedToConnect'),
         variant: "destructive",
       });
     }
@@ -140,7 +142,7 @@ const SyncSettings = () => {
 
       {lastSyncTime && (
         <div className="text-xs text-muted-foreground text-center">
-          Last synced: {new Date(lastSyncTime).toLocaleString()}
+          {t('sync.lastSynced', { time: new Date(lastSyncTime).toLocaleString() })}
         </div>
       )}
 
@@ -153,7 +155,7 @@ const SyncSettings = () => {
             </div>
             <div>
               <CardTitle className="text-lg">Google Calendar</CardTitle>
-              <CardDescription>Sync tasks with Google Calendar</CardDescription>
+              <CardDescription>{t('sync.syncWithCalendar')}</CardDescription>
             </div>
           </div>
         </CardHeader>
@@ -173,11 +175,11 @@ const SyncSettings = () => {
                 className="h-5 w-5"
               />
             )}
-            {connections.googleCalendar.connected ? 'Connected' : 'Continue Google Account'}
+            {connections.googleCalendar.connected ? t('toasts.connected') : t('sync.continueAccount', { service: 'Google' })}
           </Button>
           {connections.googleCalendar.email && (
             <p className="text-xs text-muted-foreground text-center mt-2">
-              Connected as {connections.googleCalendar.email}
+              {t('toasts.connectedAs', { email: connections.googleCalendar.email })}
             </p>
           )}
         </CardContent>
@@ -186,8 +188,8 @@ const SyncSettings = () => {
       {/* Integrations Section */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">Integrations</CardTitle>
-          <CardDescription>Connect with ClickUp, Notion, and HubSpot</CardDescription>
+          <CardTitle className="text-lg">{t('sync.integrations')}</CardTitle>
+          <CardDescription>{t('sync.integrationsDesc')}</CardDescription>
         </CardHeader>
         <CardContent>
           <Accordion type="single" collapsible className="w-full">
@@ -211,7 +213,7 @@ const SyncSettings = () => {
                   ) : (
                     <img src={logoClickUp} alt="ClickUp" className="h-5 w-5 rounded" />
                   )}
-                  Continue ClickUp Account
+                  {t('sync.continueAccount', { service: 'ClickUp' })}
                 </Button>
               </AccordionContent>
             </AccordionItem>
@@ -236,7 +238,7 @@ const SyncSettings = () => {
                   ) : (
                     <img src={logoNotion} alt="Notion" className="h-5 w-5 rounded" />
                   )}
-                  Continue Notion Account
+                  {t('sync.continueAccount', { service: 'Notion' })}
                 </Button>
               </AccordionContent>
             </AccordionItem>
@@ -261,7 +263,7 @@ const SyncSettings = () => {
                   ) : (
                     <img src={logoHubSpot} alt="HubSpot" className="h-5 w-5 rounded" />
                   )}
-                  Continue HubSpot Account
+                  {t('sync.continueAccount', { service: 'HubSpot' })}
                 </Button>
               </AccordionContent>
             </AccordionItem>
@@ -272,8 +274,8 @@ const SyncSettings = () => {
       {/* Task Import Section */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">Import Tasks</CardTitle>
-          <CardDescription>Import tasks from other apps</CardDescription>
+          <CardTitle className="text-lg">{t('sync.importTasks')}</CardTitle>
+          <CardDescription>{t('sync.importTasksDesc')}</CardDescription>
         </CardHeader>
         <CardContent>
           <Accordion type="single" collapsible className="w-full">
@@ -297,7 +299,7 @@ const SyncSettings = () => {
                   ) : (
                     <img src={logoTickTick} alt="TickTick" className="h-5 w-5 rounded" />
                   )}
-                  Import from TickTick
+                  {t('sync.importFrom', { service: 'TickTick' })}
                 </Button>
               </AccordionContent>
             </AccordionItem>
@@ -322,7 +324,7 @@ const SyncSettings = () => {
                   ) : (
                     <img src={logoTodoist} alt="Todoist" className="h-5 w-5 rounded" />
                   )}
-                  Import from Todoist
+                  {t('sync.importFrom', { service: 'Todoist' })}
                 </Button>
               </AccordionContent>
             </AccordionItem>
@@ -347,7 +349,7 @@ const SyncSettings = () => {
                   ) : (
                     <img src={logoEvernote} alt="Evernote" className="h-5 w-5 rounded" />
                   )}
-                  Import from Evernote
+                  {t('sync.importFrom', { service: 'Evernote' })}
                 </Button>
               </AccordionContent>
             </AccordionItem>

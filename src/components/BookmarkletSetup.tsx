@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -7,6 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 
 const BookmarkletSetup = () => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
   // Get the current app URL (works for both dev and production)
@@ -28,14 +30,14 @@ const BookmarkletSetup = () => {
       await navigator.clipboard.writeText(bookmarkletCode);
       setCopied(true);
       toast({
-        title: 'Copied!',
-        description: 'Bookmarklet code copied to clipboard.',
+        title: t('toasts.bookmarkletCopied'),
+        description: t('toasts.bookmarkletCopiedDesc'),
       });
       setTimeout(() => setCopied(false), 2000);
     } catch (error) {
       toast({
-        title: 'Copy failed',
-        description: 'Please manually select and copy the code.',
+        title: t('toasts.copyFailed'),
+        description: t('toasts.manualCopyDesc'),
         variant: 'destructive',
       });
     }
@@ -46,16 +48,16 @@ const BookmarkletSetup = () => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Scissors className="h-5 w-5" />
-          Web Clipper
+          {t('bookmarklet.title')}
         </CardTitle>
         <CardDescription>
-          Save web pages directly to your notes with one click
+          {t('bookmarklet.description')}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Bookmarklet drag button */}
         <div className="space-y-2">
-          <p className="text-sm font-medium">Option 1: Drag to Bookmarks Bar</p>
+          <p className="text-sm font-medium">{t('bookmarklet.dragOption')}</p>
           <a
             href={bookmarkletCode}
             onClick={(e) => e.preventDefault()}
@@ -63,16 +65,16 @@ const BookmarkletSetup = () => {
             draggable="true"
           >
             <GripVertical className="h-4 w-4" />
-            📎 Clip to Npd
+            {t('bookmarklet.clipToNpd')}
           </a>
           <p className="text-xs text-muted-foreground">
-            Drag this button to your browser's bookmarks bar
+            {t('bookmarklet.dragInstructions')}
           </p>
         </div>
 
         {/* Manual copy option */}
         <div className="space-y-2">
-          <p className="text-sm font-medium">Option 2: Manual Setup</p>
+          <p className="text-sm font-medium">{t('bookmarklet.manualOption')}</p>
           <div className="flex gap-2">
             <Button
               variant="outline"
@@ -83,18 +85,18 @@ const BookmarkletSetup = () => {
               {copied ? (
                 <>
                   <Check className="h-4 w-4" />
-                  Copied!
+                  {t('toasts.bookmarkletCopied')}
                 </>
               ) : (
                 <>
                   <Copy className="h-4 w-4" />
-                  Copy Code
+                  {t('bookmarklet.copyCode')}
                 </>
               )}
             </Button>
           </div>
           <p className="text-xs text-muted-foreground">
-            Copy and create a new bookmark, paste this as the URL
+            {t('bookmarklet.pasteInstructions')}
           </p>
         </div>
 
@@ -102,22 +104,22 @@ const BookmarkletSetup = () => {
         <div className="bg-muted/50 rounded-lg p-3 space-y-2">
           <div className="flex items-center gap-2">
             <Info className="h-4 w-4 text-muted-foreground" />
-            <p className="text-sm font-medium">How to use</p>
+            <p className="text-sm font-medium">{t('bookmarklet.howToUse')}</p>
           </div>
           <ol className="text-xs text-muted-foreground space-y-1 list-decimal list-inside">
-            <li>Visit any webpage you want to save</li>
-            <li>Select text (optional) to clip specific content</li>
-            <li>Click the "Clip to Npd" bookmark</li>
-            <li>The page will be saved to your notes!</li>
+            <li>{t('bookmarklet.step1')}</li>
+            <li>{t('bookmarklet.step2')}</li>
+            <li>{t('bookmarklet.step3')}</li>
+            <li>{t('bookmarklet.step4')}</li>
           </ol>
         </div>
 
         {/* Features */}
         <div className="flex flex-wrap gap-2">
-          <Badge variant="secondary">Page Title</Badge>
-          <Badge variant="secondary">URL Source</Badge>
-          <Badge variant="secondary">Selected Text</Badge>
-          <Badge variant="secondary">Meta Description</Badge>
+          <Badge variant="secondary">{t('bookmarklet.pageTitle')}</Badge>
+          <Badge variant="secondary">{t('bookmarklet.urlSource')}</Badge>
+          <Badge variant="secondary">{t('bookmarklet.selectedTextBadge')}</Badge>
+          <Badge variant="secondary">{t('bookmarklet.metaDescription')}</Badge>
         </div>
       </CardContent>
     </Card>

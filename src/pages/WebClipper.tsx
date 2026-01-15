@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Note } from '@/types/note';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -54,6 +55,7 @@ const WebClipper = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -113,8 +115,8 @@ const WebClipper = () => {
 
       setSaved(true);
       toast({
-        title: 'Web clip saved!',
-        description: `"${title}" has been saved to your notes.`,
+        title: t('toasts.webClipSaved'),
+        description: t('toasts.clipSavedDesc', { title }),
       });
 
       // Redirect to notes after short delay
@@ -124,8 +126,8 @@ const WebClipper = () => {
     } catch (error) {
       console.error('Error saving clip:', error);
       toast({
-        title: 'Error saving clip',
-        description: 'Something went wrong. Please try again.',
+        title: t('toasts.errorSavingClip'),
+        description: t('toasts.somethingWentWrong'),
         variant: 'destructive',
       });
     } finally {
@@ -141,22 +143,22 @@ const WebClipper = () => {
             {saving ? (
               <>
                 <Loader2 className="h-5 w-5 animate-spin" />
-                Saving clip...
+                {t('webClipper.savingClip')}
               </>
             ) : saved ? (
               <>
                 <Check className="h-5 w-5 text-green-500" />
-                Clip saved!
+                {t('webClipper.clipSaved')}
               </>
             ) : (
-              'Web Clipper'
+              t('webClipper.title')
             )}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           {(title || url) && (
             <div className="space-y-2">
-              <p className="font-medium text-sm text-muted-foreground">Clipping:</p>
+              <p className="font-medium text-sm text-muted-foreground">{t('webClipper.clipping')}</p>
               <p className="font-semibold">{title}</p>
               {url && (
                 <a 
@@ -174,7 +176,7 @@ const WebClipper = () => {
 
           {selection && (
             <div className="space-y-2">
-              <p className="font-medium text-sm text-muted-foreground">Selected text:</p>
+              <p className="font-medium text-sm text-muted-foreground">{t('webClipper.selectedText')}</p>
               <blockquote className="border-l-2 border-primary pl-3 text-sm italic text-muted-foreground">
                 {selection.length > 200 ? selection.substring(0, 200) + '...' : selection}
               </blockquote>
@@ -186,7 +188,7 @@ const WebClipper = () => {
               onClick={() => navigate('/notes')} 
               className="w-full"
             >
-              View Notes
+              {t('webClipper.viewNotes')}
             </Button>
           )}
         </CardContent>

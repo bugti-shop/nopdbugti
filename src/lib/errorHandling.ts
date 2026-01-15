@@ -1,32 +1,35 @@
 import { z } from 'zod';
+import i18n from '@/i18n';
 
 export const getUserFriendlyError = (error: any): string => {
-  const message = error?.message || error?.toString() || 'An unknown error occurred';
+  const t = i18n.t.bind(i18n);
+  const message = error?.message || error?.toString() || t('authErrors.unknownError');
   
   // Common Supabase auth errors
   if (message.includes('Invalid login credentials')) {
-    return 'Invalid email or password. Please try again.';
+    return t('authErrors.invalidCredentials');
   }
   if (message.includes('Email not confirmed')) {
-    return 'Please verify your email address before signing in.';
+    return t('authErrors.emailNotConfirmed');
   }
   if (message.includes('User already registered')) {
-    return 'An account with this email already exists. Please sign in instead.';
+    return t('authErrors.userAlreadyRegistered');
   }
   if (message.includes('Password should be')) {
-    return 'Password must be at least 8 characters with uppercase, lowercase, and a number.';
+    return t('authErrors.passwordRequirements');
   }
   if (message.includes('rate limit')) {
-    return 'Too many attempts. Please wait a few minutes and try again.';
+    return t('authErrors.rateLimit');
   }
   if (message.includes('network')) {
-    return 'Network error. Please check your internet connection.';
+    return t('authErrors.networkError');
   }
   
   return message;
 };
 
 export const getValidationError = (error: z.ZodError): string => {
+  const t = i18n.t.bind(i18n);
   const firstError = error.errors[0];
-  return firstError?.message || 'Please check your input and try again.';
+  return firstError?.message || t('authErrors.validationError');
 };

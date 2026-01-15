@@ -1,6 +1,7 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import { AlertTriangle } from 'lucide-react';
+import i18n from '@/i18n';
 
 interface Props {
   children: ReactNode;
@@ -38,15 +39,17 @@ export class ErrorBoundary extends Component<Props, State> {
         return this.props.fallback;
       }
 
+      const t = i18n.t.bind(i18n);
+
       return (
         <div className="flex flex-col items-center justify-center p-8 text-center">
           <AlertTriangle className="h-12 w-12 text-destructive mb-4" />
-          <h3 className="text-lg font-semibold mb-2">Something went wrong</h3>
+          <h3 className="text-lg font-semibold mb-2">{t('errorBoundary.somethingWentWrong')}</h3>
           <p className="text-sm text-muted-foreground mb-4">
-            {this.state.error?.message || 'An unexpected error occurred'}
+            {this.state.error?.message || t('errorBoundary.unexpectedError')}
           </p>
           <Button onClick={this.handleRetry} variant="outline">
-            Try Again
+            {t('errorBoundary.tryAgain')}
           </Button>
         </div>
       );
