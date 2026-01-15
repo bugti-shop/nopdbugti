@@ -1255,6 +1255,28 @@
     "noTasks": "No tasks yet. Tap \"Add Task\" to get started!",
     "noNotes": "No notes yet",
     "tapToCreateNote": "Tap the button below to create your first note",
-    "noTasksFiltered": "No {{filter}} tasks for this date"
+    "noTasksFiltered": "No {{filter}} tasks for this date",
+    "noCompletedTasks": "No completed tasks yet",
+    "noTasksInSection": "No tasks in this section"
+  },
+  "grouping": {
+    "highPriority": "High Priority",
+    "mediumPriority": "Medium Priority",
+    "lowPriority": "Low Priority",
+    "noPriority": "No Priority",
+    "overdue": "Overdue",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "thisWeek": "This Week",
+    "later": "Later",
+    "noDate": "No Date",
+    "completed": "Completed",
+    "completedToday": "Completed Today",
+    "completedYesterday": "Completed Yesterday",
+    "older": "Older"
+  },
+  "filters": {
+    "hasDate": "Has Due Date",
+    "almostDone": "Almost Done"
   }
 }

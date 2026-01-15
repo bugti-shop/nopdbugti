@@ -889,6 +889,28 @@
     "noTasks": "Ancora nessuna attività. Tocca \"Aggiungi Attività\" per iniziare!",
     "noNotes": "Ancora nessuna nota",
     "tapToCreateNote": "Tocca il pulsante qui sotto per creare la tua prima nota",
-    "noTasksFiltered": "Nessuna attività {{filter}} per questa data"
+    "noTasksFiltered": "Nessuna attività {{filter}} per questa data",
+    "noCompletedTasks": "Ancora nessuna attività completata",
+    "noTasksInSection": "Nessuna attività in questa sezione"
+  },
+  "grouping": {
+    "highPriority": "Alta Priorità",
+    "mediumPriority": "Media Priorità",
+    "lowPriority": "Bassa Priorità",
+    "noPriority": "Senza Priorità",
+    "overdue": "Scadute",
+    "today": "Oggi",
+    "tomorrow": "Domani",
+    "thisWeek": "Questa Settimana",
+    "later": "Dopo",
+    "noDate": "Senza Data",
+    "completed": "Completate",
+    "completedToday": "Completate Oggi",
+    "completedYesterday": "Completate Ieri",
+    "older": "Più Vecchie"
+  },
+  "filters": {
+    "hasDate": "Ha Data di Scadenza",
+    "almostDone": "Quasi Finito"
   }
 }

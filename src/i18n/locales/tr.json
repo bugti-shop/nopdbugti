@@ -926,6 +926,28 @@
     "noTasks": "Henüz görev yok. Başlamak için \"Görev Ekle\"ye dokunun!",
     "noNotes": "Henüz not yok",
     "tapToCreateNote": "İlk notunuzu oluşturmak için aşağıdaki düğmeye dokunun",
-    "noTasksFiltered": "Bu tarih için {{filter}} görev yok"
+    "noTasksFiltered": "Bu tarih için {{filter}} görev yok",
+    "noCompletedTasks": "Henüz tamamlanmış görev yok",
+    "noTasksInSection": "Bu bölümde görev yok"
+  },
+  "grouping": {
+    "highPriority": "Yüksek Öncelik",
+    "mediumPriority": "Orta Öncelik",
+    "lowPriority": "Düşük Öncelik",
+    "noPriority": "Öncelik Yok",
+    "overdue": "Gecikmiş",
+    "today": "Bugün",
+    "tomorrow": "Yarın",
+    "thisWeek": "Bu Hafta",
+    "later": "Daha Sonra",
+    "noDate": "Tarih Yok",
+    "completed": "Tamamlandı",
+    "completedToday": "Bugün Tamamlandı",
+    "completedYesterday": "Dün Tamamlandı",
+    "older": "Daha Eski"
+  },
+  "filters": {
+    "hasDate": "Vade Tarihi Var",
+    "almostDone": "Neredeyse Bitti"
   }
 }

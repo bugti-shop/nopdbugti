@@ -428,6 +428,11 @@ const Notes = () => {
             <p className="text-muted-foreground">
               {viewMode === 'trash' ? t('notes.trashEmpty') : viewMode === 'archived' ? t('notes.noArchivedNotes') : t('notes.noNotes')}
             </p>
+            {viewMode === 'active' && (
+              <p className="text-muted-foreground/60 text-sm mt-2">
+                {t('emptyStates.tapToCreateNote')}
+              </p>
+            )}
           </div>
         ) : (
           <div className="columns-2 gap-3 space-y-3">

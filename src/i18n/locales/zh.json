@@ -932,6 +932,28 @@
     "noTasks": "还没有任务。点击\"添加任务\"开始吧！",
     "noNotes": "还没有笔记",
     "tapToCreateNote": "点击下方按钮创建您的第一个笔记",
-    "noTasksFiltered": "此日期没有{{filter}}任务"
+    "noTasksFiltered": "此日期没有{{filter}}任务",
+    "noCompletedTasks": "还没有已完成的任务",
+    "noTasksInSection": "此分区没有任务"
+  },
+  "grouping": {
+    "highPriority": "高优先级",
+    "mediumPriority": "中优先级",
+    "lowPriority": "低优先级",
+    "noPriority": "无优先级",
+    "overdue": "已逾期",
+    "today": "今天",
+    "tomorrow": "明天",
+    "thisWeek": "本周",
+    "later": "之后",
+    "noDate": "无日期",
+    "completed": "已完成",
+    "completedToday": "今日完成",
+    "completedYesterday": "昨日完成",
+    "older": "更早"
+  },
+  "filters": {
+    "hasDate": "有截止日期",
+    "almostDone": "即将完成"
   }
 }

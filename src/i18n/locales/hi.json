@@ -889,6 +889,28 @@
     "noTasks": "अभी तक कोई कार्य नहीं। शुरू करने के लिए \"कार्य जोड़ें\" पर टैप करें!",
     "noNotes": "अभी तक कोई नोट नहीं",
     "tapToCreateNote": "अपना पहला नोट बनाने के लिए नीचे बटन पर टैप करें",
-    "noTasksFiltered": "इस तारीख के लिए कोई {{filter}} कार्य नहीं"
+    "noTasksFiltered": "इस तारीख के लिए कोई {{filter}} कार्य नहीं",
+    "noCompletedTasks": "अभी तक कोई पूर्ण कार्य नहीं",
+    "noTasksInSection": "इस अनुभाग में कोई कार्य नहीं"
+  },
+  "grouping": {
+    "highPriority": "उच्च प्राथमिकता",
+    "mediumPriority": "मध्यम प्राथमिकता",
+    "lowPriority": "निम्न प्राथमिकता",
+    "noPriority": "कोई प्राथमिकता नहीं",
+    "overdue": "अतिदेय",
+    "today": "आज",
+    "tomorrow": "कल",
+    "thisWeek": "इस सप्ताह",
+    "later": "बाद में",
+    "noDate": "कोई तारीख नहीं",
+    "completed": "पूर्ण",
+    "completedToday": "आज पूर्ण",
+    "completedYesterday": "कल पूर्ण",
+    "older": "पुराने"
+  },
+  "filters": {
+    "hasDate": "नियत तारीख है",
+    "almostDone": "लगभग पूर्ण"
   }
 }

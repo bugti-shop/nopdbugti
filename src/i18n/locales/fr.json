@@ -965,6 +965,28 @@
     "noTasks": "Pas encore de tâches. Appuyez sur \"Ajouter une Tâche\" pour commencer!",
     "noNotes": "Pas encore de notes",
     "tapToCreateNote": "Appuyez sur le bouton ci-dessous pour créer votre première note",
-    "noTasksFiltered": "Aucune tâche {{filter}} pour cette date"
+    "noTasksFiltered": "Aucune tâche {{filter}} pour cette date",
+    "noCompletedTasks": "Pas encore de tâches terminées",
+    "noTasksInSection": "Aucune tâche dans cette section"
+  },
+  "grouping": {
+    "highPriority": "Haute Priorité",
+    "mediumPriority": "Priorité Moyenne",
+    "lowPriority": "Basse Priorité",
+    "noPriority": "Sans Priorité",
+    "overdue": "En retard",
+    "today": "Aujourd'hui",
+    "tomorrow": "Demain",
+    "thisWeek": "Cette Semaine",
+    "later": "Plus tard",
+    "noDate": "Sans Date",
+    "completed": "Terminées",
+    "completedToday": "Terminées Aujourd'hui",
+    "completedYesterday": "Terminées Hier",
+    "older": "Plus anciennes"
+  },
+  "filters": {
+    "hasDate": "A une Date d'Échéance",
+    "almostDone": "Presque Terminé"
   }
 }
