@@ -838,5 +838,37 @@
   "welcome": {
     "startJourney": "Verimlilik Yolculuğunuza Başlayın",
     "getStarted": "Başla"
+  },
+  "taskDetail": {
+    "taskStatus": "Görev Durumu",
+    "subtasks": "Alt Görevler",
+    "addSubtask": "+ Ekle",
+    "timeTracking": "Zaman Takibi",
+    "start": "Başlat",
+    "pause": "Duraklat",
+    "reset": "Sıfırla",
+    "dependencies": "Bağımlılıklar",
+    "linked": "{{count}} bağlı",
+    "dateTimeReminder": "Tarih, Saat ve Hatırlatıcı",
+    "notSet": "Ayarlanmadı",
+    "convertToNotes": "Notlara Dönüştür",
+    "attachment": "Ek",
+    "attachments": "Ekler"
+  },
+  "smartLists": {
+    "allTasks": "Tüm Görevler",
+    "overdue": "Gecikmiş",
+    "dueToday": "Bugün Vadesi Dolan",
+    "dueTomorrow": "Yarın Vadesi Dolan",
+    "dueThisWeek": "Bu Hafta Vadesi Dolan",
+    "noDueDate": "Vade Tarihi Yok",
+    "highPriorityWeek": "Bu Hafta Yüksek Öncelikli",
+    "recentlyCompleted": "Son Tamamlananlar",
+    "locationReminders": "Konum Hatırlatıcıları"
+  },
+  "emptyStates": {
+    "noTasks": "Henüz görev yok. Başlamak için \"Görev Ekle\"ye dokunun!",
+    "noNotes": "Henüz not yok",
+    "tapToCreateNote": "İlk notunuzu oluşturmak için aşağıdaki düğmeye dokunun"
   }
 }

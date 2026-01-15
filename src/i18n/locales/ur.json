@@ -832,5 +832,37 @@
   "welcome": {
     "startJourney": "اپنا پیداواری سفر شروع کریں",
     "getStarted": "شروع کریں"
+  },
+  "taskDetail": {
+    "taskStatus": "کام کی حیثیت",
+    "subtasks": "ذیلی کام",
+    "addSubtask": "+ شامل کریں",
+    "timeTracking": "وقت کی ٹریکنگ",
+    "start": "شروع",
+    "pause": "روکیں",
+    "reset": "ری سیٹ",
+    "dependencies": "انحصار",
+    "linked": "{{count}} لنک شدہ",
+    "dateTimeReminder": "تاریخ، وقت اور یاد دہانی",
+    "notSet": "سیٹ نہیں",
+    "convertToNotes": "نوٹس میں تبدیل کریں",
+    "attachment": "منسلکہ",
+    "attachments": "منسلکات"
+  },
+  "smartLists": {
+    "allTasks": "تمام کام",
+    "overdue": "تاخیر شدہ",
+    "dueToday": "آج واجب",
+    "dueTomorrow": "کل واجب",
+    "dueThisWeek": "اس ہفتے واجب",
+    "noDueDate": "کوئی تاریخ نہیں",
+    "highPriorityWeek": "اس ہفتے اعلیٰ ترجیح",
+    "recentlyCompleted": "حال ہی میں مکمل",
+    "locationReminders": "مقام یاد دہانیاں"
+  },
+  "emptyStates": {
+    "noTasks": "ابھی تک کوئی کام نہیں۔ شروع کرنے کے لیے \"کام شامل کریں\" پر ٹیپ کریں!",
+    "noNotes": "ابھی تک کوئی نوٹ نہیں",
+    "tapToCreateNote": "اپنا پہلا نوٹ بنانے کے لیے نیچے بٹن پر ٹیپ کریں"
   }
 }

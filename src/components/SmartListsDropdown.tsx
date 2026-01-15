@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TodoItem } from '@/types/note';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -43,24 +44,28 @@ interface SmartListsDropdownProps {
 export interface SmartListConfig {
   id: SmartListType;
   label: string;
+  labelKey: string;
   icon: React.ReactNode;
   filter: (items: TodoItem[]) => TodoItem[];
   color?: string;
 }
 
 export const useSmartLists = (items: TodoItem[]) => {
+  const { t } = useTranslation();
   const today = startOfDay(new Date());
 
   const smartLists: SmartListConfig[] = useMemo(() => [
     {
       id: 'all',
-      label: 'All Tasks',
+      label: t('smartLists.allTasks'),
+      labelKey: 'smartLists.allTasks',
       icon: <Sparkles className="h-4 w-4" />,
       filter: (items) => items,
     },
     {
       id: 'overdue',
-      label: 'Overdue',
+      label: t('smartLists.overdue'),
+      labelKey: 'smartLists.overdue',
       icon: <AlertCircle className="h-4 w-4 text-red-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && item.dueDate && isBefore(new Date(item.dueDate), today)
@@ -69,7 +74,8 @@ export const useSmartLists = (items: TodoItem[]) => {
     },
     {
       id: 'due-today',
-      label: 'Due Today',
+      label: t('smartLists.dueToday'),
+      labelKey: 'smartLists.dueToday',
       icon: <Clock className="h-4 w-4 text-amber-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && item.dueDate && isToday(new Date(item.dueDate))
@@ -78,7 +84,8 @@ export const useSmartLists = (items: TodoItem[]) => {
     },
     {
       id: 'due-tomorrow',
-      label: 'Due Tomorrow',
+      label: t('smartLists.dueTomorrow'),
+      labelKey: 'smartLists.dueTomorrow',
       icon: <Calendar className="h-4 w-4 text-blue-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && item.dueDate && isTomorrow(new Date(item.dueDate))
@@ -87,7 +94,8 @@ export const useSmartLists = (items: TodoItem[]) => {
     },
     {
       id: 'due-this-week',
-      label: 'Due This Week',
+      label: t('smartLists.dueThisWeek'),
+      labelKey: 'smartLists.dueThisWeek',
       icon: <Calendar className="h-4 w-4 text-purple-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && item.dueDate && isThisWeek(new Date(item.dueDate)) && !isToday(new Date(item.dueDate))
@@ -96,14 +104,16 @@ export const useSmartLists = (items: TodoItem[]) => {
     },
     {
       id: 'no-date',
-      label: 'No Due Date',
+      label: t('smartLists.noDueDate'),
+      labelKey: 'smartLists.noDueDate',
       icon: <CalendarX className="h-4 w-4 text-muted-foreground" />,
       filter: (items) => items.filter(item => !item.completed && !item.dueDate),
       color: 'text-muted-foreground',
     },
     {
       id: 'high-priority-week',
-      label: 'High Priority This Week',
+      label: t('smartLists.highPriorityWeek'),
+      labelKey: 'smartLists.highPriorityWeek',
       icon: <Flame className="h-4 w-4 text-orange-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && 
@@ -114,14 +124,16 @@ export const useSmartLists = (items: TodoItem[]) => {
     },
     {
       id: 'recently-completed',
-      label: 'Recently Completed',
+      label: t('smartLists.recentlyCompleted'),
+      labelKey: 'smartLists.recentlyCompleted',
       icon: <CheckCircle2 className="h-4 w-4 text-green-500" />,
       filter: (items) => items.filter(item => item.completed).slice(0, 20),
       color: 'text-green-500',
     },
     {
       id: 'location-reminders',
-      label: 'Location Reminders',
+      label: t('smartLists.locationReminders'),
+      labelKey: 'smartLists.locationReminders',
       icon: <MapPin className="h-4 w-4 text-emerald-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && 
@@ -129,7 +141,7 @@ export const useSmartLists = (items: TodoItem[]) => {
       ),
       color: 'text-emerald-500',
     },
-  ], [today]);
+  ], [today, t]);
 
   const getCounts = useMemo(() => {
     const counts: Record<SmartListType, number> = {} as any;
@@ -143,18 +155,21 @@ export const useSmartLists = (items: TodoItem[]) => {
 };
 
 export const SmartListsDropdown = ({ items, currentList, onSelectList }: SmartListsDropdownProps) => {
+  const { t } = useTranslation();
   const today = startOfDay(new Date());
 
   const smartLists: SmartListConfig[] = useMemo(() => [
     {
       id: 'all',
-      label: 'All Tasks',
+      label: t('smartLists.allTasks'),
+      labelKey: 'smartLists.allTasks',
       icon: <Sparkles className="h-4 w-4" />,
       filter: (items) => items,
     },
     {
       id: 'overdue',
-      label: 'Overdue',
+      label: t('smartLists.overdue'),
+      labelKey: 'smartLists.overdue',
       icon: <AlertCircle className="h-4 w-4 text-red-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && item.dueDate && isBefore(new Date(item.dueDate), today)
@@ -163,7 +178,8 @@ export const SmartListsDropdown = ({ items, currentList, onSelectList }: SmartLi
     },
     {
       id: 'due-today',
-      label: 'Due Today',
+      label: t('smartLists.dueToday'),
+      labelKey: 'smartLists.dueToday',
       icon: <Clock className="h-4 w-4 text-amber-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && item.dueDate && isToday(new Date(item.dueDate))
@@ -172,7 +188,8 @@ export const SmartListsDropdown = ({ items, currentList, onSelectList }: SmartLi
     },
     {
       id: 'due-tomorrow',
-      label: 'Due Tomorrow',
+      label: t('smartLists.dueTomorrow'),
+      labelKey: 'smartLists.dueTomorrow',
       icon: <Calendar className="h-4 w-4 text-blue-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && item.dueDate && isTomorrow(new Date(item.dueDate))
@@ -181,7 +198,8 @@ export const SmartListsDropdown = ({ items, currentList, onSelectList }: SmartLi
     },
     {
       id: 'due-this-week',
-      label: 'Due This Week',
+      label: t('smartLists.dueThisWeek'),
+      labelKey: 'smartLists.dueThisWeek',
       icon: <Calendar className="h-4 w-4 text-purple-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && item.dueDate && isThisWeek(new Date(item.dueDate)) && !isToday(new Date(item.dueDate))
@@ -190,14 +208,16 @@ export const SmartListsDropdown = ({ items, currentList, onSelectList }: SmartLi
     },
     {
       id: 'no-date',
-      label: 'No Due Date',
+      label: t('smartLists.noDueDate'),
+      labelKey: 'smartLists.noDueDate',
       icon: <CalendarX className="h-4 w-4 text-gray-500" />,
       filter: (items) => items.filter(item => !item.completed && !item.dueDate),
       color: 'text-gray-500',
     },
     {
       id: 'high-priority-week',
-      label: 'High Priority This Week',
+      label: t('smartLists.highPriorityWeek'),
+      labelKey: 'smartLists.highPriorityWeek',
       icon: <Flame className="h-4 w-4 text-orange-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && 
@@ -208,14 +228,16 @@ export const SmartListsDropdown = ({ items, currentList, onSelectList }: SmartLi
     },
     {
       id: 'recently-completed',
-      label: 'Recently Completed',
+      label: t('smartLists.recentlyCompleted'),
+      labelKey: 'smartLists.recentlyCompleted',
       icon: <CheckCircle2 className="h-4 w-4 text-green-500" />,
       filter: (items) => items.filter(item => item.completed).slice(0, 20),
       color: 'text-green-500',
     },
     {
       id: 'location-reminders',
-      label: 'Location Reminders',
+      label: t('smartLists.locationReminders'),
+      labelKey: 'smartLists.locationReminders',
       icon: <MapPin className="h-4 w-4 text-emerald-500" />,
       filter: (items) => items.filter(item => 
         !item.completed && 
@@ -223,7 +245,7 @@ export const SmartListsDropdown = ({ items, currentList, onSelectList }: SmartLi
       ),
       color: 'text-emerald-500',
     },
-  ], [today]);
+  ], [today, t]);
 
   const getCounts = useMemo(() => {
     const counts: Record<SmartListType, number> = {} as any;

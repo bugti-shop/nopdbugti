@@ -870,5 +870,37 @@
   "welcome": {
     "startJourney": "Commencez Votre Parcours de Productivité",
     "getStarted": "Commencer"
+  },
+  "taskDetail": {
+    "taskStatus": "Statut de la Tâche",
+    "subtasks": "Sous-tâches",
+    "addSubtask": "+ Ajouter",
+    "timeTracking": "Suivi du Temps",
+    "start": "Démarrer",
+    "pause": "Pause",
+    "reset": "Réinitialiser",
+    "dependencies": "Dépendances",
+    "linked": "{{count}} liées",
+    "dateTimeReminder": "Date, Heure et Rappel",
+    "notSet": "Non défini",
+    "convertToNotes": "Convertir en Notes",
+    "attachment": "Pièce jointe",
+    "attachments": "Pièces jointes"
+  },
+  "smartLists": {
+    "allTasks": "Toutes les Tâches",
+    "overdue": "En retard",
+    "dueToday": "Échéance Aujourd'hui",
+    "dueTomorrow": "Échéance Demain",
+    "dueThisWeek": "Échéance Cette Semaine",
+    "noDueDate": "Sans Échéance",
+    "highPriorityWeek": "Haute Priorité Cette Semaine",
+    "recentlyCompleted": "Récemment Terminées",
+    "locationReminders": "Rappels de Localisation"
+  },
+  "emptyStates": {
+    "noTasks": "Pas encore de tâches. Appuyez sur \"Ajouter une Tâche\" pour commencer!",
+    "noNotes": "Pas encore de notes",
+    "tapToCreateNote": "Appuyez sur le bouton ci-dessous pour créer votre première note"
   }
 }

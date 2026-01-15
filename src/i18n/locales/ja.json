@@ -851,5 +851,37 @@
   "welcome": {
     "startJourney": "生産性の旅を始めましょう",
     "getStarted": "始める"
+  },
+  "taskDetail": {
+    "taskStatus": "タスクステータス",
+    "subtasks": "サブタスク",
+    "addSubtask": "+ 追加",
+    "timeTracking": "時間追跡",
+    "start": "開始",
+    "pause": "一時停止",
+    "reset": "リセット",
+    "dependencies": "依存関係",
+    "linked": "{{count}}件リンク済み",
+    "dateTimeReminder": "日付・時刻とリマインダー",
+    "notSet": "未設定",
+    "convertToNotes": "ノートに変換",
+    "attachment": "添付ファイル",
+    "attachments": "添付ファイル"
+  },
+  "smartLists": {
+    "allTasks": "すべてのタスク",
+    "overdue": "期限超過",
+    "dueToday": "今日が期限",
+    "dueTomorrow": "明日が期限",
+    "dueThisWeek": "今週が期限",
+    "noDueDate": "期限なし",
+    "highPriorityWeek": "今週の高優先度",
+    "recentlyCompleted": "最近完了",
+    "locationReminders": "位置情報リマインダー"
+  },
+  "emptyStates": {
+    "noTasks": "まだタスクがありません。「タスクを追加」をタップして始めましょう！",
+    "noNotes": "まだノートがありません",
+    "tapToCreateNote": "下のボタンをタップして最初のノートを作成してください"
   }
 }

@@ -1160,5 +1160,37 @@
   "welcome": {
     "startJourney": "Start Your Productivity Journey",
     "getStarted": "Get Started"
+  },
+  "taskDetail": {
+    "taskStatus": "Task Status",
+    "subtasks": "Subtasks",
+    "addSubtask": "+ Add",
+    "timeTracking": "Time Tracking",
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "dependencies": "Dependencies",
+    "linked": "{{count}} linked",
+    "dateTimeReminder": "Date, Time & Reminder",
+    "notSet": "Not set",
+    "convertToNotes": "Convert to Notes",
+    "attachment": "Attachment",
+    "attachments": "Attachments"
+  },
+  "smartLists": {
+    "allTasks": "All Tasks",
+    "overdue": "Overdue",
+    "dueToday": "Due Today",
+    "dueTomorrow": "Due Tomorrow",
+    "dueThisWeek": "Due This Week",
+    "noDueDate": "No Due Date",
+    "highPriorityWeek": "High Priority This Week",
+    "recentlyCompleted": "Recently Completed",
+    "locationReminders": "Location Reminders"
+  },
+  "emptyStates": {
+    "noTasks": "No tasks yet. Tap \"Add Task\" to get started!",
+    "noNotes": "No notes yet",
+    "tapToCreateNote": "Tap the button below to create your first note"
   }
 }
