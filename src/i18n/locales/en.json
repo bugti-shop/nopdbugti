@@ -135,7 +135,32 @@
     "restoreOverwrite": "Overwrite existing data with backup data",
     "restoreReload": "Reload the app after restoration",
     "restoreBackup": "Make sure you have backed up your current data if needed.",
-    "continueRestore": "Continue to Restore"
+    "continueRestore": "Continue to Restore",
+    "deleteTodoTitle": "Delete All Todo Data?",
+    "deleteTodoWarning": "Warning: This action cannot be undone!",
+    "deleteTodoDesc": "This will permanently delete:",
+    "deleteTodoTasks": "All your tasks and subtasks",
+    "deleteTodoFolders": "All todo folders and categories",
+    "deleteTodoData": "All task data stored in this app",
+    "deleteTodoConfirm": "Are you absolutely sure you want to continue?",
+    "restoreTodoReplace": "Replace all current tasks and folders",
+    "autoReminderTitle": "Auto-Reminder Times",
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening"
+  },
+  "customTool": {
+    "addTitle": "Add Custom Tool",
+    "editTitle": "Edit Tool",
+    "name": "Name",
+    "namePlaceholder": "Tool name",
+    "description": "Description",
+    "descriptionPlaceholder": "Short description",
+    "icon": "Icon",
+    "color": "Color",
+    "linkToCategory": "Link to Category",
+    "linkToTasks": "Link to Tasks",
+    "tasksLinked": "{{count}} task(s) linked"
   },
   "terms": {
     "title": "Terms of Service",
