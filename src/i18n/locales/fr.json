@@ -252,7 +252,8 @@
       "inProgress": "En Cours",
       "completed": "Terminé",
       "onHold": "En Attente",
-      "cancelled": "Annulé"
+      "cancelled": "Annulé",
+      "almostDone": "Presque Terminé"
     },
     "sections": {
       "title": "Section",
@@ -277,6 +278,7 @@
       "thisWeek": "Cette Semaine",
       "overdue": "En Retard",
       "noDueDate": "Sans Date",
+      "hasDate": "Avec Date",
       "byPriority": "Par Priorité",
       "byStatus": "Par Statut",
       "byDate": "Par Date",
@@ -397,6 +399,7 @@
   "actions": {
     "selectItems": "Sélectionner des Éléments",
     "selectedCount": "{{count}} sélectionné(s)",
+    "tasksSelected": "{{count}} tâche(s) sélectionnée(s)",
     "deleteSelected": "Supprimer la Sélection",
     "moveSelected": "Déplacer la Sélection",
     "archiveSelected": "Archiver la Sélection",
@@ -404,7 +407,18 @@
     "cancelSelection": "Annuler la Sélection",
     "batchAdd": "Ajout par Lot",
     "customizeActions": "Personnaliser les Actions",
-    "manageActions": "Gérer les Actions"
+    "manageActions": "Gérer les Actions",
+    "selectAll": "Tout Sélectionner",
+    "move": "Déplacer",
+    "complete": "Terminer",
+    "dueDate": "Date Limite",
+    "reminder": "Rappel",
+    "section": "Section",
+    "moreActions": "Plus d'Actions",
+    "setStatus": "Définir le Statut",
+    "setRepeat": "Définir la Répétition",
+    "pinTasks": "Épingler les Tâches",
+    "convertToNote": "Convertir en Note"
   },
   "voice": {
     "startRecording": "Démarrer l'Enregistrement",

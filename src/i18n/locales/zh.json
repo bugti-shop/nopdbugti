@@ -252,7 +252,8 @@
       "inProgress": "进行中",
       "completed": "已完成",
       "onHold": "暂停",
-      "cancelled": "已取消"
+      "cancelled": "已取消",
+      "almostDone": "即将完成"
     },
     "sections": {
       "title": "分区",
@@ -277,6 +278,7 @@
       "thisWeek": "本周",
       "overdue": "已过期",
       "noDueDate": "无截止日期",
+      "hasDate": "有截止日期",
       "byPriority": "按优先级",
       "byStatus": "按状态",
       "byDate": "按日期",
@@ -404,6 +406,7 @@
   "actions": {
     "selectItems": "选择项目",
     "selectedCount": "已选 {{count}} 项",
+    "tasksSelected": "已选 {{count}} 个任务",
     "deleteSelected": "删除所选",
     "moveSelected": "移动所选",
     "archiveSelected": "归档所选",
@@ -411,7 +414,18 @@
     "cancelSelection": "取消选择",
     "batchAdd": "批量添加",
     "customizeActions": "自定义操作",
-    "manageActions": "管理操作"
+    "manageActions": "管理操作",
+    "selectAll": "全选",
+    "move": "移动",
+    "complete": "完成",
+    "dueDate": "截止日期",
+    "reminder": "提醒",
+    "section": "分区",
+    "moreActions": "更多操作",
+    "setStatus": "设置状态",
+    "setRepeat": "设置重复",
+    "pinTasks": "置顶任务",
+    "convertToNote": "转换为笔记"
   },
   "voice": {
     "startRecording": "开始录音",

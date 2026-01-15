@@ -260,7 +260,8 @@
       "inProgress": "En Progreso",
       "completed": "Completado",
       "onHold": "En Espera",
-      "cancelled": "Cancelado"
+      "cancelled": "Cancelado",
+      "almostDone": "Casi Listo"
     },
     "sections": {
       "title": "Sección",
@@ -285,6 +286,7 @@
       "thisWeek": "Esta Semana",
       "overdue": "Vencidos",
       "noDueDate": "Sin Fecha",
+      "hasDate": "Con Fecha",
       "byPriority": "Por Prioridad",
       "byStatus": "Por Estado",
       "byDate": "Por Fecha",
@@ -422,6 +424,7 @@
   "actions": {
     "selectItems": "Seleccionar Elementos",
     "selectedCount": "{{count}} seleccionados",
+    "tasksSelected": "{{count}} tarea(s) seleccionada(s)",
     "deleteSelected": "Eliminar Seleccionados",
     "moveSelected": "Mover Seleccionados",
     "archiveSelected": "Archivar Seleccionados",
@@ -429,7 +432,18 @@
     "cancelSelection": "Cancelar Selección",
     "batchAdd": "Agregar en Lote",
     "customizeActions": "Personalizar Acciones",
-    "manageActions": "Gestionar Acciones"
+    "manageActions": "Gestionar Acciones",
+    "selectAll": "Seleccionar Todo",
+    "move": "Mover",
+    "complete": "Completar",
+    "dueDate": "Fecha Límite",
+    "reminder": "Recordatorio",
+    "section": "Sección",
+    "moreActions": "Más Acciones",
+    "setStatus": "Establecer Estado",
+    "setRepeat": "Establecer Repetición",
+    "pinTasks": "Fijar Tareas",
+    "convertToNote": "Convertir a Nota"
   },
   "voice": {
     "startRecording": "Iniciar Grabación",

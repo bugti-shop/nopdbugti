@@ -252,7 +252,8 @@
       "inProgress": "진행 중",
       "completed": "완료됨",
       "onHold": "보류 중",
-      "cancelled": "취소됨"
+      "cancelled": "취소됨",
+      "almostDone": "거의 완료"
     },
     "sections": {
       "title": "섹션",
@@ -277,6 +278,7 @@
       "thisWeek": "이번 주",
       "overdue": "기한 초과",
       "noDueDate": "마감일 없음",
+      "hasDate": "마감일 있음",
       "byPriority": "우선순위별",
       "byStatus": "상태별",
       "byDate": "날짜별",
@@ -397,6 +399,7 @@
   "actions": {
     "selectItems": "항목 선택",
     "selectedCount": "{{count}}개 선택됨",
+    "tasksSelected": "{{count}}개 작업 선택됨",
     "deleteSelected": "선택 삭제",
     "moveSelected": "선택 이동",
     "archiveSelected": "선택 보관",
@@ -404,7 +407,18 @@
     "cancelSelection": "선택 취소",
     "batchAdd": "일괄 추가",
     "customizeActions": "작업 사용자 지정",
-    "manageActions": "작업 관리"
+    "manageActions": "작업 관리",
+    "selectAll": "전체 선택",
+    "move": "이동",
+    "complete": "완료",
+    "dueDate": "마감일",
+    "reminder": "알림",
+    "section": "섹션",
+    "moreActions": "더 많은 작업",
+    "setStatus": "상태 설정",
+    "setRepeat": "반복 설정",
+    "pinTasks": "작업 고정",
+    "convertToNote": "노트로 변환"
   },
   "voice": {
     "startRecording": "녹음 시작",

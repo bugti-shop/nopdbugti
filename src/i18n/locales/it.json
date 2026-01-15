@@ -252,7 +252,8 @@
       "inProgress": "In corso",
       "completed": "Completata",
       "onHold": "In sospeso",
-      "cancelled": "Annullata"
+      "cancelled": "Annullata",
+      "almostDone": "Quasi Completata"
     },
     "sections": {
       "title": "Sezione",
@@ -277,6 +278,7 @@
       "thisWeek": "Questa settimana",
       "overdue": "In ritardo",
       "noDueDate": "Senza scadenza",
+      "hasDate": "Con scadenza",
       "byPriority": "Per priorità",
       "byStatus": "Per stato",
       "byDate": "Per data",
@@ -397,6 +399,7 @@
   "actions": {
     "selectItems": "Seleziona elementi",
     "selectedCount": "{{count}} selezionati",
+    "tasksSelected": "{{count}} attività selezionate",
     "deleteSelected": "Elimina selezionati",
     "moveSelected": "Sposta selezionati",
     "archiveSelected": "Archivia selezionati",
@@ -404,7 +407,18 @@
     "cancelSelection": "Annulla selezione",
     "batchAdd": "Aggiungi in batch",
     "customizeActions": "Personalizza azioni",
-    "manageActions": "Gestisci azioni"
+    "manageActions": "Gestisci azioni",
+    "selectAll": "Seleziona Tutto",
+    "move": "Sposta",
+    "complete": "Completa",
+    "dueDate": "Scadenza",
+    "reminder": "Promemoria",
+    "section": "Sezione",
+    "moreActions": "Altre Azioni",
+    "setStatus": "Imposta Stato",
+    "setRepeat": "Imposta Ripetizione",
+    "pinTasks": "Fissa Attività",
+    "convertToNote": "Converti in Nota"
   },
   "voice": {
     "startRecording": "Avvia registrazione",

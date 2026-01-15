@@ -252,7 +252,8 @@
       "inProgress": "In Bearbeitung",
       "completed": "Abgeschlossen",
       "onHold": "Pausiert",
-      "cancelled": "Abgebrochen"
+      "cancelled": "Abgebrochen",
+      "almostDone": "Fast Fertig"
     },
     "sections": {
       "title": "Abschnitt",
@@ -277,6 +278,7 @@
       "thisWeek": "Diese Woche",
       "overdue": "Überfällig",
       "noDueDate": "Ohne Datum",
+      "hasDate": "Mit Datum",
       "byPriority": "Nach Priorität",
       "byStatus": "Nach Status",
       "byDate": "Nach Datum",
@@ -397,6 +399,7 @@
   "actions": {
     "selectItems": "Elemente auswählen",
     "selectedCount": "{{count}} ausgewählt",
+    "tasksSelected": "{{count}} Aufgabe(n) ausgewählt",
     "deleteSelected": "Ausgewählte löschen",
     "moveSelected": "Ausgewählte verschieben",
     "archiveSelected": "Ausgewählte archivieren",
@@ -404,7 +407,18 @@
     "cancelSelection": "Auswahl abbrechen",
     "batchAdd": "Stapelhinzufügung",
     "customizeActions": "Aktionen anpassen",
-    "manageActions": "Aktionen verwalten"
+    "manageActions": "Aktionen verwalten",
+    "selectAll": "Alle Auswählen",
+    "move": "Verschieben",
+    "complete": "Abschließen",
+    "dueDate": "Fälligkeitsdatum",
+    "reminder": "Erinnerung",
+    "section": "Abschnitt",
+    "moreActions": "Weitere Aktionen",
+    "setStatus": "Status Festlegen",
+    "setRepeat": "Wiederholung Festlegen",
+    "pinTasks": "Aufgaben Anheften",
+    "convertToNote": "In Notiz Umwandeln"
   },
   "voice": {
     "startRecording": "Aufnahme starten",
