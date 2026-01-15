@@ -800,22 +800,22 @@ const TodoSettings = () => {
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete All Todo Data?</AlertDialogTitle>
+            <AlertDialogTitle>{t('dialogs.deleteTodoTitle')}</AlertDialogTitle>
             <AlertDialogDescription className="space-y-2">
-              <p className="font-semibold text-destructive">⚠️ Warning: This action cannot be undone!</p>
-              <p>This will permanently delete:</p>
+              <p className="font-semibold text-destructive">⚠️ {t('dialogs.deleteTodoWarning')}</p>
+              <p>{t('dialogs.deleteTodoDesc')}</p>
               <ul className="list-disc list-inside space-y-1 text-sm">
-                <li>All your tasks and subtasks</li>
-                <li>All todo folders and categories</li>
-                <li>All task data stored in this app</li>
+                <li>{t('dialogs.deleteTodoTasks')}</li>
+                <li>{t('dialogs.deleteTodoFolders')}</li>
+                <li>{t('dialogs.deleteTodoData')}</li>
               </ul>
-              <p className="font-medium mt-2">Are you absolutely sure you want to continue?</p>
+              <p className="font-medium mt-2">{t('dialogs.deleteTodoConfirm')}</p>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
             <AlertDialogAction onClick={confirmDeleteData} className="bg-destructive hover:bg-destructive/90">
-              Delete Everything
+              {t('dialogs.deleteEverything')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -825,11 +825,11 @@ const TodoSettings = () => {
       <Dialog open={showAutoReminderDialog} onOpenChange={setShowAutoReminderDialog}>
         <DialogContent className="max-w-sm">
           <DialogHeader>
-            <DialogTitle>Auto-Reminder Times</DialogTitle>
+            <DialogTitle>{t('dialogs.autoReminderTitle')}</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">Morning</span>
+              <span className="text-sm font-medium">{t('dialogs.morning')}</span>
               <select
                 value={morningReminderHour}
                 onChange={(e) => setMorningReminderHour(parseInt(e.target.value))}
@@ -841,7 +841,7 @@ const TodoSettings = () => {
               </select>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">Afternoon</span>
+              <span className="text-sm font-medium">{t('dialogs.afternoon')}</span>
               <select
                 value={afternoonReminderHour}
                 onChange={(e) => setAfternoonReminderHour(parseInt(e.target.value))}
@@ -853,7 +853,7 @@ const TodoSettings = () => {
               </select>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">Evening</span>
+              <span className="text-sm font-medium">{t('dialogs.evening')}</span>
               <select
                 value={eveningReminderHour}
                 onChange={(e) => setEveningReminderHour(parseInt(e.target.value))}
@@ -866,7 +866,7 @@ const TodoSettings = () => {
             </div>
           </div>
           <Button onClick={handleSaveAutoReminderTimes} className="w-full">
-            Save
+            {t('common.save')}
           </Button>
         </DialogContent>
       </Dialog>
@@ -874,22 +874,22 @@ const TodoSettings = () => {
       <AlertDialog open={showRestoreDialog} onOpenChange={setShowRestoreDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Restore Data from Backup?</AlertDialogTitle>
+            <AlertDialogTitle>{t('dialogs.restoreTitle')}</AlertDialogTitle>
             <AlertDialogDescription className="space-y-2">
-              <p className="font-semibold text-orange-600">⚠️ Important Notice:</p>
-              <p>Restoring data will:</p>
+              <p className="font-semibold text-orange-600">⚠️ {t('dialogs.restoreNotice')}</p>
+              <p>{t('dialogs.restoreDesc')}</p>
               <ul className="list-disc list-inside space-y-1 text-sm">
-                <li>Replace all current tasks and folders</li>
-                <li>Overwrite existing data with backup data</li>
-                <li>Reload the app after restoration</li>
+                <li>{t('dialogs.restoreTodoReplace')}</li>
+                <li>{t('dialogs.restoreOverwrite')}</li>
+                <li>{t('dialogs.restoreReload')}</li>
               </ul>
-              <p className="font-medium mt-2">Make sure you have backed up your current data if needed.</p>
+              <p className="font-medium mt-2">{t('dialogs.restoreBackup')}</p>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
             <AlertDialogAction onClick={confirmRestoreData}>
-              Continue to Restore
+              {t('dialogs.continueRestore')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -1027,19 +1027,19 @@ const TodoSettings = () => {
       <Dialog open={showAddToolDialog} onOpenChange={(open) => { if (!open) resetToolDialog(); else setShowAddToolDialog(true); }}>
         <DialogContent className="max-w-sm max-h-[85vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>{editingTool ? 'Edit Tool' : 'Add Custom Tool'}</DialogTitle>
+            <DialogTitle>{editingTool ? t('customTool.editTitle') : t('customTool.addTitle')}</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
             <div>
-              <Label>Name</Label>
-              <Input value={newToolName} onChange={(e) => setNewToolName(e.target.value)} placeholder="Tool name" />
+              <Label>{t('customTool.name')}</Label>
+              <Input value={newToolName} onChange={(e) => setNewToolName(e.target.value)} placeholder={t('customTool.namePlaceholder')} />
             </div>
             <div>
-              <Label>Description</Label>
-              <Input value={newToolDescription} onChange={(e) => setNewToolDescription(e.target.value)} placeholder="Short description" />
+              <Label>{t('customTool.description')}</Label>
+              <Input value={newToolDescription} onChange={(e) => setNewToolDescription(e.target.value)} placeholder={t('customTool.descriptionPlaceholder')} />
             </div>
             <div>
-              <Label>Icon</Label>
+              <Label>{t('customTool.icon')}</Label>
               <div className="flex gap-2 mt-1">
                 {TOOL_ICONS.map(({ id, icon: Icon }) => (
                   <button key={id} onClick={() => setNewToolIcon(id)} className={cn("p-2 rounded-lg border", newToolIcon === id && "border-primary bg-primary/10")}>
@@ -1049,7 +1049,7 @@ const TodoSettings = () => {
               </div>
             </div>
             <div>
-              <Label>Color</Label>
+              <Label>{t('customTool.color')}</Label>
               <div className="flex gap-2 mt-1">
                 {TOOL_COLORS.map((color) => (
                   <button key={color} onClick={() => setNewToolColor(color)} className={cn("w-7 h-7 rounded-full border-2", newToolColor === color ? "border-foreground" : "border-transparent")} style={{ backgroundColor: color }} />
@@ -1060,13 +1060,13 @@ const TodoSettings = () => {
             {/* Link to Category */}
             {availableCategories.length > 0 && (
               <div>
-                <Label>Link to Category</Label>
+                <Label>{t('customTool.linkToCategory')}</Label>
                 <select
                   value={newToolLinkedCategoryId}
                   onChange={(e) => setNewToolLinkedCategoryId(e.target.value)}
                   className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm mt-1"
                 >
-                  <option value="">None</option>
+                  <option value="">{t('common.none')}</option>
                   {availableCategories.map((cat) => (
                     <option key={cat.id} value={cat.id}>{cat.name}</option>
                   ))}
@@ -1077,7 +1077,7 @@ const TodoSettings = () => {
             {/* Link to Tasks */}
             {availableTasks.length > 0 && (
               <div>
-                <Label>Link to Tasks</Label>
+                <Label>{t('customTool.linkToTasks')}</Label>
                 <ScrollArea className="h-32 border rounded-md mt-1 p-2">
                   <div className="space-y-1">
                     {availableTasks.map((task) => (
@@ -1101,14 +1101,14 @@ const TodoSettings = () => {
                   </div>
                 </ScrollArea>
                 {newToolLinkedTaskIds.length > 0 && (
-                  <p className="text-xs text-muted-foreground mt-1">{newToolLinkedTaskIds.length} task(s) linked</p>
+                  <p className="text-xs text-muted-foreground mt-1">{t('customTool.tasksLinked', { count: newToolLinkedTaskIds.length })}</p>
                 )}
               </div>
             )}
 
             <div className="flex gap-2 pt-2">
-              <Button variant="outline" onClick={resetToolDialog} className="flex-1">Cancel</Button>
-              <Button onClick={handleAddCustomTool} className="flex-1">{editingTool ? 'Update' : 'Add'}</Button>
+              <Button variant="outline" onClick={resetToolDialog} className="flex-1">{t('common.cancel')}</Button>
+              <Button onClick={handleAddCustomTool} className="flex-1">{editingTool ? t('common.update') : t('common.add')}</Button>
             </div>
           </div>
         </DialogContent>
