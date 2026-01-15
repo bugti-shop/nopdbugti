@@ -252,7 +252,8 @@
       "inProgress": "प्रगति पर",
       "completed": "पूर्ण",
       "onHold": "रुका हुआ",
-      "cancelled": "रद्द"
+      "cancelled": "रद्द",
+      "almostDone": "लगभग पूर्ण"
     },
     "sections": {
       "title": "अनुभाग",
@@ -277,6 +278,7 @@
       "thisWeek": "इस सप्ताह",
       "overdue": "अतिदेय",
       "noDueDate": "कोई देय तिथि नहीं",
+      "hasDate": "देय तिथि है",
       "byPriority": "प्राथमिकता के अनुसार",
       "byStatus": "स्थिति के अनुसार",
       "byDate": "तिथि के अनुसार",
@@ -375,7 +377,38 @@
     "statistics": "आंकड़े",
     "words": "शब्द",
     "characters": "अक्षर",
-    "readingTime": "पढ़ने का समय"
+    "readingTime": "पढ़ने का समय",
+    "fontWeights": {
+      "light": "हल्का",
+      "regular": "सामान्य",
+      "medium": "मध्यम",
+      "semiBold": "अर्ध-मोटा",
+      "bold": "मोटा"
+    },
+    "fontSizes": {
+      "extraSmall": "अति छोटा",
+      "small": "छोटा",
+      "medium": "मध्यम",
+      "large": "बड़ा",
+      "extraLarge": "अति बड़ा",
+      "huge": "विशाल"
+    },
+    "letterSpacings": {
+      "tight": "तंग",
+      "normal": "सामान्य",
+      "wide": "चौड़ा",
+      "wider": "और चौड़ा",
+      "widest": "सबसे चौड़ा"
+    },
+    "lineHeights": {
+      "compact": "संक्षिप्त",
+      "normal": "सामान्य",
+      "relaxed": "आरामदायक",
+      "loose": "ढीला",
+      "extraLoose": "बहुत ढीला"
+    },
+    "imageAligned": "छवि {{align}} संरेखित",
+    "imageDeleted": "छवि हटा दी गई"
   },
   "dateTime": {
     "date": "तिथि",
@@ -397,6 +430,7 @@
   "actions": {
     "selectItems": "आइटम चुनें",
     "selectedCount": "{{count}} चयनित",
+    "tasksSelected": "{{count}} कार्य चयनित",
     "deleteSelected": "चयनित हटाएं",
     "moveSelected": "चयनित ले जाएं",
     "archiveSelected": "चयनित आर्काइव करें",
@@ -404,7 +438,18 @@
     "cancelSelection": "चयन रद्द करें",
     "batchAdd": "बैच में जोड़ें",
     "customizeActions": "क्रियाएं कस्टमाइज़ करें",
-    "manageActions": "क्रियाएं प्रबंधित करें"
+    "manageActions": "क्रियाएं प्रबंधित करें",
+    "selectAll": "सभी चुनें",
+    "move": "ले जाएं",
+    "complete": "पूर्ण करें",
+    "dueDate": "देय तिथि",
+    "reminder": "अनुस्मारक",
+    "section": "अनुभाग",
+    "moreActions": "अधिक क्रियाएं",
+    "setStatus": "स्थिति सेट करें",
+    "setRepeat": "दोहराव सेट करें",
+    "pinTasks": "कार्य पिन करें",
+    "convertToNote": "नोट में बदलें"
   },
   "voice": {
     "startRecording": "रिकॉर्डिंग शुरू करें",

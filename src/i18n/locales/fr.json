@@ -377,7 +377,38 @@
     "statistics": "Statistiques",
     "words": "Mots",
     "characters": "Caractères",
-    "readingTime": "Temps de Lecture"
+    "readingTime": "Temps de Lecture",
+    "fontWeights": {
+      "light": "Léger",
+      "regular": "Normal",
+      "medium": "Moyen",
+      "semiBold": "Semi Gras",
+      "bold": "Gras"
+    },
+    "fontSizes": {
+      "extraSmall": "Très Petit",
+      "small": "Petit",
+      "medium": "Moyen",
+      "large": "Grand",
+      "extraLarge": "Très Grand",
+      "huge": "Énorme"
+    },
+    "letterSpacings": {
+      "tight": "Serré",
+      "normal": "Normal",
+      "wide": "Large",
+      "wider": "Plus Large",
+      "widest": "Maximum"
+    },
+    "lineHeights": {
+      "compact": "Compact",
+      "normal": "Normal",
+      "relaxed": "Aéré",
+      "loose": "Lâche",
+      "extraLoose": "Très Lâche"
+    },
+    "imageAligned": "Image alignée {{align}}",
+    "imageDeleted": "Image supprimée"
   },
   "dateTime": {
     "date": "Date",

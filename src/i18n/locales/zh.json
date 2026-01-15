@@ -384,7 +384,38 @@
     "table": "表格",
     "horizontalLine": "水平线",
     "pageBreak": "分页符",
-    "voiceRecording": "语音录音"
+    "voiceRecording": "语音录音",
+    "fontWeights": {
+      "light": "细体",
+      "regular": "常规",
+      "medium": "中等",
+      "semiBold": "半粗",
+      "bold": "粗体"
+    },
+    "fontSizes": {
+      "extraSmall": "特小",
+      "small": "小",
+      "medium": "中",
+      "large": "大",
+      "extraLarge": "特大",
+      "huge": "巨大"
+    },
+    "letterSpacings": {
+      "tight": "紧凑",
+      "normal": "正常",
+      "wide": "宽松",
+      "wider": "更宽",
+      "widest": "最宽"
+    },
+    "lineHeights": {
+      "compact": "紧凑",
+      "normal": "正常",
+      "relaxed": "舒适",
+      "loose": "宽松",
+      "extraLoose": "特宽"
+    },
+    "imageAligned": "图片已{{align}}对齐",
+    "imageDeleted": "图片已删除"
   },
   "dateTime": {
     "date": "日期",

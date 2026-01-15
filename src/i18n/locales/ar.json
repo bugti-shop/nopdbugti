@@ -417,7 +417,38 @@
       "bordered": "محدد",
       "minimal": "بسيط",
       "modern": "عصري"
-    }
+    },
+    "fontWeights": {
+      "light": "خفيف",
+      "regular": "عادي",
+      "medium": "متوسط",
+      "semiBold": "شبه غامق",
+      "bold": "غامق"
+    },
+    "fontSizes": {
+      "extraSmall": "صغير جداً",
+      "small": "صغير",
+      "medium": "متوسط",
+      "large": "كبير",
+      "extraLarge": "كبير جداً",
+      "huge": "ضخم"
+    },
+    "letterSpacings": {
+      "tight": "ضيق",
+      "normal": "عادي",
+      "wide": "واسع",
+      "wider": "أوسع",
+      "widest": "الأوسع"
+    },
+    "lineHeights": {
+      "compact": "مضغوط",
+      "normal": "عادي",
+      "relaxed": "مريح",
+      "loose": "فضفاض",
+      "extraLoose": "فضفاض جداً"
+    },
+    "imageAligned": "تم محاذاة الصورة {{align}}",
+    "imageDeleted": "تم حذف الصورة"
   },
   "dateTime": {
     "date": "التاريخ",

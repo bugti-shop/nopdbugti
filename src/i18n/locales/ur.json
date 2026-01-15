@@ -252,7 +252,8 @@
       "inProgress": "جاری ہے",
       "completed": "مکمل",
       "onHold": "رکا ہوا",
-      "cancelled": "منسوخ"
+      "cancelled": "منسوخ",
+      "almostDone": "تقریباً مکمل"
     },
     "sections": {
       "title": "سیکشن",
@@ -277,6 +278,7 @@
       "thisWeek": "اس ہفتے",
       "overdue": "وقت گزر گیا",
       "noDueDate": "کوئی واجب الادا تاریخ نہیں",
+      "hasDate": "واجب الادا تاریخ ہے",
       "byPriority": "ترجیح کے مطابق",
       "byStatus": "حیثیت کے مطابق",
       "byDate": "تاریخ کے مطابق",
@@ -375,7 +377,12 @@
     "statistics": "اعدادوشمار",
     "words": "الفاظ",
     "characters": "حروف",
-    "readingTime": "پڑھنے کا وقت"
+    "readingTime": "پڑھنے کا وقت",
+    "fontWeights": { "light": "ہلکا", "regular": "عام", "medium": "درمیانہ", "semiBold": "نیم موٹا", "bold": "موٹا" },
+    "fontSizes": { "extraSmall": "بہت چھوٹا", "small": "چھوٹا", "medium": "درمیانہ", "large": "بڑا", "extraLarge": "بہت بڑا", "huge": "دیوہیکل" },
+    "letterSpacings": { "tight": "تنگ", "normal": "عام", "wide": "چوڑا", "wider": "زیادہ چوڑا", "widest": "سب سے چوڑا" },
+    "lineHeights": { "compact": "کمپیکٹ", "normal": "عام", "relaxed": "آرام دہ", "loose": "ڈھیلا", "extraLoose": "بہت ڈھیلا" },
+    "imageAligned": "تصویر {{align}} سیدھ میں", "imageDeleted": "تصویر حذف ہو گئی"
   },
   "dateTime": {
     "date": "تاریخ",
@@ -397,6 +404,7 @@
   "actions": {
     "selectItems": "آئٹمز منتخب کریں",
     "selectedCount": "{{count}} منتخب",
+    "tasksSelected": "{{count}} کام منتخب",
     "deleteSelected": "منتخب حذف کریں",
     "moveSelected": "منتخب منتقل کریں",
     "archiveSelected": "منتخب آرکائیو کریں",
@@ -404,7 +412,18 @@
     "cancelSelection": "انتخاب منسوخ کریں",
     "batchAdd": "بیچ میں شامل کریں",
     "customizeActions": "ایکشنز کسٹمائز کریں",
-    "manageActions": "ایکشنز کا انتظام کریں"
+    "manageActions": "ایکشنز کا انتظام کریں",
+    "selectAll": "سب منتخب کریں",
+    "move": "منتقل کریں",
+    "complete": "مکمل کریں",
+    "dueDate": "واجب الادا تاریخ",
+    "reminder": "یاد دہانی",
+    "section": "سیکشن",
+    "moreActions": "مزید ایکشنز",
+    "setStatus": "حیثیت سیٹ کریں",
+    "setRepeat": "دہرانا سیٹ کریں",
+    "pinTasks": "کام پن کریں",
+    "convertToNote": "نوٹ میں تبدیل کریں"
   },
   "voice": {
     "startRecording": "ریکارڈنگ شروع کریں",

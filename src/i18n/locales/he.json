@@ -252,7 +252,8 @@
       "inProgress": "בתהליך",
       "completed": "הושלם",
       "onHold": "בהמתנה",
-      "cancelled": "בוטל"
+      "cancelled": "בוטל",
+      "almostDone": "כמעט הושלם"
     },
     "sections": {
       "title": "סעיף",
@@ -277,6 +278,7 @@
       "thisWeek": "השבוע",
       "overdue": "באיחור",
       "noDueDate": "ללא תאריך יעד",
+      "hasDate": "יש תאריך יעד",
       "byPriority": "לפי עדיפות",
       "byStatus": "לפי סטטוס",
       "byDate": "לפי תאריך",
@@ -375,7 +377,12 @@
     "statistics": "סטטיסטיקה",
     "words": "מילים",
     "characters": "תווים",
-    "readingTime": "זמן קריאה"
+    "readingTime": "זמן קריאה",
+    "fontWeights": { "light": "קל", "regular": "רגיל", "medium": "בינוני", "semiBold": "חצי מודגש", "bold": "מודגש" },
+    "fontSizes": { "extraSmall": "קטן מאוד", "small": "קטן", "medium": "בינוני", "large": "גדול", "extraLarge": "גדול מאוד", "huge": "ענק" },
+    "letterSpacings": { "tight": "צפוף", "normal": "רגיל", "wide": "רחב", "wider": "רחב יותר", "widest": "הכי רחב" },
+    "lineHeights": { "compact": "צפוף", "normal": "רגיל", "relaxed": "מרווח", "loose": "רופף", "extraLoose": "רופף מאוד" },
+    "imageAligned": "התמונה יושרה {{align}}", "imageDeleted": "התמונה נמחקה"
   },
   "dateTime": {
     "date": "תאריך",
@@ -397,6 +404,7 @@
   "actions": {
     "selectItems": "בחר פריטים",
     "selectedCount": "{{count}} נבחרו",
+    "tasksSelected": "{{count}} משימות נבחרו",
     "deleteSelected": "מחק נבחרים",
     "moveSelected": "העבר נבחרים",
     "archiveSelected": "ארכיון נבחרים",
@@ -404,7 +412,18 @@
     "cancelSelection": "בטל בחירה",
     "batchAdd": "הוספה מרובה",
     "customizeActions": "התאם פעולות",
-    "manageActions": "נהל פעולות"
+    "manageActions": "נהל פעולות",
+    "selectAll": "בחר הכל",
+    "move": "העבר",
+    "complete": "השלם",
+    "dueDate": "תאריך יעד",
+    "reminder": "תזכורת",
+    "section": "סעיף",
+    "moreActions": "פעולות נוספות",
+    "setStatus": "קבע סטטוס",
+    "setRepeat": "קבע חזרה",
+    "pinTasks": "הצמד משימות",
+    "convertToNote": "המר להערה"
   },
   "voice": {
     "startRecording": "התחל הקלטה",

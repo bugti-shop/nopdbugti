@@ -402,7 +402,38 @@
       "bordered": "Con Borde",
       "minimal": "Mínimo",
       "modern": "Moderno"
-    }
+    },
+    "fontWeights": {
+      "light": "Ligero",
+      "regular": "Regular",
+      "medium": "Medio",
+      "semiBold": "Semi Negrita",
+      "bold": "Negrita"
+    },
+    "fontSizes": {
+      "extraSmall": "Extra Pequeño",
+      "small": "Pequeño",
+      "medium": "Medio",
+      "large": "Grande",
+      "extraLarge": "Extra Grande",
+      "huge": "Enorme"
+    },
+    "letterSpacings": {
+      "tight": "Ajustado",
+      "normal": "Normal",
+      "wide": "Amplio",
+      "wider": "Más Amplio",
+      "widest": "Máximo"
+    },
+    "lineHeights": {
+      "compact": "Compacto",
+      "normal": "Normal",
+      "relaxed": "Relajado",
+      "loose": "Suelto",
+      "extraLoose": "Extra Suelto"
+    },
+    "imageAligned": "Imagen alineada {{align}}",
+    "imageDeleted": "Imagen eliminada"
   },
   "dateTime": {
     "date": "Fecha",
