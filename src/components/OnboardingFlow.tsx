@@ -745,11 +745,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">Find Notes Instantly</h1>
-              <p className="text-gray-500 text-sm mb-3">Organize with folders & search in seconds</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.findNotesInstantly')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.findNotesDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureHome} alt="Find notes instantly" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureHome} alt={t('onboarding.features.findNotesInstantly')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -768,11 +768,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">Never Lose a Thought</h1>
-              <p className="text-gray-500 text-sm mb-3">Colorful notes that stand out</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.neverLoseThought')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.neverLoseDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureNotes} alt="Never lose a thought" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureNotes} alt={t('onboarding.features.neverLoseThought')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -791,11 +791,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">7 Unique Note Types</h1>
-              <p className="text-gray-500 text-sm mb-3">From sticky notes to mind maps & expense tracker</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.uniqueNoteTypes')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.uniqueNoteTypesDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureNotesTypes} alt="7 unique note types" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureNotesTypes} alt={t('onboarding.features.uniqueNoteTypes')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -814,11 +814,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">Write Like a Pro</h1>
-              <p className="text-gray-500 text-sm mb-3">Rich formatting at your fingertips</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.writeLikePro')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.writeLikeProDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureEditor} alt="Write like a pro" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureEditor} alt={t('onboarding.features.writeLikePro')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -837,11 +837,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">Code Without Limits</h1>
-              <p className="text-gray-500 text-sm mb-3">Built-in syntax highlighting for developers</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.codeNotes')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.codeNotesDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureCodeEditor} alt="Code without limits" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureCodeEditor} alt={t('onboarding.features.codeNotes')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -860,11 +860,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">Quick Notes, Endless Colors</h1>
-              <p className="text-gray-500 text-sm mb-3">Beautiful sticky notes that pop</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.stickyNotes')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.stickyNotesDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureStickyNotes} alt="Quick notes endless colors" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureStickyNotes} alt={t('onboarding.features.stickyNotes')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -883,11 +883,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">Sketch Your Ideas</h1>
-              <p className="text-gray-500 text-sm mb-3">Draw shapes & diagrams freely</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.sketchIdeas')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.sketchIdeasDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureSketch} alt="Sketch your ideas" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureSketch} alt={t('onboarding.features.sketchIdeas')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -906,11 +906,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">Style Your Text</h1>
-              <p className="text-gray-500 text-sm mb-3">Custom fonts & rich formatting</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.styleText')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.styleTextDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureFontStyling} alt="Style your text" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureFontStyling} alt={t('onboarding.features.styleText')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -929,11 +929,11 @@ export default function OnboardingFlow({
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">Map Your Thoughts</h1>
-              <p className="text-gray-500 text-sm mb-3">Visual brainstorming with mind maps</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.mapThoughts')}</h1>
+              <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.mapThoughtsDesc')}</p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-                <img src={featureMindmap} alt="Map your thoughts" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+                <img src={featureMindmap} alt={t('onboarding.features.mapThoughts')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
               </div>
             </motion.section>
           )}
@@ -1121,11 +1121,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Organize Data Like a Pro</h1>
-            <p className="text-gray-500 text-sm mb-3">Add tables directly inside your notes</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.organizeData')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.organizeDataDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureTables} alt="Tables feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureTables} alt={t('onboarding.features.organizeData')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1144,11 +1144,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Capture Every Moment</h1>
-            <p className="text-gray-500 text-sm mb-3">Voice recordings & images in one place</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.captureEveryMoment')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.captureEveryMomentDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureMedia} alt="Media feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureMedia} alt={t('onboarding.features.captureEveryMoment')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1167,11 +1167,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Stay Organized Forever</h1>
-            <p className="text-gray-500 text-sm mb-3">Color-coded folders for perfect organization</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.stayOrganized')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.stayOrganizedDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureFolders} alt="Folders feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureFolders} alt={t('onboarding.features.stayOrganized')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1190,11 +1190,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Add Tasks in Seconds</h1>
-            <p className="text-gray-500 text-sm mb-3">Natural language input with smart scheduling</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.addTasksSeconds')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.addTasksSecondsDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureTaskInput} alt="Task input feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureTaskInput} alt={t('onboarding.features.addTasksSeconds')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1233,21 +1233,21 @@ export default function OnboardingFlow({
                 onTouchEnd={(e) => e.stopPropagation()}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${showcaseView === 0 ? 'bg-primary text-primary-foreground' : 'bg-gray-100 text-gray-600'}`}
               >
-                Folders
+                {t('onboarding.showcase.folders')}
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); triggerHaptic('light'); setShowcaseView(1); }}
                 onTouchEnd={(e) => e.stopPropagation()}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${showcaseView === 1 ? 'bg-primary text-primary-foreground' : 'bg-gray-100 text-gray-600'}`}
               >
-                Avatars
+                {t('onboarding.showcase.avatars')}
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); triggerHaptic('light'); setShowcaseView(2); }}
                 onTouchEnd={(e) => e.stopPropagation()}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${showcaseView === 2 ? 'bg-primary text-primary-foreground' : 'bg-gray-100 text-gray-600'}`}
               >
-                Voice
+                {t('onboarding.showcase.voice')}
               </button>
             </div>
             
@@ -1290,11 +1290,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Your Tasks, Your Way</h1>
-            <p className="text-gray-500 text-sm mb-3">Beautiful task lists with color-coded priorities</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.seeTasks')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.seeTasksDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureTaskList} alt="Task list feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureTaskList} alt={t('onboarding.features.seeTasks')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1313,11 +1313,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Focus on What Matters</h1>
-            <p className="text-gray-500 text-sm mb-3">Smart priority groups with attachments</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.focusMatters')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.focusMattersDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featurePriority} alt="Priority feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featurePriority} alt={t('onboarding.features.focusMatters')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1336,11 +1336,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Powerful Options Built-In</h1>
-            <p className="text-gray-500 text-sm mb-3">Smart lists, filters, sections & more</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.powerfulOptions')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.powerfulOptionsDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureOptions} alt="Options feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureOptions} alt={t('onboarding.features.powerfulOptions')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1359,11 +1359,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Drag, Drop & Done</h1>
-            <p className="text-gray-500 text-sm mb-3">Reorder tasks instantly with intuitive gestures</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.dragDropDone')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.dragDropDoneDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureDragDrop} alt="Drag and drop feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureDragDrop} alt={t('onboarding.features.dragDropDone')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1382,11 +1382,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Smart Folders & Priorities</h1>
-            <p className="text-gray-500 text-sm mb-3">Color-coded priorities to crush your goals</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.smartFolders')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.smartFoldersDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featurePriorityFolders} alt="Priority folders feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featurePriorityFolders} alt={t('onboarding.features.smartFolders')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1405,11 +1405,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Customize Everything</h1>
-            <p className="text-gray-500 text-sm mb-3">Your workflow, your rules - toggle what matters</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.customizeEverything')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.customizeEverythingDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureCustomActions} alt="Custom actions feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureCustomActions} alt={t('onboarding.features.customizeEverything')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1428,11 +1428,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Break Down Big Goals</h1>
-            <p className="text-gray-500 text-sm mb-3">Subtasks, time tracking & dependencies built-in</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.breakDownGoals')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.breakDownGoalsDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureSubtasksTracking} alt="Subtasks and tracking feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureSubtasksTracking} alt={t('onboarding.features.breakDownGoals')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1451,11 +1451,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Celebrate Every Win</h1>
-            <p className="text-gray-500 text-sm mb-3">Track completed tasks & see your progress</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.celebrateWins')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.celebrateWinsDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureCompletedTasks} alt="Completed tasks feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureCompletedTasks} alt={t('onboarding.features.celebrateWins')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1474,11 +1474,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Schedule Like a Boss</h1>
-            <p className="text-gray-500 text-sm mb-3">Beautiful date & time picker for perfect planning</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.scheduleBoss')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.scheduleBossDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureDateTime} alt="Date and time feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureDateTime} alt={t('onboarding.features.scheduleBoss')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1497,11 +1497,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Bulk Actions, Zero Hassle</h1>
-            <p className="text-gray-500 text-sm mb-3">Select multiple tasks & manage them at once</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.bulkActions')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.bulkActionsDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureBatchActions} alt="Batch actions feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureBatchActions} alt={t('onboarding.features.bulkActions')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1520,11 +1520,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Add 10 Tasks in Seconds</h1>
-            <p className="text-gray-500 text-sm mb-3">Paste your list & create multiple tasks instantly</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.addTenTasks')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.addTenTasksDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureMultipleTasks} alt="Multiple tasks feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureMultipleTasks} alt={t('onboarding.features.addTenTasks')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1543,11 +1543,11 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">7 Productivity Powertools</h1>
-            <p className="text-gray-500 text-sm mb-3">Pomodoro, Focus Mode, Analytics & more built-in</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.productivityTools')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.productivityToolsDesc')}</p>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl blur-xl opacity-50"></div>
-              <img src={featureProductivityTools} alt="Productivity tools feature" loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
+              <img src={featureProductivityTools} alt={t('onboarding.features.productivityTools')} loading="eager" decoding="async" className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg" />
             </div>
           </motion.section>
         )}
@@ -1566,8 +1566,8 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">Swipe to Conquer</h1>
-            <p className="text-gray-500 text-sm mb-3">Complete or delete tasks with one swipe</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">{t('onboarding.features.swipeConquer')}</h1>
+            <p className="text-gray-500 text-sm mb-3">{t('onboarding.features.swipeConquerDesc')}</p>
             
             {/* Swipe Action Toggle Switcher */}
             <div className="flex gap-2 mb-4" onTouchStart={(e) => e.stopPropagation()} onTouchMove={(e) => e.stopPropagation()} onTouchEnd={(e) => e.stopPropagation()}>
@@ -1576,14 +1576,14 @@ export default function OnboardingFlow({
                 onTouchEnd={(e) => e.stopPropagation()}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${swipeActionView === 0 ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-600'}`}
               >
-                Swipe Complete
+                {t('onboarding.swipeActions.swipeComplete')}
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); triggerHaptic('light'); setSwipeActionView(1); }}
                 onTouchEnd={(e) => e.stopPropagation()}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${swipeActionView === 1 ? 'bg-red-500 text-white' : 'bg-gray-100 text-gray-600'}`}
               >
-                Swipe Delete
+                {t('onboarding.swipeActions.swipeDelete')}
               </button>
             </div>
             
@@ -1602,7 +1602,7 @@ export default function OnboardingFlow({
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.2 }}
                   src={swipeActionView === 0 ? featureSwipeComplete : featureSwipeDelete}
-                  alt={swipeActionView === 0 ? "Swipe to complete" : "Swipe to delete"}
+                  alt={swipeActionView === 0 ? t('onboarding.swipeActions.swipeComplete') : t('onboarding.swipeActions.swipeDelete')}
                   loading="eager"
                   decoding="async"
                   className="w-[240px] h-auto object-contain relative z-10 rounded-2xl shadow-lg"
@@ -1626,8 +1626,8 @@ export default function OnboardingFlow({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Join 50,000+ Happy Users</h1>
-            <p className="text-gray-500 text-sm mb-6">See why people love NPD</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">{t('onboarding.testimonials.title')}</h1>
+            <p className="text-gray-500 text-sm mb-6">{t('onboarding.testimonials.subtitle')}</p>
             
             <div className="space-y-4 w-full max-w-sm">
               <motion.div 
@@ -1641,8 +1641,8 @@ export default function OnboardingFlow({
                     {'★★★★★'.split('').map((star, i) => <span key={i}>{star}</span>)}
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm mb-2">"Finally an app that does notes AND tasks perfectly. Game changer for my productivity!"</p>
-                <p className="text-gray-500 text-xs font-medium">— Sarah K., Designer</p>
+                <p className="text-gray-700 text-sm mb-2">"{t('onboarding.testimonials.review1')}"</p>
+                <p className="text-gray-500 text-xs font-medium">{t('onboarding.testimonials.reviewer1')}</p>
               </motion.div>
               
               <motion.div 
@@ -1656,8 +1656,8 @@ export default function OnboardingFlow({
                     {'★★★★★'.split('').map((star, i) => <span key={i}>{star}</span>)}
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm mb-2">"The voice recording feature is incredible. I capture ideas on the go and never forget anything."</p>
-                <p className="text-gray-500 text-xs font-medium">— Ahmed R., Entrepreneur</p>
+                <p className="text-gray-700 text-sm mb-2">"{t('onboarding.testimonials.review2')}"</p>
+                <p className="text-gray-500 text-xs font-medium">{t('onboarding.testimonials.reviewer2')}</p>
               </motion.div>
               
               <motion.div 
@@ -1671,8 +1671,8 @@ export default function OnboardingFlow({
                     {'★★★★★'.split('').map((star, i) => <span key={i}>{star}</span>)}
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm mb-2">"Best note app I've used. The themes and organization features are beautiful!"</p>
-                <p className="text-gray-500 text-xs font-medium">— Maria L., Student</p>
+                <p className="text-gray-700 text-sm mb-2">"{t('onboarding.testimonials.review3')}"</p>
+                <p className="text-gray-500 text-xs font-medium">{t('onboarding.testimonials.reviewer3')}</p>
               </motion.div>
             </div>
           </motion.section>
