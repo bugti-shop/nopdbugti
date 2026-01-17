@@ -1166,6 +1166,8 @@
   "notesMenu": {
     "selectNotes": "Select Notes",
     "showFavoritesOnly": "Show Favorites Only",
+    "gridView": "Grid View",
+    "listView": "List View",
     "filterByType": "Filter by Type",
     "allTypes": "All Types",
     "stickyNotes": "Sticky Notes",
@@ -1193,7 +1195,9 @@
     "expense": "Expense",
     "addNotesToFolder": "Add Notes to Folder",
     "removeNotesFromFolder": "Remove Notes from Folder",
-    "backToNotes": "Back to Notes"
+    "backToNotes": "Back to Notes",
+    "noteColor": "Note Color",
+    "chooseNoteColor": "Choose Note Color"
   },
   "noteEditor": {
     "showStats": "Show Statistics",

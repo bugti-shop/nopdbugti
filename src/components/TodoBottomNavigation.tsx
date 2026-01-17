@@ -16,7 +16,6 @@ export const TodoBottomNavigation = () => {
 
   const navItems = [
     { icon: Home, label: t('nav.home'), path: '/todo/today' },
-    { icon: CalendarDays, label: t('nav.upcoming'), path: '/todo/upcoming' },
     { icon: Calendar, label: t('nav.calendar'), path: '/todo/calendar' },
     { icon: LayoutDashboard, label: t('nav.dashboard'), path: '/todo/dashboard' },
   ];
@@ -36,7 +35,7 @@ export const TodoBottomNavigation = () => {
         transform: 'translateZ(0)',
       }}
     >
-      <div className="grid grid-cols-5 h-14 sm:h-16 max-w-screen-lg mx-auto">
+      <div className="grid grid-cols-4 h-14 sm:h-16 max-w-screen-lg mx-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = location.pathname === item.path;

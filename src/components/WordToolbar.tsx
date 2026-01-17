@@ -454,7 +454,7 @@ export const WordToolbar = ({
   return (
     <div className={cn(
       "border-t border-border/50",
-      isStickyNote ? "bg-white" : "bg-background"
+      isStickyNote ? "bg-white" : "bg-muted/30"
     )}>
       {/* Single Line Toolbar with Horizontal Scroll - Matching reference design */}
       <div className="flex items-center gap-0 px-1 overflow-x-auto scrollbar-hide whitespace-nowrap h-14">

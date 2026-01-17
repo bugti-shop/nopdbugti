@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Folder as FolderIcon, Plus, Edit2, Trash2, FolderOpen, FolderPlus, FolderMinus, MoreVertical, Star, ArrowUpDown, Clock, FileText, StickyNote, CheckSquare, Filter, Code, Palette, Receipt, Archive } from 'lucide-react';
+import { Folder as FolderIcon, Plus, Edit2, Trash2, FolderOpen, FolderPlus, FolderMinus, MoreVertical, Star, ArrowUpDown, Clock, FileText, StickyNote, CheckSquare, Filter, Code, Palette, Receipt, Archive, LayoutGrid, List } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Folder, Note, NoteType } from '@/types/note';
 import { Button } from '@/components/ui/button';
@@ -48,6 +48,9 @@ interface FolderManagerProps {
   onViewModeChange?: (mode: 'notes' | 'trash' | 'archive') => void;
   trashedNotesCount?: number;
   archivedNotesCount?: number;
+  // Grid view toggle
+  isGridView?: boolean;
+  onToggleGridView?: () => void;
 }
 
 const folderColors = [
@@ -78,6 +81,8 @@ export const FolderManager = ({
   onViewModeChange,
   trashedNotesCount = 0,
   archivedNotesCount = 0,
+  isGridView = false,
+  onToggleGridView,
 }: FolderManagerProps) => {
   const { t } = useTranslation();
   const [isCreateOpen, setIsCreateOpen] = useState(false);
@@ -215,6 +220,23 @@ export const FolderManager = ({
             className="w-52 bg-card z-50 max-h-[70vh] overflow-y-auto overscroll-contain"
             style={{ WebkitOverflowScrolling: 'touch' }}
           >
+            {/* Grid View Toggle */}
+            {onToggleGridView && (
+              <DropdownMenuItem onClick={onToggleGridView}>
+                {isGridView ? (
+                  <>
+                    <List className="h-4 w-4 mr-2" />
+                    {t('notesMenu.listView')}
+                  </>
+                ) : (
+                  <>
+                    <LayoutGrid className="h-4 w-4 mr-2" />
+                    {t('notesMenu.gridView')}
+                  </>
+                )}
+              </DropdownMenuItem>
+            )}
+            
             {/* Bulk Selection Mode */}
             {onEnterSelectionMode && (
               <DropdownMenuItem onClick={onEnterSelectionMode}>

@@ -351,13 +351,9 @@ const Notes = () => {
       </header>
 
       <main className="container mx-auto px-2 xs:px-3 sm:px-4 py-3 xs:py-4 sm:py-6">
-        {/* Archive & Trash Tabs */}
+        {/* Archive & Trash Tabs - Simplified to only Archive and Trash */}
         <Tabs value={viewMode} onValueChange={(v) => setViewMode(v as 'active' | 'archived' | 'trash')} className="mb-4">
-          <TabsList className="grid w-full grid-cols-3 max-w-md">
-            <TabsTrigger value="active" className="flex items-center gap-1 text-xs sm:text-sm">
-              <FileText className="h-4 w-4" />
-              <span className="hidden sm:inline">{t('notes.active')}</span> ({activeCount})
-            </TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 max-w-md">
             <TabsTrigger value="archived" className="flex items-center gap-1 text-xs sm:text-sm">
               <Archive className="h-4 w-4" />
               <span className="hidden sm:inline">{t('notes.archived')}</span> ({archivedCount})
